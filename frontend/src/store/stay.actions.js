@@ -28,17 +28,14 @@ export function getActionUpdateStay(stay) {
 export async function loadStays() {
     try {
         const stays = await stayService.query()
-        console.log('Stays from DB:', stays)
         store.dispatch({
             type: SET_STAYS,
             stays
         })
 
     } catch (err) {
-        console.log('Cannot load stays', err)
         throw err
     }
-
 }
 
 export async function removeStay(stayId) {
@@ -77,7 +74,7 @@ export function updateStay(stay) {
 }
 
 
-// Demo for Optimistic Mutation 
+// Demo for Optimistic Mutation
 // (IOW - Assuming the server call will work, so updating the UI first)
 // export function onRemoveCarOptimistic(carId) {
 //     store.dispatch({

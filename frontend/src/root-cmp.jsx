@@ -5,12 +5,12 @@ import routes from './routes'
 
 import { AppHeader } from './cmps/app-header'
 import { AppFooter } from './cmps/app-footer'
-// import { UserDetails } from './pages/user-details'
+import { UserMsg } from './cmps/user-msg'
 
 export function RootCmp() {
 
     return (
-        <section>
+        <section className='app'>
             <AppHeader />
             <main>
                 <Routes>
@@ -18,6 +18,7 @@ export function RootCmp() {
                 </Routes>
             </main>
             <AppFooter />
+            <UserMsg />
         </section>
     )
 }

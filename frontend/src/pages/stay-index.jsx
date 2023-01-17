@@ -4,9 +4,12 @@ import { loadStays, addStay, updateStay, removeStay } from '../store/stay.action
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { stayService } from '../services/stay.service.local.js'
+import { StayList } from '../cmps/stay.list.jsx'
+import { StayFilter } from '../cmps/stay-filter.jsx'
 
 export function StayIndex() {
     const stays = useSelector(storeState => storeState.stayModule.stays)
+    const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
 
     useEffect(() => {
         loadStays()
@@ -41,9 +44,10 @@ export function StayIndex() {
 
     return (
         <section>
-            <main>
-              hi
-            </main>
+            <StayFilter filterBy={filterBy}/>
+            <section>
+                {<StayList stays={stays}/>}
+            </section>
         </section>
     )
 }

@@ -11,9 +11,10 @@ export const stayService = {
     save,
     remove,
     // getEmptyStay,
+    getEmptyFilter
 }
 window.cs = stayService
-
+_createStays()
 
 async function query(filterBy = { txt: '', price: 0 }) {
     var stays = await storageService.query(STORAGE_KEY)
@@ -25,6 +26,10 @@ async function query(filterBy = { txt: '', price: 0 }) {
         stays = stays.filter(stay => stay.price <= filterBy.price)
     }
     return stays
+}
+
+function getEmptyFilter() {
+    return {name: ''}
 }
 
 function getById(stayId) {
