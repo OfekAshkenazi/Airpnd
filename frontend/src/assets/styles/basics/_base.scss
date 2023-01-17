@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+    // background-color: $clr1;
+    // color: $clr6;
+}
+
+html {
+    // font-family: montserrat;
+    // line-height: 1.6;
+    // color: $clr2;
+}
+
+
+
+h1,
+h2,
+body,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+section,
+article,
+div,
+header,
+footer {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+img {
+    width: 100%;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
