@@ -10,7 +10,7 @@ export const stayService = {
     getById,
     save,
     remove,
-    getEmptyStay,
+    // getEmptyStay,
 }
 window.cs = stayService
 
