@@ -5,13 +5,16 @@ import { StayFilter } from '../cmps/stay-filter.jsx';
 import { StayList } from '../cmps/stay.list.jsx';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
 import { addStay, loadStays, removeStay, updateStay } from '../store/stay.actions.js';
+import { ToggleDetails } from "../store/system.action.js"
 
 export function StayIndex() {
     const stays = useSelector(storeState => storeState.stayModule.stays)
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
+    const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
 
     useEffect(() => {
         loadStays(filterBy)
+        ToggleDetails(false)
     }, [filterBy])
 
     //check 
@@ -43,11 +46,11 @@ export function StayIndex() {
     //     }        
     // }
 
+
     return (
-        <section className="main-container">
-            <section className="main-container stay-container">
+            <section className="stay-container">
                 {<StayList stays={stays} />}
             </section>
-        </section>
+
     )
 }
