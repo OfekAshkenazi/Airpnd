@@ -4,7 +4,7 @@ export function StayFilter({ filterBy }) {
     return (
         <section>
             hihhhhhh
-            afafafafafafafafa
+            afafafafa
         </section>
     )
 }
