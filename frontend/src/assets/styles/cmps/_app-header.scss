@@ -1,6 +1,6 @@
 .app-header {
     // background-color: $clr4;
-
+    display: flex;
 
     .user-info {
         padding-left: 100px;
@@ -13,4 +13,13 @@
         }
     }
 
+    .stay-filter-header {
+        // justify-content: center;
+
+        .filter-input {
+            width: 400px;
+            height: 50px;
+            border-radius: 50px;
+        }
+    }
 }
