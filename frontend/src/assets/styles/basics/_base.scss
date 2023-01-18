@@ -2,18 +2,9 @@
     box-sizing: border-box;
 }
 
-::selection {
-    // background-color: $clr1;
-    // color: $clr6;
+li {
+    list-style: none;
 }
-
-html {
-    // font-family: montserrat;
-    // line-height: 1.6;
-    // color: $clr2;
-}
-
-
 
 h1,
 h2,

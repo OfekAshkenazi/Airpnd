@@ -1,7 +1,69 @@
 .app {
     min-height: 100vh;
+
     main {
         background-color: $clrMBg;
         flex-grow: 1;
     }
 }
+
+// .main-container {
+//     display: grid;
+//     grid-template-columns: 15px 1fr 15px;
+
+//     >* {
+//         grid-column: 2;
+
+//         &.full {
+//             grid-column: 1 /-1;
+//         }
+//     }
+
+//     @include for-narrow-layout {
+//         grid-template-columns: 
+//             minmax(30px, 1fr)
+//             minmax(auto, $mobile-breakpoint)
+//             minmax(30px, 1fr);
+//     }
+//     @include for-normal-layout {
+//         grid-template-columns: 
+//             minmax(30px, 1fr)
+//             minmax(auto, $narrow-breakpoint)
+//             minmax(30px, 1fr);
+//     }
+//     @include for-wide-layout {
+//         grid-template-columns: 
+//             minmax(20px, em(80px))
+//             minmax(auto, 1fr)
+//             minmax(20px, em(80px));
+//     }
+
+// }
+
+.stay-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px 24px;
+
+    @include for-narrow-layout {
+        grid-template-columns:
+            repeat(2, 1fr)
+    }
+
+    @media (min-width: 950px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1100px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width: 1640px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    @media (min-width: 1880px) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
