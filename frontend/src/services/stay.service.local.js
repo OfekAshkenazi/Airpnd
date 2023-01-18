@@ -299,7 +299,7 @@ function _createStays() {
                 "_id": "10006551",
                 "name": "16 Av. de Suffren",
                 "type": "House",
-                "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],                "price": 1100.00,
+                "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"], "price": 1100.00,
                 "summary": "Beutiful apartment with two bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
                 "capacity": 8,
                 "amenities": [
@@ -345,7 +345,7 @@ function _createStays() {
                 "_id": "10006552",
                 "name": "Via Sandro Penna, 59, 06132 Perugia PG",
                 "type": "House",
-                "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],                "price": 200.00,
+                "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"], "price": 200.00,
                 "summary": "Beutiful apartment with two bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
                 "capacity": 8,
                 "amenities": [
@@ -391,7 +391,7 @@ function _createStays() {
                 "_id": "10006547",
                 "name": "Via Privata Ercole Marelli, 6, 20139 Milano MI",
                 "type": "House",
-                "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],                "price": 121.00,
+                "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"], "price": 121.00,
                 "summary": "Beutiful apartment with two bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
                 "capacity": 8,
                 "amenities": [
