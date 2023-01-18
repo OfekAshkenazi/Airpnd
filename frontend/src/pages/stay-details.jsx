@@ -20,5 +20,8 @@ export function StayDetails() {
             // navigate('/')
         }
     }
-    return 's'
+    if (!stay) return <div>Loading...</div>
+    return <section className="stay-details">
+        <h1>{stay.name}</h1>
+    </section>
 }
