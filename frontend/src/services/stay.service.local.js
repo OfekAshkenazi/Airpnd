@@ -16,20 +16,22 @@ export const stayService = {
 window.cs = stayService
 _createStays()
 
-async function query(filterBy = { txt: '', price: 0 }) {
-    var stays = await storageService.query(STORAGE_KEY)
-    if (filterBy.txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        stays = stays.filter(stay => regex.test(stay.type) || regex.test(stay.description))
+async function query(filterBy) {
+    try {
+        var stays = await storageService.query(STORAGE_KEY)
+        if (filterBy.txt) {
+            const regex = new RegExp(filterBy.txt, 'i')
+            stays = stays.filter(stay => regex.test(stay.loc.country) || regex.test(stay.loc.city))
+        }
+        return stays
+    } catch (err) {
+        console.log(err)
     }
-    if (filterBy.price) {
-        stays = stays.filter(stay => stay.price <= filterBy.price)
-    }
-    return stays
+
 }
 
 function getEmptyFilter() {
-    return { name: '' }
+    return { txt: '' }
 }
 
 function getById(stayId) {
