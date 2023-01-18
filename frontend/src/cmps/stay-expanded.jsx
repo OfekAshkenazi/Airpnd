@@ -5,13 +5,14 @@ export function StayExpanded({ stay }) {
 
     return <section className="stay-expanded">
         <div className="capacity">
-        <h2>{stay.type} hosted by {firstName}</h2>
+        <div className="dwd"><h2>{stay.type} hosted by {firstName}</h2>
             {stay.capacity} guests
             <span className="seperator">·</span>
             2 beds
             <span className="seperator">·</span>
-            1 bath
+            1 bath </div>
+            <div className="capacity-img"><img src={stay.host.imgUrl} alt="" /></div>
         </div>
-            <img src={stay.host.imgUrl} alt="" />
+        
     </section>
 }
