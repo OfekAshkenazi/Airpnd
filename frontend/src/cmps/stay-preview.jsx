@@ -1,17 +1,11 @@
-import { Link, useNavigate } from "react-router-dom"
+import { ImageSlider } from "./image-silder"
 
 export function StayPreview({ stay }) {
-    const navigate = useNavigate()
-
-    function onMoveToStayDetails(stayId) {
-        navigate(`/stay/${stayId}`)
-    }
-
-
+  
     return (
-        <article className="stay-card">
-            <div className="img-container" style={{ cursor: 'pointer' }} onClick={() => onMoveToStayDetails(stay._id)}>
-                <img src={stay.imgUrls[0]} alt="" />
+        <article className="stay-grid">
+            <div className="img-container" style={{ cursor: 'pointer' }} >
+                <ImageSlider stayId={stay._id} images={stay.imgUrls} />
             </div>
             <div className="stay-small-data">
                 <div className="flex">{stay.loc.city} {stay.loc.country}</div>

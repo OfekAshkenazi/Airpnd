@@ -43,9 +43,9 @@ export function StayIndex() {
     // }
 
     return (
-        <section>
+        <section className="main-container">
             <StayFilter filterBy={filterBy}/>
-            <section>
+            <section className="stay-container">
                 {<StayList stays={stays}/>}
             </section>
         </section>
