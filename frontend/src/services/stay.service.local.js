@@ -1,7 +1,7 @@
+import { storageService } from './async-storage.service.js';
+import { userService } from './user.service.js';
+import { utilService } from './util.service.js';
 
-import { storageService } from './async-storage.service.js'
-import { utilService } from './util.service.js'
-import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'stay'
 
@@ -29,7 +29,7 @@ async function query(filterBy = { txt: '', price: 0 }) {
 }
 
 function getEmptyFilter() {
-    return {name: ''}
+    return { name: '' }
 }
 
 function getById(stayId) {
@@ -107,7 +107,336 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": ['mini-user'] // for user-wishlist : use $in
-            }
+            }, {
+                "_id": "10006547",
+                "name": "Tv. José Joaquim Ribeiro Teles",
+                "type": "House",
+                "imgUrls": ["./../assets/img/apartments/download.jpg", "otherImg.jpg"],
+                "price": 86.00,
+                "summary": "Beutiful apartment with two bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+                "capacity": 8,
+                "amenities": [
+                    "TV",
+                    "Wifi",
+                    "Kitchen",
+                    "Pets allowed",
+                    "Cooking basics"
+                ],
+                "labels": [
+                    "Top of the world",
+                    "Trending",
+                    "Play",
+                    "Tropical"
+                ],
+                "host": {
+                    "_id": "u105",
+                    "fullname": "David Ram",
+                    "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+                },
+                "loc": {
+                    "country": "Portugal",
+                    "countryCode": "PT",
+                    "city": "Porto",
+                    "address": "17 Kombo st",
+                    "lat": -8.547,
+                    "lng": 41.209
+                },
+                "reviews": [
+                    {
+                        "id": "madeId",
+                        "txt": "Very helpful hosts. Cooked traditional...",
+                        "rate": 4,
+                        "by": {
+                            "_id": "u102",
+                            "fullname": "user2",
+                            "imgUrl": "/img/img2.jpg"
+                        }
+                    }
+                ],
+                "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+            }, {
+                "_id": "10006548",
+                "name": "C. de la Coalición, 17B, 28041 Madrid",
+                "type": "House",
+                "imgUrls": ["./../assets/img/apartments/download1.jpg", "otherImg.jpg"],
+                "price": 97.00,
+                "summary": "Beutiful apartment with two bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+                "capacity": 8,
+                "amenities": [
+                    "TV",
+                    "Wifi",
+                    "Kitchen",
+                    "Pets allowed",
+                    "Cooking basics"
+                ],
+                "labels": [
+                    "Top of the world",
+                    "Trending",
+                    "Play",
+                    "Tropical"
+                ],
+                "host": {
+                    "_id": "u103",
+                    "fullname": "Dan Ran",
+                    "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+                },
+                "loc": {
+                    "country": "Madrid",
+                    "countryCode": "PT",
+                    "city": "Porto",
+                    "address": "17 Kombo st",
+                    "lat": -3.6887,
+                    "lng": 40.3762
+                },
+                "reviews": [
+                    {
+                        "id": "madeId",
+                        "txt": "Very helpful hosts. Cooked traditional...",
+                        "rate": 4,
+                        "by": {
+                            "_id": "u102",
+                            "fullname": "user2",
+                            "imgUrl": "/img/img2.jpg"
+                        }
+                    }
+                ],
+                "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+            }, {
+                "_id": "10006549",
+                "name": "P. Puzino g. 19A, 35197 Panevėžys",
+                "type": "House",
+                "imgUrls": ["./../assets/img/apartments/download2.jpg", "otherImg.jpg"],
+                "price": 160.00,
+                "summary": "Beutiful apartment with two bedrooms, located in the historic area of Panevėžys, Ribeira (Cube)...",
+                "capacity": 8,
+                "amenities": [
+                    "TV",
+                    "Wifi",
+                    "Kitchen",
+                    "Pets allowed",
+                    "Cooking basics"
+                ],
+                "labels": [
+                    "Top of the world",
+                    "Trending",
+                    "Play",
+                    "Tropical"
+                ],
+                "host": {
+                    "_id": "u102",
+                    "fullname": "Ofek Raniel",
+                    "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+                },
+                "loc": {
+                    "country": "Lietuva",
+                    "countryCode": "PT",
+                    "city": "Porto",
+                    "address": "17 Kombo st",
+                    "lat": 24.3557,
+                    "lng": 55.7327
+                },
+                "reviews": [
+                    {
+                        "id": "madeId",
+                        "txt": "Very helpful hosts. Cooked traditional...",
+                        "rate": 4,
+                        "by": {
+                            "_id": "u102",
+                            "fullname": "user2",
+                            "imgUrl": "/img/img2.jpg"
+                        }
+                    }
+                ],
+                "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+            }, {
+                "_id": "10006550",
+                "name": "Passagem Nacoes Unidas, 900 - Laguinho, Macapá - AP, 68908-126",
+                "type": "House",
+                "imgUrls": ["./../assets/img/apartments/download4.jpg", "otherImg.jpg"],
+                "price": 55.00,
+                "summary": "Beutiful apartment with two bedrooms, located in the historic area of Brazil, Ribeira (Cube)...",
+                "capacity": 8,
+                "amenities": [
+                    "TV",
+                    "Wifi",
+                    "Kitchen",
+                    "Pets allowed",
+                    "Cooking basics"
+                ],
+                "labels": [
+                    "Top of the world",
+                    "Trending",
+                    "Play",
+                    "Tropical"
+                ],
+                "host": {
+                    "_id": "u102",
+                    "fullname": "Rom Bram",
+                    "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+                },
+                "loc": {
+                    "country": "Brazil",
+                    "countryCode": "PT",
+                    "city": "Porto",
+                    "address": "17 Kombo st",
+                    "lat": -51.0603,
+                    "lng": 0.04692
+                },
+                "reviews": [
+                    {
+                        "id": "madeId",
+                        "txt": "Very helpful hosts. Cooked traditional...",
+                        "rate": 4,
+                        "by": {
+                            "_id": "u102",
+                            "fullname": "user2",
+                            "imgUrl": "/img/img2.jpg"
+                        }
+                    }
+                ],
+                "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+            }, {
+                "_id": "10006551",
+                "name": "16 Av. de Suffren",
+                "type": "House",
+                "imgUrls": ["./../assets/img/apartments/download.jpg", "otherImg.jpg"],
+                "price": 1100.00,
+                "summary": "Beutiful apartment with two bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+                "capacity": 8,
+                "amenities": [
+                    "TV",
+                    "Wifi",
+                    "Kitchen",
+                    "Pets allowed",
+                    "Cooking basics"
+                ],
+                "labels": [
+                    "Top of the world",
+                    "Trending",
+                    "Play",
+                    "Tropical"
+                ],
+                "host": {
+                    "_id": "u102",
+                    "fullname": "Daniel Ram",
+                    "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+                },
+                "loc": {
+                    "country": "France",
+                    "countryCode": "PT",
+                    "city": "Porto",
+                    "address": "17 Kombo st",
+                    "lat": 2.2931,
+                    "lng": 48.855
+                },
+                "reviews": [
+                    {
+                        "id": "madeId",
+                        "txt": "Very helpful hosts. Cooked traditional...",
+                        "rate": 4,
+                        "by": {
+                            "_id": "u102",
+                            "fullname": "user2",
+                            "imgUrl": "/img/img2.jpg"
+                        }
+                    }
+                ],
+                "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+            }, {
+                "_id": "10006552",
+                "name": "Via Sandro Penna, 59, 06132 Perugia PG",
+                "type": "House",
+                "imgUrls": ["./../assets/img/apartments/download3.jpg", "otherImg.jpg"],
+                "price": 200.00,
+                "summary": "Beutiful apartment with two bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+                "capacity": 8,
+                "amenities": [
+                    "TV",
+                    "Wifi",
+                    "Kitchen",
+                    "Pets allowed",
+                    "Cooking basics"
+                ],
+                "labels": [
+                    "Top of the world",
+                    "Trending",
+                    "Play",
+                    "Tropical"
+                ],
+                "host": {
+                    "_id": "u103",
+                    "fullname": "Ronel Gariel",
+                    "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+                },
+                "loc": {
+                    "country": "Italy",
+                    "countryCode": "PT",
+                    "city": "Porto",
+                    "address": "17 Kombo st",
+                    "lat": 12.3354,
+                    "lng": 43.07556
+                },
+                "reviews": [
+                    {
+                        "id": "madeId",
+                        "txt": "Very helpful hosts. Cooked traditional...",
+                        "rate": 4,
+                        "by": {
+                            "_id": "u102",
+                            "fullname": "user2",
+                            "imgUrl": "/img/img2.jpg"
+                        }
+                    }
+                ],
+                "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+            }, {
+                "_id": "10006547",
+                "name": "Via Privata Ercole Marelli, 6, 20139 Milano MI",
+                "type": "House",
+                "imgUrls": ["./../assets/img/apartments/download.jpg", "otherImg.jpg"],
+                "price": 121.00,
+                "summary": "Beutiful apartment with two bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+                "capacity": 8,
+                "amenities": [
+                    "TV",
+                    "Wifi",
+                    "Kitchen",
+                    "Pets allowed",
+                    "Cooking basics"
+                ],
+                "labels": [
+                    "Top of the world",
+                    "Trending",
+                    "Play",
+                    "Tropical"
+                ],
+                "host": {
+                    "_id": "u103",
+                    "fullname": "David Bell",
+                    "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+                },
+                "loc": {
+                    "country": "Italy",
+                    "countryCode": "PT",
+                    "city": "Porto",
+                    "address": "17 Kombo st",
+                    "lat": 9.2006,
+                    "lng": 45.44269
+                },
+                "reviews": [
+                    {
+                        "id": "madeId",
+                        "txt": "Very helpful hosts. Cooked traditional...",
+                        "rate": 4,
+                        "by": {
+                            "_id": "u102",
+                            "fullname": "user2",
+                            "imgUrl": "/img/img2.jpg"
+                        }
+                    }
+                ],
+                "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+            },
         ]
         storageService.saveToStorage(STORAGE_KEY, stays)
         return stays
