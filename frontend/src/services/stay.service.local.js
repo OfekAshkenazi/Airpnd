@@ -388,7 +388,7 @@ function _createStays() {
                 ],
                 "likedByUsers": ['mini-user'] // for user-wishlist : use $in
             }, {
-                "_id": "10006547",
+                "_id": "10006555",
                 "name": "Via Privata Ercole Marelli, 6, 20139 Milano MI",
                 "type": "House",
                 "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],                "price": 121.00,
