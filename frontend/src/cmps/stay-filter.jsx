@@ -27,11 +27,11 @@ export function StayFilter() {
     }
 
     return (
-        <section className="stay-filter">
+        <section className="stay-filter-header">
             <form onSubmit={onFilter}>
                 <label >
-                    <input type="text" name="txt" id="txt" value={filterByToEdit.txt} onChange={handleChange} placeholder="By place" className='stay-filter-header' />
-                    search a place</label>
+                    <input type="text" name="txt" id="txt" value={filterByToEdit.txt} onChange={handleChange} placeholder="By place" className='filter-input' />
+                </label>
                 <button>save</button>
             </form>
         </section>

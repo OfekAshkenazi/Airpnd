@@ -1,16 +1,7 @@
-.app {
-    min-height: 100vh;
-
-    main {
-        background-color: $clrMBg;
-        flex-grow: 1;
-    }
-}
-
 .main-container {
     display: grid;
     grid-template-columns: 15px 1fr 15px;
-
+    min-height: 100vh;
     >* {
         grid-column: 2;
 
