@@ -39,22 +39,22 @@ export function StayDetails() {
         <h1 className="stay-name">{stay.name}</h1>
         <div className="stay-info flex align-center">
             Star {getRating()}
-            <span className="seperator">·</span> 
-             <span className="stay-reviews">{(stay.reviews.length)} reviews</span>
-             <span  className="seperator">·</span> 
-             <span className="stay-location">{stay.loc.city}, {stay.loc.country}</span>
-             <div className="action-btn ">
+            <span className="seperator">·</span>
+            <span className="stay-reviews">{(stay.reviews.length)} reviews</span>
+            <span className="seperator">·</span>
+            <span className="stay-location">{stay.loc.city}, {stay.loc.country}</span>
+            <div className="action-btn ">
                 <button className="share-btn"> Share</button>
                 <button className="save-btn"> Save</button>
-                </div>
+            </div>
         </div>
-        <div className="imgs-container grid">
-        <img src={stay.imgUrls[0]} alt="" />
-        <img src={stay.imgUrls[0]} alt="" />
-        <img src={stay.imgUrls[0]} alt="" />
-        <img src={stay.imgUrls[0]} alt="" />
-        <img src={stay.imgUrls[0]} alt="" />
+        <div className="imgs-container">
+            <div className="grid-img-1"><img src={stay.imgUrls[0]} alt="" /></div>
+            <div className="grid-img-2"><img src={stay.imgUrls[0]} alt="" /></div>
+            <div className="grid-img-3"><img src={stay.imgUrls[0]} alt="" /></div>
+            <div className="grid-img-4"><img src={stay.imgUrls[0]} alt="" /></div>
+            <div className="grid-img-5"><img src={stay.imgUrls[0]} alt="" /></div>
         </div>
-        <StayExpanded stay={stay}/>
+        <StayExpanded stay={stay} />
     </section>
 }

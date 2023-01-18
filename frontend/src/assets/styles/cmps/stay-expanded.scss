@@ -1,7 +1,16 @@
-.stay-expanded{
-    .capacity{
-        .seperator{
-            margin-left: 1px;
-        }
+.stay-expanded {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-block: em(32px);
+    border-bottom: 1px solid rgb(221, 221, 221);
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
     }
 }
