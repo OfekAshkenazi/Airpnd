@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { StayExpanded } from '../cmps/stay-expanded.jsx'
 
 import { stayService } from "../services/stay.service.local.js"
 
@@ -20,8 +21,40 @@ export function StayDetails() {
             // navigate('/')
         }
     }
+
+    function getRating() {
+        if (!stay.reviews || stay.reviews.length === 0) {
+            return null
+        }
+        let totalRating = 0;
+        stay.reviews.forEach(review => {
+            totalRating += review.rate
+        })
+        return (totalRating / stay.reviews.length).toFixed(1)
+    }
+
+
     if (!stay) return <div>Loading...</div>
     return <section className="stay-details">
-        <h1>{stay.name}</h1>
+        <h1 className="stay-name">{stay.name}</h1>
+        <div className="stay-info flex align-center">
+            Star {getRating()}
+            <span className="seperator">·</span> 
+             <span className="stay-reviews">{(stay.reviews.length)} reviews</span>
+             <span  className="seperator">·</span> 
+             <span className="stay-location">{stay.loc.city}, {stay.loc.country}</span>
+             <div className="action-btn ">
+                <button className="share-btn"> Share</button>
+                <button className="save-btn"> Save</button>
+                </div>
+        </div>
+        <div className="imgs-container grid">
+        <img src={stay.imgUrls[0]} alt="" />
+        <img src={stay.imgUrls[0]} alt="" />
+        <img src={stay.imgUrls[0]} alt="" />
+        <img src={stay.imgUrls[0]} alt="" />
+        <img src={stay.imgUrls[0]} alt="" />
+        </div>
+        <StayExpanded stay={stay}/>
     </section>
 }
