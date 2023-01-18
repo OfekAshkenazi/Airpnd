@@ -3,7 +3,7 @@ export function StayFilter({ filterBy }) {
 
     return (
         <section>
-            hi
+            hihhhhhh
         </section>
     )
 }
