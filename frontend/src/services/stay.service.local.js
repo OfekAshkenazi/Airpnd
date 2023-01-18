@@ -17,12 +17,17 @@ window.cs = stayService
 _createStays()
 
 async function query(filterBy) {
-    var stays = await storageService.query(STORAGE_KEY)
-    if (filterBy.txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        stays = stays.filter(stay => regex.test(stay.loc.country) || regex.test(stay.loc.city))
+    try {
+        var stays = await storageService.query(STORAGE_KEY)
+        if (filterBy.txt) {
+            const regex = new RegExp(filterBy.txt, 'i')
+            stays = stays.filter(stay => regex.test(stay.loc.country) || regex.test(stay.loc.city))
+        }
+        return stays
+    } catch (err) {
+        console.log(err)
     }
-    return stays
+
 }
 
 function getEmptyFilter() {

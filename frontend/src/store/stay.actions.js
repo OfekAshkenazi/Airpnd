@@ -25,9 +25,9 @@ export function getActionUpdateStay(stay) {
     }
 }
 
-export async function loadStays() {
+export async function loadStays(filterBy) {
     try {
-        const stays = await stayService.query()
+        const stays = await stayService.query(filterBy)
         store.dispatch({
             type: SET_STAYS,
             stays
