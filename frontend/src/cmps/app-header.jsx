@@ -1,9 +1,11 @@
-import { Link, NavLink } from 'react-router-dom'
-import {useSelector} from 'react-redux'
-import routes from '../routes'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { login, logout, signup } from '../store/user.actions.js'
-import { LoginSignup } from './login-signup.jsx'
+import { useSelector } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
+
+import routes from '../routes';
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
+import { login, logout, signup } from '../store/user.actions.js';
+import { LoginSignup } from './login-signup.jsx';
+import { StayFilter } from './stay-filter';
 
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
@@ -12,7 +14,7 @@ export function AppHeader() {
         try {
             const user = await login(credentials)
             showSuccessMsg(`Welcome: ${user.fullname}`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot login')
         }
     }
@@ -20,7 +22,7 @@ export function AppHeader() {
         try {
             const user = await signup(credentials)
             showSuccessMsg(`Welcome new user: ${user.fullname}`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot signup')
         }
     }
@@ -28,13 +30,14 @@ export function AppHeader() {
         try {
             await logout()
             showSuccessMsg(`Bye now`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot logout')
         }
     }
 
     return (
         <header className="app-header">
+            <StayFilter />
             <nav>
                 {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
 
