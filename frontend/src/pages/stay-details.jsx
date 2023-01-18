@@ -7,7 +7,7 @@ import { stayService } from "../services/stay.service.local.js"
 export function StayDetails() {
     const [stay, setStay] = useState(null)
     const { stayId } = useParams()
-//HELLOOOO
+//HELLOOOO/q/r/qr/q/rq/rq/r/q/r/rq/rq/r/qW
     useEffect(() => {
         loadStay()
     }, [])
