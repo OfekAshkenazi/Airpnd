@@ -1,5 +1,9 @@
-import {  useState } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons"
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"
 
 export function ImageSlider({ images, stayId }) {
     let [idx, setIdx] = useState(0)
@@ -23,8 +27,8 @@ export function ImageSlider({ images, stayId }) {
         <>
             <img onClick={() => onMoveToStayDetails(stayId)} src={images[idx]} />
             <div className="slider-btn flex">
-                <button onClick={() => fixIdxForImages(-1)}>1</button>
-                <button onClick={() => fixIdxForImages(1)}>2</button>
+                <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>
+                <button onClick={() => fixIdxForImages(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
             </div>
         </>
 
