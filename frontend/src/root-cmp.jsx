@@ -10,7 +10,7 @@ import { UserMsg } from './cmps/user-msg'
 export function RootCmp() {
 
     return (
-        <section className='app flex column'>
+        <section className='main-container'>
             <AppHeader />
             <main>
                 <Routes>

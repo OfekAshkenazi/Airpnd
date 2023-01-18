@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { StayFilter } from '../cmps/stay-filter.jsx';
 import { StayList } from '../cmps/stay.list.jsx';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
-import { stayService } from '../services/stay.service.local.js';
 import { addStay, loadStays, removeStay, updateStay } from '../store/stay.actions.js';
 
 export function StayIndex() {
@@ -12,8 +11,8 @@ export function StayIndex() {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
 
     useEffect(() => {
-        loadStays()
-    }, [])
+        loadStays(filterBy)
+    }, [filterBy])
 
     //check 
 
@@ -46,8 +45,7 @@ export function StayIndex() {
 
     return (
         <section className="main-container">
-            <StayFilter filterBy={filterBy} />
-            <section className="stay-container">
+            <section className="main-container stay-container">
                 {<StayList stays={stays} />}
             </section>
         </section>
