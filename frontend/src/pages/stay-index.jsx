@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { loadStays, addStay, updateStay, removeStay } from '../store/stay.actions.js'
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { stayService } from '../services/stay.service.local.js'
-import { StayList } from '../cmps/stay.list.jsx'
-import { StayFilter } from '../cmps/stay-filter.jsx'
+import { StayFilter } from '../cmps/stay-filter.jsx';
+import { StayList } from '../cmps/stay.list.jsx';
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
+import { stayService } from '../services/stay.service.local.js';
+import { addStay, loadStays, removeStay, updateStay } from '../store/stay.actions.js';
 
 export function StayIndex() {
     const stays = useSelector(storeState => storeState.stayModule.stays)
@@ -14,6 +14,8 @@ export function StayIndex() {
     useEffect(() => {
         loadStays()
     }, [])
+
+    //check 
 
     // async function onRemoveStay(stayId) {
     //     try {
@@ -44,9 +46,9 @@ export function StayIndex() {
 
     return (
         <section className="main-container">
-            <StayFilter filterBy={filterBy}/>
+            <StayFilter filterBy={filterBy} />
             <section className="stay-container">
-                {<StayList stays={stays}/>}
+                {<StayList stays={stays} />}
             </section>
         </section>
     )
