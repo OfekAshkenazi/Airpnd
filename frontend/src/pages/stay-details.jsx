@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { StayExpanded } from '../cmps/stay-expanded.jsx'
+import IconStarFill from '../assets/svg/IconStar.jsx'
+import IconHeart from '../assets/svg/heart-icon.jsx'
 
 import { stayService } from "../services/stay.service.local.js"
 import { ToggleDetails } from "../store/system.action.js"
@@ -41,14 +43,14 @@ export function StayDetails() {
     return <section className="stay-details">
         <h1 className="stay-name">{stay.name}</h1>
         <div className="stay-info flex align-center">
-            Star {getRating()}
+            <IconStarFill/> {getRating()}
             <span className="seperator">·</span>
             <span className="stay-reviews">{(stay.reviews.length)} reviews</span>
             <span className="seperator">·</span>
             <span className="stay-location">{stay.loc.city}, {stay.loc.country}</span>
             <div className="action-btn ">
                 <button className="share-btn"> Share </button>
-                <button className="save-btn"> Save</button>
+                <button className="save-btn"> <IconHeart/>Save</button>
             </div>
         </div>
         <div className="imgs-container">
