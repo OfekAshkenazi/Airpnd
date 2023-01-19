@@ -1,9 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"
 
+import { faAngleLeft, faAngleRight, faHeart, faHeartCircleCheck } from "@fortawesome/free-solid-svg-icons"
 export function ImageSlider({ images, stayId }) {
     let [idx, setIdx] = useState(0)
     const navigate = useNavigate()
@@ -25,6 +24,7 @@ export function ImageSlider({ images, stayId }) {
     return (
         <>
             <img onClick={() => onMoveToStayDetails(stayId)} src={images[idx]} />
+            <div className="wish-list"> <FontAwesomeIcon className="icon-heart" icon={faHeart} /> </div>
             <div className="slider-btn flex">
                 <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>
                 <button onClick={() => fixIdxForImages(1)}><FontAwesomeIcon icon={faAngleRight} /></button>

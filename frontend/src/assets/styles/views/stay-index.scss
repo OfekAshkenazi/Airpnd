@@ -6,8 +6,9 @@
 
 .stay-list {
     display: grid;
-    grid-template-columns: repeat(200px, 1fr);
-    gap: 40px 24px;
+    grid-template-columns: repeat(300px, 1fr);
+    // gap: 40px 24px;
+    gap: em(60px) em(24px);
 
     @include for-narrow-layout {
         grid-template-columns:
@@ -50,17 +51,53 @@
         margin: 0 em(6px);
 
         button {
-            width: 20px;
-            height: 20px;
-            opacity: 0;
+            width: 25px;
+            height: 25px;
+            opacity: 0.00000001;
             border-radius: 20px;
         }
     }
 
     &:hover {
         button {
-            transition-duration: 0.9s;
-            opacity: 1;
+            transition-duration: 0.6s;
+            opacity: 0.5;
+
+            &:hover {
+                opacity: 1;
+            }
         }
     }
+
+    .wish-list {
+        position: relative;
+        bottom: em(243px);
+        // right: 0px;
+        left: em(227px);
+
+        .icon-heart {
+            width: 30px;
+            height: 20px;
+        }
+
+    }
+
+
+}
+
+.stay-small-details {
+    position: relative;
+    bottom: em(34px);
+
+    p {
+        color: #717171;
+        font-size: 15px;
+        font-family: circularL;
+    }
+}
+
+.loc {
+    font-family: circularH;
+    font-weight: 600;
+    font-size: 15px;
 }
