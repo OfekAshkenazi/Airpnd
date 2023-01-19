@@ -5,17 +5,37 @@
     // flex-direction: row;
 
     .user-info {
+        background-color: #ddd;
+
         img {
             width: 32px;
             height: 32px;
             border-radius: 50%;
             object-fit: cover;
         }
+
+        .btn-globe {
+            .icon-globe {
+                height: 20px;
+
+            }
+        }
+
+        .btn-user {
+
+            border-radius: 50px;
+
+            background-color: aqua;
+
+            .icon-user {
+                padding: 10px;
+            }
+        }
     }
 
     .logo-container {
         display: flex;
-        width: 430px;
+        // width: 430px;
         font-family: CerealBd;
         align-items: center;
         gap: 7px;
@@ -67,7 +87,9 @@
             flex-grow: 1;
         }
 
-        .search-icon {
+
+
+        .icon-search {
             flex-grow: 0;
             color: white;
             background-color: $clr3;
