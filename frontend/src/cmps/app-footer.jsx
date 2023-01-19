@@ -5,9 +5,6 @@ export function AppFooter() {
             <p>
                 coffeerights
             </p>
-           
-
-        
         </footer>
     )
 }

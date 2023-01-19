@@ -6,12 +6,8 @@ import { faHeartbeat, faHeartCircleCheck, faStar } from "@fortawesome/free-solid
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleLeft, faAngleRight, faHeart } from "@fortawesome/free-solid-svg-icons"
 
-export function StayPreview({ stay }) {
-const user = useSelector(storeState  => storeState.userModule.user)
-
+export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
     let [idx, setIdx] = useState(0)
-    const navigate = useNavigate()
-
     function fixIdxForImages(diff) {
         idx += diff
         if (idx > stay.imgUrls.length - 1) {
@@ -22,25 +18,26 @@ const user = useSelector(storeState  => storeState.userModule.user)
         setIdx(idx)
     }
 
-    function onMoveToStayDetails(stayId) {
-        navigate(`/stay/${stayId}`)
-    }
-
     function getColorForHeart() {
-        const style = {
-            color: 'red'
+        let style
+        if (stay.likedByUsers > 0) {
+            style = {
+                color: 'red'
+            }
+            return style
+        } else {
+            style = {
+                cursor: 'pointer'
+            }
+            return style
         }
+
         return style
     }
 
-    function onAddToWishList(stayId) {
-
-    }
-
-
     return (
         <article className="stay-grid" >
-            <div className="img-container" >
+            <div className="img-container"  >
                 <div className="img" style={{ backgroundImage: `url(${stay.imgUrls[idx]})` }}>
                     <div className="wish-list">
                         <FontAwesomeIcon className="icon-heart" onClick={() => onAddToWishList(stay._id)} style={getColorForHeart()} icon={faHeart} />
@@ -57,7 +54,7 @@ const user = useSelector(storeState  => storeState.userModule.user)
                     </div> */}
                 </div>
             </div>
-            <div onClick={() => onMoveToStayDetails(stay._id)} className="stay-small-details grid">
+            <div className="stay-small-details grid" onClick={() => onMoveToStayDetails(stay._id)}>
                 <div className="small-details-header flex">
                     <div className="loc">
                         {stay.loc.city}, {stay.loc.country}
