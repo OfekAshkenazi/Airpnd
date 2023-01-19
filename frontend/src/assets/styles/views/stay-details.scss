@@ -1,9 +1,21 @@
+.stay-details {
+    color: var($clrBlackFont);
+    font-size: em(15px);
+    font-family: circularH;
+
+    .stay-name {
+        font-weight: 600;
+        font-size: 1.625em;
+    }
+}
+
 .stay-name {
     font-weight: bold;
 }
 
 .stay-info {
-    
+
+
     .stay-reviews {
         margin-left: em(8px);
         text-decoration: underline;
@@ -59,16 +71,16 @@
         grid-area: grid-img-1;
     }
 
-    .grid-img-1 img{
+    .grid-img-1 img {
         border-bottom-left-radius: em(16px);
         border-top-left-radius: em(16px);
     }
 
-    .grid-img-3 img{
+    .grid-img-3 img {
         border-top-right-radius: em(16px);
     }
 
-    .grid-img-5 img{
+    .grid-img-5 img {
         border-bottom-right-radius: em(16px);
     }
 

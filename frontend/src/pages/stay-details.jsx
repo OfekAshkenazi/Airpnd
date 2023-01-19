@@ -1,6 +1,10 @@
+import { fa0 } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { StayExpanded } from '../cmps/stay-expanded.jsx'
+import IconStarFill from '../assets/svg/IconStar.jsx'
+import IconHeart from '../assets/svg/heart-icon.jsx'
 
 import { stayService } from "../services/stay.service.local.js"
 import { ToggleDetails } from "../store/system.action.js"
@@ -39,23 +43,23 @@ export function StayDetails() {
     return <section className="stay-details">
         <h1 className="stay-name">{stay.name}</h1>
         <div className="stay-info flex align-center">
-            Star {getRating()}
+            <IconStarFill/> {getRating()}
             <span className="seperator">·</span>
             <span className="stay-reviews">{(stay.reviews.length)} reviews</span>
             <span className="seperator">·</span>
             <span className="stay-location">{stay.loc.city}, {stay.loc.country}</span>
             <div className="action-btn ">
-                <button className="share-btn"> Share</button>
-                <button className="save-btn"> Save</button>
+                <button className="share-btn"> Share </button>
+                <button className="save-btn"> <IconHeart/>Save</button>
             </div>
         </div>
         <div className="imgs-container">
-            <div className="grid-img-1"><img src={stay.imgUrls[0]} alt="" /></div>
-            <div className="grid-img-2"><img src={stay.imgUrls[0]} alt="" /></div>
-            <div className="grid-img-3"><img src={stay.imgUrls[0]} alt="" /></div>
-            <div className="grid-img-4"><img src={stay.imgUrls[0]} alt="" /></div>
-            <div className="grid-img-5"><img src={stay.imgUrls[0]} alt="" /></div>
+            {stay.imgUrls.slice(0, 5).map((url, index) => (
+                <div key={index} className={`grid-img-${index + 1}`}>
+                    <img src={url} />
+                </div>
+            ))}
         </div>
-        <StayExpanded stay={stay}  />
+        <StayExpanded stay={stay} />
     </section>
 }
