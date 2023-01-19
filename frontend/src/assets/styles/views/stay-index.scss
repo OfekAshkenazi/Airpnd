@@ -1,13 +1,11 @@
 .stay-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-gap: 20px;
+    width: 100%;
 }
 
 .stay-list {
     display: grid;
-    grid-template-columns: repeat(300px, 1fr);
-    // gap: 40px 24px;
+    grid-template-columns: repeat(1, 287px);
     gap: em(60px) em(24px);
 
     @include for-narrow-layout {
@@ -33,19 +31,21 @@
 }
 
 .img-container {
-    width: 100%;
+    position: relative;
 
-    img {
+    .img {
         width: 100%;
         aspect-ratio: 1.0550819672/1;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         border-radius: 10px;
-        object-fit: cover;
-        transition: 1s ease-in-out;
+        transition: 0.3s ease-in-out all;
     }
 
     .slider-btn {
         position: relative;
-        bottom: em(155px);
+        top: em(125px);
         justify-content: space-between;
         align-items: center;
         margin: 0 em(6px);
@@ -70,10 +70,11 @@
     }
 
     .wish-list {
-        position: relative;
-        bottom: em(243px);
-        // right: 0px;
-        left: em(227px);
+        position: absolute;
+        display: flex;
+        justify-content: end;
+        top: em(15px);
+        right: em(14px);
 
         .icon-heart {
             width: 30px;
@@ -82,12 +83,18 @@
 
     }
 
-
 }
 
 .stay-small-details {
     position: relative;
-    bottom: em(34px);
+    top: em(10px);
+    cursor: pointer;
+
+    .small-details-header {
+        justify-content: space-between;
+
+    }
+
 
     p {
         color: #717171;
