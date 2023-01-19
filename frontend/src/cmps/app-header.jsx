@@ -1,5 +1,6 @@
 import { faGlobe, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
@@ -12,11 +13,12 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
 import { login, logout, signup } from '../store/user.actions.js';
 import { LoginSignup } from './login-signup.jsx';
 import { StayFilter } from './stay-filter';
+import { StayFilterExpanded } from './stay-filter-expanded';
 import { NavIconFilter } from './stay-filter-nav-icon';
 
 export function AppHeader() {
+    const [isFilterExpanded, setIsFilterExpanded] = useState(false)
     const user = useSelector(storeState => storeState.userModule.user)
-
     async function onLogin(credentials) {
         try {
             const user = await login(credentials)
@@ -57,7 +59,8 @@ export function AppHeader() {
                 </div>
 
 
-                <StayFilter />
+                {!isFilterExpanded && <StayFilter setIsFilterExpanded={setIsFilterExpanded} isFilterExpanded={isFilterExpanded} />}
+                {isFilterExpanded && <StayFilterExpanded setIsFilterExpanded={setIsFilterExpanded} isFilterExpanded={isFilterExpanded} />}
                 {user &&
                     <span className="user-info">
                         <button className='btn-airpnd-your-home' >Airpnd your home</button>
@@ -81,7 +84,10 @@ export function AppHeader() {
                 }
 
             </header>
+
+
             <section>
+                <hr className='hr-header' />
                 <NavIconFilter />
             </section>
         </>
