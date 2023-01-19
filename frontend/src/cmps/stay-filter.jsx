@@ -49,8 +49,9 @@ export function StayFilter() {
 
             {isFilterExtend &&
 
-                <form onSubmit={onFilter} className={'stay-filter-form'}>
+                <form onSubmit={onFilter} className='stay-filter-form'>
                     <label >
+                        <span className='fix-text'>St.</span>
                         <input type="text" name="txt" id="txt" value={filterByToEdit.txt} onChange={handleChange} placeholder="Anywhere" className='filter-input' />
                     </label>
                     <label >
