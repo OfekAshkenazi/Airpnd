@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { StayFilter } from '../cmps/stay-filter.jsx';
 import { StayList } from '../cmps/stay.list.jsx';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
 import { addStay, loadStays, removeStay, updateStay } from '../store/stay.actions.js';

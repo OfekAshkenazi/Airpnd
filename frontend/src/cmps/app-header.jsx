@@ -45,7 +45,7 @@ export function AppHeader() {
         <header className="app-header">
             <div onClick={onLogoClick} className='logo-container'>
                 <img src={logo} alt="logo" className='logo' />
-                <p>airpnd</p>
+                <p className='logo-title'>airpnd</p>
             </div>
 
             <StayFilter />

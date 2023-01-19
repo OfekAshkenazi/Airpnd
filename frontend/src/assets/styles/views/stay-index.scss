@@ -108,3 +108,16 @@
     font-weight: 600;
     font-size: 15px;
 }
+
+.doots {
+    position: absolute;
+    display: flex;
+    top: em(20px);
+}
+
+.doot {
+    width: 15px;
+    height: 15px;
+    background-color: #717171;
+    border-radius: 50%;
+}
