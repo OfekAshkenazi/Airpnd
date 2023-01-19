@@ -1,3 +1,5 @@
+import { faGlobe, faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
@@ -52,12 +54,15 @@ export function AppHeader() {
 
             {user &&
                 <span className="user-info">
-                    <Link to={`user/${user._id}`}>
+                    <button className='airpnd-your-home' >airpnd your home</button>
+                    <button className='btn-globe'><FontAwesomeIcon icon={faGlobe} className='icon-globe' /></button>
+                    <button className='btn-user'><FontAwesomeIcon icon={faUser} className='icon-user' /></button>
+                    {/* <span className="score">{user.score?.toLocaleString()}</span>
+                    <button onClick={onLogout}>Logout</button> */}
+                    {/* <Link to={`user/${user._id}`}>
                         {user.imgUrl && <img src={user.imgUrl} />}
                         {user.fullname}
-                    </Link>
-                    <span className="score">{user.score?.toLocaleString()}</span>
-                    <button onClick={onLogout}>Logout</button>
+                    </Link> */}
                 </span>
             }
             {!user &&

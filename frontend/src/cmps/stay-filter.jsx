@@ -41,7 +41,7 @@ export function StayFilter() {
                     <button className="stay-filter-btn"> Anywhere |</button>
                     <button className="stay-filter-btn">Any week |</button>
                     <button className="stay-filter-btn" style={{ color: '#717171' }}>Add guests </button>
-                    <button className="stay-filter-btn serach"> <FontAwesomeIcon icon={faMagnifyingGlass} className='search-icon' /></button>
+                    <button className="stay-filter-btn serach"> <FontAwesomeIcon icon={faMagnifyingGlass} className='icon-search' /></button>
                 </div>}
 
             {isFilterExtend &&
