@@ -1,61 +1,61 @@
 .book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    .header {
-      display: flex;
-      justify-content: space-between;
-      width: 80%;
-      margin-bottom: 20px;
-      
-      .price {
-        font-size: 20px;
-        font-weight: bold;
-      }
-      
-      .reviews {
-        font-size: 15px;
-      }
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 20px;
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
     }
 
-    .checkin-out{
-        display: flex;
-        margin: 0 ;
-        border-bottom: none;
-
-        :first-child{
-            border-right: none;
-        }
-    }
-    
-    label {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    
-    input[type="text"],
-    input[type="number"],
-    input[type="submit"] {
-      width: 100%;
-      padding: em(24px) em(20px);
-      border: 2px solid #ccc;
-      border-radius: em(4px);
-    }
-    
-    .prices, .total {
-      display: flex;
-      flex-direction: column;
-      width: 80%;
-      margin-top: 20px;
-      
-      .cash {
-        font-weight: bold;
-      }
-    }
-    
-    .total {
-      font-size: em(18px);
+    .reviews {
+      font-size: 15px;
     }
   }
-  
+
+  .checkin-out {
+    display: flex;
+    margin: 0;
+    border-bottom: none;
+
+    :first-child {
+      border-right: none;
+    }
+  }
+
+  label {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="submit"] {
+    width: 100%;
+    padding: em(24px) em(20px);
+    border: 2px solid #ccc;
+    border-radius: em(4px);
+  }
+
+  .prices,
+  .total {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 20px;
+
+    .cash {
+      font-weight: bold;
+    }
+  }
+
+  .total {
+    font-size: em(18px);
+  }
+}

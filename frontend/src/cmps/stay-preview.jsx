@@ -4,9 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleLeft, faAngleRight, faHeart } from "@fortawesome/free-solid-svg-icons"
 import IconHeart from "../assets/svg/heart-icon"
 import IconHeartRed from "../assets/svg/icon-heart-red"
+import { useSelector } from "react-redux"
+import { userService } from "../services/user.service"
+import { loadUser } from "../store/user.actions"
 
 export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
     let [idx, setIdx] = useState(0)
+    const user = useSelector(storeState => storeState.userModule.user)
 
     function fixIdxForImages(diff) {
         idx += diff
@@ -18,20 +22,29 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
         setIdx(idx)
     }
 
-    function getIconForHeart() {
-        if (stay.likedByUsers < 1) {
-            return <IconHeart />
-        } else {
-            return <IconHeartRed />
-        }
-    }
+    // async function getIconForHeart(stayId) {
+    //     try {
+           
+    //         const realUser = await loadUser(user._id)
+    //         if (realUser.wishList.map(wish => wish === stayId)) {
+    //             return <IconHeartRed />
+    //         } else {
+    //             return  <IconHeart />
+    //         }
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+
+    // }
+   
 
     return (
         <article className="stay-grid" >
             <div className="img-container"  >
                 <img onClick={() => onMoveToStayDetails(stay._id)} src={stay.imgUrls[idx]} alt="" />
                 <div className="wish-list" onClick={() => onAddToWishList(stay._id)} >
-                    {getIconForHeart()}
+                    {/* { getIconForHeart(stay._id)} */}
+                    <IconHeart />
                 </div>
                 <div className="slider-btn flex">
                     <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>

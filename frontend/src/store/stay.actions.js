@@ -1,9 +1,6 @@
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
 import { stayService } from '../services/stay.service.local.js';
-import { userService } from '../services/user.service.js';
-import { ADD_STAY, REMOVE_STAY, SET_FILTER, SET_STAYS, UNDO_REMOVE_STAY, UPDATE_STAY } from './stay.reducer.js';
+import { ADD_STAY, REMOVE_STAY, SET_FILTER, SET_STAYS, UPDATE_STAY } from './stay.reducer.js';
 import { store } from './store.js';
-
 
 // Action Creators:
 export function getActionRemoveStay(stayId) {
@@ -12,12 +9,14 @@ export function getActionRemoveStay(stayId) {
         stayId
     }
 }
+
 export function getActionAddStay(stay) {
     return {
         type: ADD_STAY,
         stay
     }
 }
+
 export function getActionUpdateStay(stay) {
     return {
         type: UPDATE_STAY,
@@ -51,7 +50,6 @@ export async function removeStay(stayId) {
 export async function addStay(stay) {
     try {
         const savedStay = await stayService.save(stay)
-        console.log('Added Stay', savedStay)
         store.dispatch(getActionAddStay(savedStay))
         return savedStay
     } catch (err) {
@@ -60,41 +58,15 @@ export async function addStay(stay) {
     }
 }
 
-export function updateStay(stay) {
-    return stayService.save(stay)
-        .then(savedStay => {
-            console.log('Updated Car:', savedStay)
-            store.dispatch(getActionUpdateStay(savedStay))
-            return savedStay
-        })
-        .catch(err => {
-            console.log('Cannot save car', err)
-            throw err
-        })
+export async function updateStay(stay) {
+    try {
+        const savedStay = await stayService.save(stay)
+        store.dispatch(getActionUpdateStay(savedStay))
+        return savedStay
+    } catch (err) { console.log(err); throw err }
 }
 
 export function onSetFilter(filterBy) {
     return store.dispatch({ type: SET_FILTER, filterBy })
 }
 
-// Demo for Optimistic Mutation
-// (IOW - Assuming the server call will work, so updating the UI first)
-// export function onRemoveCarOptimistic(carId) {
-//     store.dispatch({
-//         type: REMOVE_CAR,
-//         carId
-//     })
-//     showSuccessMsg('Car removed')
-
-//     carService.remove(carId)
-//         .then(() => {
-//             console.log('Server Reported - Deleted Succesfully');
-//         })
-//         .catch(err => {
-//             showErrorMsg('Cannot remove car')
-//             console.log('Cannot load cars', err)
-//             store.dispatch({
-//                 type: UNDO_REMOVE_CAR,
-//             })
-//         })
-// }

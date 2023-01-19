@@ -7,7 +7,6 @@
     .user-info {
         display: flex;
 
-
         .btn-airpnd-your-home {
             font-family: circularH;
             background-color: white;
@@ -15,13 +14,11 @@
 
             @media (max-width: 510px) {
                 display: none;
-
             }
         }
 
         .btn-globe {
             background-color: white;
-
         }
 
         .btn-user {
@@ -50,9 +47,7 @@
 
             @media (min-width: 1128px) {
                 display: block;
-
             }
-
         }
     }
 
@@ -70,7 +65,6 @@
             justify-content: center;
             width: 100%;
         }
-
     }
 }
 
@@ -95,30 +89,22 @@
             padding: em(10px) em(5px);
         }
 
-
-
         .icon-search {
             flex-grow: 0;
             color: white;
             background-color: $clr3;
             padding: 10px;
             border-radius: 20px;
-
         }
 
         @media (max-width: 1000px) {
             justify-content: flex-start;
-
         }
     }
-
-
-
 }
 
 .hr-header {
     height: 1px;
     background-color: #efefef;
     border: none;
-
 }
