@@ -22,14 +22,12 @@ export function ImageSlider({ images, stayId }) {
     }
 
     return (
-        <>
-            <img onClick={() => onMoveToStayDetails(stayId)} src={images[idx]} />
-            <div className="wish-list"> <FontAwesomeIcon className="icon-heart" icon={faHeart} /> </div>
+        <div className="wish-list"> <FontAwesomeIcon className="icon-heart" icon={faHeart} />
             <div className="slider-btn flex">
                 <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>
                 <button onClick={() => fixIdxForImages(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
             </div>
-        </>
 
+        </div>
     )
 }

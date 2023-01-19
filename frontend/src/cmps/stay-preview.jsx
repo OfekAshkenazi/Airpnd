@@ -1,25 +1,62 @@
-import { faStar } from "@fortawesome/free-solid-svg-icons"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
+import { faHeartbeat, faHeartCircleCheck, faStar } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { ImageSlider } from "./image-silder"
+import { faAngleLeft, faAngleRight, faHeart } from "@fortawesome/free-solid-svg-icons"
 
 export function StayPreview({ stay }) {
 
+    let [idx, setIdx] = useState(0)
+    const navigate = useNavigate()
+
+    function fixIdxForImages(diff) {
+        idx += diff
+        if (idx > stay.imgUrls.length - 1) {
+            idx = 0
+        } else if (idx === -1) {
+            idx = stay.imgUrls.length - 1
+        }
+        setIdx(idx)
+    }
+
+    function onMoveToStayDetails(stayId) {
+        navigate(`/stay/${stayId}`)
+    }
+
+    function getColorForHeart() {
+        const style = {
+            color: 'red'
+        }
+        return style
+    }
+
     return (
-        <article className="stay-grid">
-            <div className="img-container" style={{ cursor: 'pointer' }} >
-                <ImageSlider stayId={stay._id} images={stay.imgUrls} />
-            </div>
-            <div className="stay-small-details grid">
-                <div className="flex">
-                    <div className="loc">
-                        {stay.loc.city} {stay.loc.country}
+        <article className="stay-grid" >
+            <div className="img-container" >
+                <div className="img" style={{ backgroundImage: `url(${stay.imgUrls[idx]})` }}>
+                    <div className="wish-list">
+                        <FontAwesomeIcon className="icon-heart" style={getColorForHeart()} icon={faHeart} />
                     </div>
-                    <FontAwesomeIcon icon={faStar} />
+                    <div className="slider-btn flex">
+                        <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>
+                        <button onClick={() => fixIdxForImages(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
+                    </div>
+                </div>
+            </div>
+            <div onClick={() => onMoveToStayDetails(stay._id)} className="stay-small-details grid">
+                <div className="small-details-header flex">
+                    <div className="loc">
+                        {stay.loc.city}, {stay.loc.country}
+                    </div>
+                    <div className="flex">
+                        <FontAwesomeIcon icon={faStar} />
+                        4.9
+                    </div>
                 </div>
                 <p>{stay.loc.address}</p>
                 <p>{stay.price} night</p>
             </div>
-
-        </article>
+        </article >
     )
 }
