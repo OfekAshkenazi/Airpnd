@@ -12,6 +12,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
 import { login, logout, signup } from '../store/user.actions.js';
 import { LoginSignup } from './login-signup.jsx';
 import { StayFilter } from './stay-filter';
+import { NavIconFilter } from './stay-filter-nav-icon';
 
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
@@ -47,38 +48,43 @@ export function AppHeader() {
     }
 
     return (
-        <header className="app-header">
+        <>
+            <header className="app-header">
 
-            <div onClick={onLogoClick} className='logo-container'>
-                <img src={logo} alt="logo" className='logo' />
-                <p className='logo-title'>airpnd</p>
-            </div>
+                <div onClick={onLogoClick} className='logo-container'>
+                    <img src={logo} alt="logo" className='logo' />
+                    <p className='logo-title'>airpnd</p>
+                </div>
 
-            <StayFilter />
 
-            {user &&
-                <span className="user-info">
-                    <button className='btn-airpnd-your-home' >Airpnd your home</button>
-                    <button className='btn-globe'><IconBxGlobe className='icon-glob' width='25px' height='25px' /></button>
-                    <button className='btn-user'>
-                        <IconMenu_hamburger width='30px' height='45px' className='icon-hamburger' />
-                        <IconBxsUserCircle width='45px' height='45px' className='icon-user' />
-                    </button>
-                    {/* <span className="score">{user.score?.toLocaleString()}</span>
+                <StayFilter />
+                {user &&
+                    <span className="user-info">
+                        <button className='btn-airpnd-your-home' >Airpnd your home</button>
+                        <button className='btn-globe'><IconBxGlobe className='icon-glob' width='25px' height='25px' /></button>
+                        <button className='btn-user'>
+                            <IconMenu_hamburger width='30px' height='45px' className='icon-hamburger' />
+                            <IconBxsUserCircle width='45px' height='45px' className='icon-user' />
+                        </button>
+                        {/* <span className="score">{user.score?.toLocaleString()}</span>
                     <button onClick={onLogout}>Logout</button> */}
-                    {/* <Link to={`user/${user._id}`}>
+                        {/* <Link to={`user/${user._id}`}>
                         {user.imgUrl && <img src={user.imgUrl} />}
                         {user.fullname}
                     </Link> */}
-                </span>
-            }
-            {!user &&
-                <section className="user-info">
-                    <LoginSignup onLogin={onLogin} onSignup={onSignup} />
-                </section>
-            }
+                    </span>
+                }
+                {!user &&
+                    <section className="user-info">
+                        <LoginSignup onLogin={onLogin} onSignup={onSignup} />
+                    </section>
+                }
 
-        </header>
+            </header>
+            <section>
+                <NavIconFilter />
+            </section>
+        </>
     )
 
 }
