@@ -13,6 +13,28 @@
         }
     }
 
+    .logo-container {
+        display: flex;
+        // width: 
+        font-family: CerealBd;
+        align-items: center;
+        gap: 7px;
+        cursor: pointer;
+        // margin-bottom: 5px;
+
+        .logo {
+            width: 40px;
+        }
+
+        &>p {
+
+            visibility: show;
+            font-size: 1.6em;
+            color: $clrLogo;
+
+        }
+    }
+
 }
 
 .stay-filter-header {
@@ -65,5 +87,17 @@
             // border-radius: 50px;
         }
     }
+}
 
+
+@media (max-width: 1000px) {
+    .stay-filter-btns {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 1128px) {
+    .logo-container>p {
+        visibility: hidden;
+    }
 }

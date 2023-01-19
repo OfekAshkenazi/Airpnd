@@ -32,10 +32,7 @@ export function StayFilter() {
     function openAnywhere() {
         setIsFilterExtend(true)
     }
-    const styleSearch = {
-        color: 'white',
-        backgroundColor: 'pink'
-    }
+
     return (
         <section className="stay-filter-header">
 
