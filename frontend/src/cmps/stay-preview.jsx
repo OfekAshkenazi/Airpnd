@@ -42,6 +42,12 @@ export function StayPreview({ stay }) {
                         <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>
                         <button onClick={() => fixIdxForImages(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
                     </div>
+                    {/* <div className="doots">
+                        <div className="doot"></div>
+                        <div className="doot"></div>
+                        <div className="doot"></div>
+                        <div className="doot"></div>
+                    </div> */}
                 </div>
             </div>
             <div onClick={() => onMoveToStayDetails(stay._id)} className="stay-small-details grid">
