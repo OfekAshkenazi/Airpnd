@@ -32,23 +32,24 @@
 
 .img-container {
     position: relative;
+    display: flex;
+    flex-direction: column;
 
-    .img {
+    img {
         width: 100%;
         aspect-ratio: 1.0550819672/1;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        object-fit: cover;
         border-radius: 10px;
         transition: 0.3s ease-in-out all;
+        cursor: pointer;
     }
 
     .slider-btn {
         position: relative;
-        top: em(125px);
         justify-content: space-between;
         align-items: center;
-        margin: 0 em(6px);
+        margin: 0 em(14px);
+        bottom: em(100px);
 
         button {
             width: 25px;
@@ -75,18 +76,13 @@
         justify-content: end;
         top: em(15px);
         right: em(14px);
-
-        .icon-heart {
-            width: 30px;
-            height: 20px;
-        }
+        cursor: pointer;
     }
 }
 
 .stay-small-details {
     position: relative;
-    top: em(10px);
-    cursor: pointer;
+    bottom: em(10px);
 
     .small-details-header {
         justify-content: space-between;

@@ -42,7 +42,7 @@ export function StayIndex() {
         try {
             const stay = await stayService.getById(stayId)
             stay.likedByUsers.push(user._id)
-            await stayService.save(stay)
+            await updateStay(stay)
         } catch (err) {
             showErrorMsg('Cannot Add To Wish-list')
         }
