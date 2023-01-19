@@ -1,12 +1,61 @@
-.stay-expanded .book-form {
+.book-form {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-top: em(32px);
-    margin-left: 8.5%;
-    border: 1px solid rgb(221,221,221);
-    border-radius: 12px;
-    padding: em(24px);
-    box-shadow: #0000001f 0 6px 16px;
-    // max-width: 400px;
-}
+    align-items: center;
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin-bottom: 20px;
+      
+      .price {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      
+      .reviews {
+        font-size: 15px;
+      }
+    }
+
+    .checkin-out{
+        display: flex;
+        margin: 0 ;
+        border-bottom: none;
+
+        :first-child{
+            border-right: none;
+        }
+    }
+    
+    label {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    input[type="text"],
+    input[type="number"],
+    input[type="submit"] {
+      width: 100%;
+      padding: em(24px) em(20px);
+      border: 2px solid #ccc;
+      border-radius: em(4px);
+    }
+    
+    .prices, .total {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      margin-top: 20px;
+      
+      .cash {
+        font-weight: bold;
+      }
+    }
+    
+    .total {
+      font-size: em(18px);
+    }
+  }
+  
