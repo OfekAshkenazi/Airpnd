@@ -15,22 +15,26 @@
 
     .logo-container {
         display: flex;
-        // width: 
+        width: 430px;
         font-family: CerealBd;
         align-items: center;
         gap: 7px;
         cursor: pointer;
-        // margin-bottom: 5px;
 
         .logo {
             width: 40px;
         }
 
-        &>p {
+        .logo-title {
 
-            visibility: show;
+            display: none;
             font-size: 1.6em;
             color: $clrLogo;
+
+            @media (min-width: 1128px) {
+                display: block;
+
+            }
 
         }
     }
@@ -48,7 +52,6 @@
         display: flex;
         justify-content: space-around;
         width: 430px;
-        // gap: 5px;
         border: solid 1px #ddd;
         box-shadow: 1px 1px 2px 2px rgb(236, 234, 234);
         border-radius: 30px;
@@ -72,6 +75,11 @@
             border-radius: 20px;
 
         }
+
+        @media (max-width: 1000px) {
+            justify-content: flex-start;
+
+        }
     }
 
     .stay-filter-form {
@@ -86,18 +94,5 @@
 
             // border-radius: 50px;
         }
-    }
-}
-
-
-@media (max-width: 1000px) {
-    .stay-filter-btns {
-        justify-content: flex-end;
-    }
-}
-
-@media (max-width: 1128px) {
-    .logo-container>p {
-        visibility: hidden;
     }
 }
