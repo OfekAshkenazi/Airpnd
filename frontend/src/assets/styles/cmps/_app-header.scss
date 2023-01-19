@@ -1,41 +1,38 @@
 .app-header {
-    // background-color: $clr4;
     display: flex;
     justify-content: space-between;
-    // flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
 
     .user-info {
-        background-color: #ddd;
+        display: flex;
 
-        img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
+
+        .btn-airpnd-your-home {
+            font-family: circularH;
+            background-color: white;
+            font-size: 18px;
+
+            @media (max-width: 510px) {
+                display: none;
+
+            }
         }
 
         .btn-globe {
-            .icon-globe {
-                height: 20px;
+            background-color: white;
 
-            }
         }
 
         .btn-user {
-
+            background-color: white;
+            border: solid 1px #ddd;
             border-radius: 50px;
-
-            background-color: aqua;
-
-            .icon-user {
-                padding: 10px;
-            }
         }
     }
 
     .logo-container {
         display: flex;
-        // width: 430px;
         font-family: CerealBd;
         align-items: center;
         gap: 7px;
@@ -59,19 +56,33 @@
         }
     }
 
+    @media (max-width: 800px) {
+        .logo-container {
+            display: none;
+        }
+
+        .user-info {
+            display: none;
+        }
+
+        .stay-filter-header {
+            flex-grow: 1;
+            justify-content: center;
+            width: 100%;
+        }
+
+    }
 }
 
 .stay-filter-header {
     display: flex;
-    flex-direction: column;
 
-    // justify-content: center;
     .stay-filter-btns {
         cursor: pointer;
         margin-top: 19px;
         display: flex;
+        // width: 430px;
         justify-content: space-around;
-        width: 430px;
         border: solid 1px #ddd;
         box-shadow: 1px 1px 2px 2px rgb(236, 234, 234);
         border-radius: 30px;
@@ -80,11 +91,8 @@
         .stay-filter-btn {
             border-radius: 50px;
             background-color: white;
-            height: 56px;
             font-size: 18px;
-            // margin: 6px;
-            margin-left: 10px;
-            flex-grow: 1;
+            padding: em(10px) em(5px);
         }
 
 
@@ -104,17 +112,13 @@
         }
     }
 
-    .stay-filter-form {
-
-        // width: 1500px;
-        display: flex;
 
 
-        .filter-input {
-            height: 70px;
-            border-radius: 50px;
+}
 
-            // border-radius: 50px;
-        }
-    }
+.hr-header {
+    height: 1px;
+    background-color: #efefef;
+    border: none;
+
 }

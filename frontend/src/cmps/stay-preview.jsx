@@ -1,13 +1,13 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { useSelector } from 'react-redux';
-
-import { faHeartbeat, faHeartCircleCheck, faStar } from "@fortawesome/free-solid-svg-icons"
+import { faStar } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleLeft, faAngleRight, faHeart } from "@fortawesome/free-solid-svg-icons"
+import IconHeart from "../assets/svg/heart-icon"
+import IconHeartRed from "../assets/svg/icon-heart-red"
 
 export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
     let [idx, setIdx] = useState(0)
+
     function fixIdxForImages(diff) {
         idx += diff
         if (idx > stay.imgUrls.length - 1) {
@@ -18,40 +18,24 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
         setIdx(idx)
     }
 
-    function getColorForHeart() {
-        let style
-        if (stay.likedByUsers > 0) {
-            style = {
-                color: 'red'
-            }
-            return style
+    function getIconForHeart() {
+        if (stay.likedByUsers < 1) {
+            return <IconHeart />
         } else {
-            style = {
-                cursor: 'pointer'
-            }
-            return style
+            return <IconHeartRed />
         }
-
-        return style
     }
 
     return (
         <article className="stay-grid" >
             <div className="img-container"  >
-                <div className="img" style={{ backgroundImage: `url(${stay.imgUrls[idx]})` }}>
-                    <div className="wish-list">
-                        <FontAwesomeIcon className="icon-heart" onClick={() => onAddToWishList(stay._id)} style={getColorForHeart()} icon={faHeart} />
-                    </div>
-                    <div className="slider-btn flex">
-                        <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>
-                        <button onClick={() => fixIdxForImages(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
-                    </div>
-                    {/* <div className="doots">
-                        <div className="doot"></div>
-                        <div className="doot"></div>
-                        <div className="doot"></div>
-                        <div className="doot"></div>
-                    </div> */}
+                <img onClick={() => onMoveToStayDetails(stay._id)} src={stay.imgUrls[idx]} alt="" />
+                <div className="wish-list" onClick={() => onAddToWishList(stay._id)} >
+                    {getIconForHeart()}
+                </div>
+                <div className="slider-btn flex">
+                    <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>
+                    <button onClick={() => fixIdxForImages(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
                 </div>
             </div>
             <div className="stay-small-details grid" onClick={() => onMoveToStayDetails(stay._id)}>

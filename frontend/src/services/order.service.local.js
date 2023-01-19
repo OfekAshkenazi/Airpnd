@@ -21,6 +21,7 @@ async function add({ order, aboutUserId }) {
     const aboutUser = await userService.getById(aboutUserId)
 
     const orderToAdd = {
+        ...order,
         byUser: aboutUser
     }
 

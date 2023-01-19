@@ -1,0 +1,12 @@
+.btn-icon-filter {
+    display: flex;
+    padding: em(15px) em(15px);
+    border-radius: 10px;
+    border: 1px solid #dddddd;
+    // color: transparent;
+    background-color: white;
+    margin-left: em(5px);
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+}

@@ -16,6 +16,8 @@ export const stayService = {
 window.cs = stayService
 _createStays()
 
+export const labels = ['vineyards','caves','tropical','countrySide','nationalParks','barns','ski','historicalHome','privateRooms','mansions','riads','houseBoats','omg','chefKitchens','boats','castels','amazingViews','trending','beachFront','topOfTheWorld','luxe','domes','lake','cabins','tinyHomes','amazingPools','islands','bed&breakFasts','design','offTheGrid','play','farms','beach','lakeFront','arctic','iconicCities','new','surfing','camping','treeHouses','campers','desert','golfing','earthHomes','aFrames','hanoks','cycladicHomes','ryokans','yurts','shepherdHuts','casasParticulares','minsus','windMills','towers','adapted','containers','creativeSpaces','grandPianos','trulli','dammusi','skiing']
+
 async function query(filterBy) {
     try {
         var stays = await storageService.query(STORAGE_KEY)
