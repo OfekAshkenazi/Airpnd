@@ -60,14 +60,13 @@ export function AppHeader() {
 
 
                 {!isFilterExpanded && <StayFilter setIsFilterExpanded={setIsFilterExpanded} isFilterExpanded={isFilterExpanded} />}
-                {isFilterExpanded && <StayFilterExpanded setIsFilterExpanded={setIsFilterExpanded} isFilterExpanded={isFilterExpanded} />}
                 {user &&
                     <span className="user-info">
                         <button className='btn-airpnd-your-home' >Airpnd your home</button>
-                        <button className='btn-globe'><IconBxGlobe className='icon-glob' width='25px' height='25px' /></button>
+                        <button className='btn-globe'><IconBxGlobe className='icon-glob' width='20px' height='20px' /></button>
                         <button className='btn-user'>
                             <IconMenu_hamburger width='30px' height='45px' className='icon-hamburger' />
-                            <IconBxsUserCircle width='45px' height='45px' className='icon-user' />
+                            <IconBxsUserCircle width='43px' height='43px' className='icon-user' />
                         </button>
                         {/* <span className="score">{user.score?.toLocaleString()}</span>
                     <button onClick={onLogout}>Logout</button> */}
@@ -77,12 +76,14 @@ export function AppHeader() {
                     </Link> */}
                     </span>
                 }
+
                 {!user &&
                     <section className="user-info">
                         <LoginSignup onLogin={onLogin} onSignup={onSignup} />
                     </section>
                 }
 
+                {isFilterExpanded && <StayFilterExpanded setIsFilterExpanded={setIsFilterExpanded} isFilterExpanded={isFilterExpanded} />}
             </header>
 
 

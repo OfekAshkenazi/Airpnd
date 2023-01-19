@@ -1,7 +1,10 @@
 .stay-filter-expanded {
+    width: 100%;
+    justify-self: center;
+
     .stay-filter-form {
         display: flex;
-        width: 1000px;
+        justify-content: center;
 
         .filter-input {
             height: 70px;
