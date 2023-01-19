@@ -56,6 +56,6 @@ export function StayDetails() {
             <div className="grid-img-4"><img src={stay.imgUrls[0]} alt="" /></div>
             <div className="grid-img-5"><img src={stay.imgUrls[0]} alt="" /></div>
         </div>
-        <StayExpanded stay={stay} />
+        <StayExpanded stay={stay}  />
     </section>
 }
