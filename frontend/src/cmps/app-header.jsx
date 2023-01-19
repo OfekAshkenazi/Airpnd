@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
+import logo from '../assets/img/logo.png';
 import routes from '../routes';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
 import { login, logout, signup } from '../store/user.actions.js';
@@ -35,10 +36,20 @@ export function AppHeader() {
         }
     }
 
+    const navigate = useNavigate()
+    function onLogoClick() {
+        navigate(`/`)
+    }
+
     return (
         <header className="app-header">
-            {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
+            <div onClick={onLogoClick} className='logo-container'>
+                <img src={logo} alt="logo" className='logo' />
+                <p>airpnd</p>
+            </div>
+
             <StayFilter />
+
             {user &&
                 <span className="user-info">
                     <Link to={`user/${user._id}`}>
@@ -57,4 +68,5 @@ export function AppHeader() {
 
         </header>
     )
+
 }
