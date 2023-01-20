@@ -83,7 +83,7 @@ export function AppHeader() {
                     </section>
                 }
 
-                {isFilterExpanded && <StayFilterExpanded setIsFilterExpanded={setIsFilterExpanded} isFilterExpanded={isFilterExpanded} />}
+                <StayFilterExpanded setIsFilterExpanded={setIsFilterExpanded} isFilterExpanded={isFilterExpanded} />
             </header>
 
 
