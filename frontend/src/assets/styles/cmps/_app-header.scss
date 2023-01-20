@@ -2,11 +2,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+
+    margin-top: 16px;
     margin-bottom: 10px;
 
     .user-info {
         display: flex;
-
 
         .btn-airpnd-your-home {
             font-family: circularH;
@@ -15,19 +17,25 @@
 
             @media (max-width: 510px) {
                 display: none;
-
             }
+
+            color: #666f7a;
+            margin-bottom: 4px;
+
         }
 
         .btn-globe {
             background-color: white;
-
+            margin: 0px 16px;
+            color: #666f7a
         }
 
         .btn-user {
             background-color: white;
             border: solid 1px #ddd;
             border-radius: 50px;
+            color: #666f7a;
+            padding: 0px 8px;
         }
     }
 
@@ -39,7 +47,7 @@
         cursor: pointer;
 
         .logo {
-            width: 40px;
+            width: 37px;
         }
 
         .logo-title {
@@ -50,8 +58,13 @@
 
             @media (min-width: 1128px) {
                 display: block;
-
             }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .btn-airpnd-your-home {
+            display: none;
 
         }
     }
@@ -66,23 +79,19 @@
         }
 
         .stay-filter-header {
-            flex-grow: 1;
             justify-content: center;
             width: 100%;
         }
-
     }
 }
 
 .stay-filter-header {
-    display: flex;
+    // display: flex;
+    align-items: center;
 
     .stay-filter-btns {
         cursor: pointer;
-        margin-top: 19px;
         display: flex;
-        // width: 430px;
-        justify-content: space-around;
         border: solid 1px #ddd;
         box-shadow: 1px 1px 2px 2px rgb(236, 234, 234);
         border-radius: 30px;
@@ -91,34 +100,23 @@
         .stay-filter-btn {
             border-radius: 50px;
             background-color: white;
-            font-size: 18px;
-            padding: em(10px) em(5px);
+            font-size: 16px;
+            padding: 8px 9px;
+            margin-left: 10px;
         }
 
-
-
         .icon-search {
-            flex-grow: 0;
             color: white;
             background-color: $clr3;
             padding: 10px;
             border-radius: 20px;
-
         }
 
-        @media (max-width: 1000px) {
-            justify-content: flex-start;
-
-        }
     }
-
-
-
 }
 
 .hr-header {
     height: 1px;
     background-color: #efefef;
     border: none;
-
 }

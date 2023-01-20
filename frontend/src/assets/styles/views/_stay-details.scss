@@ -15,7 +15,6 @@
 
 .stay-info {
 
-
     .stay-reviews {
         margin-left: em(8px);
         text-decoration: underline;
@@ -83,5 +82,10 @@
     .grid-img-5 img {
         border-bottom-right-radius: em(16px);
     }
+}
 
+.capacity {
+    img {
+        object-fit: cover;
+    }
 }

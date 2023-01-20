@@ -1,8 +1,5 @@
 import { storageService } from './async-storage.service.js';
 import { userService } from './user.service.js';
-import { utilService } from './util.service.js';
-
-
 const STORAGE_KEY = 'stay'
 
 export const stayService = {
@@ -13,10 +10,9 @@ export const stayService = {
     // getEmptyStay,
     getEmptyFilter
 }
-window.cs = stayService
 _createStays()
 
-export const labels = ['vineyards','caves','tropical','countrySide','nationalParks','barns','ski','historicalHome','privateRooms','mansions','riads','houseBoats','omg','chefKitchens','boats','castels','amazingViews','trending','beachFront','topOfTheWorld','luxe','domes','lake','cabins','tinyHomes','amazingPools','islands','bed&breakFasts','design','offTheGrid','play','farms','beach','lakeFront','arctic','iconicCities','new','surfing','camping','treeHouses','campers','desert','golfing','earthHomes','aFrames','hanoks','cycladicHomes','ryokans','yurts','shepherdHuts','casasParticulares','minsus','windMills','towers','adapted','containers','creativeSpaces','grandPianos','trulli','dammusi','skiing']
+export const labels = ['vineyards', 'caves', 'tropical', 'countrySide', 'nationalParks', 'barns', 'ski', 'historicalHome', 'privateRooms', 'mansions', 'riads', 'houseBoats', 'omg', 'chefKitchens', 'boats', 'castels', 'amazingViews', 'trending', 'beachFront', 'topOfTheWorld', 'luxe', 'domes', 'lake', 'cabins', 'tinyHomes', 'amazingPools', 'islands', 'bed&breakFasts', 'design', 'offTheGrid', 'play', 'farms', 'beach', 'lakeFront', 'arctic', 'iconicCities', 'new', 'surfing', 'camping', 'treeHouses', 'campers', 'desert', 'golfing', 'earthHomes', 'aFrames', 'hanoks', 'cycladicHomes', 'ryokans', 'yurts', 'shepherdHuts', 'casasParticulares', 'minsus', 'windMills', 'towers', 'adapted', 'containers', 'creativeSpaces', 'grandPianos', 'trulli', 'dammusi', 'skiing']
 
 async function query(filterBy) {
     try {
@@ -26,9 +22,7 @@ async function query(filterBy) {
             stays = stays.filter(stay => regex.test(stay.loc.country) || regex.test(stay.loc.city))
         }
         return stays
-    } catch (err) {
-        console.log(err)
-    }
+    } catch (err) { console.log(err); throw err }
 
 }
 
@@ -50,14 +44,16 @@ async function remove(stayId) {
 }
 
 async function save(stay) {
-    let savedStay
-    if (stay._id) {
-        savedStay = await storageService.put(STORAGE_KEY, stay)
-    } else {
-        // stay.owner = userService.getLoggedinUser()
-        savedStay = await storageService.post(STORAGE_KEY, stay)
-    }
-    return savedStay
+    try {
+        let savedStay
+        if (stay._id) {
+            savedStay = await storageService.put(STORAGE_KEY, stay)
+        } else {
+            stay.owner = userService.getLoggedinUser()
+            savedStay = await storageService.post(STORAGE_KEY, stay)
+        }
+        return savedStay
+    } catch (err) { console.log(err); throw err }
 }
 
 function _createStays() {
@@ -112,7 +108,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [] // for user-wishlist : use $in
-            }, {
+            },
+            {
                 "_id": "10006547",
                 "name": "Tv. José Joaquim Ribeiro Teles",
                 "type": "House",
@@ -159,7 +156,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [] // for user-wishlist : use $in
-            }, {
+            },
+            {
                 "_id": "10006548",
                 "name": "C. de la Coalición, 17B, 28041 Madrid",
                 "type": "House",
@@ -206,7 +204,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [] // for user-wishlist : use $in
-            }, {
+            },
+            {
                 "_id": "10006549",
                 "name": "P. Puzino g. 19A, 35197 Panevėžys",
                 "type": "House",
@@ -253,7 +252,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [] // for user-wishlist : use $in
-            }, {
+            },
+            {
                 "_id": "10006550",
                 "name": "Passagem Nacoes Unidas, 900 - Laguinho, Macapá - AP, 68908-126",
                 "type": "House",
@@ -300,7 +300,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [] // for user-wishlist : use $in
-            }, {
+            },
+            {
                 "_id": "10006551",
                 "name": "16 Av. de Suffren",
                 "type": "House",
@@ -347,7 +348,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [] // for user-wishlist : use $in
-            }, {
+            },
+            {
                 "_id": "10006552",
                 "name": "Via Sandro Penna, 59, 06132 Perugia PG",
                 "type": "House",
@@ -393,7 +395,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [] // for user-wishlist : use $in
-            }, {
+            },
+            {
                 "_id": "1000654888",
                 "name": "Via Privata Ercole Marelli, 6, 20139 Milano MI",
                 "type": "House",
