@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // import { BookingForm } from '../cmps/book-form.jsx'
+=======
+import { BookingForm } from '../cmps/book-form.jsx'
+>>>>>>> c7c6b14d001a22816d87353c2097888510c66eba
 
 export function StayExpanded({ stay }) {
     const firstName = stay.host.fullname.split(" ")[0]
@@ -24,7 +28,11 @@ export function StayExpanded({ stay }) {
                 <span>Learn more</span>
             </div>
         </div>
+<<<<<<< HEAD
         {/* <BookingForm stay={stay} /> */}
+=======
+        <BookingForm stay={stay} />
+>>>>>>> c7c6b14d001a22816d87353c2097888510c66eba
 
     </section>
 }
