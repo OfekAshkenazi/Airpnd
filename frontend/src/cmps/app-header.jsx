@@ -85,12 +85,12 @@ export function AppHeader() {
 
                 <StayFilterExpanded setIsFilterExpanded={setIsFilterExpanded} isFilterExpanded={isFilterExpanded} />
             </header>
+            <hr className='hr-header' />
 
 
-            <section>
-                <hr className='hr-header' />
-                <NavIconFilter />
-            </section>
+
+            <NavIconFilter />
+
         </>
     )
 

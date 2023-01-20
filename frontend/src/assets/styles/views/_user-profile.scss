@@ -32,13 +32,11 @@
 
 }
 
-
-
 .trips-details {
     padding: em(5px);
     margin-top: em(15px);
     display: flex;
-    justify-content: space-between;
+    gap: em(15px);
     // background-color: #f3f3f3;
 
     .trip-list {
@@ -47,12 +45,12 @@
         display: flex;
         flex-direction: column;
         gap: em(10px);
+        width: 50%;
     }
 
 }
 
 .trip-preview {
-    position: absolute;
     font-family: circularH;
     padding: em(10px);
     position: relative;
@@ -63,7 +61,6 @@
     cursor: pointer;
     align-items: center;
     border: 1px solid white;
-
 
     &:hover {
         border: 1px solid $clrGreayFont;
@@ -77,4 +74,48 @@
 
 
 
+}
+
+.order-preview {
+    font-family: circularH;
+    background-color: white;
+    width: 50%;
+    .order-display {
+        display: flex;
+        flex-direction: column;
+        padding: em(24px);
+        gap: em(15px);
+        background-color: white;
+        grid-template-rows: repeat(2, 1fr);
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: #0000001f 0 6px 16px;
+    }
+
+    .order-img {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 4px;
+
+        img {
+            object-fit: cover;
+            background-size: cover;
+            height: 100%;
+        }
+
+        :first-child {
+            grid-row: 1/-1;
+            border-start-start-radius: 8px;
+            border-end-start-radius: 8px;
+        }
+
+        :nth-child(2) {
+            border-start-end-radius: 8px;
+        }
+
+        :nth-child(3) {
+            border-end-end-radius: 8px;
+        }
+    }
 }
