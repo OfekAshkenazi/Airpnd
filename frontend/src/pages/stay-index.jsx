@@ -30,14 +30,14 @@ export function StayIndex() {
     //     }
     // }
 
-    // async function onAddStay() {
-    //     try {
-    //         const savedStay = await addStay()
-    //         showSuccessMsg(`Stay added (id: ${savedStay._id})`)
-    //     } catch (err) {
-    //         showErrorMsg('Cannot add Stay')
-    //     }        
-    // }
+    async function onAddStay(stay) {
+        try {
+            const savedStay = await addStay(stay)
+            showSuccessMsg(`Stay added (id: ${savedStay._id})`)
+        } catch (err) {
+            showErrorMsg('Cannot add Stay')
+        }        
+    }
     async function onAddToWishList(stayId) {
         try {
             const stay = await stayService.getById(stayId)
@@ -52,6 +52,7 @@ export function StayIndex() {
     function onMoveToStayDetails(stayId) {
         navigate(`/stay/${stayId}`)
     }
+    
     async function onUpdateStay(stayToSave) {
         try {
             const savedStay = await updateStay(stayToSave)
