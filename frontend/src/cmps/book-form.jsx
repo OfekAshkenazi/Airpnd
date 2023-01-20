@@ -1,6 +1,13 @@
 import { React, useEffect, useState } from 'react'
 
+import { BasicSelect } from '../cmps/select-dropdown.jsx'
+import { ReserveBtn } from '../cmps/reserve-btn.jsx'
+
 import CustomDateRangePickerDay from './MuiDateRangePicker.jsx'
+import '../../node_modules/react-date-range/dist/styles.css'
+import '../../node_modules/react-date-range/dist/theme/default.css'
+import { DateRange } from 'react-date-range';
+import { addDays } from 'date-fns';
 
 
 export function BookingForm({ stay }) {
@@ -13,6 +20,18 @@ export function BookingForm({ stay }) {
         month: "numeric",
         year: "numeric"
     })
+    const selectionRange = {
+        startDate: new Date(),
+        endDate: new Date(),
+        key: 'selection',
+    }
+    const [state, setState] = useState([
+        {
+            startDate: new Date(),
+            endDate: addDays(new Date(), 7),
+            key: 'selection'
+        }
+    ]);
 
 
     return <form className="book-form">
@@ -22,13 +41,20 @@ export function BookingForm({ stay }) {
         </div>
         <div className="action-btn" >
             <div className="checkin-out" onClick={() => setIsPickerOpen(!isPickerOpen)}>
-                <input type="text" id="checkin" name="checkin"  readOnly defaultValue={'CHECK-IN'+date} />
+                <input type="text" id="checkin" name="checkin" readOnly defaultValue={'CHECK-IN' + date} />
                 <input type="text" id="checkout" name="checkout" defaultValue={'CHECKOUT'}></input>
             </div>
-            {isPickerOpen && <CustomDateRangePickerDay range='true'
-                numberOfMonths={2} />}
-            <input type="number" id="guests" name="guests" min="1"></input>
-            <input type="submit" value="Reserve"></input>
+            {/* {isPickerOpen && <CustomDateRangePickerDay range='true' />} */}
+            {isPickerOpen && <DateRange
+                editableDateInputs={true}
+                onChange={item => setState([item.selection])}
+                moveRangeOnFirstSelection={false}
+                ranges={state}
+                months={2}
+                direction={'horizontal'}
+            />}
+            <BasicSelect />
+            <ReserveBtn/>
         </div>
         <p>You Won't be charged yet</p>
         <div className="prices">
