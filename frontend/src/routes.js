@@ -13,9 +13,8 @@ const routes = [
     {
         path: '/stay/:stayId',
         component: <StayDetails />,
-        // label: 'stays'
     },
-    
+   
 ]
 
 export default routes
