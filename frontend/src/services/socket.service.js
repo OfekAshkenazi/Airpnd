@@ -19,9 +19,7 @@ export const socketService = createDummySocketService()
 
 // for debugging from console
 window.socketService = socketService
-
 socketService.setup()
-
 
 function createSocketService() {
   var socket = null;

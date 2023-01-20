@@ -14,45 +14,83 @@ export const stayService = {
     getEmptyStay,
     addStayMsg
 }
-window.cs = stayService
 
 
 async function query(filterBy = { txt: '', price: 0 }) {
     return httpService.get(API_KEY, filterBy)
 }
 
-function getById(carId) {
-    return httpService.get(`stay/${carId}`)
+function getById(stayId) {
+    return httpService.get(`stay/${stayId}`)
 }
 
-async function remove(carId) {
-    return httpService.delete(`stay/${carId}`)
+async function remove(stayId) {
+    return httpService.delete(`stay/${stayId}`)
 }
-async function save(car) {
-    var savedCar
-    if (car._id) {
-        savedCar = await httpService.put(`stay/${car._id}`, car)
+async function save(stay) {
+    var savedStay
+    if (stay._id) {
+        savedStay = await httpService.put(`stay/${stay._id}`, stay)
 
     } else {
-        car.owner = userService.getLoggedinUser()
-        savedCar = await httpService.post('stay', stay)
+        stay.owner = userService.getLoggedinUser()
+        savedStay = await httpService.post('stay', stay)
     }
-    return savedCar
+    return savedStay
 }
 
-async function addCarMsg(carId, txt) {
-    const savedMsg = await httpService.post(`stay/${carId}/msg`, {txt})
-    return savedMsg
-}
-
-
-function getEmptyCar() {
-    return {
-        vendor: 'Susita-' + (Date.now() % 1000),
-        price: utilService.getRandomIntInclusive(1000, 9000),
+function getEmptyStay() {
+    const stay = {
+        "_id": "100065495666",
+        "name": "Ribeira Charming Duplex",
+        "type": "House",
+        "imgUrls": ["https://a0.muscache.com/im/pictures/f987e19d-2688-4390-a67b-e4e03c8fd592.jpg?im_w=720", "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "https://img.staticmb.com/mbcontent//images/uploads/2022/12/Most-Beautiful-House-in-the-World.jpg", "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bW9kZXJuJTIwaG91c2V8ZW58MHx8MHx8&w=1000&q=80", "https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQZUkwT6XhdDnNqAsPrZiQWWHvhpJo0cviRndWweNeFE0G6sOOa7ltzrwXSocCIsqRqAcruHZtEk-MBx_qLAJz-43yAbJAJXmEYKEMD78GRjJ3ro5x5T97jaAj0NwMiaHvO4mNGLRmwNAPE2yA0LWWV1UfQI.jpg?r=48b", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS31J1UA5QI_CCSR0hMi-Ekgft_zdpM6U_v9g&usqp=CAU"],
+        "price": 80.00,
+        "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+        "capacity": 8,
+        "amenities": [
+            "TV",
+            "Wifi",
+            "Kitchen",
+            "Smoking allowed",
+            "Pets allowed",
+            "Cooking basics"
+        ],
+        "labels": [
+            "Top of the world",
+            "Trending",
+            "Play",
+            "Tropical"
+        ],
+        "host": {
+            "_id": "u101",
+            "fullname": "Davit Pok",
+            "imgUrl": "https://a0.muscache.com/im/pictures/user/7c6c11cb-3ca7-4618-8b49-9b00079089af.jpg?im_w=240",
+        },
+        "loc": {
+            "country": "Portugal",
+            "countryCode": "PT",
+            "city": "Porto",
+            "address": "17 Kombo st",
+            "lat": -8.61308,
+            "lng": 41.1413
+        },
+        "reviews": [
+            {
+                "id": "madeId",
+                "txt": "Very helpful hosts. Cooked traditional...",
+                "rate": 4,
+                "by": {
+                    "_id": "u102",
+                    "fullname": "user2",
+                    "imgUrl": "/img/img2.jpg"
+                }
+            }
+        ],
+        "likedByUsers": [] // for user-wishlist : use $in
     }
+    return stay
 }
-
 
 
 

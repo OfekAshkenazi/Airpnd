@@ -1,25 +1,122 @@
 .app-header {
-    // background-color: $clr4;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    margin-top: 16px;
+    margin-bottom: 10px;
 
     .user-info {
-        padding-left: 100px;
+        display: flex;
 
-        img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
+        .btn-airpnd-your-home {
+            font-family: circularH;
+            background-color: white;
+            font-size: 18px;
+
+            @media (max-width: 510px) {
+                display: none;
+            }
+
+            color: #666f7a;
+            margin-bottom: 4px;
+
         }
-    }
 
-    .stay-filter-header {
-        // justify-content: center;
+        .btn-globe {
+            background-color: white;
+            margin: 0px 16px;
+            color: #666f7a
+        }
 
-        .filter-input {
-            width: 400px;
-            height: 50px;
+        .btn-user {
+            background-color: white;
+            border: solid 1px #ddd;
             border-radius: 50px;
+            color: #666f7a;
+            padding: 0px 8px;
         }
     }
+
+    .logo-container {
+        display: flex;
+        font-family: CerealBd;
+        align-items: center;
+        gap: 7px;
+        cursor: pointer;
+
+        .logo {
+            width: 37px;
+        }
+
+        .logo-title {
+
+            display: none;
+            font-size: 1.6em;
+            color: $clrLogo;
+
+            @media (min-width: 1128px) {
+                display: block;
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .btn-airpnd-your-home {
+            display: none;
+
+        }
+    }
+
+    @media (max-width: 800px) {
+        .logo-container {
+            display: none;
+        }
+
+        .user-info {
+            display: none;
+        }
+
+        .stay-filter-header {
+            justify-content: center;
+            width: 100%;
+        }
+    }
+}
+
+.stay-filter-header {
+    // display: flex;
+    align-items: center;
+
+    .stay-filter-btns {
+        cursor: pointer;
+        display: flex;
+        border: solid 1px #ddd;
+        box-shadow: 1px 1px 2px 2px rgb(236, 234, 234);
+        border-radius: 30px;
+        gap: 1px;
+
+        .stay-filter-btn {
+            border-radius: 50px;
+            background-color: white;
+            font-size: 16px;
+            padding: 8px 9px;
+            margin-left: 10px;
+        }
+
+        .icon-search {
+            color: white;
+            background-color: $clr3;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+    }
+}
+
+.hr-header {
+    height: 1px;
+    background-color: #efefef;
+    border: none;
 }

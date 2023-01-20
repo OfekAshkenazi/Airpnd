@@ -8,13 +8,10 @@
 @import "basics/helpers";
 @import "basics/layout";
 @import "basics/base";
-@import "basics/links";
 @import "basics/forms";
 
 
 // Views
-@import "views/home-page";
-@import "views/review-app";
 @import "views/stay-index";
 @import "views/stay-details";
 
@@ -22,11 +19,8 @@
 @import "cmps/app-header";
 @import "cmps/app-footer";
 @import "cmps/user-msg";
-@import "cmps/shopping-cart";
 @import "cmps/stay-expanded";
-
-
-
-
-
-
+@import "cmps/book-form";
+@import "cmps/btn-icon-filter";
+@import "cmps/shadow-screen";
+@import "cmps/stay-filter-expanded";
