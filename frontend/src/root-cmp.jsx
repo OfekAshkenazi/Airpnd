@@ -8,6 +8,9 @@ import { AppFooter } from './cmps/app-footer'
 import { UserMsg } from './cmps/user-msg'
 
 import { ToggleDetails } from "./store/system.action.js"
+import { ProfileNestRoutes } from './pages/profile-nest-routes';
+import { WishList } from './cmps/wish-list';
+import { UserTrips } from './cmps/user-trips';
 
 export function RootCmp() {
     const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
@@ -18,7 +21,12 @@ export function RootCmp() {
             <main>
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
+                    <Route element={<ProfileNestRoutes />} path="/userTrips">
+                        <Route element={<WishList />} path="/userTrips/wishlist" />
+                        <Route element={<UserTrips />} path="/userTrips" />
+                    </Route>
                 </Routes>
+
             </main>
             <AppFooter />
             <UserMsg />

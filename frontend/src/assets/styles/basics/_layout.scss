@@ -25,6 +25,10 @@
         @include for-wide-layout {
             grid-template-columns: auto 1100px auto;
         }
+
+        .icon-nav {
+            display: none;
+        }
     }
 
     @include for-narrow-layout {

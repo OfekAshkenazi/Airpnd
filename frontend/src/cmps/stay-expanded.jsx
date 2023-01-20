@@ -1,4 +1,4 @@
-import { BookingForm } from '../cmps/book-form.jsx'
+import { BookingForm } from '../cmps/book-form.jsx';
 
 export function StayExpanded({ stay }) {
     const firstName = stay.host.fullname.split(" ")[0]

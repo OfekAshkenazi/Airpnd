@@ -19,7 +19,9 @@ export function StayFilter({ isFilterExpanded, setIsFilterExpanded }) {
     // }, [])
 
     function openAnywhere() {
+
         setIsFilterExpanded(true)
+
     }
 
     return (
