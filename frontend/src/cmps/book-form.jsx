@@ -27,7 +27,6 @@ export function BookingForm({ stay }) {
         }
     ])
 
-
     return <form className="book-form">
         <div className="header">
             <span className="price"> ${stay.price} night</span>
@@ -38,16 +37,16 @@ export function BookingForm({ stay }) {
                 <input type="text" id="checkin" name="checkin" readOnly defaultValue={'CHECK-IN' + date} />
                 <input type="text" id="checkout" name="checkout" defaultValue={'CHECKOUT'}></input>
             </div>
-            {isPickerOpen && <DateRange
+            {isPickerOpen && <div className="date-range"><DateRange
                 editableDateInputs={true}
                 onChange={item => setState([item.selection])}
                 moveRangeOnFirstSelection={false}
                 ranges={state}
                 months={2}
                 direction={'horizontal'}
-            />}
+            /></div>}
             <BasicSelect />
-            <ReserveBtn/>
+            <ReserveBtn />
         </div>
         <p>You Won't be charged yet</p>
         <div className="prices">

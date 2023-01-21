@@ -5,28 +5,34 @@
     .capacity {
         display: grid;
         grid-template-rows: 1fr 1fr;
-        padding-block: em(32px);
-        border-bottom: 1px solid rgb(221, 221, 221);
+        border-bottom: em(1px) solid rgb(221, 221, 221);
 
         .owner {
             grid-row: 1;
-            margin-bottom: 10px;
+            font-size: em(16px);
+            padding-bottom: em(10px);
         }
 
         .guests {
             grid-row: 2;
+            color: #222222;
+            font-weight: 400;
+            font-size: em(18px);
+            line-height: em(16px);
+
+            span {
+                padding: em(6px);
+            }
 
         }
     }
 
     img {
-        width: 50px;
-        height: 50px;
+        width: em(61px);
+        height:  em(61px);
         border-radius: 50%;
         justify-self: end;
-        align-self: center;
         grid-row: 1 / -1;
-
     }
 
     .host {
@@ -36,13 +42,17 @@
         flex-direction: column;
     }
 
-    .host-name {
+    .head {
+        display: flex;
         font-weight: bold;
+        font-size: em(16px);
+        line-height: em(20px);
     }
 
-    .super-host {
+    .head-span {
         margin-top: em(4px);
-        font-size: .875em;
+        font-size: em(14px);
+        line-height: em(20px);
         color: #717375;
     }
 
