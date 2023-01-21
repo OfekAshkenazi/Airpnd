@@ -1,0 +1,30 @@
+.amenities {
+    border-top: em(1px) solid rgb(221, 221, 221);
+    margin-top: em(33px);
+
+    h2 {
+        margin-top: em(33px);
+    }
+
+    .offers {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    .amenitie {
+        flex-basis: calc(50% - 1px);
+        padding: em(20px);
+        display: flex;
+        align-items: center;
+    }
+
+    .amenitie-img {
+        border-radius: 0;
+        height: 24px;
+        width: 24px;
+        margin-right: em(8px);
+    }
+}

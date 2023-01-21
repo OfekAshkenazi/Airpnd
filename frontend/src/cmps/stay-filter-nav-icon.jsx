@@ -7,7 +7,7 @@ export function NavIconFilter() {
 
 
     function onOpenFilterModal() {
-        console.log('hi')
+        // console.log('hi')
     }
 
     // {`stay-filter-form ${(isFilterExpanded) ? "show" : "hidden"}`}

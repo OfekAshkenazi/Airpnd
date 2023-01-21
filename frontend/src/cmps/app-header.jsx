@@ -18,7 +18,6 @@ import { NavIconFilter } from './stay-filter-nav-icon';
 
 export function AppHeader() {
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
-    console.log('filterExpanded:', isFilterExpanded)
     // const [isFilterExpanded, setIsFilterExpanded] = useState(false)
     const user = useSelector(storeState => storeState.userModule.user)
     async function onLogin(credentials) {

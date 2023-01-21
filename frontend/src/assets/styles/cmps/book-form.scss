@@ -7,20 +7,16 @@
   border-radius: em(12px);
   padding: em(24px);
   box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-  margin-top: em(110px);
   width: em(510px);
   margin-left: em(58px);
-
-  .static{
-    position: fixed;
-    top: 0;
-  }
+  max-height: em(500px);
+  overflow: auto;
 
   .header {
     display: flex;
     justify-content: space-between;
     width: 80%;
-    margin-bottom: 20px;
+    margin-bottom: em(20px);
 
     .price {
       font-size: 20px;
@@ -32,8 +28,16 @@
     }
   }
 
+  .action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 16px;
+  }
+
   .checkin-out {
     display: flex;
+    width: em(300px);
 
     :first-child {
       border-right: none;
@@ -49,6 +53,14 @@
     padding: em(24px) em(20px);
     border: em(2px) solid #ccc;
     border-radius: em(4px);
+  }
+
+  .guests {
+    width: em(300px);
+  }
+
+  .reserve {
+    width: em(322px);
   }
 
   .prices,

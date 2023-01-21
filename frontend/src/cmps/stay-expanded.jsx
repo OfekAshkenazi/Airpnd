@@ -1,5 +1,6 @@
 import { height } from '@mui/system';
 import { BookingForm } from '../cmps/book-form.jsx';
+import { Amenities } from '../cmps/amenities.jsx';
 
 export function StayExpanded({ stay }) {
     const firstName = stay.host.fullname.split(" ")[0]
@@ -19,18 +20,25 @@ export function StayExpanded({ stay }) {
                 <img src={stay.host.imgUrl} />
             </div>
             <div className="host">
-                <span className="head"><img style={{ width: '20px', height:'20px'}} src={require("../assets/svg/stay-details/pet_friendly.png")} alt="" />Furry friends welcome</span>
-                <span className="head-span">Bring your pets along for the stay.</span>
-                <span className="head"><img style={{ width: '20px', height:'20px'}} src={require("../assets/svg/stay-details/great_communication.png")} alt="" />Great Communication</span>
-                <span className="head-span">95% of recent guests rated Emin 5-star in communication.</span>
-                <span className="head"><img style={{ width: '20px', height:'20px'}} src={require("../assets/svg/stay-details/superhost.png")} alt="" />{firstName} is a Superhost</span>
-                <span className="head-span">Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</span>
-            </div>
+                <img style={{ width: '24px', height: '24px' }} src={require("../assets/svg/stay-details/pet_friendly.png")} alt="" />
+                <span className="txt">Furry friends welcome
+                    <span className="head-span">Bring your pets along for the stay.</span></span></div>
+            <div className="host">
+                <img style={{ width: '24px', height: '24px' }} src={require("../assets/svg/stay-details/great_communication.png")} alt="" />
+                <span className="txt">Great Communication
+                    <span className="head-span">95% of recent guests rated Emin 5-star in communication.</span></span></div>
+            <div className="host">
+                <img style={{ width: '24px', height: '24px' }} src={require("../assets/svg/stay-details/superhost.png")} alt="" />
+                <span className="txt">{firstName} is a Superhost
+                    <span className="head-span">Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</span></span></div>
 
-            <div className="air-cover"><span className="air-cover head">Aircover</span>
-                <span className="air-cover-txt">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</span>
-                <span>Learn more</span>
+            <div className="air-cover">
+                {/* <span className="head"><span className="air">Air</span>cover</span> */}
+                <img className="air" src={require("../assets/img/aircover.png")}/>
+                <span className="txt">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</span>
+                <span className="more">Learn more</span>
             </div>
+            <Amenities stay={stay} />
         </div>
         <BookingForm stay={stay} />
 

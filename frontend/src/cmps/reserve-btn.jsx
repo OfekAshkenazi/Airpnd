@@ -21,6 +21,6 @@ const useStyles = makeStyles({
 })
 
 export function ReserveBtn() {
-  const classes = useStyles();
-  return <Button className={classes.root}>Reserve</Button>;
+  const classes = useStyles()
+  return <Button className={`${classes.root} reserve`}>Reserve</Button>
 }
