@@ -7,7 +7,45 @@
     margin-left: em(5px);
     align-items: center;
     justify-content: space-between;
-    z-index: 1;
+    // z-index: 1;
+}
+
+.icon-nav {
+    display: flex;
+    // flex-wrap: wrap;
+    overflow-y: hidden;
+    gap: 30px;
+    justify-content: center;
+
+
+
+    .icon-preview {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #000;
+        opacity: 0.6;
+        transition: 0.25s;
+        gap: 7px;
+
+        &:hover {
+            transition: 0.25s;
+            opacity: 1;
+        }
+
+        img {
+            width: 25px;
+        }
+
+        // border-bottom: 30px solid transparent;
+
+        p {
+            font-family: CircularL;
+            font-size: 12px;
+            font-weight: 800;
+        }
+    }
+
 }
 
 .icon-nav.hidden {

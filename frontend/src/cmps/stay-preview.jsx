@@ -1,12 +1,13 @@
-import { useState } from "react"
-import { faStar } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faAngleLeft, faAngleRight, faHeart } from "@fortawesome/free-solid-svg-icons"
-import IconHeart from "../assets/svg/heart-icon"
-import IconHeartRed from "../assets/svg/icon-heart-red"
-import { useSelector } from "react-redux"
-import { userService } from "../services/user.service"
-import { loadUser } from "../store/user.actions"
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
+import IconHeart from '../assets/svg/heart-icon';
+import IconHeartRed from '../assets/svg/icon-heart-red';
+import { userService } from '../services/user.service';
+import { loadUser } from '../store/user.actions';
 
 export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
     let [idx, setIdx] = useState(0)
