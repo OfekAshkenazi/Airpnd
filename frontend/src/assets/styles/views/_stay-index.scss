@@ -54,7 +54,11 @@
         justify-content: space-between;
         align-items: center;
         margin: 0 em(14px);
-        bottom: em(100px);
+        bottom: em(135px);
+
+        @media(min-width: 1100px) and (max-width: 1200px) {
+            bottom: em(115px);
+        }
 
         button {
             width: 25px;
@@ -66,8 +70,6 @@
                 opacity: 0.6;
             }
         }
-
-
     }
 
     &:hover {
@@ -115,12 +117,20 @@
 .doots {
     position: absolute;
     display: flex;
-    top: em(20px);
+    left: 40%;
+    bottom: em(30px);
+    gap: em(5px);
+    z-index: 1;
 }
 
 .doot {
-    width: 15px;
-    height: 15px;
-    background-color: #717171;
+    width: 7px;
+    height: 7px;
+    background-color: #d9d8d8;
     border-radius: 50%;
+}
+
+.preview-rate {
+    justify-content: space-between;
+    width: em(40px);
 }

@@ -37,18 +37,19 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
 
     // }
    
-
     return (
         <article className="stay-grid" >
-            <div className="img-container"  >
+            <div className="img-container">
                 <img onClick={() => onMoveToStayDetails(stay._id)} src={stay.imgUrls[idx]} alt="" />
                 <div className="wish-list" onClick={() => onAddToWishList(stay._id)} >
-                    {/* { getIconForHeart(stay._id)} */}
-                    <IconHeart />
+                   {stay.inWishList ? <IconHeartRed /> : <IconHeart />}
                 </div>
                 <div className="slider-btn flex">
                     <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>
                     <button onClick={() => fixIdxForImages(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
+                </div>
+                <div className="doots">
+                   {stay.imgUrls.map((url,index) => <div onclick={() => setIdx(index)} key={url} className="doot"></div> )}
                 </div>
             </div>
             <div className="stay-small-details grid" onClick={() => onMoveToStayDetails(stay._id)}>
@@ -56,13 +57,14 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
                     <div className="loc">
                         {stay.loc.city}, {stay.loc.country}
                     </div>
-                    <div className="flex">
-                        <FontAwesomeIcon icon={faStar} />
-                        4.9
+                    <div className="preview-rate flex">
+                        <FontAwesomeIcon style={{width: '13px'}} icon={faStar} /> 
+                          4.9
+                      
                     </div>
                 </div>
                 <p>{stay.loc.address}</p>
-                <p>{stay.price} night</p>
+                <p>$ {stay.price} night</p>
             </div>
         </article >
     )
