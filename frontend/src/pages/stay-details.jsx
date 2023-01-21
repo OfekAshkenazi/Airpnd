@@ -44,14 +44,14 @@ export function StayDetails() {
     return <section className="stay-details">
         <h1 className="stay-name">{stay.name}</h1>
         <div className="stay-info flex align-center">
-            <IconStarFill/><span>{getRating()}</span>
+            <IconStarFill /><span>{getRating()}</span>
             <span className="seperator">·</span>
             <span className="stay-reviews">{(stay.reviews.length)} reviews</span>
             <span className="seperator">·</span>
             <span className="stay-location">{stay.loc.city}, {stay.loc.country}</span>
             <div className="action-btn ">
-                <button className="share-btn"><IconShareTwentyFour/> Share </button>
-                <button className="save-btn"> <IconHeart/>Save</button>
+                <button className="share-btn"><IconShareTwentyFour /> Share </button>
+                <button className="save-btn"> <IconHeart />Save</button>
             </div>
         </div>
         <div className="imgs-container">

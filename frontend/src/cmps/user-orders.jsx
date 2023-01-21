@@ -1,50 +1,45 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { PendingIcon } from "../assets/svg/pending-icon";
 import { showErrorMsg } from "../services/event-bus.service";
-import { loadUser } from "../store/user.actions";
+import { orderService } from "../services/order.service.local"
 
-export function UserTrips() {
-    const [currUser, setCurrUser] = useState(null)
-    const user = useSelector(storeState => storeState.userModule.user)
 
+export function UserOrders() {
+    const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        onLoadUser()
+        onLoadOrders()
+    }, [])
 
-    })
 
-    async function onLoadUser() {
+    async function onLoadOrders() {
         try {
-            const realUser = await loadUser(user._id)
-            setCurrUser(realUser)
-        } catch (err) { showErrorMsg('Cannot load user') }
+            const dataOrders = await orderService.query()
+            setOrders(dataOrders)
+        } catch (err) {
+            showErrorMsg('Cannot load orders')
+        }
     }
 
     return (
-        <section className="trips-details">
-            <div className="trip-list">
-                <div className="trip-preview">
-                    <div>
-                        2 Bedroom upper east side
-                        <br></br>
-                        New York, NY,United states Dec 30 - Jan 04
-                    </div>
-                    <div className="order-indiction">
-                        <p style={{ color: '#ebd301' }}><PendingIcon /> pending</p>
-                    </div>
-                </div>
-                <div className="trip-preview">
-                    <div>
-                        2 Bedroom upper east side
-                        <br></br>
-                        New York, NY,United states Dec 30 - Jan 04
-                    </div>
-                    <div className="order-indiction">
-                        <p style={{ color: '#ebd301' }}><PendingIcon /> pending</p>
-                    </div>
-                </div>
-                <div className="trip-preview">
+        <section className="orders-details">
+            <div className="order-list">
+
+                {orders.map(order => {
+                    return (
+                        <div className="order-preview">
+                            <div>
+                                {order.stay.name}
+                                <br></br>
+                                New York, NY,United states Dec 30 - Jan 04
+                            </div>
+                            <div className="order-indiction">
+                                <p style={{ color: '#ebd301' }}><PendingIcon /> pending</p>
+                            </div>
+                        </div>
+                    )
+                })}
+                <div className="order-preview">
                     <div>
                         2 Bedroom upper east side
                         <br></br>
@@ -54,7 +49,7 @@ export function UserTrips() {
                         <p style={{ color: 'green' }}>approve</p>
                     </div>
                 </div>
-                <div className="trip-preview">
+                <div className="order-preview">
                     <div>
                         2 Bedroom upper east side
                         <br></br>
@@ -65,7 +60,7 @@ export function UserTrips() {
                     </div>
                 </div>
             </div>
-            <div className="order-preview">
+            <div className="order-preview-modal">
                 <section className="order-display">
                     <div className="order-img">
                         <img className="order-img1" src="https://a0.muscache.com/im/pictures/f987e19d-2688-4390-a67b-e4e03c8fd592.jpg?im_w=720" alt="" />

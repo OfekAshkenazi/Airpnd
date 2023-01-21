@@ -1,10 +1,10 @@
-.user-trips {
+.user-orders {
     background-color: #f3f3f3;
     padding: em(6px);
     border-radius: 5px;
 }
 
-.nav-trips-details {
+.nav-orders-details {
     display: flex;
     background-color: #f3f3f3;
     justify-content: space-between;
@@ -32,14 +32,14 @@
 
 }
 
-.trips-details {
+.orders-details {
     padding: em(5px);
     margin-top: em(15px);
     display: flex;
     gap: em(15px);
     // background-color: #f3f3f3;
 
-    .trip-list {
+    .order-list {
         background-color: #fff;
         overflow: auto;
         display: flex;
@@ -50,7 +50,7 @@
 
 }
 
-.trip-preview {
+.order-preview{
     font-family: circularH;
     padding: em(10px);
     position: relative;
@@ -72,11 +72,9 @@
         align-items: center;
     }
 
-
-
 }
 
-.order-preview {
+.order-preview-modal {
     font-family: circularH;
     background-color: white;
     width: 50%;
