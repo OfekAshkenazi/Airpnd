@@ -124,10 +124,16 @@
 }
 
 .doot {
+    cursor: pointer;
     width: 7px;
     height: 7px;
     background-color: #d9d8d8;
     border-radius: 50%;
+    transition: 0.3s;
+    &:hover {
+       background-color: white;
+       scale: 1.01;
+    }
 }
 
 .preview-rate {

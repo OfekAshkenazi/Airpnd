@@ -19,7 +19,6 @@ export function StayIndex() {
     useEffect(() => {
         loadStays(filterBy)
         ToggleDetails(false)
-        console.log('hi')
     }, [filterBy])
 
     //work
@@ -31,7 +30,7 @@ export function StayIndex() {
             showErrorMsg('Cannot remove stay')
         }
     }
-    // work
+    //work
     async function onAddStay(stay) {
         try {
             const savedStay = await addStay(stay)

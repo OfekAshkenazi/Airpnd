@@ -21,10 +21,19 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
         }
         setIdx(idx)
     }
-
+    function getRating() {
+        if (!stay.reviews || stay.reviews.length === 0) {
+            return null
+        }
+        let totalRating = 0;
+        stay.reviews.forEach(review => {
+            totalRating += review.rate
+        })
+        return (totalRating / stay.reviews.length).toFixed(1)
+    }
     // async function getIconForHeart(stayId) {
     //     try {
-           
+
     //         const realUser = await loadUser(user._id)
     //         if (realUser.wishList.map(wish => wish === stayId)) {
     //             return <IconHeartRed />
@@ -36,20 +45,20 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
     //     }
 
     // }
-   
+
     return (
         <article className="stay-grid" >
             <div className="img-container">
                 <img onClick={() => onMoveToStayDetails(stay._id)} src={stay.imgUrls[idx]} alt="" />
                 <div className="wish-list" onClick={() => onAddToWishList(stay._id)} >
-                   {stay.inWishList ? <IconHeartRed /> : <IconHeart />}
+                    {stay.inWishList ? <IconHeartRed /> : <IconHeart />}
                 </div>
                 <div className="slider-btn flex">
                     <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>
                     <button onClick={() => fixIdxForImages(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
                 </div>
                 <div className="doots">
-                   {stay.imgUrls.map((url,index) => <div onclick={() => setIdx(index)} key={url} className="doot"></div> )}
+                    {stay.imgUrls.map((url, index) => <div onClick={() => setIdx(index)} key={url} className="doot"></div>)}
                 </div>
             </div>
             <div className="stay-small-details grid" onClick={() => onMoveToStayDetails(stay._id)}>
@@ -58,9 +67,8 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
                         {stay.loc.city}, {stay.loc.country}
                     </div>
                     <div className="preview-rate flex">
-                        <FontAwesomeIcon style={{width: '13px'}} icon={faStar} /> 
-                          4.9
-                      
+                        <FontAwesomeIcon style={{ width: '13px' }} icon={faStar} />
+                        {getRating()}
                     </div>
                 </div>
                 <p>{stay.loc.address}</p>
