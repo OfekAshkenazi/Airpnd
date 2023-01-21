@@ -1,171 +1,168 @@
 .stay-filter-expanded {
-    width: 90%;
-    justify-self: center;
-    // background-color: aqua;
-    // border: solid 1px #ddd;
-    border-radius: 50px;
-    justify-items: center;
+    font-family: CerealBd;
+    font-size: 16px;
+    width: 100%;
+    position: absolute;
+    background-color: #ffffff;
+    margin-top: 190px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
 
-    .stay-filter-form.show {
-        transition: 0.5s;
-        opacity: 1;
-        height: 100px;
-        align-items: center;
+    .con.show {
         display: flex;
         justify-content: center;
+        align-items: center;
+        background-color: #ebebeb;
+        animation: scale-display 0.5s;
+        border: 1.5px solid #ddd;
+        border-radius: 50px;
+        padding: 0;
+        width: fit-content;
+        height: 80px;
+        // width: 80%;
 
-        .filter-where {
-            width: 330px;
-            height: 80px;
-            // border: 2px solid black;
-            border-radius: 50px;
-            display: flex;
-            flex-direction: column;
-            padding: 12px;
+        .stay-filter-form {
+            padding: 0px;
+            margin: 0px;
 
-            .filter-where-label {
-                .filter-where-input {
-                    flex-grow: 1;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    outline: none;
-                    border: none;
+            .filter-where {
+                // background-color: aqua;
+                width: 400px;
+                height: 80px;
+                border-radius: 50px;
+                display: flex;
+                flex-direction: column;
+                padding: 18px 38px;
+
+                .filter-where-label {
+                    .filter-where-input {
+                        background-color: #ebebeb;
+                        width: 100%;
+                        // height: 100%;
+                        border-radius: 10px;
+                        outline: none;
+                        border: none;
+                    }
                 }
             }
-        }
 
-        .filter-where {
-            width: 330px;
-            height: 80px;
-            border: 2px solid black;
-            border-radius: 50px;
-            display: flex;
-            flex-direction: column;
-            padding: 12px;
+            &:hover {
+                .filter-where {
+                    background-color: #ddd;
 
-            .filter-where-label {
-                .filter-where-input {
-                    flex-grow: 1;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    outline: none;
-                    border: none;
+                    .filter-where-label {
+                        .filter-where-input {
+                            background-color: #ddd;
+                        }
+                    }
                 }
             }
         }
 
         .filter-check-in {
-            // flex-grow: 0.5;
-            width: 130px;
+            font-family: CerealBd;
+            font-size: 16px;
+            width: 165px;
             height: 80px;
-            border: 2px solid black;
             border-radius: 50px;
             display: flex;
             flex-direction: column;
-            padding: 12px;
+            padding: 18px 27px;
+            background-color: #ebebeb;
 
-            .filter-check-in-label {
-                .filter-check-in-input {
-                    flex-grow: 1;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    outline: none;
-                    border: none;
-                }
+            &:hover {
+                background-color: #ddd;
+
             }
         }
 
         .filter-check-out {
-            // flex-grow: 0.5;
-            width: 130px;
+            font-family: CerealBd;
+            font-size: 16px;
+            width: 165px;
             height: 80px;
-            border: 2px solid black;
             border-radius: 50px;
             display: flex;
             flex-direction: column;
-            padding: 12px;
+            padding: 18px 27px;
+            background-color: #ebebeb;
 
-            .filter-check-out-label {
-                flex-grow: 1;
+            &:hover {
+                background-color: #ddd;
 
-                .filter-check-out-input {
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    outline: none;
-                    border: none;
-                }
             }
         }
 
         .filter-who {
-            // flex-grow: 0.5;
-            width: 130px;
+            width: 320px;
             height: 80px;
-            border: 2px solid black;
             border-radius: 50px;
             display: flex;
-            // flex-direction: row;
-            padding: 12px;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 10px;
 
-            .filter-check-who-label {
-                // display: flex;
-                // flex-direction: row;
+            &:hover {
+                background-color: #ddd;
 
-                .filter-check-who-input {
-                    flex-grow: 1;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    outline: none;
-                    border: none;
+            }
 
-                }
+            .filter-who-content {
+                padding: 18px 30px;
 
-                .btn-search-filter {
-                    width: 135px;
-                    height: 60px;
-                    border-radius: 50px;
-                    background-color: $clrLogo;
-                }
+            }
+
+            .btn-search-filter {
+                font-family: CerealBd;
+                // font-weight: ;
+                color: #ffffff;
+                font-size: 20px;
+                // justify-self: flex-end;
+                width: 138px;
+                height: 60px;
+                border-radius: 50px;
+                background-color: #e31a5f;
+
+            }
+
+            span.search-icon {
+                z-index: 1;
+                // padding-left: 20px;
+                width: 30px;
+                height: 30px;
             }
 
         }
 
-        // .filter-who {
-        //     align-items: center;
-        //     // flex-grow: 0.5;
-        //     width: 145px;
-        //     height: 80px;
+        & .unbold {
+            // padding-top: 3px;
+            font-family: circularL;
+            color: #717171;
+            font-size: 18px;
+        }
 
-        //     border: 2px solid black;
-        //     border-radius: 50px;
+        @keyframes scale-display {
+            0% {
+                height: 0;
+                opacity: 0;
+                transform: scale(0);
+                -webkit-transform: scale(0);
+            }
 
-        //     .filter-who-label {
-        //         display: flex;
-        //         flex-direction: row;
-
-        //         .filter-who-input {
-        //             width: 100%;
-        //             height: 100%;
-        //             border: none;
-        //         }
-
-
-        //     }
-
-        // }
-
+            100% {
+                height: 100px;
+                opacity: 1;
+                transform: scale(1);
+                -webkit-transform: scale(1);
+            }
+        }
     }
-
-
 }
 
-.stay-filter-form.hidden {
-    opacity: 0;
+.con.hidden {
+    display: none;
+    // opacity: 0;
     height: 0;
-    // width: 0;
+    width: 0;
 }

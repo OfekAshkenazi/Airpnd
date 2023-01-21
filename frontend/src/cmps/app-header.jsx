@@ -17,7 +17,9 @@ import { StayFilterExpanded } from './stay-filter-expanded';
 import { NavIconFilter } from './stay-filter-nav-icon';
 
 export function AppHeader() {
-    const [isFilterExpanded, setIsFilterExpanded] = useState(false)
+    const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
+    console.log('filterExpanded:', isFilterExpanded)
+    // const [isFilterExpanded, setIsFilterExpanded] = useState(false)
     const user = useSelector(storeState => storeState.userModule.user)
     async function onLogin(credentials) {
         try {
@@ -59,7 +61,7 @@ export function AppHeader() {
                 </div>
 
 
-                {!isFilterExpanded && <StayFilter setIsFilterExpanded={setIsFilterExpanded} isFilterExpanded={isFilterExpanded} />}
+                <StayFilter />
                 {user &&
                     <span className="user-info">
                         <button className='btn-airpnd-your-home' >Airpnd your home</button>
@@ -83,9 +85,8 @@ export function AppHeader() {
                     </section>
                 }
 
-                <StayFilterExpanded setIsFilterExpanded={setIsFilterExpanded} isFilterExpanded={isFilterExpanded} />
+                <StayFilterExpanded />
             </header>
-            <hr className='hr-header' />
             <NavIconFilter />
         </>
     )
