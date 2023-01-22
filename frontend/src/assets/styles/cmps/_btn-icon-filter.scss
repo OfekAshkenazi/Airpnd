@@ -7,18 +7,15 @@
     margin-left: em(5px);
     align-items: center;
     justify-content: space-between;
-    // z-index: 1;
 }
-
-// .icon-nav::-webkit-scrollbar {
-//     display: none;
-// }
 
 .icon-nav {
     display: flex;
     justify-content: space-around;
     position: relative;
     align-items: center;
+    padding-top: 25px;
+    padding-bottom: 20px;
 
     .filter-icon-pagination {
         position: absolute;
@@ -28,8 +25,13 @@
         justify-content: space-between;
 
         button {
-            padding: em(15px) em(10px);
+            background-color: white;
+            border-radius: 50px;
+            border: #c3c3c3 1px solid;
+            height: 27px;
+            width: 27px;
         }
+
     }
 
     .icon-preview {
@@ -57,6 +59,10 @@
             font-size: 12px;
             font-weight: 800;
         }
+    }
+
+    @media (max-width: 800px) {
+        display: none;
     }
 
 }
