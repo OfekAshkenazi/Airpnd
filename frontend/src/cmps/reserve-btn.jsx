@@ -25,5 +25,20 @@ const useStyles = makeStyles({
 
 export function ReserveBtn() {
   const classes = useStyles()
-  return <Button className={`${classes.root} reserve`}>Reserve</Button>
+
+  const navigate = useNavigate()
+
+  async function onAddNewOrder() {
+    try {
+      const newOrder = orderService.getEmptyOrder()
+      await orderService.add(newOrder)
+      showSuccessMsg('Order been sent')
+      navigate('/orders')
+    } catch (err) {
+      console.log(err)
+      showErrorMsg('Cannot make new order')
+    }
+  }
+
+  return <Button onClick={() => onAddNewOrder()} className={classes.root}>Reserve</Button>
 }
