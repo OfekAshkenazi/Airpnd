@@ -3,7 +3,7 @@ import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'
 
 
-const STORAGE_KEY = 'car'
+const STORAGE_KEY = 'stay'
 
 export const carService = {
     query,
