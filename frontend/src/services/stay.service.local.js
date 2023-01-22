@@ -95,7 +95,7 @@ function getEmptyStay() {
             {
                 "id": "madeId",
                 "txt": "Very helpful hosts. Cooked traditional...",
-                "rate": 4,
+                "rate": 4.7,
                 "by": {
                     "_id": "u102",
                     "fullname": "user2",
@@ -152,7 +152,7 @@ function _createStays() {
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.92,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -201,7 +201,7 @@ function _createStays() {
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.57,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -250,7 +250,7 @@ function _createStays() {
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.62,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -300,7 +300,7 @@ function _createStays() {
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.67,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -348,7 +348,7 @@ function _createStays() {
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.83,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -398,7 +398,7 @@ function _createStays() {
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.91,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -447,7 +447,7 @@ function _createStays() {
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.99,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -496,7 +496,7 @@ function _createStays() {
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.51,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
