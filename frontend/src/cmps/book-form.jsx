@@ -27,7 +27,7 @@ export function BookingForm({ stay }) {
         }
     ])
 
-    return <form className="book-form">
+    return <div className="book-form">
         <div className="header">
             <span className="price"> ${stay.price} <span className="night">night</span></span>
             <span className="reviews">{stay.reviews.length} reviews</span>
@@ -46,7 +46,7 @@ export function BookingForm({ stay }) {
                 direction={'horizontal'}
             /></div>}
             <BasicSelect />
-            <ReserveBtn />
+            <ReserveBtn className="reserve" />
         </div>
         <p>You Won't be charged yet</p>
         <div className="summary">
@@ -56,6 +56,6 @@ export function BookingForm({ stay }) {
             <span className="total">Total <span>$401.32</span></span>
         </div>
         </div>
-    </form>
+    </div>
 }
 

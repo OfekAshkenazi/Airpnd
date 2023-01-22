@@ -3,6 +3,11 @@
     justify-content: space-between;
     margin-top: em(50px);
 
+    .expanded-left {
+        flex-grow: 1;
+    }
+
+
     .capacity {
         display: grid;
         grid-template-rows: 1fr 1fr;

@@ -36,7 +36,7 @@ export function BasicSelect() {
   }
 
   return (
-    <Box className = "guests" sx={{ minWidth: 120 }}>
+    <Box className = "guests" >
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Guests</InputLabel>
         <Select
