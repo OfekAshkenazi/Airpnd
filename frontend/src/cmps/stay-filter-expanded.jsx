@@ -8,6 +8,7 @@ import { onSetFilter } from '../store/stay.actions';
 export function StayFilterExpanded() {
   const [filterByToEdit, setFilterBy] = useState(stayService.getEmptyFilter())
   const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
+
   function handleChange({ target }) {
     let { value, name: field, type } = target
     value = (type === 'range') ? +value : value
@@ -17,8 +18,8 @@ export function StayFilterExpanded() {
   function onFilter(ev) {
     ev.preventDefault()
     onSetFilter(filterByToEdit)
-
   }
+
   const data = {
     checkIn: 'Add dates',
     checkOut: 'Add dates',
@@ -26,8 +27,9 @@ export function StayFilterExpanded() {
   }
 
   function clickBtn(from) {
-    console.log('hiiiiii' + from);
+    console.log('hi' + from);
   }
+
   return (
     <section className={`stay-filter-expanded `}>
       <div className={`con ${(isFilterExpanded) ? "show" : "hidden"}`}>
@@ -40,6 +42,8 @@ export function StayFilterExpanded() {
             </label>
           </div>
         </form>
+        <span></span>
+
         {/* <div className='filter-check-in'> */}
         <button className='filter-check-in font' onClick={() => { clickBtn('check-in') }}>
           <div>
@@ -48,6 +52,7 @@ export function StayFilterExpanded() {
           </div>
         </button>
         {/* </div> */}
+        <span></span>
 
         <button className='filter-check-out' onClick={() => { clickBtn('check-out') }}>
           <div>
@@ -55,15 +60,15 @@ export function StayFilterExpanded() {
             <p className='unbold'>{`${data.checkIn}`}</p>
           </div>
         </button>
+        <span></span>
 
         <div className='filter-who' onClick={() => { clickBtn('who') }}>
           <div className='filter-who-content'>
             <p>Who</p>
             <p className='unbold'>{`${data.checkIn}`}</p>
           </div>
-          <span className='search-icon'><IconBxSearch className='search-icon' /></span>
+          {/* <span className='search-icon'><IconBxSearch className='search-icon' /></span> */}
           <button className='btn-search-filter' onClick={() => { clickBtn('search-filter') }}>Search</button>
-
         </div>
       </div>
     </section >

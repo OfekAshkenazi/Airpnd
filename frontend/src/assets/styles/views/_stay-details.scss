@@ -16,11 +16,13 @@
 .stay-info {
     margin-bottom: em(14px);
     font-weight: 600;
+    align-items: center;
+    justify-content: space-between;
 
-    img {
-        height: 15px;
-        width: 15px;
-        margin-right: 2px;
+    .img-star {
+        height: em(15px);
+        width: em(15px);
+        margin-right: em(7px);
     }
 
     .stay-reviews {
@@ -37,17 +39,22 @@
     }
 
     .action-btn {
-        margin-left: auto;
-        // display: flex;
-        // align-items: center;
+        display: flex;
+        align-items: center;
+
+        img {
+            height: em(15px);
+            width: em(15px);
+            margin-right: em(1.5px);
+        }
 
         .share-btn,
         .save-btn {
-            padding: 8px 16px;
+            padding: 8px 0px;
             color: #222222;
             border: none;
             font-weight: bold;
-            margin-left: em(8px);
+            // margin-left: em(8px);
             transition: all 0.2s ease-in-out;
             cursor: pointer;
             background-color: transparent;
@@ -63,10 +70,7 @@
 .imgs-container {
     margin-bottom: em(40px);
     display: grid;
-    grid-template: repeat(2,26vh)/2fr 1fr 1fr;
-    // grid-template: repeat(2,26vh)/29vw 14vw 14vw;
-    // grid-template-rows: repeat(2, 1fr);
-    // grid-template-columns: 2fr 1fr 1fr;
+    grid-template: repeat(2, 26vh)/2fr 1fr 1fr;
     gap: em(8px);
     grid-template-areas:
         "grid-img-1 grid-img-2 grid-img-3"

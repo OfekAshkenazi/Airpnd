@@ -4,7 +4,7 @@ import '../../node_modules/react-date-range/dist/theme/default.css'
 import { DateRangePicker } from 'react-date-range';
 
 class MyComponent extends Component {
-  handleSelect(ranges){
+  handleSelect(ranges) {
     console.log(ranges);
     // {
     //   selection: {
@@ -13,7 +13,7 @@ class MyComponent extends Component {
     //   }
     // }
   }
-  render(){
+  render() {
     const selectionRange = {
       startDate: new Date(),
       endDate: new Date(),

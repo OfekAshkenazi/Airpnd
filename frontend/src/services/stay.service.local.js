@@ -109,7 +109,6 @@ function getEmptyStay() {
     return stay
 }
 
-
 function _createStays() {
     let stays = storageService.loadFromStorage(STORAGE_KEY)
     if (!stays) {

@@ -9,19 +9,17 @@ import { labels } from '../services/stay.service.local';
 
 export function NavIconFilter() {
     const [idx, setIdx] = useState(0)
-    const pageSize = 12
+    const pageSize = 14
     const pageDiff = 4
     const startLabel = idx * pageDiff
     let labelsPage = labels.slice(startLabel, startLabel + pageSize)
 
     useEffect(() => {
         labelsPage = labels.slice(startLabel, startLabel + pageSize)
-
     }, [idx]
     )
 
     function pagination(diff) {
-        // labels.slice(0, 12)
         let index = idx
         index = index + diff
         if (index < 0) {
@@ -53,7 +51,5 @@ export function NavIconFilter() {
             })}
             {/* <button className="btn-icon-filter"><IconFiltering /> Filters</button> */}
         </section >
-
-
     )
 }

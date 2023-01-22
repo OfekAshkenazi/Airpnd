@@ -33,21 +33,23 @@ export function StayDetails() {
         return (totalRating / stay.reviews.length).toFixed(1)
     }
 
-
     if (!stay) return <div>Loading...</div>
     return <section className="stay-details">
         <h1 className="stay-name">{stay.name}</h1>
         <div className="stay-info flex align-center">
-            <img src={require("../assets/img/icons/star.png")} />
-            <span>{getRating()}</span>
-            <span className="seperator">·</span>
-            <span className="stay-reviews">{(stay.reviews.length)} reviews</span>
-            <span className="seperator">·</span>
-            <span className="stay-location">{stay.loc.city}, {stay.loc.country}</span>
+            <div>
+                <img className="img-star" src={require("../assets/img/icons/star.png")} />
+                <span>{getRating()}</span>
+                <span className="seperator">·</span>
+                <span className="stay-reviews">{(stay.reviews.length)} reviews</span>
+                <span className="seperator">·</span>
+                <span className="stay-location">{stay.loc.city}, {stay.loc.country}</span>
+            </div>
             <div className="action-btn ">
-                <button className="share-btn"> <img src={require("../assets/img/icons/share.png")} />
-                    Share </button>
-                <button className="save-btn"> <img src={require("../assets/img/icons/heart.png")} />Save</button>
+                <img src={require("../assets/img/icons/share.png")} />
+                <button className="share-btn">Share</button>
+                <img src={require("../assets/img/icons/heart.png")} />
+                <button className="save-btn">Save</button>
             </div>
         </div>
         <div className="imgs-container">

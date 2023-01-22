@@ -3,14 +3,12 @@ import { PendingIcon } from "../assets/svg/pending-icon";
 import { showErrorMsg } from "../services/event-bus.service";
 import { orderService } from "../services/order.service.local"
 
-
 export function UserOrders() {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
         onLoadOrders()
     }, [])
-
 
     async function onLoadOrders() {
         try {

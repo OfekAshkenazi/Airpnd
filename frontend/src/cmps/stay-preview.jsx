@@ -6,12 +6,9 @@ import { useSelector } from 'react-redux';
 
 import IconHeart from '../assets/svg/heart-icon';
 import IconHeartRed from '../assets/svg/icon-heart-red';
-import { userService } from '../services/user.service';
-import { loadUser } from '../store/user.actions';
 
 export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
     let [idx, setIdx] = useState(0)
-    const user = useSelector(storeState => storeState.userModule.user)
 
     function fixIdxForImages(diff) {
         idx += diff
@@ -32,20 +29,6 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
         })
         return (totalRating / stay.reviews.length).toFixed(1)
     }
-    // async function getIconForHeart(stayId) {
-    //     try {
-
-    //         const realUser = await loadUser(user._id)
-    //         if (realUser.wishList.map(wish => wish === stayId)) {
-    //             return <IconHeartRed />
-    //         } else {
-    //             return  <IconHeart />
-    //         }
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-
-    // }
 
     return (
         <article className="stay-grid" >

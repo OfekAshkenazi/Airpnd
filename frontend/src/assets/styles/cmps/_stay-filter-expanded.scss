@@ -157,8 +157,19 @@
                 -webkit-transform: scale(1);
             }
         }
+
+        &>span {
+
+            height: 34px;
+            width: 1px;
+            background-color: #ddd;
+        }
     }
+
+
+
 }
+
 
 .con.hidden {
     display: none;

@@ -6,7 +6,8 @@
     position: relative;
     margin-top: 16px;
     margin-bottom: 10px;
-
+    padding-bottom: 13px;
+    border-bottom:solid 1px #efefef;
 
     .user-info {
         display: flex;
@@ -15,28 +16,46 @@
             font-family: circularH;
             background-color: white;
             font-size: 18px;
+            padding: 0px 12px;
 
             @media (max-width: 510px) {
                 display: none;
             }
 
-            color: #666f7a;
+            color: #222222;
             margin-bottom: 4px;
 
+            &:hover {
+                background-color: #f7f7f7;
+                border-radius: 50px;
+            }
         }
 
         .btn-globe {
             background-color: white;
-            margin: 0px 16px;
-            color: #666f7a
+            padding: 0px 12px;
+            margin: 4px 4px;
+            color: #222222;
+
+            &:hover {
+                background-color: #f7f7f7;
+                border-radius: 50px;
+            }
         }
+
 
         .btn-user {
             background-color: white;
             border: solid 1px #ddd;
             border-radius: 50px;
             color: #666f7a;
-            padding: 0px 8px;
+            padding: 0px 4px;
+
+            &:hover {
+                transition: 0.3s;
+                box-shadow: 1px 1px 2px 2px rgb(236, 234, 234);
+                border-radius: 50px;
+            }
         }
     }
 
@@ -52,7 +71,6 @@
         }
 
         .logo-title {
-
             display: none;
             font-size: 1.6em;
             color: $clrLogo;
@@ -66,7 +84,6 @@
     @media (max-width: 1000px) {
         .btn-airpnd-your-home {
             display: none;
-
         }
     }
 
@@ -84,15 +101,9 @@
             width: 100%;
         }
     }
-
-    padding-bottom: 13px;
-    border-bottom:solid 1px #efefef;
 }
 
-
-
 .stay-filter-header {
-    // display: flex;
     align-items: center;
 
     .stay-filter-btns {
@@ -123,18 +134,9 @@
 
         &>span {
 
-            // align-items: center;
             height: 24px;
             width: 1px;
             background-color: #ddd;
-
-            // padding-bottom: 10px;
-            // // color: ;
-            // // font-size: 30px;
-            // background-color: #dddddd;
-            // width: 2px;
-            // height: 30px;
-            // padding-top: 10px;
         }
     }
 
