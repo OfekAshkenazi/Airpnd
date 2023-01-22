@@ -29,7 +29,7 @@ export function BookingForm({ stay }) {
 
     return <form className="book-form">
         <div className="header">
-            <span className="price"> ${stay.price} night</span>
+            <span className="price"> ${stay.price} <span className="night">night</span></span>
             <span className="reviews">{stay.reviews.length} reviews</span>
         </div>
         <div className="action-btn" >
@@ -49,12 +49,12 @@ export function BookingForm({ stay }) {
             <ReserveBtn />
         </div>
         <p>You Won't be charged yet</p>
+        <div className="summary">
         <div className="prices">
-            <span className="nights"></span><span className="cash">₪1,166 x 5 nights</span>
-            <span className="clean"></span><span className="cash">Service Fee</span>
+            <span className="cash">$1,166 x 5 nights <span className="right">$8,066</span></span>
+            <span className="cash">Service Fee<span className="right">$1,139</span></span>
+            <span className="total">Total <span>$401.32</span></span>
         </div>
-        <div className="total">
-            <span>Total</span>
         </div>
     </form>
 }
