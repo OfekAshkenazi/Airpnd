@@ -9,7 +9,6 @@ import { UserOrders } from './cmps/user-orders';
 import { WishList } from './cmps/wish-list';
 import { ProfileNestRoutes } from './pages/profile-nest-routes';
 import routes from './routes';
-import { ToggleDetails } from './store/system.action.js';
 
 export function RootCmp() {
     const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
@@ -28,7 +27,7 @@ export function RootCmp() {
                 </Routes>
                 {/* className={`${(isFilterExpanded) ? "shadow-screen" : ""}`} */}
             </main>
-            <AppFooter />
+            {/* <AppFooter /> */}
             <UserMsg />
         </section >
     )

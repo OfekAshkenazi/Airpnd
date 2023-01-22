@@ -1,6 +1,5 @@
-import * as React from 'react';
+import * as React from 'react'
 
-// icon:menu_hamburger | System UIcons https://systemuicons.com/ | Corey Ginnivan
 function IconMenu_hamburger(props) {
   return (
     <svg
@@ -20,7 +19,7 @@ function IconMenu_hamburger(props) {
         <path d="M4.5 6.5h12M4.498 10.5h11.997M4.5 14.5h11.995" />
       </g>
     </svg>
-  );
+  )
 }
 
-export default IconMenu_hamburger;
+export default IconMenu_hamburger

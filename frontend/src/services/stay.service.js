@@ -1,8 +1,6 @@
 
 import { httpService } from './http.service.js'
-import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
-
 
 const API_KEY = 'stay'
 
@@ -12,9 +10,7 @@ export const stayService = {
     save,
     remove,
     getEmptyStay,
-    addStayMsg
 }
-
 
 async function query(filterBy = { txt: '', price: 0 }) {
     return httpService.get(API_KEY, filterBy)

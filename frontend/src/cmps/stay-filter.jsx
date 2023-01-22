@@ -8,7 +8,6 @@ export function StayFilter() {
 
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
 
-
     function openFilterExpanded() {
         getActionFilterExpanded(true)
     }

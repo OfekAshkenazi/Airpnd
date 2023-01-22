@@ -21,15 +21,12 @@
         border: 1px solid rgb(202, 202, 202);
         text-decoration: none;
         color: $clrBlackFont;
-
     }
 
     .active {
         color: $clr3;
         border: 1px solid $clr3;
-
     }
-
 }
 
 .orders-details {
@@ -37,7 +34,6 @@
     margin-top: em(15px);
     display: flex;
     gap: em(15px);
-    // background-color: #f3f3f3;
 
     .order-list {
         background-color: #fff;
@@ -47,7 +43,6 @@
         gap: em(10px);
         width: 50%;
     }
-
 }
 
 .order-preview{
@@ -64,14 +59,12 @@
 
     &:hover {
         border: 1px solid $clrGreayFont;
-
     }
 
     .order-indiction {
         display: flex;
         align-items: center;
     }
-
 }
 
 .order-preview-modal {

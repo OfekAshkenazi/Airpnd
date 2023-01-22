@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { ToggleDetails } from "../store/system.action.js"
-
 
 export function ProfileNestRoutes() {
 
     useEffect(() => {
-
         ToggleDetails(true)
     }, [])
 

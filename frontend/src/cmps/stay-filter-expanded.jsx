@@ -8,6 +8,7 @@ import { onSetFilter } from '../store/stay.actions';
 export function StayFilterExpanded() {
   const [filterByToEdit, setFilterBy] = useState(stayService.getEmptyFilter())
   const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
+
   function handleChange({ target }) {
     let { value, name: field, type } = target
     value = (type === 'range') ? +value : value
@@ -17,8 +18,8 @@ export function StayFilterExpanded() {
   function onFilter(ev) {
     ev.preventDefault()
     onSetFilter(filterByToEdit)
-
   }
+
   const data = {
     checkIn: 'Add dates',
     checkOut: 'Add dates',
@@ -28,6 +29,7 @@ export function StayFilterExpanded() {
   function clickBtn(from) {
     console.log('hiiiiii' + from);
   }
+
   return (
     <section className={`stay-filter-expanded `}>
       <div className={`con ${(isFilterExpanded) ? "show" : "hidden"}`}>
@@ -63,7 +65,6 @@ export function StayFilterExpanded() {
           </div>
           <span className='search-icon'><IconBxSearch className='search-icon' /></span>
           <button className='btn-search-filter' onClick={() => { clickBtn('search-filter') }}>Search</button>
-
         </div>
       </div>
     </section >

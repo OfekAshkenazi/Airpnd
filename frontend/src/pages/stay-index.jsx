@@ -7,13 +7,10 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
 import { stayService } from '../services/stay.service.local.js';
 import { addStay, loadStays, removeStay, updateStay } from '../store/stay.actions.js';
 import { ToggleDetails } from '../store/system.action.js';
-import { loadUser } from '../store/user.actions.js';
 
 export function StayIndex() {
     const stays = useSelector(storeState => storeState.stayModule.stays)
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
-    const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
-    const user = useSelector(storeState => storeState.userModule.user)
     const navigate = useNavigate()
     useEffect(() => {
         loadStays(filterBy)

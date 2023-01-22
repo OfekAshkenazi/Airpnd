@@ -1,4 +1,3 @@
-import { height } from '@mui/system';
 import { BookingForm } from '../cmps/book-form.jsx';
 import { Amenities } from '../cmps/amenities.jsx';
 
@@ -16,9 +15,9 @@ export function StayExpanded({ stay }) {
                     2 beds
                     <span className="seperator">·</span>
                     1 bath </div>
-
                 <img src={stay.host.imgUrl} />
             </div>
+
             <div className="host">
                 <img style={{ width: '24px', height: '24px' }} src={require("../assets/svg/stay-details/pet_friendly.png")} alt="" />
                 <span className="txt">Furry friends welcome
@@ -34,13 +33,12 @@ export function StayExpanded({ stay }) {
 
             <div className="air-cover">
                 {/* <span className="head"><span className="air">Air</span>cover</span> */}
-                <img className="air" src={require("../assets/img/aircover.png")}/>
+                <img className="air" src={require("../assets/img/aircover.png")} />
                 <span className="txt">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</span>
                 <span className="more">Learn more</span>
             </div>
             <Amenities stay={stay} />
         </div>
         <BookingForm stay={stay} />
-
     </section>
 }

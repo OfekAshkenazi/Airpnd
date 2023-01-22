@@ -41,6 +41,5 @@ export function ReserveBtn() {
       showErrorMsg('Cannot make new order')
     }
   }
-
   return <Button onClick={() => onAddNewOrder()} className={classes.root}>Reserve</Button>
 }

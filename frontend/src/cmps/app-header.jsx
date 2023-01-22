@@ -20,6 +20,7 @@ export function AppHeader() {
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
     // const [isFilterExpanded, setIsFilterExpanded] = useState(false)
     const user = useSelector(storeState => storeState.userModule.user)
+    
     async function onLogin(credentials) {
         try {
             const user = await login(credentials)
@@ -28,6 +29,7 @@ export function AppHeader() {
             showErrorMsg('Cannot login')
         }
     }
+
     async function onSignup(credentials) {
         try {
             const user = await signup(credentials)
@@ -36,6 +38,7 @@ export function AppHeader() {
             showErrorMsg('Cannot signup')
         }
     }
+
     async function onLogout() {
         try {
             await logout()
@@ -59,7 +62,6 @@ export function AppHeader() {
                     <p className='logo-title'>airpnd</p>
                 </div>
 
-
                 <StayFilter />
                 {user &&
                     <span className="user-info">
@@ -69,12 +71,6 @@ export function AppHeader() {
                             <IconMenu_hamburger width='30px' height='45px' className='icon-hamburger' />
                             <IconBxsUserCircle width='43px' height='43px' className='icon-user' />
                         </button>
-                        {/* <span className="score">{user.score?.toLocaleString()}</span>
-                    <button onClick={onLogout}>Logout</button> */}
-                        {/* <Link to={`user/${user._id}`}>
-                        {user.imgUrl && <img src={user.imgUrl} />}
-                        {user.fullname}
-                    </Link> */}
                     </span>
                 }
 
@@ -89,5 +85,4 @@ export function AppHeader() {
             <NavIconFilter />
         </>
     )
-
 }
