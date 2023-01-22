@@ -69,12 +69,7 @@ export function AppHeader() {
                             <IconMenu_hamburger width='30px' height='45px' className='icon-hamburger' />
                             <IconBxsUserCircle width='43px' height='43px' className='icon-user' />
                         </button>
-                        {/* <span className="score">{user.score?.toLocaleString()}</span>
-                    <button onClick={onLogout}>Logout</button> */}
-                        {/* <Link to={`user/${user._id}`}>
-                        {user.imgUrl && <img src={user.imgUrl} />}
-                        {user.fullname}
-                    </Link> */}
+
                     </span>
                 }
 
