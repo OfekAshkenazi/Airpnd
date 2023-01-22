@@ -67,6 +67,7 @@ export function ReviewList({ stay }) {
                     <ReviewPreview review={review} />
                 </li>)}
             </ul>
+
         </section>
     )
 }

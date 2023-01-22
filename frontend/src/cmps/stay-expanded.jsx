@@ -1,6 +1,7 @@
 import { BookingForm } from '../cmps/book-form.jsx';
 import { Amenities } from '../cmps/amenities.jsx';
 import { ReviewList } from './review-llist.jsx';
+import { GoogleMap } from './google-map.details.jsx';
 
 export function StayExpanded({ stay }) {
     const firstName = stay.host.fullname.split(" ")[0]
@@ -40,6 +41,7 @@ export function StayExpanded({ stay }) {
             </div>
             <Amenities stay={stay} />
             <ReviewList stay={stay} />
+            <GoogleMap lat={stay.loc.lat} lng={stay.loc.lng}/>
         </div>
         <BookingForm stay={stay} />
     </section>

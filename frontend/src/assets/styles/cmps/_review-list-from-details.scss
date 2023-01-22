@@ -31,12 +31,14 @@
                 border-radius: em(40px);
                 margin-inline-end: em(10px);
             }
+
             progress::-webkit-progress-bar {
                 font-size: em(16px);
                 height: em(6px);
                 border-radius: em(40px);
                 margin-inline-end: em(6px);
             }
+
             progress::-webkit-progress-value {
                 background-color: black;
                 font-size: em(16px);
@@ -54,4 +56,17 @@
             }
         }
     }
+}
+
+.review-list-preview {
+
+    .review-header {
+        text-transform: capitalize;
+        align-items: center;
+        gap: em(10px);
+        img {
+            object-fit: cover;
+        }
+    }
+
 }

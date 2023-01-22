@@ -48,24 +48,48 @@ function _createReviews() {
   if (!reviews) {
     reviews = [
       {
-        "id": utilService.makeId(),
-        "txt": "Very helpful hosts. Cooked traditional...",
+        "_id": utilService.makeId(),
+        "txt": "Very helpful hosts. Cooked traditional... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, magni? Fugiat, in odit quia quae obcaecati natus deserunt veritatis, quasi similique sed voluptas repudiandae nisi. Officia nemo quidem iure totam!",
         "rate": 4.7,
         "by": {
           "_id": "u102",
-          "fullname": "user2",
-          "imgUrl": "../user-img/baby.jpg"
-        }
+          "fullname": "natali23",
+          "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4NjIbgcUNdTJTH82D5eGI0pOJ4g06db-g1w&usqp=CAU"
+        },
+        "date": "september 2021"
       },
       {
-        "id": utilService.makeId(),
-        "txt": "Such a beautiful place",
+        "_id": utilService.makeId(),
+        "txt": "Such a beautiful place... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, magni? Fugiat, in odit quia quae obcaecati natus deserunt veritatis, quasi similique sed voluptas repudiandae nisi. Officia nemo quidem iure totam!",
         "rate": 4.9,
         "by": {
           "_id": "u102",
-          "fullname": "user2",
-          "imgUrl": "../user-img/baby.jpg"
-        }
+          "fullname": "jinxi",
+          "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXkEaKGdTvRr6BqxgHo5fD2sMJF5SX02BzAg&usqp=CAU"
+        },
+        "date": "august 2018"
+      },
+      {
+        "_id": utilService.makeId(),
+        "txt": "Omg im so in love in this place... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, magni? Fugiat, in odit quia quae obcaecati natus deserunt veritatis, quasi similique sed voluptas repudiandae nisi. Officia nemo quidem iure totam!",
+        "rate": 4.3,
+        "by": {
+          "_id": "u102",
+          "fullname": "ofek",
+          "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2EC6kTpqfJGDt_v216tBF48TaLcfbQW-vLw&usqp=CAU"
+        },
+        "date": "june 2015"
+      },
+      {
+        "_id": utilService.makeId(),
+        "txt": "Amzing pool was there all day 😎 ... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, magni? Fugiat, in odit quia quae obcaecati natus deserunt veritatis, quasi similique sed voluptas repudiandae nisi. Officia nemo quidem iure totam!",
+        "rate": 4.75,
+        "by": {
+          "_id": "u102",
+          "fullname": "mr bill",
+          "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRidqR9Jj4w8oA6ztOgc4KAlt1seDpc3clokQ&usqp=CAU"
+        },
+        "date": "November 2020"
       },
     ]
     storageService.saveToStorage('review', reviews)
