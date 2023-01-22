@@ -22,12 +22,18 @@ export function ImageSlider({ images, stayId }) {
     }
 
     return (
-        <div className="wish-list"> <FontAwesomeIcon className="icon-heart" icon={faHeart} />
+        <>
+            <img onClick={() => onMoveToStayDetails(stay._id)} src={stay.imgUrls[idx]} alt="" />
+            <div className="wish-list" onClick={() => onAddToWishList(stay._id)} >
+                {stay.inWishList ? <IconHeartRed /> : <IconHeart />}
+            </div>
             <div className="slider-btn flex">
                 <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>
                 <button onClick={() => fixIdxForImages(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
             </div>
-
-        </div>
+            <div className="doots">
+                {stay.imgUrls.map((url, index) => <div onClick={() => setIdx(index)} key={url} className="doot"></div>)}
+            </div>
+        </>
     )
 }
