@@ -10,14 +10,27 @@
     // z-index: 1;
 }
 
+// .icon-nav::-webkit-scrollbar {
+//     display: none;
+// }
+
 .icon-nav {
     display: flex;
-    // flex-wrap: wrap;
-    overflow-y: hidden;
-    gap: 30px;
-    justify-content: center;
+    justify-content: space-around;
+    position: relative;
+    align-items: center;
 
+    .filter-icon-pagination {
+        position: absolute;
+        display: flex;
+        align-self: center;
+        width: 100%;
+        justify-content: space-between;
 
+        button {
+            padding: em(15px) em(10px);
+        }
+    }
 
     .icon-preview {
         display: flex;
@@ -48,6 +61,6 @@
 
 }
 
-.icon-nav.hidden {
-    display: none;
-}
+// .icon-nav.hidden {
+//     display: none;
+// }
