@@ -1,3 +1,6 @@
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -5,29 +8,43 @@ import { IconFiltering } from '../assets/svg/filtring-icon';
 import { labels } from '../services/stay.service.local';
 
 export function NavIconFilter() {
+    const [idx, setIdx] = useState(0)
+    const pageSize = 12
+    const pageDiff = 4
+    const startLabel = idx * pageDiff
+    let labelsPage = labels.slice(startLabel, startLabel + pageSize)
 
-    function goLeft() {
+    useEffect(() => {
+        labelsPage = labels.slice(startLabel, startLabel + pageSize)
+
+    }, [idx]
+    )
+
+    function pagination(diff) {
+        // labels.slice(0, 12)
+        let index = idx
+        index = index + diff
+        if (index < 0) {
+            index = 0
+        }
+        else if (
+            labels.length - (startLabel + pageSize) < 0
+        ) {
+            index = index - 1
+            setIdx(idx)
+        }
+        setIdx(index)
 
     }
-    // function pagination(diff) {
-    //     if (idx < 0) {
-    //     idx += diff
-    //         idx = 0
-    //     }
-    //     setIdx(idx)
-    // }
 
-    function goRight() {
-
-    }
     console.log('labels:', labels)
     return (
         <section className='icon-nav'>
             <div className="filter-icon-pagination">
-                <button>⬅️</button>
-                <button >➡️</button>
+                <button onClick={() => { pagination(-1) }} className='icons-left'><FontAwesomeIcon icon={faAngleLeft} /></button>
+                <button onClick={() => { pagination(+1) }} className='icons-right'><FontAwesomeIcon icon={faAngleRight} /></button>
             </div>
-            {labels.slice(0, 12).map(label => {
+            {labelsPage.map(label => {
                 return <NavLink key={label} to="/" style={{ textDecoration: 'none' }}>
                     <div className='icon-preview'>
                         <img src={require(`../assets/icon-nav-filter/${label}.png`)} alt="" />
