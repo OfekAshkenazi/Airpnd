@@ -1,24 +1,24 @@
-import React from 'react'
-import { Routes, Route } from 'react-router'
+import React from 'react';
 import { useSelector } from 'react-redux';
-import routes from './routes'
+import { Route, Routes } from 'react-router';
 
-import { AppHeader } from './cmps/app-header'
-import { AppFooter } from './cmps/app-footer'
-import { UserMsg } from './cmps/user-msg'
-
-import { ToggleDetails } from "./store/system.action.js"
-import { ProfileNestRoutes } from './pages/profile-nest-routes';
-import { WishList } from './cmps/wish-list';
+import { AppFooter } from './cmps/app-footer';
+import { AppHeader } from './cmps/app-header';
+import { UserMsg } from './cmps/user-msg';
 import { UserOrders } from './cmps/user-orders';
+import { WishList } from './cmps/wish-list';
+import { ProfileNestRoutes } from './pages/profile-nest-routes';
+import routes from './routes';
+import { ToggleDetails } from './store/system.action.js';
 
 export function RootCmp() {
     const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
     const layout = isDetailsOpen ? 'main-container narrow' : 'main-container'
+    const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
     return (
-        <section className={layout}>
+        <section className={` ${layout}`}>
             <AppHeader />
-            <main>
+            <main >
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
                     <Route element={<ProfileNestRoutes />} path="/orders">
@@ -26,11 +26,11 @@ export function RootCmp() {
                         <Route element={<UserOrders />} path="/orders" />
                     </Route>
                 </Routes>
-
+                {/* className={`${(isFilterExpanded) ? "shadow-screen" : ""}`} */}
             </main>
             <AppFooter />
             <UserMsg />
-        </section>
+        </section >
     )
 }
 

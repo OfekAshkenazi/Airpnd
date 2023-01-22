@@ -5,16 +5,9 @@ import { IconFiltering } from '../assets/svg/filtring-icon';
 import { labels } from '../services/stay.service.local';
 
 export function NavIconFilter() {
-    // const pageSize = 10
-    // let [idx, setIdx] = useState(0)
-    // let startIdx = pageSize * idx
-    // let labelPage = labels.slice(startIdx, startIdx + pageSize)
-    // // let startIdx = pageSize * idx
-    // // let labelPage = labels.slice(idx, idx + pageSize)
 
+    function goLeft() {
 
-    function onOpenFilterModal() {
-        // console.log('hi')
     }
     // function pagination(diff) {
     //     if (idx < 0) {
@@ -24,6 +17,10 @@ export function NavIconFilter() {
     //     setIdx(idx)
     // }
 
+    function goRight() {
+
+    }
+    console.log('labels:', labels)
     return (
         <section className='icon-nav'>
             <div className="filter-icon-pagination">
