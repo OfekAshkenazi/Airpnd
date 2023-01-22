@@ -20,7 +20,6 @@ export function NavIconFilter() {
     function goRight() {
 
     }
-    console.log('labels:', labels)
     return (
         <section className='icon-nav'>
             <div className="filter-icon-pagination">
