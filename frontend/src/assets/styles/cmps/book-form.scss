@@ -2,25 +2,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+  // width: em(510px);
+  width: 45%;
+  margin-left: em(58px);
+  max-height: em(500px);
   border: em(1px) solid rgb(221, 221, 221);
   border-radius: em(12px);
   padding: em(24px);
   box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-  width: em(510px);
-  margin-left: em(58px);
-  max-height: em(500px);
-  overflow: auto;
 
   .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 80%;
     margin-bottom: em(20px);
 
     .price {
       font-size: 20px;
       font-weight: bold;
+    }
+
+    .night {
+      font-weight: normal;
     }
 
     .reviews {
@@ -32,12 +36,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 16px;
   }
 
   .checkin-out {
     display: flex;
-    width: em(300px);
 
     :first-child {
       border-right: none;
@@ -49,7 +51,6 @@
   }
 
   input[type="text"] {
-    width: 100%;
     padding: em(24px) em(20px);
     border: em(2px) solid #ccc;
     border-radius: em(4px);
@@ -61,28 +62,57 @@
 
   .reserve {
     width: em(322px);
+    margin-top: em(16px);
+    margin-bottom: em(16px);
+    border-radius: em(10px);
+    font-weight: 600;
+    height: em(50px);
+    transition: 1s;
   }
 
-  .prices,
-  .total {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
+  p {
+    text-align: center;
+    color: #717171;
+    // color: aqua;
+  }
+
+  .summary {
+    width: 100%;
     margin-top: 20px;
+    .prices {
 
-    .cash {
-      font-weight: bold;
+      .cash {
+        display: flex;
+        justify-content: space-between;
+        color: #717171;
+        font-weight: normal;
+        text-decoration: underline;
+        line-height: em(40px);
+
+        .right {
+          text-decoration: none;
+        }
+      }
+
     }
-  }
 
-  .total {
-    font-size: em(18px);
-  }
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: em(16px);
+      font-weight: 600;
+      margin-top: em(16px);
+      border-top: em(1px) solid rgb(221, 221, 221);
+      padding-top: em(20px); 
+    }
 
-  .date-range {
-    position: absolute;
-    z-index: 1000;
-    left: em(-463px);
-    top: em(100px);
+
+    .date-range {
+      position: absolute;
+      z-index: 1000;
+      left: em(-463px);
+      top: em(100px);
+    }
   }
 }

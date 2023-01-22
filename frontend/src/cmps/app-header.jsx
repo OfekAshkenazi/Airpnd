@@ -52,7 +52,7 @@ export function AppHeader() {
 
     return (
         <>
-            <header className="app-header">
+            <header className="app-header" >
 
                 <div onClick={onLogoClick} className='logo-container'>
                     <img src={logo} alt="logo" className='logo' />

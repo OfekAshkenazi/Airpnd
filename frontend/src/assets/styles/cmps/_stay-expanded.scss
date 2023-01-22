@@ -1,6 +1,7 @@
 .stay-expanded {
     display: flex;
     justify-content: space-between;
+    margin-top: em(50px);
 
     .capacity {
         display: grid;
