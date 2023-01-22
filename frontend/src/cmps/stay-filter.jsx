@@ -7,6 +7,7 @@ import { getActionFilterExpanded } from '../store/filter.expanded.action';
 export function StayFilter() {
 
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
+    // const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
 
     function openFilterExpanded() {
         getActionFilterExpanded(true)
@@ -19,7 +20,7 @@ export function StayFilter() {
     return (
         <section className="stay-filter-header">
 
-            <button onClick={closeFilterExpanded}>close</button>
+            {/* <button onClick={closeFilterExpanded}>close</button> */}
             <div onClick={openFilterExpanded} className="stay-filter-btns">
                 <button className="stay-filter-btn"> Anywhere</button>
                 <span></span>

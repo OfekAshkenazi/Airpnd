@@ -9,7 +9,7 @@ import { labels } from '../services/stay.service.local';
 
 export function NavIconFilter() {
     const [idx, setIdx] = useState(0)
-    const pageSize = 12
+    const pageSize = 14
     const pageDiff = 4
     const startLabel = idx * pageDiff
     let labelsPage = labels.slice(startLabel, startLabel + pageSize)

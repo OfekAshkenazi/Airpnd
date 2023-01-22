@@ -25,7 +25,7 @@ export function UserOrders() {
 
                 {orders.map(order => {
                     return (
-                        <div className="order-preview">
+                        <div key={order._id} className="order-preview">
                             <div>
                                 {order.stay.name}
                                 <br></br>

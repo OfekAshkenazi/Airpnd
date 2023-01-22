@@ -71,6 +71,7 @@ export function AppHeader() {
                             <IconMenu_hamburger width='30px' height='45px' className='icon-hamburger' />
                             <IconBxsUserCircle width='43px' height='43px' className='icon-user' />
                         </button>
+                
                     </span>
                 }
 
