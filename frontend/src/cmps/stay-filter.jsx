@@ -26,8 +26,8 @@ export function StayFilter() {
                 <span></span>
                 <button className="stay-filter-btn">Any week</button>
                 <span></span>
-                <button className="stay-filter-btn" style={{ color: '#717171' }}>Add guests</button>
-                <button className="stay-filter-btn serach"> <FontAwesomeIcon icon={faMagnifyingGlass} className='icon-search' /></button>
+                <button className="stay-filter-btn add-guests" >Add guests</button>
+                <button className="stay-filter-btn search"> <FontAwesomeIcon icon={faMagnifyingGlass} className='icon-search' /></button>
             </div>
         </section>
     )

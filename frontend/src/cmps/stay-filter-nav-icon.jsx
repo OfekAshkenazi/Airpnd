@@ -45,7 +45,7 @@ export function NavIconFilter() {
                 return <NavLink key={label} to="/" style={{ textDecoration: 'none' }}>
                     <div className='icon-preview'>
                         <img src={require(`../assets/icon-nav-filter/${label}.png`)} alt="" />
-                        <p>Cabins</p>
+                        <p>{`${label}`}</p>
                     </div>
                 </NavLink>
             })}
