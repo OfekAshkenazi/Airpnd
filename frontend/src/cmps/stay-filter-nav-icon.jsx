@@ -5,37 +5,31 @@ import { IconFiltering } from '../assets/svg/filtring-icon';
 import { labels } from '../services/stay.service.local';
 
 export function NavIconFilter() {
-    // const pageSize = 10
-    // let [idx, setIdx] = useState(0)
-    // let startIdx = pageSize * idx
-    // let labelPage = labels.slice(startIdx, startIdx + pageSize)
-    // // let startIdx = pageSize * idx
-    // // let labelPage = labels.slice(idx, idx + pageSize)
 
+    function goLeft() {
 
-    function onOpenFilterModal() {
-        // console.log('hi')
     }
-    // function pagination(diff) {
-    //     idx += diff
-    //     if (idx < 0) {
-    //         idx = 0
-    //     }
-    //     setIdx(idx)
-    // }
 
+    function goRight() {
+
+    }
+    console.log('labels:', labels)
     return (
         <section className='icon-nav'>
-            {/* <button onClick={() => { pagination(-1) }}>⬅️</button> */}
-            {labels.map(label => {
-                return <NavLink key={label} to="/" style={{ textDecoration: 'none' }}>
-                    <div className='icon-preview'>
-                        <img src={require(`../assets/icon-nav-filter/${label}.png`)} alt="" />
-                        <p>Cabins</p>
-                    </div>
-                </NavLink>
-            })}
-            {/* <button onClick={() => { pagination(+1) }}>➡️</button> */}
+            <div className='filter-icon-pagination'>
+                <button className='first'>⬅️</button>
+                <button onClick={goRight} className='second'>➡️</button>
+            </div>
+            <section className='flex'>
+                {labels.map(label => {
+                    return <NavLink key={label} to="/" style={{ textDecoration: 'none' }}>
+                        <div className='icon-preview'>
+                            <img src={require(`../assets/icon-nav-filter/${label}.png`)} alt="" />
+                            <p>Cabins</p>
+                        </div>
+                    </NavLink>
+                })}
+            </section>
             <button className="btn-icon-filter"><IconFiltering /> Filters</button>
         </section >
 
