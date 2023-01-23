@@ -5,18 +5,17 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { makeStyles } from '@mui/styles';
-import Button from '@mui/material/Button';
 
 const useStyles = makeStyles({
   select: {
-    display: 'flex',
-    alignItems: 'center',
+    // display: 'flex',
+    // alignItems: 'center',
   },
 })
 
 export function BasicSelect() {
-  const [guests, setAge] = React.useState({ adults: 0, children: 0, infants: 0, pets: 0 });
   const classes = useStyles()
+  const [guests, setAge] = React.useState({ adults: 0, children: 0, infants: 0, pets: 0 })
   const [selectedValue, setSelectedValue] = React.useState('')
 
   const handleIncrement = (name) => {
@@ -36,51 +35,68 @@ export function BasicSelect() {
   }
 
   return (
-    <Box className = "guests" >
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Guests</InputLabel>
-        <Select
+    <Box >
+      <FormControl fullWidth >
+        <InputLabel id="demo-simple-select-label">
+          <div className="guests">
+            <span className="bold">GUESTS</span>
+            <span className="second-row">{guests.adults + guests.children + guests.infants + guests.pets} guests</span>
+          </div>
+        </InputLabel>
+        <Select 
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Age"
-          value={selectedValue}
+          value=''
           onChange={event => setSelectedValue(event.target.value)}
         >
           <MenuItem
             className={classes.select}
             value="adults"
           >
-            Adults
-            <Button onClick={() => handleIncrement('adults')}>+</Button>
-            <Button onClick={() => handleDecrement('adults')}>-</Button>
-            <span>{guests.adults}</span>
+            <div className="guest-type">
+              <div className="content">Adults <span className="description">Age 13+</span></div>
+              <div className="btns">
+                <button className='guest-btn' onClick={() => handleDecrement('adults')}><span>-</span></button>
+              <span>{guests.adults}</span>
+                <button className='guest-btn' onClick={() => handleIncrement('adults')}><span>+</span></button>
+              </div></div>
           </MenuItem>
           <MenuItem
             className={classes.select}
             value="children"
           >
-            Children
-            <Button onClick={() => handleIncrement('children')}>+</Button>
-            <Button onClick={() => handleDecrement('children')}>-</Button>
-            <span>{guests.children}</span>
+             <div className="guest-type">
+              <div className="content">Childern <span className="description">Age 2-12</span></div>
+              <div className="btns">
+                <button className='guest-btn' onClick={() => handleDecrement('children')}><span>-</span></button>
+              <span>{guests.children}</span>
+                <button className='guest-btn' onClick={() => handleIncrement('children')}><span>+</span></button>
+              </div></div>
           </MenuItem>
           <MenuItem
             className={classes.select}
             value="infants"
           >
-            Infants
-            <Button onClick={() => handleIncrement('infants')}>+</Button>
-            <Button onClick={() => handleDecrement('infants')}>-</Button>
-            <span>{guests.infants}</span>
+            <div className="guest-type">
+              <div className="content">Infants <span className="description">Under 2</span></div>
+              <div className="btns">
+                <button className='guest-btn' onClick={() => handleDecrement('infants')}><span>-</span></button>
+              <span>{guests.infants}</span>
+                <button className='guest-btn' onClick={() => handleIncrement('infants')}><span>+</span></button>
+              </div></div>
           </MenuItem>
           <MenuItem
             className={classes.select}
             value="pets"
           >
-            Pets
-            <Button onClick={() => handleIncrement('pets')}>+</Button>
-            <Button onClick={() => handleDecrement('pets')}>-</Button>
-            <span>{guests.pets}</span>
+            <div className="guest-type">
+              <div className="content">Pets <span className="description-pets">Bringing a service animal?</span></div>
+              <div className="btns">
+                <button className='guest-btn' onClick={() => handleDecrement('pets')}><span>-</span></button>
+              <span>{guests.pets}</span>
+                <button className='guest-btn' onClick={() => handleIncrement('pets')}><span>+</span></button>
+              </div></div>
           </MenuItem>
         </Select>
       </FormControl>
