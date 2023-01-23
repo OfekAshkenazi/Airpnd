@@ -1,0 +1,72 @@
+.review-list {
+    border-top: em(1px) solid rgb(221, 221, 221);
+    margin-top: em(33px);
+
+    h2 {
+        margin-top: em(33px);
+        align-items: center;
+    }
+
+    .review-head-lins {
+        display: grid;
+        grid-template: repeat(3, 1fr)/repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: em(30px);
+        align-items: center;
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            border-radius: em(30px);
+            font-size: em(18px);
+
+            span {
+                border-radius: em(30px);
+            }
+
+            progress {
+                background-color: black;
+                font-size: em(16.3px);
+                height: em(6px);
+                border-radius: em(40px);
+                margin-inline-end: em(10px);
+            }
+
+            progress::-webkit-progress-bar {
+                font-size: em(16px);
+                height: em(6px);
+                border-radius: em(40px);
+                margin-inline-end: em(6px);
+            }
+
+            progress::-webkit-progress-value {
+                background-color: black;
+                font-size: em(16px);
+                height: em(6px);
+                border-radius: em(40px);
+                margin-inline-end: em(6px);
+            }
+
+            progress::-moz-progress-bar {
+                background-color: black;
+                font-size: em(16px);
+                height: em(6px);
+                border-radius: em(40px);
+                margin-inline-end: em(6px);
+            }
+        }
+    }
+}
+
+.review-list-preview {
+
+    .review-header {
+        text-transform: capitalize;
+        align-items: center;
+        gap: em(10px);
+        img {
+            object-fit: cover;
+        }
+    }
+
+}

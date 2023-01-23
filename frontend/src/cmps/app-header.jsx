@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { UserPagesModal } from '../cmps/user-pages-modal.jsx';
 
 import logo from '../assets/img/logo.png';
 import IconBxGlobe from '../assets/svg/globe-icon';
@@ -20,7 +21,7 @@ export function AppHeader() {
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
     // const [isFilterExpanded, setIsFilterExpanded] = useState(false)
     const user = useSelector(storeState => storeState.userModule.user)
-    
+
     async function onLogin(credentials) {
         try {
             const user = await login(credentials)
@@ -53,26 +54,32 @@ export function AppHeader() {
         navigate(`/`)
     }
 
+function openUserModal() {
+    document.querySelector('.user-page-modal').style.display = 'block'
+}
+
     return (
         <>
             <header className="app-header" >
 
                 <div onClick={onLogoClick} className='logo-container'>
                     <img src={logo} alt="logo" className='logo' />
-                    <p className='logo-title'>airpnd</p>
+                    <p className='logo-title'>ɑirpnd</p>
                 </div>
 
                 <StayFilter />
                 {user &&
-                    <span className="user-info">
-                        <button className='btn-airpnd-your-home' >Airpnd your home</button>
-                        <button className='btn-globe'><IconBxGlobe className='icon-glob' width='20px' height='20px' /></button>
-                        <button className='btn-user'>
-                            <IconMenu_hamburger width='30px' height='45px' className='icon-hamburger' />
-                            <IconBxsUserCircle width='43px' height='43px' className='icon-user' />
-                        </button>
-                
-                    </span>
+                    <>
+                        <span className="user-info">
+                            <button className='btn-airpnd-your-home' >Airpnd your home</button>
+                            {/* <button className='btn-globe'><IconBxGlobe className='icon-glob' width='20px' height='20px' /></button> */}
+                            <button onClick={openUserModal} className='btn-user'>
+                                <IconMenu_hamburger width='22px' height='34px' className='icon-hamburger' />
+                                <IconBxsUserCircle width='37px' height='33px' className='icon-user' />
+                            </button>
+                            <UserPagesModal />
+                        </span>
+                    </>
                 }
 
                 {!user &&
@@ -80,9 +87,9 @@ export function AppHeader() {
                         <LoginSignup onLogin={onLogin} onSignup={onSignup} />
                     </section>
                 }
-
                 <StayFilterExpanded />
             </header>
+
             <NavIconFilter />
         </>
     )

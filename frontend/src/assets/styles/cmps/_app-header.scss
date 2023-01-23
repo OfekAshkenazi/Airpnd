@@ -6,8 +6,8 @@
     position: relative;
     margin-top: 16px;
     margin-bottom: 10px;
-    padding-bottom: 13px;
-    border-bottom:solid 1px #efefef;
+    padding-bottom: 16px;
+    border-bottom: solid 1px #efefef;
 
     .user-info {
         display: flex;
@@ -15,27 +15,15 @@
         .btn-airpnd-your-home {
             font-family: circularH;
             background-color: white;
-            font-size: 18px;
+            font-size: 14px;
             padding: 0px 12px;
 
             @media (max-width: 510px) {
                 display: none;
             }
 
-            color: #222222;
-            margin-bottom: 4px;
-
-            &:hover {
-                background-color: #f7f7f7;
-                border-radius: 50px;
-            }
-        }
-
-        .btn-globe {
-            background-color: white;
-            padding: 0px 12px;
-            margin: 4px 4px;
-            color: #222222;
+            color: #222;
+            margin-bottom: 0px;
 
             &:hover {
                 background-color: #f7f7f7;
@@ -45,11 +33,15 @@
 
 
         .btn-user {
+            margin-top: 4px;
             background-color: white;
             border: solid 1px #ddd;
             border-radius: 50px;
             color: #666f7a;
-            padding: 0px 4px;
+            // padding: 0px 8px;
+            padding-top: 3px;
+            padding-right: 0px;
+            padding-left: 10px;
 
             &:hover {
                 transition: 0.3s;
@@ -67,13 +59,14 @@
         cursor: pointer;
 
         .logo {
-            width: 37px;
+            width: 32px;
         }
 
         .logo-title {
             display: none;
-            font-size: 1.6em;
+            font-size: 1.3em;
             color: $clrLogo;
+            padding-right: 120px;
 
             @media (min-width: 1128px) {
                 display: block;
@@ -110,26 +103,44 @@
         cursor: pointer;
         display: flex;
         border: solid 1px #ddd;
-        box-shadow: 1px 1px 2px 2px rgb(236, 234, 234);
+        box-shadow: 1px 1px 1px 1px rgb(236, 234, 234);
         border-radius: 30px;
         gap: 1px;
         display: flex;
         align-items: center;
 
+        &:hover {
+            transition: 0.2s;
+            box-shadow: 1px 1px 3px 3px rgb(236, 234, 234);
+
+        }
+
         .stay-filter-btn {
             font-family: Arial, Helvetica, sans-serif;
             border-radius: 50px;
             background-color: white;
-            font-size: 16px;
-            padding: 8px 9px;
-            margin-left: 10px;
+            font-size: 15px;
+            padding: 6px 6px;
+            margin: 0px 11px;
+            margin-right: 6px;
+
+            &.add-guests {
+                color: #717171;
+            }
+
+            &.search {
+                margin-right: 1px;
+            }
         }
+
 
         .icon-search {
             color: white;
             background-color: $clr3;
-            padding: 10px;
+            padding: 8px;
+            margin: 0px;
             border-radius: 20px;
+
         }
 
         &>span {
@@ -142,3 +153,25 @@
 
 
 }
+
+
+// .stay-filter-btn {
+//     font-family: Arial, Helvetica, sans-serif;
+//     border-radius: 50px;
+//     background-color: white;
+//     font-size: 15px;
+//     padding: 6px 6px;
+//     margin-left: 18px;
+//     margin-right: 4px;
+
+//     &.add-guests {
+//         color: #717171;
+//         margin-left: 8px;
+//         padding: 4px;
+
+//     }
+
+//     &.search {
+//         padding: 6px 0px;
+//     }
+// }

@@ -24,7 +24,7 @@ export function RootCmp() {
     return (
         <section className={` ${layout}`}>
             <AppHeader />
-            <main onClick={closeFilterExpanded}>
+            <main onClick={closeFilterExpanded} >
                 {/* {isFilterExpanded&& } */}
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}

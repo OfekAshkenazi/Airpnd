@@ -1,5 +1,5 @@
-import { storageService } from './async-storage.service'
-import { httpService } from './http.service'
+import { storageService } from './async-storage.service';
+import { httpService } from './http.service';
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 const STOARGE_KEY_USERS = "user"
@@ -90,7 +90,7 @@ function _crateUsers() {
     if (!users) {
         ; (async () => {
             await userService.signup({ fullname: 'User 1', username: 'puki', password: '123', "isOwner": false, wishList: ['10006546'] })
-            await userService.signup({ fullname: 'User 2', username: 'muki', password: '123', "isOwner": true })
+            await userService.signup({ fullname: 'User 2', username: 'muki', password: '123', "isOwner": true, imgUrl: "../user-img/baby.jpg" })
         })()
         return users
     }

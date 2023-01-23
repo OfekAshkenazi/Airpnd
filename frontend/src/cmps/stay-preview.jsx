@@ -4,12 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import IconHeart from '../assets/svg/heart-icon';
-import IconHeartRed from '../assets/svg/icon-heart-red';
+import IconHeart from '../assets/svg/icon-heart';
 
 export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
     let [idx, setIdx] = useState(0)
-
     function fixIdxForImages(diff) {
         idx += diff
         if (idx > stay.imgUrls.length - 1) {
@@ -35,7 +33,7 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
             <div className="img-container">
                 <img onClick={() => onMoveToStayDetails(stay._id)} src={stay.imgUrls[idx]} alt="" />
                 <div className="wish-list" onClick={() => onAddToWishList(stay._id)} >
-                    {stay.inWishList ? <IconHeartRed /> : <IconHeart />}
+                    {stay.inWishList ? <IconHeart fill={"#FF385C"} /> : <IconHeart fill={"#41454fd2"}/>}
                 </div>
                 <div className="slider-btn flex">
                     <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>

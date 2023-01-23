@@ -88,14 +88,14 @@ function getEmptyStay() {
             "countryCode": "PT",
             "city": "Porto",
             "address": "17 Kombo st",
-            "lat": -8.61308,
-            "lng": 41.1413
+            "lat": 31.85316500,
+            "lng": 34.84242200
         },
         "reviews": [
             {
                 "id": "madeId",
                 "txt": "Very helpful hosts. Cooked traditional...",
-                "rate": 4,
+                "rate": 4.7,
                 "by": {
                     "_id": "u102",
                     "fullname": "user2",
@@ -145,14 +145,14 @@ function _createStays() {
                     "countryCode": "PT",
                     "city": "Porto",
                     "address": "17 Kombo st",
-                    "lat": -8.61308,
-                    "lng": 41.1413
+                    "lat": 31.85316500,
+                    "lng": 34.84242200
                 },
                 "reviews": [
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.92,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -194,14 +194,14 @@ function _createStays() {
                     "countryCode": "PT",
                     "city": "Porto",
                     "address": "17 Kombo st",
-                    "lat": -8.547,
-                    "lng": 41.209
+                    "lat": 31.85316500,
+                    "lng": 34.84242200
                 },
                 "reviews": [
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.57,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -243,14 +243,14 @@ function _createStays() {
                     "countryCode": "PT",
                     "city": "Porto",
                     "address": "17 Kombo st",
-                    "lat": -3.6887,
-                    "lng": 40.3762
+                    "lat": 31.85316500,
+                    "lng": 34.84242200
                 },
                 "reviews": [
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.62,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -293,14 +293,14 @@ function _createStays() {
                     "countryCode": "PT",
                     "city": "Porto",
                     "address": "17 Kombo st",
-                    "lat": 24.3557,
-                    "lng": 55.7327
+                    "lat": 31.85316500,
+                    "lng": 34.84242200
                 },
                 "reviews": [
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.67,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -341,14 +341,14 @@ function _createStays() {
                     "countryCode": "PT",
                     "city": "Porto",
                     "address": "17 Kombo st",
-                    "lat": -51.0603,
-                    "lng": 0.04692
+                    "lat": 31.85316500,
+                    "lng": 34.84242200
                 },
                 "reviews": [
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.83,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -391,14 +391,14 @@ function _createStays() {
                     "countryCode": "PT",
                     "city": "Porto",
                     "address": "17 Kombo st",
-                    "lat": 2.2931,
-                    "lng": 48.855
+                    "lat": 31.85316500,
+                    "lng": 34.84242200
                 },
                 "reviews": [
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.91,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -447,7 +447,7 @@ function _createStays() {
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.99,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
@@ -496,7 +496,7 @@ function _createStays() {
                     {
                         "id": "madeId",
                         "txt": "Very helpful hosts. Cooked traditional...",
-                        "rate": 4,
+                        "rate": 4.51,
                         "by": {
                             "_id": "u102",
                             "fullname": "user2",
