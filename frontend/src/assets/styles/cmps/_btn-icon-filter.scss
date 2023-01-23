@@ -9,6 +9,11 @@
     justify-content: space-between;
 }
 
+// .icon-nav:not(:first-child) {
+//     background-color: blue;
+
+// }
+
 .icon-nav {
     display: flex;
     justify-content: space-around;
@@ -70,7 +75,3 @@
     }
 
 }
-
-// .icon-nav.hidden {
-//     display: none;
-// }
