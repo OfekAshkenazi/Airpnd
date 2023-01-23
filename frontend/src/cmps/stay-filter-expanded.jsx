@@ -74,7 +74,7 @@ export function StayFilterExpanded() {
           </div>
           <button className='btn-search-filter' onClick={() => { }}>
             <p className='search-icon'><IconBxSearch className='search-icon' /></p>
-            <p>Search</p>
+            <p className='search-word'>Search</p>
           </button>
         </div>
       </div>

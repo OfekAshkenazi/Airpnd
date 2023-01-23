@@ -11,39 +11,50 @@
 //         </div>
 //       </div>
 .filter-who-modal {
-  padding: 30px;
-  top: 80px;
-  // margin-right: 60px;
-  // display: none;
+  // position: absolute;
+  // top: 80px;
+  // padding: em(40px);
+  // left: em(0px);
+  // border-radius: em(30px);
+  // background-color: white;
+  // border: 0.5px solid #ddd;
+
+  background-color: #fff;
+  padding: 40px;
   position: absolute;
-  // width: em(370px);
-  // height: em(170px);
-  border-radius: em(30px);
-  background-color: white;
-
+  right: 0;
+  top: 110%;
+  border-radius: 30px
 }
 
-.guest-select:not(:first-child) {
-  padding-top: 30px;
-}
 
-.guest-select:not(:last-child) {
-  border-bottom: 1px solid #ebebeb;
-}
+// .guest-select:not(:first-child) {
+//   padding-top: 30px;
+// }
+
+// .guest-select:not(:last-child) {
+//   border-bottom: 1px solid #ebebeb;
+// }
 
 .guest-select {
-  font-family: circularBd;
-  justify-content: space-between;
-  padding-bottom: 30px;
-  // gap-left: 100px;
+  // font-family: circularBd;
+  // justify-content: space-between;
+  // padding: em(24px) em(4px) em(24px) em(0px);
 
-  // width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 4px 24px 0;
+  gap: 30px;
+  border-block-end: 1px solid #e7e7e7;
 
   .guest-select-contant {
-    display: grid;
-    // font-size: 10px;
-    justify-self: flex-start;
-    padding-right: 100px;
+    // background-color: blue;
+    // display: grid;
+    // justify-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 
   .modal-btn-group {
@@ -56,14 +67,10 @@
       background-color: white;
 
       &>* {
-        // color: #717171;
         width: 38px;
         height: 38px;
-        // border: 1px solid black;
         fill: #717171;
-        // width: 1px;
       }
     }
   }
-
 }

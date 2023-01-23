@@ -111,6 +111,7 @@
 
             .filter-who-content {
                 padding: 18px 30px;
+                position: relative;
 
             }
 
@@ -127,6 +128,18 @@
                 display: flex;
                 gap: 6px;
                 align-items: center;
+
+                @media (max-width: 1100px) {
+                    transition: 0.3s;
+                    width: 60px;
+
+                    .search-word {
+                        display: none;
+                    }
+
+
+                }
+
             }
 
 
@@ -170,6 +183,10 @@
         }
     }
 
+    @media (max-width: 1050px) {
+        display: none;
+
+    }
 
 
 }
