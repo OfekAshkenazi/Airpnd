@@ -10,7 +10,7 @@ export function GoogleMap({ lat, lng }) {
 
     return (
         <section>
-            <div className="google-map" style={{ height: '480px', width: '50vw' }}>
+            <div className="google-map" style={{ height: '480px', width: '100%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyDXaNvMCqlwqiat6a6gL7A0mN-z93Tojdk" }}
                     defaultCenter={coordinates}

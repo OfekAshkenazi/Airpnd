@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { UserPagesModal } from '../cmps/user-pages-modal.jsx';
 
 import logo from '../assets/img/logo.png';
 import IconBxGlobe from '../assets/svg/globe-icon';
@@ -53,6 +54,10 @@ export function AppHeader() {
         navigate(`/`)
     }
 
+function openUserModal() {
+    document.querySelector('.user-page-modal').style.display = 'block'
+}
+
     return (
         <>
             <header className="app-header" >
@@ -64,15 +69,17 @@ export function AppHeader() {
 
                 <StayFilter />
                 {user &&
-                    <span className="user-info">
-                        <button className='btn-airpnd-your-home' >Airpnd your home</button>
-                        {/* <button className='btn-globe'><IconBxGlobe className='icon-glob' width='20px' height='20px' /></button> */}
-                        <button className='btn-user'>
-                            <IconMenu_hamburger width='22px' height='34px' className='icon-hamburger' />
-                            <IconBxsUserCircle width='37px' height='33px' className='icon-user' />
-                        </button>
-
-                    </span>
+                    <>
+                        <span className="user-info">
+                            <button className='btn-airpnd-your-home' >Airpnd your home</button>
+                            {/* <button className='btn-globe'><IconBxGlobe className='icon-glob' width='20px' height='20px' /></button> */}
+                            <button onClick={openUserModal} className='btn-user'>
+                                <IconMenu_hamburger width='22px' height='34px' className='icon-hamburger' />
+                                <IconBxsUserCircle width='37px' height='33px' className='icon-user' />
+                            </button>
+                            <UserPagesModal />
+                        </span>
+                    </>
                 }
 
                 {!user &&
