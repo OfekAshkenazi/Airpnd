@@ -37,9 +37,12 @@ export function NavIconFilter() {
     }
 
     return (
-        <section className='icon-nav'>
-            {!isFilterExpanded && <div className="filter-icon-pagination">
-                <button onClick={() => { pagination(-1) }} className='icons-left'><FontAwesomeIcon icon={faAngleLeft} /></button>
+        <section className='icon-nav-container'>
+            <div className='icon-nav'>
+                {!isFilterExpanded && <div className="filter-icon-pagination">
+                    <button onClick={() => pagination(-1)} className='icons-left'><FontAwesomeIcon icon={faAngleLeft} /></button>
+                    <button onClick={() => pagination(+1)} className='icons-right'><FontAwesomeIcon icon={faAngleRight} /></button>
+                </div>}
                 {
                     labelsPage.map(label => {
                         return <NavLink key={label} to="/" style={{ textDecoration: 'none' }}>
@@ -50,9 +53,8 @@ export function NavIconFilter() {
                         </NavLink>
                     })
                 }
-                <button onClick={() => { pagination(+1) }} className='icons-right'><FontAwesomeIcon icon={faAngleRight} /></button>
                 {/* <button className="btn-icon-filter"><IconFiltering /> Filters</button> */}
-            </div>}
+            </div>
         </section >
     )
 }
