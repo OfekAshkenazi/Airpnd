@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { makeStyles } from '@mui/styles';
+import { useState } from 'react'
 
 const useStyles = makeStyles({
   select: {
@@ -13,25 +14,27 @@ const useStyles = makeStyles({
   },
 })
 
-export function BasicSelect() {
+export function BasicSelect({handleGuestsChange}) {
   const classes = useStyles()
-  const [guests, setAge] = React.useState({ adults: 0, children: 0, infants: 0, pets: 0 })
-  const [selectedValue, setSelectedValue] = React.useState('')
+  const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
+  const [selectedValue, setSelectedValue] = useState('')
 
   const handleIncrement = (name) => {
-    setAge({
+    setGuests({
       ...guests,
       [name]: guests[name] + 1,
     })
+    handleGuestsChange(guests)
   }
 
   const handleDecrement = (name) => {
     if (guests[name] > 0) {
-      setAge({
+      setGuests({
         ...guests,
         [name]: guests[name] - 1,
       })
     }
+    handleGuestsChange(guests)
   }
 
   return (

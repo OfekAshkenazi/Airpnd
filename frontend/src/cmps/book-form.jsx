@@ -7,27 +7,43 @@ import '../../node_modules/react-date-range/dist/styles.css'
 import '../../node_modules/react-date-range/dist/theme/default.css'
 import { DateRange } from 'react-date-range'
 import { addDays } from 'date-fns'
+import { differenceInCalendarDays } from 'date-fns'
+import { ContactlessOutlined } from '@mui/icons-material'
 
 export function BookingForm({ stay }) {
     const [isPickerOpen, setIsPickerOpen] = useState(false)
     const [numClicks, setNumClicks] = useState(0);
 
-    const today = new Date()
-    const date = today.toLocaleDateString("en-US", {
-        day: "numeric",
-        month: "numeric",
-        year: "numeric"
-    })
-    const [range, setRange] = useState([
+    const [order, setOrder] = useState([
         {
             startDate: new Date(),
-            endDate: addDays(new Date(), 7),
+            endDate: new Date(),
+            guests: { infants: 0, pets: 0, adults: 1, children: 0 },
             key: 'selection'
         }
     ])
-    function onChangeDate() {
-        console.log(range)
+
+    function handleGuestsChange(newGuests) {
+        const { guests } = order
+        setOrder({ ...order, guests: { ...guests, ...newGuests } })
     }
+
+    function onChangeDate(range) {
+        let { startDate, endDate } = range
+        const numOfDays = differenceInCalendarDays(endDate, startDate)
+        const newRange = { ...range, endDate: addDays(startDate, numOfDays) }
+        setOrder([newRange])
+    }
+
+    function numericDate(date) {
+        const formattedDate = date.toLocaleDateString("en-US", {
+            day: "numeric",
+            month: "numeric",
+            year: "numeric"
+        })
+        return formattedDate
+    }
+
     return <div className="book-form">
         <div className="header">
             <span className="price"> ${stay.price} <span className="night">night</span></span>
@@ -35,27 +51,26 @@ export function BookingForm({ stay }) {
         </div>
         <div className="action-btn" >
             <div className="checkin-out" onClick={() => setIsPickerOpen(!isPickerOpen)}>
-                <div className='checkin flex'>CHECK-IN <span>{date}</span></div>
-                <div className='checkout flex'>CHECKOUT<span>{date}</span></div>
+                <div className='checkin flex'>CHECK-IN <span>{numericDate(order[0].startDate)}</span></div>
+                <div className='checkout flex'>CHECKOUT<span>{numericDate(order[0].endDate)}</span></div>
             </div>
             {isPickerOpen && <DateRange
                 editableDateInputs={true}
                 onChange={(item) => {
-                    setRange([item.selection])
-                    onChangeDate()
+                    setOrder([item.selection])
+                    onChangeDate(item.selection)
                     setNumClicks(numClicks + 1)
                     if (numClicks % 2) setIsPickerOpen(false)
                 }
-            }
-                // moveRangeOnFirstSelection={false}
-                ranges={range}
+                }
+                ranges={order}
                 months={2}
                 direction={'horizontal'}
                 className='date-range'
             />}
-            <BasicSelect className="select-dropdown" />
+            <BasicSelect className="select-dropdown" handleGuestsChange={handleGuestsChange} />
         </div>
-        <ReserveBtn className="reserve" />
+        <ReserveBtn className="reserve" order={order} numericDate={numericDate} stay = {stay} />
         <p>You won't be charged yet</p>
         <div className="summary">
             <div className="prices">

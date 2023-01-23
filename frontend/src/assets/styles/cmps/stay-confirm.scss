@@ -1,0 +1,62 @@
+.stay-confirm {
+    font-family: circularL;
+
+    .main-line {
+        display: flex;
+
+        .back-btn {
+            background-color: white;
+        }
+
+        h1 {
+            font-size: em(32px);
+            padding-left: em(50px);
+            font-weight: 2200;
+        }
+    }
+
+    .order-sum {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        .left-side {
+            p {
+                font-weight: 600;
+                font-size: em(24px);
+                padding: em(24px) 0 em(12px);
+            }
+
+            .dates,
+            .guests {
+                display: flex;
+                grid-gap: 12px;
+                font-weight: 600;
+                font-size: em(18px);
+                padding-bottom: em(36px);
+
+                span {
+                    font-weight: 400;
+                }
+
+                .edit-btn {
+                    background-color: white !important;
+                    color: rgb(34, 34, 34);
+                    font-weight: 600;
+                    text-decoration: underline;
+                    padding-left: em(480px);
+                }
+
+                .left {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+
+        .modal {
+            // styles for modal
+        }
+    }
+}
