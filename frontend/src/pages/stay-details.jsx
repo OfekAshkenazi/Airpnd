@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { ReviewList } from '../cmps/review-llist'
+import { GoogleMap } from '../cmps/google-map.details.jsx';
+
 import { StayExpanded } from '../cmps/stay-expanded.jsx'
 import { stayService } from "../services/stay.service.local.js"
 import { ToggleDetails } from "../store/system.action.js"
@@ -47,9 +50,9 @@ export function StayDetails() {
             </div>
             <div className="action-btn ">
                 <div className="duo"><img src={require("../assets/img/icons/share.png")} />
-                <button className="share-btn">Share</button></div>
+                    <button className="share-btn">Share</button></div>
                 <div className="duo"><img src={require("../assets/img/icons/heart.png")} />
-                <button className="save-btn">Save</button></div>
+                    <button className="save-btn">Save</button></div>
             </div>
         </div>
         <div className="imgs-container">
@@ -60,5 +63,7 @@ export function StayDetails() {
             ))}
         </div>
         <StayExpanded stay={stay} />
+        <ReviewList stay={stay} />
+        <GoogleMap lat={stay.loc.lat} lng={stay.loc.lng} />
     </section>
 }

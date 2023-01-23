@@ -4,11 +4,13 @@
   align-items: center;
   margin-left: em(58px);
   max-height: em(520px);
-  max-width: 366px;
+  max-width: em(366px);
   padding: em(10px) em(32px);
-  border: em(1px) solid rgb(221, 221, 221);
+  border: em(1px) solid $clrBorderGray;
   border-radius: em(12px);
   box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+  position: sticky;
+  top: em(50px);
 
   .header {
     display: flex;
@@ -30,7 +32,7 @@
       font-size: 15px;
       font-weight: 600;
       text-decoration: underline;
-      color: #717171;
+      color: $clrGrayFont;
     }
   }
 
@@ -75,7 +77,7 @@
 
   p {
     text-align: center;
-    color: #717171;
+    color: $clrGrayFont;
   }
 
   .summary {
@@ -87,7 +89,7 @@
       .cash {
         display: flex;
         justify-content: space-between;
-        color: #717171;
+        color: $clrGrayFont;
         font-weight: normal;
         text-decoration: underline;
         line-height: em(40px);

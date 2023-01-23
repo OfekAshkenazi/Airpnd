@@ -55,7 +55,7 @@
             padding: em(6px);
             
             &:hover {
-                background-color: #f5f5f5;
+                background-color: $clrHoverGray;
                 border-radius: em(8px);
                 cursor: pointer;
             }
@@ -64,14 +64,12 @@
         .share-btn,
         .save-btn {
             // padding: 8px 0px;
-            color: #222222;
+            color: $clrBlackFont;
             border: none;
             font-weight: bold;
             cursor: pointer;
             background-color: transparent;
             text-decoration: underline;
-
-           
         }
     }
 }

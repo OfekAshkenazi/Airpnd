@@ -10,7 +10,7 @@
     .capacity {
         display: grid;
         grid-template-rows: 1fr 1fr;
-        border-bottom: em(1px) solid rgb(221, 221, 221);
+        border-bottom: em(1px) solid $clrBorderGray;
 
         .owner {
             grid-row: 1;
@@ -20,7 +20,7 @@
 
         .guests {
             grid-row: 2;
-            color: #222222;
+            color: $clrBlackFont;
             font-weight: 400;
             font-size: em(18px);
             line-height: em(16px);
@@ -63,12 +63,12 @@
         margin-top: em(5px);
         font-size: em(14px);
         line-height: em(20px);
-        color: rgb(113, 113, 113);
+        color: $clrGrayFont;
         font-weight: 400;
     }
 
     .air-cover {
-        border-top: 1px solid rgb(221, 221, 221);
+        border-top: em(1px) solid $clrBorderGray;
         margin-top: em(28px);
         display: flex;
         flex-direction: column;
@@ -90,7 +90,7 @@
 
         .more {
             margin-top: em(15px);
-            color: #222222;
+            color: $clrBlackFont;
             text-decoration: underline;
             font-weight: bold;
             font-size: em(18px);
