@@ -46,10 +46,10 @@ export function StayDetails() {
                 <span className="stay-location">{stay.loc.city}, {stay.loc.country}</span>
             </div>
             <div className="action-btn ">
-                <img src={require("../assets/img/icons/share.png")} />
-                <button className="share-btn">Share</button>
-                <img src={require("../assets/img/icons/heart.png")} />
-                <button className="save-btn">Save</button>
+                <div className="duo"><img src={require("../assets/img/icons/share.png")} />
+                <button className="share-btn">Share</button></div>
+                <div className="duo"><img src={require("../assets/img/icons/heart.png")} />
+                <button className="save-btn">Save</button></div>
             </div>
         </div>
         <div className="imgs-container">

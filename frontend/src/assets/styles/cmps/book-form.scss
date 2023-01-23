@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin-left: em(58px);
-  max-height: em(500px);
+  max-height: em(520px);
   max-width: 366px;
   padding: em(10px) em(32px);
   border: em(1px) solid rgb(221, 221, 221);
@@ -36,30 +36,37 @@
 
   .action-btn {
     padding: 10px 10px;
+    position: relative;
   }
 
   .checkin-out {
     display: flex;
-    max-width: 366px;
+    height: 55px;
+    font-size: em(10px);
+    font-weight: bold;
 
-    :first-child {
-      border-right: none;
+    .checkin {
+      flex-direction: column;
+      border-top-left-radius: em(8px);
+      border-bottom: none;
+      border-right: none !important;
+      padding: em(24px) em(20px);
+      border: em(1px) solid rgba(0, 0, 0, .32);
+      width: 160px;
+    }
+
+    .checkout {
+      flex-direction: column;
+      border-top-right-radius: em(8px);
+      border-bottom: none;
+      padding: em(24px) em(20px);
+      border: em(1px) solid rgba(0, 0, 0, .32);
+      width: 160px;
     }
   }
 
   label {
     font-size: 18px;
-  }
-
-  input[type="text"] {
-    padding: em(24px) em(20px);
-    border: em(2px) solid #ccc;
-    border-radius: em(4px);
-    width: 160px;
-  }
-
-  .guests {
-    width: 100%;
   }
 
   .reserve {
@@ -104,11 +111,12 @@
     }
 
 
-    .date-range {
-      position: absolute;
-      z-index: 1000;
-      left: em(-463px);
-      top: em(100px);
-    }
+  }
+
+  .date-range {
+    position: absolute;
+    z-index: 1000;
+    top: em(90px);
+    right: 10px;
   }
 }

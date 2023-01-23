@@ -7,7 +7,6 @@
         flex-grow: 1;
     }
 
-
     .capacity {
         display: grid;
         grid-template-rows: 1fr 1fr;
@@ -44,6 +43,10 @@
     .host {
         display: flex;
         margin-top: em(30px);
+
+        img {
+            padding-top: em(3px);
+        }
     }
 
 

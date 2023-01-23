@@ -10,6 +10,7 @@ import { addDays } from 'date-fns'
 
 export function BookingForm({ stay }) {
     const [isPickerOpen, setIsPickerOpen] = useState(false)
+    const [numClicks, setNumClicks] = useState(0);
 
     const today = new Date()
     const date = today.toLocaleDateString("en-US", {
@@ -17,14 +18,16 @@ export function BookingForm({ stay }) {
         month: "numeric",
         year: "numeric"
     })
-    const [state, setState] = useState([
+    const [range, setRange] = useState([
         {
             startDate: new Date(),
             endDate: addDays(new Date(), 7),
             key: 'selection'
         }
     ])
-
+    function onChangeDate() {
+        console.log(range)
+    }
     return <div className="book-form">
         <div className="header">
             <span className="price"> ${stay.price} <span className="night">night</span></span>
@@ -32,21 +35,28 @@ export function BookingForm({ stay }) {
         </div>
         <div className="action-btn" >
             <div className="checkin-out" onClick={() => setIsPickerOpen(!isPickerOpen)}>
-                <input type="text" id="checkin" name="checkin" readOnly defaultValue={'CHECK-IN' + date} />
-                <input type="text" id="checkout" name="checkout" defaultValue={'CHECKOUT'}></input>
+                <div className='checkin flex'>CHECK-IN <span>{date}</span></div>
+                <div className='checkout flex'>CHECKOUT<span>{date}</span></div>
             </div>
-            {isPickerOpen && <div className="date-range"><DateRange
+            {isPickerOpen && <DateRange
                 editableDateInputs={true}
-                onChange={item => setState([item.selection])}
-                moveRangeOnFirstSelection={false}
-                ranges={state}
+                onChange={(item) => {
+                    setRange([item.selection])
+                    onChangeDate()
+                    setNumClicks(numClicks + 1)
+                    if (numClicks % 2) setIsPickerOpen(false)
+                }
+            }
+                // moveRangeOnFirstSelection={false}
+                ranges={range}
                 months={2}
                 direction={'horizontal'}
-            /></div>}
-            <BasicSelect />
-            <ReserveBtn className="reserve" />
+                className='date-range'
+            />}
+            <BasicSelect className="select-dropdown" />
         </div>
-        <p>You Won't be charged yet</p>
+        <ReserveBtn className="reserve" />
+        <p>You won't be charged yet</p>
         <div className="summary">
             <div className="prices">
                 <span className="cash">$1,166 x 5 nights <span className="right">$8,066</span></span>

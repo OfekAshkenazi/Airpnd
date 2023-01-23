@@ -1,0 +1,59 @@
+.guest-type {
+    display: flex;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        font-size: em(16px);
+        font-weight: 550;
+
+        .description {
+            font-weight: 400;
+            font-size: em(14px);
+
+        }
+
+        .description-pets {
+            text-decoration: underline;
+            font-weight: 550;
+            font-size: em(13px);
+        }
+    }
+
+    .btns {
+        justify-content: flex-end;
+
+        .guest-btn {
+            border-radius: 5em;
+            padding: 14px;
+            width: em(10px);
+            height: em(10px);
+            border: 1px solid rgb(176, 176, 176);
+            background-color: white;   
+        }
+    }
+}
+
+.book-form .guests {
+    border-top: none;
+    border-bottom-left-radius: em(8px);
+    border-bottom-right-radius: em(8px);
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+
+    .bold {
+      font-weight: 600;
+      color: #292929;
+    }
+
+    .second-row {
+      font-size: em(24px);
+    }
+
+    .bold,
+    .second-row {
+      line-height: em(24px);
+    }
+  }
