@@ -8,6 +8,7 @@ import IconHeart from '../assets/svg/icon-heart';
 
 export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
     let [idx, setIdx] = useState(0)
+
     function fixIdxForImages(diff) {
         idx += diff
         if (idx > stay.imgUrls.length - 1) {
@@ -17,6 +18,7 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
         }
         setIdx(idx)
     }
+
     function getRating() {
         if (!stay.reviews || stay.reviews.length === 0) {
             return null
@@ -54,7 +56,8 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
                     </div>
                 </div>
                 <p>{stay.loc.address}</p>
-                <p>$ {stay.price} night</p>
+                <p>{stay.openDateds}</p>
+                <p className='priceP'>${stay.price} spannight</p>
             </div>
         </article >
     )

@@ -8,7 +8,7 @@
     flex-direction: column;
     border-radius: em(10px);
     gap: em(10px);
-    z-index: 10000000;
+    z-index: 1000;
     display: none;
 
     hr {
@@ -30,5 +30,4 @@
         text-decoration: none;
         color: #2a282a;
     }
-
 }

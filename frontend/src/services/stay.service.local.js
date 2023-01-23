@@ -161,7 +161,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
-                "inWishList": true
+                "inWishList": true,
+                "openDateds": "Feb 1-6"
             },
             {
                 "_id": "10006547",
@@ -210,7 +211,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
-                "inWishList": false
+                "inWishList": false,
+                "openDateds": "Feb 12-19"
             },
             {
                 "_id": "10006548",
@@ -259,8 +261,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
-                "inWishList": false
-
+                "inWishList": false,
+                "openDateds": "June 12-19"
             },
             {
                 "_id": "10006549",
@@ -308,7 +310,9 @@ function _createStays() {
                         }
                     }
                 ],
-                "likedByUsers": [] // for user-wishlist : use $in
+                "likedByUsers": [], // for user-wishlist : use $in
+                "openDateds": "July 12-19",
+                "inWishList": false,
             },
             {
                 "_id": "10006550",
@@ -357,8 +361,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
-                "inWishList": false
-
+                "inWishList": false,
+                "openDateds": "July 1-6",
             },
             {
                 "_id": "10006551",
@@ -407,8 +411,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
-                "inWishList": false
-
+                "inWishList": false,
+                "openDateds": "April 1-1",
             },
             {
                 "_id": "10006552",
@@ -456,8 +460,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
-                "inWishList": false
-
+                "inWishList": false,
+                "openDateds": "April 8-12",
             },
             {
                 "_id": "1000654888",
@@ -505,8 +509,8 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
-                "inWishList": false
-
+                "inWishList": false,
+                "openDateds": "March 8-24",
             },
         ]
         storageService.saveToStorage(STORAGE_KEY, stays)
