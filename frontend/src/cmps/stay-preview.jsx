@@ -57,7 +57,7 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
                 </div>
                 <p>{stay.loc.address}</p>
                 <p>{stay.openDateds}</p>
-                <p className='priceP'>${stay.price} spannight</p>
+                <p className='priceP'>${stay.price}<span> night</span></p>
             </div>
         </article >
     )

@@ -162,7 +162,7 @@ function _createStays() {
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
                 "inWishList": true,
-                "openDateds": "Feb 1-6"
+                "openDateds": "Feb 1 - 6"
             },
             {
                 "_id": "10006547",
@@ -212,7 +212,7 @@ function _createStays() {
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
                 "inWishList": false,
-                "openDateds": "Feb 12-19"
+                "openDateds": "Feb 12 - 19"
             },
             {
                 "_id": "10006548",
@@ -262,7 +262,7 @@ function _createStays() {
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
                 "inWishList": false,
-                "openDateds": "June 12-19"
+                "openDateds": "June 12 - 19"
             },
             {
                 "_id": "10006549",
@@ -311,7 +311,7 @@ function _createStays() {
                     }
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
-                "openDateds": "July 12-19",
+                "openDateds": "July 12 - 19",
                 "inWishList": false,
             },
             {
@@ -362,7 +362,7 @@ function _createStays() {
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
                 "inWishList": false,
-                "openDateds": "July 1-6",
+                "openDateds": "July 1 - 6",
             },
             {
                 "_id": "10006551",
@@ -412,7 +412,7 @@ function _createStays() {
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
                 "inWishList": false,
-                "openDateds": "April 1-1",
+                "openDateds": "April 1 - 1",
             },
             {
                 "_id": "10006552",
@@ -461,7 +461,7 @@ function _createStays() {
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
                 "inWishList": false,
-                "openDateds": "April 8-12",
+                "openDateds": "April 8 - 12",
             },
             {
                 "_id": "1000654888",
@@ -510,7 +510,7 @@ function _createStays() {
                 ],
                 "likedByUsers": [], // for user-wishlist : use $in
                 "inWishList": false,
-                "openDateds": "March 8-24",
+                "openDateds": "March 8 - 24",
             },
         ]
         storageService.saveToStorage(STORAGE_KEY, stays)
@@ -518,8 +518,3 @@ function _createStays() {
     }
     return stays
 }
-
-
-
-
-
