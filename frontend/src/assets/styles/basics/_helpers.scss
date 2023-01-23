@@ -67,3 +67,9 @@
 .portrait-ratio {
     @include aspect-ratio(9, 16);
 }
+
+.con.hidden {
+    display: none;
+    height: 0;
+    width: 0;
+}

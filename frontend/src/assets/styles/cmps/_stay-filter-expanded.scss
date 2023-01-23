@@ -124,14 +124,17 @@
                 height: 60px;
                 border-radius: 50px;
                 background-color: #e31a5f;
-
+                display: flex;
+                gap: 6px;
+                align-items: center;
             }
 
-            span.search-icon {
-                z-index: 1;
-                // padding-left: 20px;
-                width: 30px;
-                height: 30px;
+
+            p.search-icon {
+                padding-left: 10px;
+                padding-top: 6px;
+
+                .search-icon {}
             }
 
         }
@@ -169,14 +172,6 @@
 
 
 
-}
-
-
-.con.hidden {
-    display: none;
-    // opacity: 0;
-    height: 0;
-    width: 0;
 }
 
 .dark {

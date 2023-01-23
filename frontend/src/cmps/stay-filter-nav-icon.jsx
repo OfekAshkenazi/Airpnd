@@ -2,12 +2,13 @@ import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { IconFiltering } from '../assets/svg/filtring-icon';
 import { labels } from '../services/stay.service.local';
-
 export function NavIconFilter() {
+    const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
     const [idx, setIdx] = useState(0)
     const pageSize = 14
     const pageDiff = 4
@@ -37,19 +38,21 @@ export function NavIconFilter() {
 
     return (
         <section className='icon-nav'>
-            <div className="filter-icon-pagination">
+            {!isFilterExpanded && <div className="filter-icon-pagination">
                 <button onClick={() => { pagination(-1) }} className='icons-left'><FontAwesomeIcon icon={faAngleLeft} /></button>
+                {
+                    labelsPage.map(label => {
+                        return <NavLink key={label} to="/" style={{ textDecoration: 'none' }}>
+                            <div className='icon-preview'>
+                                <img src={require(`../assets/icon-nav-filter/${label}.png`)} alt="" />
+                                <p>{`${label}`}</p>
+                            </div>
+                        </NavLink>
+                    })
+                }
                 <button onClick={() => { pagination(+1) }} className='icons-right'><FontAwesomeIcon icon={faAngleRight} /></button>
-            </div>
-            {labelsPage.map(label => {
-                return <NavLink key={label} to="/" style={{ textDecoration: 'none' }}>
-                    <div className='icon-preview'>
-                        <img src={require(`../assets/icon-nav-filter/${label}.png`)} alt="" />
-                        <p>{`${label}`}</p>
-                    </div>
-                </NavLink>
-            })}
-            {/* <button className="btn-icon-filter"><IconFiltering /> Filters</button> */}
+                {/* <button className="btn-icon-filter"><IconFiltering /> Filters</button> */}
+            </div>}
         </section >
     )
 }

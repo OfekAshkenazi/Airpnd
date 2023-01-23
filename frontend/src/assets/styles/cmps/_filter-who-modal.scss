@@ -1,0 +1,23 @@
+.filter-who-modal {
+  display: none;
+  position: absolute;
+  width: em(370px);
+  // height: em(170px);
+  border-radius: em(30px);
+  background-color: white;
+
+
+}
+
+.guest-select {
+
+  font-family: circularBd;
+  justify-content: space-between;
+
+  // width: 100%;
+  .guest-select-contant {
+    display: grid;
+    // font-size: 10px;
+    justify-self: flex-start;
+  }
+}
