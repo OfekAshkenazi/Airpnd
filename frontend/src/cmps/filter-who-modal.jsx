@@ -55,7 +55,6 @@ export function FilterWhoModal() {
           <button><IconPlusCircle /></button>
         </div>
       </div>
-
     </section>
   )
 }
