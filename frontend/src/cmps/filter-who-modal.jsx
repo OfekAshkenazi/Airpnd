@@ -47,7 +47,7 @@ export function FilterWhoModal() {
       <div className='guest-select flex'>
         <div className='guest-select-contant'>
           <p>Pets</p>
-          <p>Bringing a service animal?</p>
+          <p className='flex'>Bringing a service animal?</p>
         </div>
         <div className='modal-btn-group'>
           <button><IconMinusCircle /></button>
