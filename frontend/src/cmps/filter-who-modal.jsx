@@ -1,3 +1,5 @@
+import IconMinusCircle from '../assets/svg/minus.jsx';
+import IconPlusCircle from '../assets/svg/plus.jsx';
 import { BasicSelect } from '../cmps/select-dropdown.jsx';
 
 
@@ -12,9 +14,9 @@ export function FilterWhoModal() {
           <p>Ages 13 or above</p>
         </div>
         <div className='modal-btn-group'>
-          <button>➖</button>
+          <button><IconMinusCircle /></button>
           <span>0</span>
-          <button>➕</button>
+          <button><IconPlusCircle /></button>
         </div>
       </div>
 
@@ -24,9 +26,9 @@ export function FilterWhoModal() {
           <p>Ages 2–12</p>
         </div>
         <div className='modal-btn-group'>
-          <button>➖</button>
+          <button><IconMinusCircle /></button>
           <span>0</span>
-          <button>➕</button>
+          <button><IconPlusCircle /></button>
         </div>
       </div>
 
@@ -36,9 +38,9 @@ export function FilterWhoModal() {
           <p>Under 2</p>
         </div>
         <div className='modal-btn-group'>
-          <button>➖</button>
+          <button><IconMinusCircle /></button>
           <span>0</span>
-          <button>➕</button>
+          <button><IconPlusCircle /></button>
         </div>
       </div>
 
@@ -48,9 +50,9 @@ export function FilterWhoModal() {
           <p>Bringing a service animal?</p>
         </div>
         <div className='modal-btn-group'>
-          <button>➖</button>
+          <button><IconMinusCircle /></button>
           <span>0</span>
-          <button>➕</button>
+          <button><IconPlusCircle /></button>
         </div>
       </div>
 

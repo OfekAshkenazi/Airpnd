@@ -1,23 +1,69 @@
+// <section className='filter-who-modal'>
+//       <div className='guest-select flex'>
+//         <div className='guest-select-contant'>
+//           <p>Adults</p>
+//           <p>Ages 13 or above</p>
+//         </div>
+//         <div className='modal-btn-group'>
+//           <button>➖</button>
+//           <span>0</span>
+//           <button>➕</button>
+//         </div>
+//       </div>
 .filter-who-modal {
-  display: none;
+  padding: 30px;
+  top: 80px;
+  // margin-right: 60px;
+  // display: none;
   position: absolute;
-  width: em(370px);
+  // width: em(370px);
   // height: em(170px);
   border-radius: em(30px);
   background-color: white;
 
+}
 
+.guest-select:not(:first-child) {
+  padding-top: 30px;
+}
+
+.guest-select:not(:last-child) {
+  border-bottom: 1px solid #ebebeb;
 }
 
 .guest-select {
-
   font-family: circularBd;
   justify-content: space-between;
+  padding-bottom: 30px;
+  // gap-left: 100px;
 
   // width: 100%;
+
   .guest-select-contant {
     display: grid;
     // font-size: 10px;
     justify-self: flex-start;
+    padding-right: 100px;
   }
+
+  .modal-btn-group {
+    font-family: circularL;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+
+    button {
+      background-color: white;
+
+      &>* {
+        // color: #717171;
+        width: 38px;
+        height: 38px;
+        // border: 1px solid black;
+        fill: #717171;
+        // width: 1px;
+      }
+    }
+  }
+
 }

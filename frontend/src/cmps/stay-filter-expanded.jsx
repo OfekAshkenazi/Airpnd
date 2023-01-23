@@ -10,12 +10,7 @@ import { FilterWhoModal } from './filter-who-modal';
 export function StayFilterExpanded() {
   const [filterByToEdit, setFilterBy] = useState(stayService.getEmptyFilter())
   const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
-
-  const [isWhereModalOpen, setIsWhereModalOpen] = useState(false)
-  const [isCheckInModalOpen, setIsCheckInModalOpen] = useState(false)
-  const [isCheckOutModalOpen, setIsCheckOutModalOpen] = useState(false)
   const [isGuestModalOpen, setIsGuestModalOpen] = useState(false)
-
   function handleChange({ target }) {
     let { value, name: field, type } = target
     value = (type === 'range') ? +value : value
@@ -33,12 +28,10 @@ export function StayFilterExpanded() {
     who: 'Add guests',
   }
 
+
+
   function onAddGuest() {
     setIsGuestModalOpen(true)
-    setIsWhereModalOpen(false)
-    setIsCheckInModalOpen(false)
-    setIsCheckOutModalOpen(false)
-    // document.querySelector('.filter-who-modal').style.display = 'block'
   }
 
   return (
@@ -77,7 +70,7 @@ export function StayFilterExpanded() {
           <div className='filter-who-content'>
             <p>Who</p>
             <p className='unbold'>{`${data.checkIn}`}</p>
-            {isGuestModalOpen && <FilterWhoModal />}
+            {isGuestModalOpen ? <FilterWhoModal /> : ''}
           </div>
           <button className='btn-search-filter' onClick={() => { }}>
             <p className='search-icon'><IconBxSearch className='search-icon' /></p>
