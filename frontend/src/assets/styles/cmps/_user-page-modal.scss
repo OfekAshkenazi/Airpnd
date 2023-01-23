@@ -8,8 +8,8 @@
     flex-direction: column;
     border-radius: em(10px);
     gap: em(10px);
-    z-index: 11;
-    display: none;
+    z-index: 1000;
+    cursor: pointer;
 
     hr {
         border: em(0.5px) solid $clrGreayFont;

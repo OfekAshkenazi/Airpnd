@@ -80,7 +80,6 @@
 
             &:hover {
                 background-color: #ddd;
-
             }
         }
 
@@ -97,7 +96,6 @@
 
             &:hover {
                 background-color: #ddd;
-
             }
         }
 
@@ -113,13 +111,11 @@
 
             &:hover {
                 background-color: #ddd;
-
             }
 
             .filter-who-content {
                 padding: 18px 30px;
                 position: relative;
-
             }
 
             .btn-search-filter {
@@ -143,12 +139,8 @@
                     .search-word {
                         display: none;
                     }
-
-
                 }
-
             }
-
 
             p.search-icon {
                 padding-left: 10px;
@@ -156,7 +148,6 @@
 
                 .search-icon {}
             }
-
         }
 
         & .unbold {
@@ -183,7 +174,6 @@
         }
 
         &>span {
-
             height: 34px;
             width: 1px;
             background-color: #ddd;
@@ -192,10 +182,7 @@
 
     @media (max-width: 1060px) {
         display: none;
-
     }
-
-
 }
 
 .dark {

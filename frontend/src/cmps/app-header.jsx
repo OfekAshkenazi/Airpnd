@@ -21,6 +21,9 @@ export function AppHeader() {
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
     // const [isFilterExpanded, setIsFilterExpanded] = useState(false)
     const user = useSelector(storeState => storeState.userModule.user)
+    const [userModal, setUserModal] = useState(false)
+
+
 
     async function onLogin(credentials) {
         try {
@@ -40,23 +43,14 @@ export function AppHeader() {
         }
     }
 
-    async function onLogout() {
-        try {
-            await logout()
-            showSuccessMsg(`Bye now`)
-        } catch (err) {
-            showErrorMsg('Cannot logout')
-        }
-    }
-
     const navigate = useNavigate()
     function onLogoClick() {
         navigate(`/`)
     }
 
-function openUserModal() {
-    document.querySelector('.user-page-modal').style.display = 'block'
-}
+    function openUserModal() {
+        userModal ?  setUserModal(false) :  setUserModal(true)
+    }
 
     return (
         <>
@@ -77,7 +71,7 @@ function openUserModal() {
                                 <IconMenu_hamburger width='22px' height='34px' className='icon-hamburger' />
                                 <IconBxsUserCircle width='37px' height='33px' className='icon-user' />
                             </button>
-                            <UserPagesModal />
+                            { userModal && <UserPagesModal setUserModal={setUserModal} />}
                         </span>
                     </>
                 }
