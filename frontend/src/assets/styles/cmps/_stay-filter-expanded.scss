@@ -20,8 +20,8 @@
         border-radius: 50px;
         padding: 0px;
         width: fit-content;
-        height: 80px;
-
+        height: 80px; 
+        // padding
 
         .stay-filter-form {
             padding: 0px;
@@ -31,6 +31,7 @@
                 // background-color: aqua;
                 width: 400px;
                 height: 80px;
+                //      
                 border-radius: 50px;
                 display: flex;
                 flex-direction: column;
@@ -66,6 +67,11 @@
             font-size: 16px;
             width: 165px;
             height: 70px;
+                // 
+                // 
+                // 
+                // 
+                // 
             border-radius: 50px;
             display: flex;
             flex-direction: column;
@@ -96,6 +102,7 @@
         }
 
         .filter-who {
+            position: relative;
             width: 320px;
             height: 80px;
             border-radius: 50px;
@@ -111,6 +118,7 @@
 
             .filter-who-content {
                 padding: 18px 30px;
+                position: relative;
 
             }
 
@@ -124,14 +132,29 @@
                 height: 60px;
                 border-radius: 50px;
                 background-color: #e31a5f;
+                display: flex;
+                gap: 6px;
+                align-items: center;
+
+                @media (max-width: 1100px) {
+                    transition: 0.3s;
+                    width: 60px;
+
+                    .search-word {
+                        display: none;
+                    }
+
+
+                }
 
             }
 
-            span.search-icon {
-                z-index: 1;
-                // padding-left: 20px;
-                width: 30px;
-                height: 30px;
+
+            p.search-icon {
+                padding-left: 10px;
+                padding-top: 6px;
+
+                .search-icon {}
             }
 
         }
@@ -167,16 +190,12 @@
         }
     }
 
+    @media (max-width: 1060px) {
+        display: none;
+
+    }
 
 
-}
-
-
-.con.hidden {
-    display: none;
-    // opacity: 0;
-    height: 0;
-    width: 0;
 }
 
 .dark {

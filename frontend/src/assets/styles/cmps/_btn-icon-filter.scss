@@ -9,6 +9,11 @@
     justify-content: space-between;
 }
 
+// .icon-nav:not(:first-child) {
+//     background-color: blue;
+
+// }
+
 .icon-nav {
     display: flex;
     justify-content: space-around;
@@ -26,10 +31,9 @@
         justify-content: space-between;
         margin-bottom: 7px;
 
-
         button {
             background-color: white;
-            border-radius: 50px;
+            border-radius: 50%;
             border: #c3c3c3 1px solid;
             height: 28px;
             width: 28px;
@@ -37,12 +41,6 @@
             z-index: 100;
         }
     }
-
-    // .active {
-    //     transition: 0.25s;
-    //     opacity: 1;
-    //     border-bottom: 1px solid #000000;
-    // }
 
     .icon-preview {
         display: flex;
@@ -60,11 +58,9 @@
             border-bottom: 1px solid #dddddd;
         }
 
-
         img {
             width: 25px;
         }
-
 
         p {
             font-family: CircularL;
@@ -78,7 +74,3 @@
     }
 
 }
-
-// .icon-nav.hidden {
-//     display: none;
-// }

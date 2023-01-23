@@ -1,0 +1,38 @@
+.filter-who-modal {
+  position: absolute;
+  padding: em(40px);
+  top: em(80px);
+  left: em(-180px);
+  border-radius: em(30px);
+  background-color: #fff;
+  box-shadow: 0 0 15px rgb(199, 199, 199);
+  min-width: 500px;
+
+  .guest-select {
+    justify-content: space-between;
+    padding: em(24px) em(4px) em(24px) em(0px);
+    border-block-end: 1px solid #e7e7e7;
+
+    .guest-select-contant {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.modal-btn-group {
+  font-family: circularL;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+
+  button {
+    background-color: white;
+
+    &>* {
+      width: 38px;
+      height: 38px;
+      fill: #717171;
+    }
+  }
+}
