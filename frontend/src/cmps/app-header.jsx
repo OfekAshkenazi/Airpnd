@@ -25,6 +25,9 @@ export function AppHeader() {
 
 
 
+    const [isGuestModalOpen, setIsGuestModalOpen] = useState(false)
+    const [isWhereModalOpen, setIsWhereModalOpen] = useState(false)
+
     async function onLogin(credentials) {
         try {
             const user = await login(credentials)
@@ -49,9 +52,17 @@ export function AppHeader() {
     }
 
     function openUserModal() {
-        userModal ?  setUserModal(false) :  setUserModal(true)
+        userModal ? setUserModal(false) : setUserModal(true)
     }
 
+
+    function onAddGuest() {
+        setIsGuestModalOpen(true)
+    }
+
+    function onAddWhere() {
+        setIsWhereModalOpen(true)
+    }
     return (
         <>
             <header className="app-header" >
@@ -61,7 +72,7 @@ export function AppHeader() {
                     <p className='logo-title'>ɑirpnd</p>
                 </div>
 
-                <StayFilter />
+                <StayFilter onAddGuest={onAddGuest} onAddWhere={onAddWhere} />
                 {user &&
                     <>
                         <span className="user-info">
@@ -71,7 +82,7 @@ export function AppHeader() {
                                 <IconMenu_hamburger width='22px' height='34px' className='icon-hamburger' />
                                 <IconBxsUserCircle width='37px' height='33px' className='icon-user' />
                             </button>
-                            { userModal && <UserPagesModal setUserModal={setUserModal} />}
+                            {userModal && <UserPagesModal setUserModal={setUserModal} />}
                         </span>
                     </>
                 }
@@ -81,7 +92,7 @@ export function AppHeader() {
                         <LoginSignup onLogin={onLogin} onSignup={onSignup} />
                     </section>
                 }
-                <StayFilterExpanded />
+                <StayFilterExpanded isGuestModalOpen={isGuestModalOpen} isWhereModalOpen={isWhereModalOpen} onAddGuest={onAddGuest} onAddWhere={onAddWhere} />
             </header>
 
             <NavIconFilter />
