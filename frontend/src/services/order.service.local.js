@@ -101,8 +101,10 @@ function getEmptyOrder() {
         "startDate": "2025/10/15",
         "endDate": "2025/10/17",
         "guests": {
-            "adults": 2,
-            "kids": 1
+            "adults": 0,
+            "kids": 0,
+            "infants": 0,
+            "pets": 0,
         },
         "stay": {
             "_id": "h102",

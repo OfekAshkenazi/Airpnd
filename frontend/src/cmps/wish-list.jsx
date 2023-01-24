@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { showErrorMsg } from "../services/event-bus.service.js"
-import { stayService } from "../services/stay.service.local.js"
+import { stayService } from "../services/stay.service.js"
 import { ToggleDetails } from "../store/system.action.js"
 import { WishPreview } from "./wish-preview.jsx"
 

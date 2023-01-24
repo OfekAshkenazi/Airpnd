@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import IconBxSearch from '../assets/svg/search-magnifying';
-import { stayService } from '../services/stay.service.local';
+import { stayService } from '../services/stay.service.js';
 import { onSetFilter } from '../store/stay.actions';
 import { FilterWhereModal } from './filter-where-modal';
 import { FilterWhoModal } from './filter-who-modal';

@@ -1,21 +1,29 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
-import { FilterWhoModal } from '../cmps/filter-who-modal.jsx';
 import { StayList } from '../cmps/stay.list.jsx';
+
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
-import { stayService } from '../services/stay.service.local.js';
+
+import { stayService } from '../services/stay.service.js';
 import { userService } from '../services/user.service.js';
+
 import { addStay, loadStays, removeStay, updateStay } from '../store/stay.actions.js';
+
 import { ToggleDetails } from '../store/system.action.js';
 
 export function StayIndex() {
+    const [searchParams, setSearchParams] = useSearchParams()
+    const queryFilterBy = stayService.getFilterFromSearchParams(searchParams)
+
     const stays = useSelector(storeState => storeState.stayModule.stays)
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
     const user = useSelector(storeState => storeState.userModule.user)
-
     const navigate = useNavigate()
+    if (stays) {
+        console.log(stays)
+    }
     useEffect(() => {
         loadStays(filterBy)
         ToggleDetails(false)

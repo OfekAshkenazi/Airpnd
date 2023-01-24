@@ -6,8 +6,8 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 export function GoogleMap({ lat, lng }) {
 
     const [coordinates, setCoordinates] = useState({ lat, lng })
-    const zoom = 5
-
+    const zoom = 7
+    if(!coordinates) return <h2>loading</h2>
     return (
         <section>
             <div className="google-map" style={{ height: '480px', width: '100%' }}>
@@ -17,14 +17,12 @@ export function GoogleMap({ lat, lng }) {
                     defaultCenter={coordinates}
                     center={coordinates}
                     defaultZoom={zoom}
-
                 >
                     <AnyReactComponent
                         lat={lat}
                         lng={lng}
                         text="icon placeHolder"
                     />
-
                 </GoogleMapReact>
             </div>
         </section>

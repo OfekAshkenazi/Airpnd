@@ -2,7 +2,8 @@ import { storageService } from './async-storage.service';
 import { httpService } from './http.service';
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
-const STOARGE_KEY_USERS = "user"
+const API_KEY = 'user'
+
 export const userService = {
     login,
     logout,
@@ -13,47 +14,36 @@ export const userService = {
     getById,
     remove,
     update,
-    addToWishList
 }
-_crateUsers()
+
 function getUsers() {
-    return storageService.query('user')
-    // return httpService.get(`user`)
+    return httpService.get(API_KEY)
 }
 
 async function getById(userId) {
-    const user = await storageService.get('user', userId)
-    // const user = await httpService.get(`user/${userId}`)
+    const user = await httpService.get(`user/${userId}`)
     return user
 }
 
 function remove(userId) {
-    return storageService.remove('user', userId)
-    // return httpService.delete(`user/${userId}`)
+    return httpService.delete(`user/${userId}`)
 }
 
-async function update(userId) {
-    try {
-        const user = await storageService.get('user', userId)
-        await storageService.put('user', user)
-        if (getLoggedinUser().userId === user.userId) saveLocalUser(user)
-        return user
-
-    } catch (err) { console.log(err); throw err }
-    // const user = await httpService.put(`user/${_id}`, {_id, score})
+async function update(userToUpdate) {
+    const user = await httpService.put(API_KEY + `/${userToUpdate._id}`, userToUpdate)
+    return user
 }
 
 async function login(userCred) {
     try {
-        // const user = await httpService.post('auth/login', userCred)
-        const users = await storageService.query('user')
-        const user = users.find(user => user.username === userCred.username)
+        const user = await httpService.post('auth/login', userCred)
         if (user) {
             // socketService.login(user._id)
             return saveLocalUser(user)
         }
     } catch (err) { console.log(err); throw err }
 }
+
 async function signup(userCred) {
     try {
         // const user = await httpService.post('auth/signup', userCred)
@@ -64,10 +54,11 @@ async function signup(userCred) {
 
     } catch (err) { console.log(err); throw err }
 }
+
 async function logout() {
     try {
         sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-        // return await httpService.post('auth/logout')
+        return await httpService.post('auth/logout')
         // socketService.logout()
 
     } catch (err) { console.log(err); throw err }
@@ -82,20 +73,17 @@ function saveLocalUser(user) {
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
-async function addToWishList(stayId) {
 
-}
-function _crateUsers() {
-    const users = storageService.loadFromStorage(STOARGE_KEY_USERS)
-    if (!users) {
-        ; (async () => {
-            await userService.signup({ fullname: 'User 1', username: 'puki', password: '123', "isOwner": false, wishList: ['10006546'] })
-            await userService.signup({ fullname: 'User 2', username: 'muki', password: '123', "isOwner": true, imgUrl: "../user-img/baby.jpg", wishList: ['10006546'] })
-        })()
-        return users
-    }
-    return users
-}
+// function _crateUsers() {
+//     const users = storageService.loadFromStorage(STOARGE_KEY_USERS)
+//     if (!users) {
+//         ; (async () => {
+//             await userService.signup({ fullname: 'User 1', username: 'puki', password: '123', "isOwner": false, wishList: ['10006546'] })
+//             await userService.signup({ fullname: 'User 2', username: 'muki', password: '123', "isOwner": true, imgUrl: "../user-img/baby.jpg", wishList: ['10006546'] })
+//         })()
+//         return users
+//     }
+//     return users
+// }
 
 
-// 4SyfY userId
