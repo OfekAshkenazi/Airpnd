@@ -50,8 +50,7 @@ export function NavIconFilter() {
                 </div>}
                 {
                     labelsPage.map(label => {
-                        console.log(label)
-                        return <NavLink key={label} to={`/type=${label}`} style={{ textDecoration: 'none' }}>
+                        return <NavLink key={label} to={`/`} style={{ textDecoration: 'none' }}>
                             <div className='icon-preview'>
                                 <img src={require(`../assets/icon-nav-filter/${label}.png`)} alt="" />
                                 <p>{`${label}`}</p>
