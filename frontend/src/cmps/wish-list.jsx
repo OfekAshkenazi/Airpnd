@@ -3,11 +3,11 @@ import { useSelector } from "react-redux"
 import { showErrorMsg } from "../services/event-bus.service.js"
 import { stayService } from "../services/stay.service.local.js"
 import { ToggleDetails } from "../store/system.action.js"
+import { WishPreview } from "./wish-preview.jsx"
 
 export function WishList() {
     const [wishes, setWishes] = useState([])
     const user = useSelector(storeState => storeState.userModule.user)
-    console.log(wishes)
 
     useEffect(() => {
         onLoadWishes()
@@ -26,10 +26,10 @@ export function WishList() {
     }
 
     return (
-        <section className="wishList-list">
-            <ul>
-                {/* {wishes.} */}
-            </ul>
-        </section>
+        <ul className="wishList-list">
+            {wishes.map(wish => <li key={wish._id}>
+                <WishPreview wish={wish} />
+            </li>)}
+        </ul>
     )
 }

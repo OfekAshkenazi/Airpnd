@@ -32,11 +32,11 @@ function remove(userId) {
     // return httpService.delete(`user/${userId}`)
 }
 
-async function update({ _id }) {
+async function update(userId) {
     try {
-        const user = await storageService.get('user', _id)
+        const user = await storageService.get('user', userId)
         await storageService.put('user', user)
-        if (getLoggedinUser()._id === user._id) saveLocalUser(user)
+        if (getLoggedinUser().userId === user.userId) saveLocalUser(user)
         return user
 
     } catch (err) { console.log(err); throw err }
