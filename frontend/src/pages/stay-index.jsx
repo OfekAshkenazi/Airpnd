@@ -6,12 +6,15 @@ import { FilterWhoModal } from '../cmps/filter-who-modal.jsx';
 import { StayList } from '../cmps/stay.list.jsx';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
 import { stayService } from '../services/stay.service.local.js';
+import { userService } from '../services/user.service.js';
 import { addStay, loadStays, removeStay, updateStay } from '../store/stay.actions.js';
 import { ToggleDetails } from '../store/system.action.js';
 
 export function StayIndex() {
     const stays = useSelector(storeState => storeState.stayModule.stays)
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
+    const user = useSelector(storeState => storeState.userModule.user)
+
     const navigate = useNavigate()
     useEffect(() => {
         loadStays(filterBy)
@@ -43,8 +46,10 @@ export function StayIndex() {
             // for demo
             stay.inWishList = !stay.inWishList
             // for real
-            // stay.likedByUsers.push(user._id)
+            stay.likedByUsers.push(user._id)
             await updateStay(stay)
+            user.wishList.push(stay._id)
+            await userService.update(user._id)
         } catch (err) {
             showErrorMsg('Cannot Add To Wish-list')
         }
