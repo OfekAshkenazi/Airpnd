@@ -17,7 +17,7 @@ import { StayFilter } from './stay-filter';
 import { StayFilterExpanded } from './stay-filter-expanded';
 import { NavIconFilter } from './stay-filter-nav-icon';
 
-export function AppHeader() {
+export function AppHeader({ layout }) {
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
     // const [isFilterExpanded, setIsFilterExpanded] = useState(false)
     const user = useSelector(storeState => storeState.userModule.user)
@@ -57,6 +57,8 @@ export function AppHeader() {
 
 
     function onAddGuest() {
+        // ev.stopPropagation()
+
         setIsGuestModalOpen(true)
         setIsWhereModalOpen(false)
     }
@@ -65,39 +67,62 @@ export function AppHeader() {
         setIsWhereModalOpen(true)
         setIsGuestModalOpen(false)
     }
+
+    // function onHeader() {
+    //     setIsWhereModalOpen(true)
+    //     setIsGuestModalOpen(true)
+    // }
+
+
     return (
         <>
-            <header className="app-header" >
+            <header className={`full header ${(isFilterExpanded) ? "expanded" : ""} ${(layout === 'main-container narrow') ? "narrow" : ""}`} >
 
-                <div onClick={onLogoClick} className='logo-container'>
-                    <img src={logo} alt="logo" className='logo' />
-                    <p className='logo-title'>airpnd</p>
-                </div>
+                <section className={`app-header ${layout}`} >
+                    <div className='first-row-header' >
+                        <div onClick={onLogoClick} className='logo-container'>
+                            <img src={logo} alt="logo" className='logo' />
+                            <p className='logo-title'>airpnd</p>
+                        </div>
 
-                <StayFilter onAddGuest={onAddGuest} onAddWhere={onAddWhere} />
-                {user &&
-                    <>
-                        <span className="user-info">
-                            <button className='btn-airpnd-your-home' >Airpnd your home</button>
-                            {/* <button className='btn-globe'><IconBxGlobe className='icon-glob' width='20px' height='20px' /></button> */}
-                            <button onClick={openUserModal} className='btn-user'>
-                                <IconMenu_hamburger width='22px' height='34px' className='icon-hamburger' />
-                                <IconBxsUserCircle width='37px' height='33px' className='icon-user' />
-                            </button>
-                            {userModal && <UserPagesModal setUserModal={setUserModal} />}
-                        </span>
-                    </>
-                }
+                        <StayFilter onAddGuest={onAddGuest} onAddWhere={onAddWhere} />
+                        {user &&
+                            <>
+                                <span className="user-info">
+                                    <button className='btn-airpnd-your-home' >Airpnd your home</button>
+                                    {/* <button className='btn-globe'><IconBxGlobe className='icon-glob' width='20px' height='20px' /></button> */}
+                                    <button onClick={openUserModal} className='btn-user'>
+                                        <IconMenu_hamburger width='22px' height='34px' className='icon-hamburger' />
+                                        <IconBxsUserCircle width='37px' height='33px' className='icon-user' />
+                                    </button>
+                                    {userModal && <UserPagesModal setUserModal={setUserModal} />}
+                                </span>
+                            </>
+                        }
 
-                {!user &&
-                    <section className="user-info">
-                        <LoginSignup onLogin={onLogin} onSignup={onSignup} />
-                    </section>
-                }
-                <StayFilterExpanded isGuestModalOpen={isGuestModalOpen} isWhereModalOpen={isWhereModalOpen} onAddGuest={onAddGuest} onAddWhere={onAddWhere} />
+                        {!user &&
+                            <section className="user-info">
+                                <LoginSignup onLogin={onLogin} onSignup={onSignup} />
+                            </section>
+                        }
+                        <StayFilterExpanded isGuestModalOpen={isGuestModalOpen} isWhereModalOpen={isWhereModalOpen} onAddGuest={onAddGuest} onAddWhere={onAddWhere} />
+                    </div>
+
+                    {!isFilterExpanded && <div className='full hr-header'>
+                        <hr />
+                    </div>}
+
+                    <div className='second-row-header'>
+                        <NavIconFilter />
+                    </div>
+
+                </section>
+
+                {/* {isFilterExpanded && <div className='full hr-header'>
+                    <hr />
+                </div>} */}
             </header>
 
-            <NavIconFilter />
         </>
     )
 }
