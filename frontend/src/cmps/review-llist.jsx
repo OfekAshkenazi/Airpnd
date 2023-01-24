@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react"
-import { reviewService } from "../services/review.service"
+// import { useEffect, useState } from "react"
+// import { reviewService } from "../services/review.service"
 import { ReviewPreview } from "./review-preview"
 export function ReviewList({ stay }) {
-    const [reviews, setReviews] = useState([])
+    // const [reviews, setReviews] = useState([])
 
-    useEffect(() => {
-        onLoadReviews()
-    }, [])
+    // useEffect(() => {
+    //     onLoadReviews()
+    // }, [])
 
-    async function onLoadReviews() {
-        try {
-            const ReviewsFromData = await reviewService.query()
-            setReviews(ReviewsFromData)
-        } catch (err) {
-            console.log(err)
-        }
-    }
+    // async function onLoadReviews() {
+    //     try {
+    //         const ReviewsFromData = await reviewService.query()
+    //         setReviews(ReviewsFromData)
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
 
     function getRating() {
         if (!stay.reviews || stay.reviews.length === 0) {
@@ -63,7 +63,7 @@ export function ReviewList({ stay }) {
                 </span>
             </div>
             <ul className="review-list-preview">
-                {reviews.map(review => <li key={review._id}>
+                {stay.reviews.map(review => <li key={review.by.id}>
                     <ReviewPreview review={review} />
                 </li>)}
             </ul>

@@ -6,7 +6,7 @@ const logger = require('./logger.service')
 module.exports = {
     getCollection
 }
-
+const dbName = 'airpnd_proj'
 var dbConn = null
 
 async function getCollection(collectionName) {

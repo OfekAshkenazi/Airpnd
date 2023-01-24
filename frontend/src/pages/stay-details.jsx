@@ -4,12 +4,13 @@ import { ReviewList } from '../cmps/review-llist'
 import { GoogleMap } from '../cmps/google-map.details.jsx';
 
 import { StayExpanded } from '../cmps/stay-expanded.jsx'
-import { stayService } from "../services/stay.service.local.js"
+import { stayService } from "../services/stay.service.js"
 import { ToggleDetails } from "../store/system.action.js"
 
 export function StayDetails() {
     const [stay, setStay] = useState(null)
     const { stayId } = useParams()
+
     useEffect(() => {
         loadStay()
         ToggleDetails(true)
@@ -64,6 +65,9 @@ export function StayDetails() {
         </div>
         <StayExpanded stay={stay} />
         <ReviewList stay={stay} />
-        <GoogleMap lat={stay.loc.lat} lng={stay.loc.lng} />
+        <GoogleMap lat={stay.loc.lat} lng={stay.loc.lan} />
     </section>
 }
+
+// 
+// 

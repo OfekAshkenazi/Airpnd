@@ -30,16 +30,17 @@ function generateRandomName() {
     'Wick',
     'Strong',
     'Dude',
-    'Yep',
-    'Hello',
-    'World',
-    'Power',
+    'kerol',
+    'ros',
+    'luffy',
+    'nami',
     'Goku',
     'Super',
-    'Hi',
-    'You',
-    'Are',
-    'Awesome',
+    'bill',
+    'jhonson',
+    'piter',
+    'michel',
+    'hinata',
   ]
   const famName = [
     'star',
@@ -96,7 +97,6 @@ function timeAgo(ms = new Date()) {
     }
   }
 }
-
 
 function randomPastTime() {
   const HOUR = 1000 * 60 * 60

@@ -22,9 +22,10 @@ export function RootCmp() {
         }
     }
     return (
-        <section className={` ${layout}`}>
-            <AppHeader />
-            <main onClick={closeFilterExpanded} >
+        <section >
+            <AppHeader layout={layout} />
+            <div className={`${(isFilterExpanded) ? "shadow" : ""}`} onClick={closeFilterExpanded}><div ></div></div>
+            <main onClick={closeFilterExpanded} className={` ${layout}`} >
                 {/* {isFilterExpanded&& } */}
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}

@@ -3,9 +3,10 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import IconBxSearch from '../assets/svg/search-magnifying';
-import { stayService } from '../services/stay.service.local';
+import { stayService } from '../services/stay.service.js';
 import { onSetFilter } from '../store/stay.actions';
 import { FilterWhereModal } from './filter-where-modal';
+import { FilterDatesModal } from './filter-dates-modal';
 import { FilterWhoModal } from './filter-who-modal';
 
 export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, onAddGuest, onAddWhere }) {
@@ -52,6 +53,7 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, onAddGu
             <p>Check-in</p>
             <p className='unbold'>{`${data.checkIn}`}</p>
           </div>
+          <FilterDatesModal />
         </button>
         {/* </div> */}
         <span></span>

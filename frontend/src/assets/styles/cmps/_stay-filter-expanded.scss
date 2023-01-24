@@ -4,10 +4,11 @@
     width: 100%;
     position: absolute;
     background-color: #ffffff;
-    margin-top: 155px;
+    margin-top: 170px;
     z-index: 1;
     display: flex;
     justify-content: center;
+    z-index: 100;
 
     .con.show {
         display: flex;
@@ -20,12 +21,15 @@
         padding: 0px;
 
         .stay-filter-form {
+
             .filter-where {
                 position: relative;
                 border-radius: 50px;
                 display: flex;
                 flex-direction: column;
                 padding: 13px 60px 13px 40px;
+
+                z-index: 100;
 
                 .filter-where-label {
                     .filter-where-input {
@@ -87,6 +91,8 @@
                 background-color: #ddd;
             }
         }
+
+
 
         .filter-who {
             position: relative;

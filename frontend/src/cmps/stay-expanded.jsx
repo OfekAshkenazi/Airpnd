@@ -37,7 +37,7 @@ export function StayExpanded({ stay }) {
                 <span className="txt">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</span>
                 <span className="more">Learn more</span>
             </div>
-            <Amenities stay={stay} />
+            {/* <Amenities stay={stay} /> */}
         </div>
         <BookingForm stay={stay} />
     </section>

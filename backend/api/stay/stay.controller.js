@@ -1,34 +1,46 @@
-const carService = require('./car.service.js')
+const stayService = require('./stay.service.js')
 
 const logger = require('../../services/logger.service')
 
-async function getCars(req, res) {
+
+module.exports = {
+  getStays,
+  getStayById,
+  addCar,
+  updateCar,
+  removeCar,
+  addCarMsg,
+  removeCarMsg
+}
+
+async function getStays(req, res) {
   try {
-    logger.debug('Getting Cars')
-    const filterBy = {
-      txt: req.query.txt || ''
-    }
-    const cars = await carService.query(filterBy)
-    res.json(cars)
+    logger.debug('Getting Stays')
+    // const filterBy = {
+    //   txt: req.query.txt || ''
+    // }
+    const stays = await stayService.query()
+    res.json(stays)
   } catch (err) {
-    logger.error('Failed to get cars', err)
-    res.status(500).send({ err: 'Failed to get cars' })
+    logger.error('Failed to get stays', err)
+    res.status(500).send({ err: 'Failed to get stays' })
   }
 }
 
-async function getCarById(req, res) {
+async function getStayById(req, res) {
   try {
-    const carId = req.params.id
-    const car = await carService.getById(carId)
-    res.json(car)
+    const stayId = req.params.id
+    const stay = await stayService.getById(stayId)
+    console.log(stay)
+    res.json(stay)
   } catch (err) {
-    logger.error('Failed to get car', err)
-    res.status(500).send({ err: 'Failed to get car' })
+    logger.error('Failed to get stay', err)
+    res.status(500).send({ err: 'Failed to get stay' })
   }
 }
 
 async function addCar(req, res) {
-  const {loggedinUser} = req
+  const { loggedinUser } = req
 
   try {
     const car = req.body
@@ -40,7 +52,6 @@ async function addCar(req, res) {
     res.status(500).send({ err: 'Failed to add car' })
   }
 }
-
 
 async function updateCar(req, res) {
   try {
@@ -66,7 +77,7 @@ async function removeCar(req, res) {
 }
 
 async function addCarMsg(req, res) {
-  const {loggedinUser} = req
+  const { loggedinUser } = req
   try {
     const carId = req.params.id
     const msg = {
@@ -83,10 +94,10 @@ async function addCarMsg(req, res) {
 }
 
 async function removeCarMsg(req, res) {
-  const {loggedinUser} = req
+  const { loggedinUser } = req
   try {
     const carId = req.params.id
-    const {msgId} = req.params
+    const { msgId } = req.params
 
     const removedId = await carService.removeCarMsg(carId, msgId)
     res.send(removedId)
@@ -97,12 +108,4 @@ async function removeCarMsg(req, res) {
   }
 }
 
-module.exports = {
-  getCars,
-  getCarById,
-  addCar,
-  updateCar,
-  removeCar,
-  addCarMsg,
-  removeCarMsg
-}
+

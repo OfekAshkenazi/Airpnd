@@ -1,8 +1,9 @@
-
 import { httpService } from './http.service.js'
 import { userService } from './user.service.js'
 
 const API_KEY = 'stay'
+
+export const labels = ['vineyards', 'caves', 'tropical', 'countrySide', 'nationalParks', 'barns', 'ski', 'historicalHome', 'privateRooms', 'mansions', 'riads', 'houseBoats', 'omg', 'chefKitchens', 'boats', 'castels', 'amazingViews', 'trending', 'beachFront', 'topOfTheWorld', 'luxe', 'domes', 'lake', 'cabins', 'tinyHomes', 'amazingPools', 'islands', 'bed&breakFasts', 'design', 'offTheGrid', 'play', 'farms', 'beach', 'lakeFront', 'arctic', 'iconicCities', 'new', 'surfing', 'camping', 'treeHouses', 'campers', 'desert', 'golfing', 'earthHomes', 'aFrames', 'hanoks', 'cycladicHomes', 'ryokans', 'yurts', 'shepherdHuts', 'casasParticulares', 'minsus', 'windMills', 'towers', 'adapted', 'containers', 'creativeSpaces', 'grandPianos', 'trulli', 'dammusi', 'skiing']
 
 export const stayService = {
     query,
@@ -10,19 +11,45 @@ export const stayService = {
     save,
     remove,
     getEmptyStay,
+    getEmptyFilter,
+    getFilterFromSearchParams
 }
 
-async function query(filterBy = { txt: '', price: 0 }) {
-    return httpService.get(API_KEY, filterBy)
+async function query(filterBy = { txt: '' }) {
+    let stays
+    let queryParams = `?txt=${filterBy.txt}`
+    try {
+        stays = await httpService.get(API_KEY)
+        return stays
+    } catch (err) {
+        console.log(err)
+    }
 }
 
-function getById(stayId) {
-    return httpService.get(`stay/${stayId}`)
+function getFilterFromSearchParams(searchParams) {
+    const emptyFilter = getEmptyFilter()
+    const filterBy = {}
+    for (const field in emptyFilter) {
+        filterBy[field] = searchParams.get(field) || ''
+    }
+    return filterBy
+}
+
+function getEmptyFilter() {
+    return { txt: '' }
+}
+
+async function getById(stayId) {
+   try {
+        const stay = await httpService.get(API_KEY + `/${stayId}`)
+        return stay
+    } catch (err) { console.log(err) }
 }
 
 async function remove(stayId) {
     return httpService.delete(`stay/${stayId}`)
 }
+
 async function save(stay) {
     var savedStay
     if (stay._id) {

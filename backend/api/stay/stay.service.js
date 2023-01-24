@@ -3,27 +3,38 @@ const logger = require('../../services/logger.service')
 const utilService = require('../../services/util.service')
 const ObjectId = require('mongodb').ObjectId
 
-async function query(filterBy={txt:''}) {
+module.exports = {
+    remove,
+    query,
+    getById,
+    add,
+    update,
+    addCarMsg,
+    removeCarMsg
+}
+
+
+async function query() {
     try {
-        const criteria = {
-            vendor: { $regex: filterBy.txt, $options: 'i' }
-        }
-        const collection = await dbService.getCollection('car')
-        var cars = await collection.find(criteria).toArray()
-        return cars
+        // const criteria = {
+        //     name: { $regex: filterBy.txt, $options: 'i' }
+        // }
+        const collection = await dbService.getCollection('stay')
+        var stays = await collection.find().toArray()
+        return stays
     } catch (err) {
-        logger.error('cannot find cars', err)
+        logger.error('cannot find stays', err)
         throw err
     }
 }
 
-async function getById(carId) {
+async function getById(stayId) {
     try {
-        const collection = await dbService.getCollection('car')
-        const car = collection.findOne({ _id: ObjectId(carId) })
-        return car
+        const collection = await dbService.getCollection('stay')
+        const stay = collection.findOne({ _id: ObjectId(stayId) })
+        return stay
     } catch (err) {
-        logger.error(`while finding car ${carId}`, err)
+        logger.error(`while finding stay ${stayId}`, err)
         throw err
     }
 }
@@ -88,12 +99,3 @@ async function removeCarMsg(carId, msgId) {
     }
 }
 
-module.exports = {
-    remove,
-    query,
-    getById,
-    add,
-    update,
-    addCarMsg,
-    removeCarMsg
-}

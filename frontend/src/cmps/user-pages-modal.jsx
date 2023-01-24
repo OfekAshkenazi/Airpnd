@@ -23,7 +23,7 @@ export function UserPagesModal({ setUserModal }) {
             <section className="bold">
                 <div onClick={closeModal} className="page-item flex bold"><Link>Messages</Link></div>
                 <div onClick={closeModal} className="page-item flex bold"><Link>Notifications</Link></div>
-                <div onClick={closeModal} className="page-item flex bold"><Link to="/orders">Trips</Link></div>
+                <div onClick={closeModal} className="page-item flex bold"><Link to="/orders/my-orders">Trips</Link></div>
                 <div onClick={closeModal} className="page-item flex bold"><Link>Wishlist</Link></div>
             </section>
             <hr />

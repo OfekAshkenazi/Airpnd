@@ -1,85 +1,135 @@
-.app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    // flex-wrap: wrap;
-    position: relative;
-    padding: 18px 0px;
-    border-bottom: solid 1px #efefef;
+.header {
+    border-bottom: none;
+    background-color: rgb(255, 255, 255);
+    // height: 100px;
 
-    .user-info {
-        display: flex;
-
-        .btn-airpnd-your-home {
-            font-family: circularH;
-            background-color: white;
-            font-size: 14px;
-            padding: 0px 12px;
-            color: #222;
-
-            &:hover {
-                background-color: #f7f7f7;
-                border-radius: 50px;
-            }
-        }
-
-        .btn-user {
-            margin-top: 4px;
-            background-color: white;
-            border: solid 1px #ddd;
-            border-radius: 50px;
-            color: #666f7a;
-            padding-top: 3px;
-            padding-right: 3px;
-            padding-left: 10px;
-
-            &:hover {
-                transition: 0.3s;
-                box-shadow: 1px 1px 2px 2px rgb(236, 234, 234);
-                border-radius: 50px;
-            }
-        }
+    &.expanded {
+        border-bottom: 1px solid #ddd;
+        // margin-bottom: 10px;
+        padding-bottom: 15px;
     }
 
-    .logo-container {
-        display: flex;
-        font-family: CerealBd;
-        align-items: center;
-        gap: 7px;
-        cursor: pointer;
-
-        .logo {
-            width: 32px;
-        }
-
-        .logo-title {
-            display: none;
-            font-size: 1.3em;
-            color: $clrLogo;
-            padding-right: 120px;
-
-            @media (min-width: 1128px) {
-                display: block;
-            }
-        }
-    }
-
-    @media (max-width: 999px) {
-        .btn-airpnd-your-home {
-            display: none;
-        }
-    }
-
-    @media (max-width: 800px) {
-        .logo-container {
-            display: none;
-        }
-
-        .user-info {
-            display: none;
+    &.narrow {
+        &.expanded {
+            height: 175px;
         }
     }
 }
+
+.app-header {
+    .first-row-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // flex-wrap: wrap;
+        position: relative;
+        padding: 10px 0px;
+
+        .user-info {
+            display: flex;
+
+            .btn-airpnd-your-home {
+                font-family: circularH;
+                background-color: white;
+                font-size: 14px;
+                padding: 0px 12px;
+                color: #222;
+
+                &:hover {
+                    background-color: #f7f7f7;
+                    border-radius: 50px;
+                }
+            }
+
+            .btn-user {
+                margin-top: 4px;
+                background-color: white;
+                border: solid 1px #ddd;
+                border-radius: 50px;
+                color: #666f7a;
+                padding-top: 3px;
+                padding-right: 3px;
+                padding-left: 10px;
+
+                &:hover {
+                    transition: 0.3s;
+                    box-shadow: 1px 1px 2px 2px rgb(236, 234, 234);
+                    border-radius: 50px;
+                }
+            }
+        }
+
+        .logo-container {
+            display: flex;
+            font-family: CerealBd;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+
+            .logo {
+                width: 32px;
+            }
+
+            .logo-title {
+                display: none;
+                font-size: 1.3em;
+                color: $clrLogo;
+                padding-right: 120px;
+
+                @media (min-width: 1128px) {
+                    display: block;
+                }
+            }
+        }
+
+        @media (max-width: 999px) {
+            .btn-airpnd-your-home {
+                display: none;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .logo-container {
+                display: none;
+            }
+
+            .user-info {
+                display: none;
+            }
+        }
+
+    }
+
+
+}
+
+.shadow {
+
+    position: relative;
+
+    div {
+        position: absolute;
+        top: 0px;
+        height: 100vh;
+        width: 100%;
+
+        background-color: #a9abae;
+        opacity: 0.6;
+        z-index: 1;
+
+    }
+}
+
+.hr-header {
+
+    // padding-bottom: 10px;
+    hr {
+        height: 1px;
+        background-color: #ddd;
+        border: none;
+    }
+}
+
 
 .stay-filter-header {
     align-items: center;

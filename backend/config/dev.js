@@ -1,4 +1,5 @@
 module.exports = {
-  dbURL: 'mongodb://127.0.0.1:27017',
-  dbName : 'tester_db'
+  dbURL: 'mongodb+srv://proj_airpnd:proj123airpnd@cluster0.rhcuanv.mongodb.net/?retryWrites=true&w=majority',
+  dbName : 'airpnd_proj'
 }
+
