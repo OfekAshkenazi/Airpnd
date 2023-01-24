@@ -14,13 +14,13 @@ module.exports = {
 }
 
 
-async function query() {
+async function query(filterBy) {
     try {
-        // const criteria = {
-        //     name: { $regex: filterBy.txt, $options: 'i' }
-        // }
+        const criteria = {
+            name: { $regex: filterBy.txt, $options: 'i' }
+        }
         const collection = await dbService.getCollection('stay')
-        var stays = await collection.find().toArray()
+        var stays = await collection.find(criteria).toArray()
         return stays
     } catch (err) {
         logger.error('cannot find stays', err)
@@ -90,7 +90,7 @@ async function addCarMsg(carId, msg) {
 async function removeCarMsg(carId, msgId) {
     try {
         const collection = await dbService.getCollection('car')
-        await collection.updateOne({ _id: ObjectId(carId) }, { $pull: { msgs: {id: msgId} } })
+        await collection.updateOne({ _id: ObjectId(carId) }, { $pull: { msgs: { id: msgId } } })
         return msgId
     } catch (err) {
         logger.error(`cannot add car msg ${carId}`, err)

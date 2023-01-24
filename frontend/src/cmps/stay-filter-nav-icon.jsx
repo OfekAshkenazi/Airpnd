@@ -7,8 +7,13 @@ import { NavLink } from 'react-router-dom';
 
 import { IconFiltering } from '../assets/svg/filtring-icon';
 import { labels } from '../services/stay.service.js';
+
 export function NavIconFilter() {
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
+    // const [searchParams, setSearchParams] = useSearchParams()
+    // const queryFilterBy = stayService.getFilterFromSearchParams(searchParams)
+
+
     const [idx, setIdx] = useState(0)
     const pageSize = 14
     const pageDiff = 4
@@ -45,7 +50,7 @@ export function NavIconFilter() {
                 </div>}
                 {
                     labelsPage.map(label => {
-                        return <NavLink key={label} to="/" style={{ textDecoration: 'none' }}>
+                        return <NavLink key={label} to={`/type=${label}`} style={{ textDecoration: 'none' }}>
                             <div className='icon-preview'>
                                 <img src={require(`../assets/icon-nav-filter/${label}.png`)} alt="" />
                                 <p>{`${label}`}</p>

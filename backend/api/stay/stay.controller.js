@@ -14,10 +14,10 @@ module.exports = {
 async function getStays(req, res) {
   try {
     logger.debug('Getting Stays')
-    // const filterBy = {
-    //   txt: req.query.txt || ''
-    // }
-    const stays = await stayService.query()
+    const filterBy = {
+      txt: req.query.txt || ''
+    }
+    const stays = await stayService.query(filterBy)
     res.json(stays)
   } catch (err) {
     logger.error('Failed to get stays', err)

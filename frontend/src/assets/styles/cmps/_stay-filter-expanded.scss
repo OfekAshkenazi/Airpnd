@@ -67,6 +67,7 @@
         }
 
         .filter-check-in {
+            position: relative;
             font-family: CerealBd;
             border-radius: 50px;
             display: flex;
@@ -77,6 +78,14 @@
             &:hover {
                 background-color: #ddd;
             }
+
+            &.active {
+                padding-top: 12px;
+                // padding-buttom: 1000px;
+                background-color: #fff;
+                box-shadow: 0 0 15px rgb(207, 207, 207);
+            }
+
         }
 
         .filter-check-out {

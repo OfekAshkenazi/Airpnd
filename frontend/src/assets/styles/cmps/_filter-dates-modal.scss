@@ -1,6 +1,11 @@
 .filter-dates-modal {
-  background-color: aqua;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 15px rgb(199, 199, 199);
+  border-radius: 20px;
   position: absolute;
-  height: 100px;
-  width: 100px;
+  // height: 10px;
+  width: 800px;
+  top: em(88px);
+  right: em(-490px);
+  // right: em(280px);
 }

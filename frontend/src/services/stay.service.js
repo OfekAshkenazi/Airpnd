@@ -1,9 +1,9 @@
-import { httpService } from './http.service.js'
-import { userService } from './user.service.js'
+import { httpService } from './http.service.js';
+import { userService } from './user.service.js';
 
 const API_KEY = 'stay'
 
-export const labels = ['vineyards', 'caves', 'tropical', 'countrySide', 'nationalParks', 'barns', 'ski', 'historicalHome', 'privateRooms', 'mansions', 'riads', 'houseBoats', 'omg', 'chefKitchens', 'boats', 'castels', 'amazingViews', 'trending', 'beachFront', 'topOfTheWorld', 'luxe', 'domes', 'lake', 'cabins', 'tinyHomes', 'amazingPools', 'islands', 'bed&breakFasts', 'design', 'offTheGrid', 'play', 'farms', 'beach', 'lakeFront', 'arctic', 'iconicCities', 'new', 'surfing', 'camping', 'treeHouses', 'campers', 'desert', 'golfing', 'earthHomes', 'aFrames', 'hanoks', 'cycladicHomes', 'ryokans', 'yurts', 'shepherdHuts', 'casasParticulares', 'minsus', 'windMills', 'towers', 'adapted', 'containers', 'creativeSpaces', 'grandPianos', 'trulli', 'dammusi', 'skiing']
+export const labels = ['Vineyards', 'Caves', 'Tropical', 'Countryside', 'National parks', 'Barns', 'Ski', 'Historical homes', 'Private rooms', 'Mansions', 'Riads', 'Houseboats', 'OMG', 'ChefKitchens', 'Boats', 'Castels', 'Amazing views', 'Trending', 'Beachfront', 'Top of the world', 'Luxe', 'Domes', 'Lake', 'Cabins', 'Tiny homes', 'Amazing pools', 'Islands', 'Bed & breakfasts', 'Design', 'Off-the-grid', 'Play', 'Farms', 'Beach', 'Lakefront', 'Arctic', 'Iconic cities', 'New', 'Surfing', 'Camping', 'Treehouses', 'Campers', 'Desert', 'Golfing', 'Earth homes', 'A-frames', 'Hanoks', 'Cycladic homes', 'Ryokans', 'Yurts', 'Shepherds huts', 'Casas particulares', 'Minsus', 'Windmills', 'Towers', 'Adapted', 'Containers', 'Creative spaces', 'Grand pianos', 'Trulli', 'Dammusi', 'Skiing']
 
 export const stayService = {
     query,
@@ -19,13 +19,14 @@ async function query(filterBy = { txt: '' }) {
     let stays
     let queryParams = `?txt=${filterBy.txt}`
     try {
-        stays = await httpService.get(API_KEY)
+        stays = await httpService.get(API_KEY + queryParams)
         return stays
     } catch (err) {
         console.log(err)
     }
 }
-
+// &type=${filterBy.type}
+// let queryParams = `?name=${filterBy.name}&inStock=${filterBy.inStock}`
 function getFilterFromSearchParams(searchParams) {
     const emptyFilter = getEmptyFilter()
     const filterBy = {}
@@ -40,7 +41,7 @@ function getEmptyFilter() {
 }
 
 async function getById(stayId) {
-   try {
+    try {
         const stay = await httpService.get(API_KEY + `/${stayId}`)
         return stay
     } catch (err) { console.log(err) }

@@ -1,18 +1,21 @@
 import { display } from '@mui/system';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 
 import IconBxSearch from '../assets/svg/search-magnifying';
 import { stayService } from '../services/stay.service.js';
 import { onSetFilter } from '../store/stay.actions';
-import { FilterWhereModal } from './filter-where-modal';
 import { FilterDatesModal } from './filter-dates-modal';
+import { FilterWhereModal } from './filter-where-modal';
 import { FilterWhoModal } from './filter-who-modal';
 
-export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, onAddGuest, onAddWhere }) {
+export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateModalOpen, onAddGuest, onAddWhere, onDateModal }) {
   const [filterByToEdit, setFilterBy] = useState(stayService.getEmptyFilter())
   const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
 
+  const [searchParams, setSearchParams] = useSearchParams()
+  const queryFilterBy = stayService.getFilterFromSearchParams(searchParams)
 
   function handleChange({ target }) {
     let { value, name: field, type } = target
@@ -22,6 +25,7 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, onAddGu
 
   function onFilter(ev) {
     ev.preventDefault()
+    setSearchParams(filterByToEdit)
     onSetFilter(filterByToEdit)
   }
 
@@ -48,17 +52,17 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, onAddGu
         <span></span>
 
         {/* <div className='filter-check-in'> */}
-        <button className='filter-check-in font' onClick={() => { }}>
+        <button className={`filter-check-in ${(isDateModalOpen) ? "active" : ""} font`} onClick={() => { onDateModal() }}>
           <div>
             <p>Check-in</p>
             <p className='unbold'>{`${data.checkIn}`}</p>
           </div>
-          <FilterDatesModal />
+          {isDateModalOpen && <FilterDatesModal />}
         </button>
         {/* </div> */}
         <span></span>
 
-        <button className='filter-check-out' onClick={() => { }}>
+        <button className={`filter-check-out ${(isDateModalOpen) ? "active" : ""}`} onClick={() => { onDateModal() }}>
           <div>
             <p>Check-out</p>
             <p className='unbold'>{`${data.checkIn}`}</p>
