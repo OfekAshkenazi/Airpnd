@@ -11,6 +11,7 @@ export function GoogleMap({ lat, lng }) {
     return (
         <section>
             <div className="google-map" style={{ height: '480px', width: '100%' }}>
+                <h1>Where you'll be</h1>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyDXaNvMCqlwqiat6a6gL7A0mN-z93Tojdk" }}
                     defaultCenter={coordinates}

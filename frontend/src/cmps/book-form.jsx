@@ -33,6 +33,9 @@ export function BookingForm({ stay }) {
         const numOfDays = differenceInCalendarDays(endDate, startDate)
         const newRange = { ...range, endDate: addDays(startDate, numOfDays) }
         setOrder([newRange])
+        // console.log(newRange)
+        // setOrder([{...order[0], ...newRange}])
+        // console.log(order)
     }
 
     function numericDate(date) {
@@ -70,7 +73,7 @@ export function BookingForm({ stay }) {
             />}
             <BasicSelect className="select-dropdown" handleGuestsChange={handleGuestsChange} />
         </div>
-        <ReserveBtn className="reserve" order={order} numericDate={numericDate} stay = {stay} />
+        <ReserveBtn className="reserve" order={order} numericDate={numericDate} stay={stay} />
         <p>You won't be charged yet</p>
         <div className="summary">
             <div className="prices">

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { reviewService } from "../services/review.service";
-import { ReviewPreview } from "./review-preview";
+import { useEffect, useState } from "react"
+import { reviewService } from "../services/review.service"
+import { ReviewPreview } from "./review-preview"
 export function ReviewList({ stay }) {
     const [reviews, setReviews] = useState([])
 
