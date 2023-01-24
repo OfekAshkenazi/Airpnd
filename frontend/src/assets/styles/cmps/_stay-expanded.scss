@@ -1,6 +1,6 @@
 .stay-expanded {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     margin-top: em(50px);
 
     .expanded-left {
@@ -32,7 +32,7 @@
         }
     }
 
-    img {
+    .img-host{
         width: em(61px);
         height: em(61px);
         border-radius: 50%;
@@ -44,7 +44,7 @@
         display: flex;
         margin-top: em(30px);
 
-        img {
+        .img-activity {
             padding-top: em(3px);
         }
     }

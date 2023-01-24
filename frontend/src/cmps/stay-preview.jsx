@@ -8,6 +8,7 @@ import IconHeart from '../assets/svg/icon-heart';
 
 export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
     let [idx, setIdx] = useState(0)
+    const user = useSelector(storeState => storeState.userModule.user)
 
     function fixIdxForImages(diff) {
         idx += diff
@@ -30,12 +31,25 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
         return (totalRating / stay.reviews.length).toFixed(1)
     }
 
+    function heartStatus() {
+        if (!user) {
+            return  <IconHeart fill={"#41454fd2"} />
+        }
+        if (stay.likedByUsers.includes(user._id)) {
+            return <IconHeart fill={"#FF385C"} />
+        } 
+       
+        else {
+            return <IconHeart fill={"#41454fd2"} />
+        }
+    }
+
     return (
         <article className="stay-grid" >
             <div className="img-container">
                 <img onClick={() => onMoveToStayDetails(stay._id)} src={stay.imgUrls[idx]} alt="" />
                 <div className="wish-list" onClick={() => onAddToWishList(stay._id)} >
-                    {stay.inWishList ? <IconHeart fill={"#FF385C"} /> : <IconHeart fill={"#41454fd2"}/>}
+                    { heartStatus()  }
                 </div>
                 <div className="slider-btn flex">
                     <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>

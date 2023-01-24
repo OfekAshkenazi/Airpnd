@@ -15,19 +15,19 @@ export function StayExpanded({ stay }) {
                     2 beds
                     <span className="seperator">·</span>
                     1 bath </div>
-                <img src={stay.host.imgUrl} />
+                <img className="img-host" src={stay.host.imgUrl} />
             </div>
 
             <div className="host">
-                <img style={{ width: '24px', height: '24px' }} src={require("../assets/svg/stay-details/pet_friendly.png")} alt="" />
+                <img className = "img-activity" style={{ width: '24px', height: '24px' }} src={require("../assets/svg/stay-details/pet_friendly.png")} alt="" />
                 <span className="txt">Furry friends welcome
                     <span className="head-span">Bring your pets along for the stay.</span></span></div>
             <div className="host">
-                <img style={{ width: '24px', height: '24px' }} src={require("../assets/svg/stay-details/great_communication.png")} alt="" />
+                <img className = "img-activity" style={{ width: '24px', height: '24px' }} src={require("../assets/svg/stay-details/great_communication.png")} alt="" />
                 <span className="txt">Great Communication
                     <span className="head-span">95% of recent guests rated Emin 5-star in communication.</span></span></div>
             <div className="host">
-                <img style={{ width: '24px', height: '24px' }} src={require("../assets/svg/stay-details/superhost.png")} alt="" />
+                <img className = "img-activity" style={{ width: '24px', height: '24px' }} src={require("../assets/svg/stay-details/superhost.png")} alt="" />
                 <span className="txt">{firstName} is a Superhost
                     <span className="head-span">Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</span></span></div>
 

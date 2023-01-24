@@ -12,30 +12,32 @@ import { ContactlessOutlined } from '@mui/icons-material'
 
 export function BookingForm({ stay }) {
     const [isPickerOpen, setIsPickerOpen] = useState(false)
-    const [numClicks, setNumClicks] = useState(0);
+    const [numClicks, setNumClicks] = useState(0)
 
     const [order, setOrder] = useState([
         {
             startDate: new Date(),
-            endDate: new Date(),
+            endDate: addDays(new Date(), 6),
             guests: { infants: 0, pets: 0, adults: 1, children: 0 },
             key: 'selection'
         }
     ])
 
-    function handleGuestsChange(newGuests) {
-        const { guests } = order
-        setOrder({ ...order, guests: { ...guests, ...newGuests } })
+    const stayPrice = priceCalc(stay.price)
+    const serviceFee = 100
+    const totalPrice = (parseFloat(stayPrice.replace(/,/g, '')) + serviceFee).toLocaleString()
+
+    function handleGuestChange(newGuests) {
+        setOrder(prevOrder => {
+            const updatedOrder = { ...prevOrder[0] }
+            updatedOrder.guests = { ...updatedOrder.guests, ...newGuests }
+            return [updatedOrder]
+        })
     }
 
-    function onChangeDate(range) {
-        let { startDate, endDate } = range
-        const numOfDays = differenceInCalendarDays(endDate, startDate)
-        const newRange = { ...range, endDate: addDays(startDate, numOfDays) }
-        setOrder([newRange])
-        // console.log(newRange)
-        // setOrder([{...order[0], ...newRange}])
-        // console.log(order)
+    function handleDateChange(range) {
+        const { startDate, endDate } = range
+        setOrder(prevOrder => [{ ...prevOrder[0], startDate, endDate }])
     }
 
     function numericDate(date) {
@@ -46,6 +48,19 @@ export function BookingForm({ stay }) {
         })
         return formattedDate
     }
+
+    function daysNumCalc() {
+        const numberOfDays = differenceInCalendarDays(order[0].endDate, order[0].startDate)
+        return numberOfDays
+    }
+
+    function priceCalc(price) {
+        const nights = daysNumCalc()
+        const totalPrice = (price * nights)
+        const formattedPrice = totalPrice.toLocaleString()
+        return formattedPrice
+    }
+
 
     return <div className="book-form">
         <div className="header">
@@ -61,7 +76,7 @@ export function BookingForm({ stay }) {
                 editableDateInputs={true}
                 onChange={(item) => {
                     setOrder([item.selection])
-                    onChangeDate(item.selection)
+                    handleDateChange(item.selection)
                     setNumClicks(numClicks + 1)
                     if (numClicks % 2) setIsPickerOpen(false)
                 }
@@ -71,15 +86,15 @@ export function BookingForm({ stay }) {
                 direction={'horizontal'}
                 className='date-range'
             />}
-            <BasicSelect className="select-dropdown" handleGuestsChange={handleGuestsChange} />
+            <BasicSelect className="select-dropdown" handleGuestsChange={handleGuestChange} />
         </div>
         <ReserveBtn className="reserve" order={order} numericDate={numericDate} stay={stay} />
         <p>You won't be charged yet</p>
         <div className="summary">
             <div className="prices">
-                <span className="cash">$1,166 x 5 nights <span className="right">$8,066</span></span>
-                <span className="cash">Service Fee<span className="right">$1,139</span></span>
-                <span className="total">Total <span>$401.32</span></span>
+                <span className="cash">${stay.price} x {daysNumCalc()} nights <span className="right">${stayPrice}</span></span>
+                <span className="cash">Service Fee<span className="right">${serviceFee}</span></span>
+                <span className="total">Total <span>${totalPrice}</span></span>
             </div>
         </div>
     </div>
