@@ -1,11 +1,99 @@
 .filter-where-modal {
   position: absolute;
-  background-color: aqua;
-  height: 400px;
-  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgb(199, 199, 199);
+  width: 800px;
   top: em(80px);
-  right: em(0px);
+  left: em(0px);
   border-radius: em(30px);
+  display: flex;
+  padding: 10px 30px;
+
+  h4 {
+    font-family: CerealBd;
+    color: #222222;
+    font-size: em(14px);
+  }
+
+  .common-searches {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: em(20px);
 
 
+    .common-search {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: em(10px);
+      cursor: pointer;
+      padding-left: 10px;
+
+      .place-icon {
+        background-color: #ebebeb;
+        padding: em(15px) em(17px);
+        border-radius: em(15px);
+      }
+
+      .place-content {
+        font-family: circularL;
+
+        .common-city {
+          color: #222222;
+          font-size: em(16px);
+        }
+
+        .common-country {
+          font-size: em(12px);
+          color: #717171;
+        }
+
+      }
+
+      &:hover {
+        background-color: #f8f8f8f9;
+      }
+    }
+  }
+
+  .search-by-regions {
+    flex-grow: 1;
+    border-left: #e7e7e7 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 20px;
+    gap: 10px;
+
+
+    .regions-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      justify-items: center;
+      align-items: center;
+      gap: 20px;
+
+      .region {
+        cursor: pointer;
+
+        img {
+          width: 120px;
+          border-radius: 10px;
+          border: #dddddd 1px solid;
+
+          &:hover {
+            transition: 0.3s;
+            border: #373737 1px solid;
+          }
+        }
+
+        p {
+          font-family: circularL;
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }

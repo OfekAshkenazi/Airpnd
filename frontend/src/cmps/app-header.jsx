@@ -58,10 +58,12 @@ export function AppHeader() {
 
     function onAddGuest() {
         setIsGuestModalOpen(true)
+        setIsWhereModalOpen(false)
     }
 
     function onAddWhere() {
         setIsWhereModalOpen(true)
+        setIsGuestModalOpen(false)
     }
     return (
         <>
@@ -69,7 +71,7 @@ export function AppHeader() {
 
                 <div onClick={onLogoClick} className='logo-container'>
                     <img src={logo} alt="logo" className='logo' />
-                    <p className='logo-title'>ɑirpnd</p>
+                    <p className='logo-title'>airpnd</p>
                 </div>
 
                 <StayFilter onAddGuest={onAddGuest} onAddWhere={onAddWhere} />
