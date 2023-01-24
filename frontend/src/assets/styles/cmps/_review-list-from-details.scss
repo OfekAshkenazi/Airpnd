@@ -64,8 +64,12 @@
         text-transform: capitalize;
         align-items: center;
         gap: em(10px);
+
         img {
             object-fit: cover;
+            width: 3.8125em;
+            height: 3.8125em;
+            border-radius: 50%;
         }
     }
 

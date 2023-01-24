@@ -5,12 +5,14 @@ import { useSelector } from 'react-redux';
 import IconBxSearch from '../assets/svg/search-magnifying';
 import { stayService } from '../services/stay.service.local';
 import { onSetFilter } from '../store/stay.actions';
+import { FilterWhereModal } from './filter-where-modal';
 import { FilterWhoModal } from './filter-who-modal';
 
-export function StayFilterExpanded() {
+export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, onAddGuest, onAddWhere }) {
   const [filterByToEdit, setFilterBy] = useState(stayService.getEmptyFilter())
   const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
-  const [isGuestModalOpen, setIsGuestModalOpen] = useState(false)
+
+
   function handleChange({ target }) {
     let { value, name: field, type } = target
     value = (type === 'range') ? +value : value
@@ -30,20 +32,19 @@ export function StayFilterExpanded() {
 
 
 
-  function onAddGuest() {
-    setIsGuestModalOpen(true)
-  }
+
 
   return (
     <section className={`stay-filter-expanded `}>
       <div className={`con ${(isFilterExpanded) ? "show" : "hidden"}`}>
-        <form onSubmit={onFilter} className={`stay-filter-form`}>
+        <form onSubmit={onFilter} className={`stay-filter-form ${(isWhereModalOpen) ? "active" : ""}`}>
 
-          <div className='filter-where'>
+          <div className={`filter-where `} onClick={() => onAddWhere()}>
             <label className='filter-where-label'>
               <p>Where</p>
               <input type="text" name="txt" id="txt" value={filterByToEdit.txt} onChange={handleChange} placeholder="Search destinations" className='filter-where-input unbold' />
             </label>
+            {isWhereModalOpen ? <FilterWhereModal /> : ''}
           </div>
         </form>
         <span></span>
@@ -60,13 +61,13 @@ export function StayFilterExpanded() {
 
         <button className='filter-check-out' onClick={() => { }}>
           <div>
-            <p>Check-in</p>
+            <p>Check-out</p>
             <p className='unbold'>{`${data.checkIn}`}</p>
           </div>
         </button>
         <span></span>
 
-        <div className='filter-who' onClick={() => onAddGuest()}>
+        <div className={`filter-who ${(isGuestModalOpen) ? "active" : ""}`} onClick={() => onAddGuest()}>
           <div className='filter-who-content'>
             <p>Who</p>
             <p className='unbold'>{`${data.checkIn}`}</p>

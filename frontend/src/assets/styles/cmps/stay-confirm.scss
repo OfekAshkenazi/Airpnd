@@ -5,7 +5,7 @@
         display: flex;
 
         .back-btn {
-            background-color: white;
+            background-color: var(--clrMBg);
         }
 
         h1 {
@@ -35,14 +35,14 @@
                 font-weight: 600;
                 font-size: em(18px);
                 padding-bottom: em(36px);
+                line-height: em(20px);
 
                 span {
                     font-weight: 400;
                 }
 
                 .edit-btn {
-                    background-color: white !important;
-                    color: rgb(34, 34, 34);
+                    background-color: $clrMBg !important;
                     font-weight: 600;
                     text-decoration: underline;
                     padding-left: em(480px);
@@ -52,6 +52,13 @@
                     display: flex;
                     flex-direction: column;
                 }
+            }
+
+            .book-btn {
+                color: $clrMBg;
+                background-color: $clrHeart;
+                padding: em(16px);
+                border-radius: em(8px);
             }
         }
 
