@@ -33,23 +33,29 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
 
     function heartStatus() {
         if (!user) {
-            return  <IconHeart fill={"#41454fd2"} />
+            return <IconHeart fill={"#41454fd2"} />
         }
         if (stay.likedByUsers.includes(user._id)) {
             return <IconHeart fill={"#FF385C"} />
-        } 
-       
+        }
+
         else {
             return <IconHeart fill={"#41454fd2"} />
         }
     }
+
+    function getRandomRate() {
+        return (Math.random() * (5 - 4.2) + 4.2).toFixed(1);
+    }
+
+
 
     return (
         <article className="stay-grid" >
             <div className="img-container">
                 <img onClick={() => onMoveToStayDetails(stay._id)} src={stay.imgUrls[idx]} alt="" />
                 <div className="wish-list" onClick={() => onAddToWishList(stay._id)} >
-                    { heartStatus()  }
+                    {heartStatus()}
                 </div>
                 <div className="slider-btn flex">
                     <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>
@@ -66,11 +72,11 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
                     </div>
                     <div className="preview-rate flex">
                         <FontAwesomeIcon style={{ width: '13px' }} icon={faStar} />
-                        {getRating()}
+                        {getRandomRate()}
                     </div>
                 </div>
                 <p>{stay.loc.address}</p>
-                <p>{stay.openDateds}</p>
+                <p>Jan 25 - Feb 1</p>
                 <p className='priceP'>${stay.price}<span> night</span></p>
             </div>
         </article >

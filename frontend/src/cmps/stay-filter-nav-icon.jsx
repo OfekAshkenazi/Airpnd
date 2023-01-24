@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { IconFiltering } from '../assets/svg/filtring-icon';
-import { labels } from '../services/stay.service.local';
+import { labels } from '../services/stay.service.js';
 export function NavIconFilter() {
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
     const [idx, setIdx] = useState(0)

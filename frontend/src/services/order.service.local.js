@@ -1,8 +1,9 @@
 import { storageService } from "./async-storage.service"
+import { httpService } from "./http.service"
 import { userService } from "./user.service"
 import { utilService } from "./util.service"
 
-const ORDER_KEY = 'ORDER_KEY'
+const ORDER_KEY = 'order'
 
 export const orderService = {
     query,
@@ -10,14 +11,18 @@ export const orderService = {
     add,
     getEmptyOrder
 }
-_createOrders()
 
-function query() {
-    return storageService.query(ORDER_KEY)
+async function query() {
+    try {
+        const orders = await httpService.get(ORDER_KEY)
+        return orders
+    } catch (err) { console.log(err); throw err }
 }
 
 async function remove(orderId) {
-    await storageService.remove(ORDER_KEY, orderId)
+    try {
+        await httpService.remove(ORDER_KEY, orderId)
+    } catch (err) { console.log(err); throw err }
 }
 
 async function add(order) {
@@ -91,7 +96,6 @@ function _createOrders() {
 
 function getEmptyOrder() {
     const newOrder = {
-        // "_id": utilService.makeId(),
         "hostId": "u102",
         "buyer": {
             "_id": "u101",

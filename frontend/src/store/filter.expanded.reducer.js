@@ -1,4 +1,3 @@
-import { stayService } from '../services/stay.service.local';
 
 export const SET_FILTER_EXPANDED = 'SET_FILTER_EXPANDED'
 

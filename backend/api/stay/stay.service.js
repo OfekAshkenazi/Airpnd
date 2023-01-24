@@ -61,17 +61,16 @@ async function add(car) {
     }
 }
 
-async function update(car) {
+async function update(stay) {
     try {
-        const carToSave = {
-            vendor: car.vendor,
-            price: car.price
+        const stayToSave = {
+            likedByUsers: stay.likedByUsers
         }
-        const collection = await dbService.getCollection('car')
-        await collection.updateOne({ _id: ObjectId(car._id) }, { $set: carToSave })
-        return car
+        const collection = await dbService.getCollection('stay')
+        await collection.updateOne({ _id: ObjectId(stay._id) }, { $set: stayToSave })
+        return stay
     } catch (err) {
-        logger.error(`cannot update car ${carId}`, err)
+        logger.error(`cannot update stay ${stay._id}`, err)
         throw err
     }
 }
