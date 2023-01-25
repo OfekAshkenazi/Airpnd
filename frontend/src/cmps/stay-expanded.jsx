@@ -15,7 +15,7 @@ export function StayExpanded({ stay }) {
                     2 beds
                     <span className="seperator">·</span>
                     1 bath </div>
-                <img className="img-host" src={stay.host.imgUrl} />
+                <img className="img-host" src={stay.host.pictureUrl} />
             </div>
 
             <div className="host">
@@ -37,7 +37,7 @@ export function StayExpanded({ stay }) {
                 <span className="txt">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</span>
                 <span className="more">Learn more</span>
             </div>
-            {/* <Amenities stay={stay} /> */}
+            <Amenities stay={stay} />
         </div>
         <BookingForm stay={stay} />
     </section>

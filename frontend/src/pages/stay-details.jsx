@@ -43,7 +43,8 @@ export function StayDetails() {
         <div className="stay-info flex align-center">
             <div>
                 <img className="img-star" src={require("../assets/img/icons/star.png")} />
-                <span>{getRating()}</span>
+                <span>4.8</span>
+                {/* <span>{getRating()}</span> */}
                 <span className="seperator">·</span>
                 <span className="stay-reviews">{(stay.reviews.length)} reviews</span>
                 <span className="seperator">·</span>
