@@ -33,8 +33,8 @@ async function add(order) {
     //     ...order,
     //     byUser: aboutUser
     // }
-    // for demo
-    const addedOrder = await storageService.post(ORDER_KEY, order)
+    
+    const addedOrder = await httpService.post(ORDER_KEY, order)
     return addedOrder
 }
 

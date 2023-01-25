@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { makeStyles } from '@mui/styles'
 import Button from '@mui/material/Button'
-import { useNavigate, NavLink, useSearchParams } from 'react-router-dom'
+import { useNavigate, NavLink, useSearchParams, useParams } from 'react-router-dom'
 import { orderService } from '../services/order.service.local'
 import { updateOrder } from '../store/system.action'
 
@@ -35,17 +35,17 @@ const useStyles = makeStyles({
 
 export function ReserveBtn({ order, numericDate, stay }) {
   const classes = useStyles()
+  let { stayId } = useParams()
+  const { startDate, endDate, guests } = order[0]
+  const { adults, children, infants, pets } = guests
   const navigate = useNavigate()
-  const [searchParams, setSearchParams] = useSearchParams()
-
+  console.log(order[0])
   async function onAddNewOrder(order, stay) {
     try {
-      order[0].stayId =  stay._id
+      order[0].stayId = stay._id
       await updateOrder(order[0])
-      navigate('/book/stays')
+      navigate(`/book/stays/${stayId}/${adults}/${children}/${infants}/${pets}/${startDate}/${endDate}`)
     } catch (err) { console.log(err) }
   }
-  return <NavLink to="/book/stays" className={classes.root}
-  ><Button onClick={() => onAddNewOrder(order, stay)} className={classes.root}>Reserve</Button>
-  </NavLink>
+  return <Button onClick={() => onAddNewOrder(order, stay)} className={classes.root}>Reserve</Button>
 }

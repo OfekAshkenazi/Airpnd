@@ -12,7 +12,13 @@ export const stayService = {
     remove,
     getEmptyStay,
     getEmptyFilter,
-    getFilterFromSearchParams
+    getFilterFromSearchParams,
+    extractDate
+}
+
+function extractDate(dateString) {
+    const date = new Date(dateString)
+    return date.toDateString().slice(0, 11)
 }
 
 async function query(filterBy = { txt: '' }) {

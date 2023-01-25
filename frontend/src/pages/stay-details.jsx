@@ -30,7 +30,7 @@ export function StayDetails() {
         if (!stay.reviews || stay.reviews.length === 0) {
             return null
         }
-        let totalRating = 0;
+        let totalRating = 0
         stay.reviews.forEach(review => {
             totalRating += review.rate
         })

@@ -63,7 +63,13 @@
         }
 
         .modal {
-            // styles for modal
+            .modal-info{
+                display: flex;
+                flex-direction: column;
+            }
+            .img-confirm{
+                width: 300px;
+            }
         }
     }
 }

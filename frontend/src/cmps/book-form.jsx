@@ -17,11 +17,11 @@ export function BookingForm({ stay }) {
     const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
     const [isGuestPickerOpen, setIsGuestPickerOpen] = useState(false)
     const [numClicks, setNumClicks] = useState(0)
-    
+
+    order[0].stay = stay
     const stayPrice = priceCalc(stay.price)
     const serviceFee = 100
     const totalPrice = (parseFloat(stayPrice.replace(/,/g, '')) + serviceFee).toLocaleString()
-
     function handleGuestChange(newGuests) {
         setOrder(prevOrder => {
             const updatedOrder = { ...prevOrder[0] }
@@ -56,7 +56,6 @@ export function BookingForm({ stay }) {
         return formattedPrice
     }
 
-
     return <div className="book-form">
         <div className="header">
             <span className="price"> ${stay.price} <span className="night">night</span></span>
@@ -86,7 +85,7 @@ export function BookingForm({ stay }) {
                     <span className="second-row">{guests.adults + guests.children + guests.infants + guests.pets} guests</span></div>
                 <div className="arrow-side"><img src={require(`../assets/img/icons/arrow-down.png`)} alt="" /></div>
             </div>
-            {isGuestPickerOpen && <GuestPicker guests={guests} setGuests={setGuests}  handleGuestChange={handleGuestChange} />}
+            {isGuestPickerOpen && <GuestPicker guests={guests} setGuests={setGuests} handleGuestChange={handleGuestChange} />}
 
         </div>
         <ReserveBtn className="reserve" order={order} numericDate={numericDate} stay={stay} />

@@ -35,7 +35,6 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
     who: 'Add guests',
   }
 
-
   return (
     <section className={`stay-filter-expanded `}>
       <div className={`con ${(isFilterExpanded) ? "show" : "hidden"}`}>

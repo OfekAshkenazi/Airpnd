@@ -13,10 +13,14 @@ const routes = [
         component: <StayDetails />,
     },
     {
-        path: '/book/stays',
+        path: '/book/stays/',
         component: <StayConfirm />,
     },
-   
+    {
+        path: '/book/stays/:stayId/:adults/:children/:infants/:pets/:startDate/:endDate',
+        component: <StayConfirm />,
+    },
+
 ]
 
 export default routes
