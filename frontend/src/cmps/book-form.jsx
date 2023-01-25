@@ -1,18 +1,19 @@
 import { React, useEffect, useState } from 'react'
 
-import { BasicSelect } from '../cmps/select-dropdown.jsx'
 import { ReserveBtn } from '../cmps/reserve-btn.jsx'
-
-import '../../node_modules/react-date-range/dist/styles.css'
-import '../../node_modules/react-date-range/dist/theme/default.css'
+import { GuestPicker } from '../cmps/guest-picker.jsx'
 import { DateRange } from 'react-date-range'
 import { addDays } from 'date-fns'
 import { differenceInCalendarDays } from 'date-fns'
-import { ContactlessOutlined } from '@mui/icons-material'
+
+import '../../node_modules/react-date-range/dist/styles.css'
+import '../../node_modules/react-date-range/dist/theme/default.css'
 
 export function BookingForm({ stay }) {
-    const [isPickerOpen, setIsPickerOpen] = useState(false)
+    const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
+    const [isGuestPickerOpen, setIsGuestPickerOpen] = useState(false)
     const [numClicks, setNumClicks] = useState(0)
+    const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
 
     const [order, setOrder] = useState([
         {
@@ -68,17 +69,17 @@ export function BookingForm({ stay }) {
             <span className="reviews">{stay.reviews.length} reviews</span>
         </div>
         <div className="action-btn" >
-            <div className="checkin-out" onClick={() => setIsPickerOpen(!isPickerOpen)}>
+            <div className="checkin-out" onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}>
                 <div className='checkin flex'>CHECK-IN <span>{numericDate(order[0].startDate)}</span></div>
                 <div className='checkout flex'>CHECKOUT<span>{numericDate(order[0].endDate)}</span></div>
             </div>
-            {isPickerOpen && <DateRange
+            {isDatePickerOpen && <DateRange
                 editableDateInputs={true}
                 onChange={(item) => {
                     setOrder([item.selection])
                     handleDateChange(item.selection)
                     setNumClicks(numClicks + 1)
-                    if (numClicks % 2) setIsPickerOpen(false)
+                    if (numClicks % 2) setIsDatePickerOpen(false)
                 }
                 }
                 ranges={order}
@@ -86,7 +87,14 @@ export function BookingForm({ stay }) {
                 direction={'horizontal'}
                 className='date-range'
             />}
-            <BasicSelect className="select-dropdown" handleGuestsChange={handleGuestChange} />
+            {/* <BasicSelect className="select-dropdown" handleGuestsChange={handleGuestChange} /> */}
+            <div className="guest-picker" onClick={() => setIsGuestPickerOpen(!isGuestPickerOpen)}>
+                <div className="guest-side"><span className="bold">GUESTS</span>
+                    <span className="second-row">{guests.adults + guests.children + guests.infants + guests.pets} guests</span></div>
+                <div className="arrow-side"><img src={require(`../assets/img/icons/arrow-down.png`)} alt="" /></div>
+            </div>
+            {isGuestPickerOpen && <GuestPicker guests={guests} setGuests={setGuests} handleGuestChange={handleGuestChange} />}
+
         </div>
         <ReserveBtn className="reserve" order={order} numericDate={numericDate} stay={stay} />
         <p>You won't be charged yet</p>
