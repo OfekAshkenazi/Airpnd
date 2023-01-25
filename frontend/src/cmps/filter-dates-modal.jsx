@@ -28,8 +28,7 @@ export function FilterDatesModal() {
 
   return (
     <section className='filter-dates-modal'>
-      <div>
-        <p>
+      
           <DateRange
             editableDateInputs={true}
             onChange={(item) => {
@@ -42,9 +41,6 @@ export function FilterDatesModal() {
             direction={'horizontal'}
             className='date-modal'
           />
-
-        </p>
-      </div>
     </section>
   )
 }
