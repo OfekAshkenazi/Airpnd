@@ -1,5 +1,5 @@
 import { display } from '@mui/system';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
@@ -11,11 +11,20 @@ import { FilterWhereModal } from './filter-where-modal';
 import { FilterWhoModal } from './filter-who-modal';
 
 export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateModalOpen, onAddGuest, onAddWhere, onDateModal }) {
-  const [filterByToEdit, setFilterBy] = useState(stayService.getEmptyFilter())
-  const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
-
   const [searchParams, setSearchParams] = useSearchParams()
   const queryFilterBy = stayService.getFilterFromSearchParams(searchParams)
+  const [filterByToEdit, setFilterBy] = useState(queryFilterBy)
+  const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
+  const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
+
+
+  // console.log('queryFilterBy:', queryFilterBy)
+  // console.log('filterBy:', filterBy)
+  // console.log('filterByToEdit:', filterByToEdit)
+  // console.log('searchParams:', searchParams)
+  // useEffect(() => {
+  //   onSetFilter(searchParams)
+  // }, [])
 
   function handleChange({ target }) {
     let { value, name: field, type } = target
@@ -51,7 +60,7 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
         <span></span>
 
         {/* <div className='filter-check-in'> */}
-       
+
         <button className={`filter-check-in ${(isDateModalOpen) ? "active" : ""} font`} onClick={() => { onDateModal() }}>
           <div>
             <p>Check-in</p>
@@ -60,7 +69,7 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
 
           {isDateModalOpen && <FilterDatesModal />}
         </button>
-   
+
         {/* </div> */}
         <span></span>
 

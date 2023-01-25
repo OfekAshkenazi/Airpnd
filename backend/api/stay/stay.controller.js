@@ -14,9 +14,9 @@ module.exports = {
 async function getStays(req, res) {
   try {
     logger.debug('Getting Stays')
-    const filterBy = {
-      txt: req.query.txt || ''
-    }
+    const filterBy = req.query
+
+    console.log(filterBy, 'filterBy');
     const stays = await stayService.query(filterBy)
     res.json(stays)
   } catch (err) {

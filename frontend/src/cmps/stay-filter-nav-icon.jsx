@@ -6,7 +6,8 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { IconFiltering } from '../assets/svg/filtring-icon';
-import { labels } from '../services/stay.service';
+import { labels, stayService } from '../services/stay.service';
+import { onSetFilter } from '../store/stay.actions';
 
 export function NavIconFilter() {
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
@@ -41,6 +42,13 @@ export function NavIconFilter() {
 
     }
 
+    function onFilterByLabel(label) {
+        let filterBy = stayService.getEmptyFilter()
+        filterBy.label = label
+        onSetFilter(filterBy)
+        console.log('filterBy:', filterBy)
+    }
+
     return (
         <section className='icon-nav-container'>
             <div className='icon-nav'>
@@ -50,8 +58,8 @@ export function NavIconFilter() {
                 </div>}
                 {
                     labelsPage.map(label => {
-                        return <NavLink key={label} to={`/`} style={{ textDecoration: 'none' }}>
-                            <div className='icon-preview'>
+                        return <NavLink key={label} style={{ textDecoration: 'none' }}>
+                            <div className='icon-preview' onClick={() => onFilterByLabel(label)}>
                                 <img src={require(`../assets/icon-nav-filter/${label}.png`)} alt="" />
                                 <p>{`${label}`}</p>
                             </div>
