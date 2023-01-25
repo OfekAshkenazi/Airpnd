@@ -52,7 +52,7 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
         <span></span>
 
         {/* <div className='filter-check-in'> */}
-        <>
+       
         <button className={`filter-check-in ${(isDateModalOpen) ? "active" : ""} font`} onClick={() => { onDateModal() }}>
           <div>
             <p>Check-in</p>
@@ -61,7 +61,7 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
 
           {isDateModalOpen && <FilterDatesModal />}
         </button>
-        </>
+   
         {/* </div> */}
         <span></span>
 
