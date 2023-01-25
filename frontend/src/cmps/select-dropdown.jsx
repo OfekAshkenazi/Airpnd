@@ -6,8 +6,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { makeStyles } from '@mui/styles';
 import { useState } from 'react'
-import  IconPlus  from './svg-cmps/plus-icon.jsx'
-import  IconMinus  from './svg-cmps/minus-icon.jsx'
+import IconPlus from './svg-cmps/plus-icon.jsx'
+import IconMinus from './svg-cmps/minus-icon.jsx'
 
 const useStyles = makeStyles({
   select: {
@@ -49,36 +49,36 @@ export function BasicSelect({ handleGuestsChange }) {
           </div>
         </InputLabel>
         <Select
-    labelId="demo-simple-select-label"
-    id="demo-simple-select"
-    label="Age"
-    value=''
-    onClick={event => event.preventDefault()}
-    onChange={event => setSelectedValue(event.target.value)}
-    inputProps={{
-        sx: {
-            "&.MuiOutlinedInput-input:hover": {
-                border: "1px solid gray",
-            }
-        }
-    }}
-    MenuProps={{
-        PaperProps: {
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          label="Age"
+          value=''
+          inputProps={{
             sx: {
-                "& .MuiMenuItem-root:hover": {
-                    backgroundColor: "transparent",
-                    cursor: "default",
-                    display: "none"
-                },
+              "&.MuiOutlinedInput-input:hover": {
+                border: "1px solid gray",
+              }
             }
-            
-        }
-    }}
->
-          <MenuItem 
-         onClickCapture={(e) => {
-          e.stopPropagation()
-     }}
+          }}
+          MenuProps={{
+            keepMounted: true,
+            disablePortal: true,
+            PaperProps: {
+              sx: {
+                "& .MuiMenuItem-root:hover": {
+                  backgroundColor: "transparent",
+                  cursor: "default",
+
+                },
+              }
+            }
+          }}
+        >
+          <MenuItem
+            onClickCapture={(e) => {
+              e.stopPropagation()
+            }}
+            keepMounted='true'
             className={classes.select}
             value="adults"
           >
@@ -92,6 +92,9 @@ export function BasicSelect({ handleGuestsChange }) {
             </div>
           </MenuItem>
           <MenuItem
+            onClickCapture={(e) => {
+              e.stopPropagation()
+            }}
             className={classes.select}
             value="children"
           >
@@ -104,6 +107,9 @@ export function BasicSelect({ handleGuestsChange }) {
               </div></div>
           </MenuItem>
           <MenuItem
+            onClickCapture={(e) => {
+              e.stopPropagation()
+            }}
             className={classes.select}
             value="infants"
           >
@@ -116,6 +122,9 @@ export function BasicSelect({ handleGuestsChange }) {
               </div></div>
           </MenuItem>
           <MenuItem
+            onClickCapture={(e) => {
+              e.stopPropagation()
+            }}
             className={classes.select}
             value="pets"
           >

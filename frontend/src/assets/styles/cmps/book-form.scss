@@ -4,7 +4,7 @@
   align-items: center;
   margin-left: em(58px);
   align-self: flex-start;
-  width: clamp(480px, 33.333%, 24.875em);
+  width: clamp(550px, 33.333%, 24.875em);
   padding: em(10px) em(32px);
   border: em(1px) solid $clrBorderGray;
   border-radius: em(12px);
@@ -38,23 +38,28 @@
   }
 
   .action-btn {
-    padding: 10px 10px;
+    // padding: 10px 10px;
     position: relative;
     width: 100%;
+
+    :hover{
+      cursor: pointer;
+    }
   }
 
   .checkin-out {
+    color: $clrBlackFont;
     display: flex;
-    height: 55px;
-    font-size: em(10px);
-    font-weight: bold;
+    height: 60px;
+    font-size: em(12px);
+    font-weight: 600;
 
     .checkin {
       flex-direction: column;
       border-top-left-radius: em(8px);
       border-bottom: none;
       border-right: none !important;
-      padding: em(24px) em(20px);
+      padding: em(14px) em(14px);
       border: em(1px) solid rgba(0, 0, 0, .32);
       flex: 1;
 
@@ -64,9 +69,13 @@
       flex-direction: column;
       border-top-right-radius: em(8px);
       border-bottom: none;
-      padding: em(24px) em(20px);
+      padding: em(14px) em(14px);
       border: em(1px) solid rgba(0, 0, 0, .32);
       flex: 1;
+    }
+
+    span {
+      font-weight: 400;
     }
   }
 
@@ -108,14 +117,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: em(16px);
+      font-size: em(18px);
       font-weight: 600;
       margin-top: em(16px);
       border-top: em(1px) solid rgb(221, 221, 221);
       padding-top: em(20px);
     }
-
-
   }
 
   .date-range {

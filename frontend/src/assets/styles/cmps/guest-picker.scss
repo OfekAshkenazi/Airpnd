@@ -1,0 +1,116 @@
+.action-btn {
+    .guest-picker {
+        border: em(1px) solid rgba(0, 0, 0, 0.32);
+        border-top: none;
+        border-bottom-left-radius: em(8px);
+        border-bottom-right-radius: em(8px);
+        font-size: em(10px);
+        display: flex;
+        // flex-direction: column;
+        justify-content: space-between;
+        padding-left: em(18px);
+        margin-bottom: em(24px);
+        height: em(90px);
+        display: flex;
+        align-items: center;
+
+        .guest-side {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: em(28px);
+        }
+
+        .arrow-side {
+            display: flex;
+            align-items: center;
+            padding: em(24px);
+
+            img {
+                width: 18px;
+            }
+        }
+
+        .bold {
+            margin-top: em(10px);
+            font-weight: bold;
+            color: $clrBlackFont;
+            font-size: em(21px);
+        }
+
+        .second-row {
+            font-size: em(24px);
+        }
+    }
+
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px, rgb(0 0 0 / 7%) 0px 0px 0px 1px;
+        padding: em(16px);
+        position: absolute;
+        z-index: 1000;
+        width: 100%;
+        background-color: white;
+
+        :hover {
+            cursor: default;
+        }
+
+        .guest-type {
+            display: flex;
+            justify-content: space-between;
+            font-size: em(16px);
+            padding-bottom: em(24px);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            font-weight: 600;
+
+            .description {
+                font-weight: 400;
+                font-size: em(14px);
+            }
+
+            .description-pets {
+                text-decoration: underline;
+                font-weight: 600;
+                font-size: em(16px);
+            }
+        }
+
+        .btns {
+            display: flex;
+            align-items: center;
+            padding-left: em(24px);
+
+            :hover {
+                cursor: pointer;
+            }
+
+            .disabled {
+                opacity: 20%;
+                background-color: #b3b3b3c9 !important;
+                cursor: not-allowed;
+            }
+
+            .guest-btn {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                border-radius: 5em;
+                padding: 14px;
+                width: em(10px);
+                height: em(10px);
+                border: 1px solid rgb(176, 176, 176);
+                background-color: white;
+            }
+
+            span {
+                padding-left: em(16px);
+                padding-right: em(16px);
+            }
+        }
+    }
+}

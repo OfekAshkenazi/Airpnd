@@ -3,14 +3,10 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { StayList } from '../cmps/stay.list.jsx';
-
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
-
 import { stayService } from '../services/stay.service.js';
 import { userService } from '../services/user.service.js';
-
 import { addStay, loadStays, removeStay, updateStay } from '../store/stay.actions.js';
-
 import { ToggleDetails } from '../store/system.action.js';
 import { updateUser } from '../store/user.actions.js';
 
@@ -22,9 +18,6 @@ export function StayIndex() {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
     const user = useSelector(storeState => storeState.userModule.user)
     const navigate = useNavigate()
-    if (stays) {
-        console.log(stays)
-    }
     useEffect(() => {
         loadStays(filterBy)
         ToggleDetails(false)
