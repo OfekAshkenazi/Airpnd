@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
-import { showErrorMsg } from "../services/event-bus.service.js";
+import { Link } from 'react-router-dom';
 
+import { showErrorMsg } from '../services/event-bus.service.js';
 import { logout } from '../store/user.actions.js';
+
 export function UserPagesModal({ setUserModal }) {
 
 
@@ -17,13 +18,14 @@ export function UserPagesModal({ setUserModal }) {
     function closeModal() {
         setUserModal(false)
     }
-    
+
     return (
         <section className="user-page-modal">
             <section className="bold">
                 <div onClick={closeModal} className="page-item flex bold"><Link>Messages</Link></div>
                 <div onClick={closeModal} className="page-item flex bold"><Link>Notifications</Link></div>
                 <div onClick={closeModal} className="page-item flex bold"><Link to="/orders/my-orders">Trips</Link></div>
+                <div onClick={closeModal} className="page-item flex bold"><Link to="/host/orders">Host</Link></div>
                 <div onClick={closeModal} className="page-item flex bold"><Link>Wishlist</Link></div>
             </section>
             <hr />

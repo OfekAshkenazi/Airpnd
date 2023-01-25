@@ -4,9 +4,11 @@ import { Route, Routes } from 'react-router';
 
 import { AppFooter } from './cmps/app-footer';
 import { AppHeader } from './cmps/app-header';
+import { HostOrders } from './cmps/host-orders';
 import { UserMsg } from './cmps/user-msg';
 import { UserOrders } from './cmps/user-orders';
 import { WishList } from './cmps/wish-list';
+import { HostProfileNested } from './pages/host-profile-nested';
 import { ProfileNestRoutes } from './pages/profile-nest-routes';
 import routes from './routes';
 import { getActionFilterExpanded } from './store/filter.expanded.action';
@@ -32,6 +34,11 @@ export function RootCmp() {
                     <Route element={<ProfileNestRoutes />} path="/orders">
                         <Route element={<WishList />} path="/orders/wishlist" />
                         <Route element={<UserOrders />} path="/orders/my-orders" />
+                    </Route>
+                    <Route element={<HostProfileNested />} path="/host">
+                        <Route element={<HostOrders />} path="/host/orders" />
+                        {/* <Route element={<UserOrders />} path="/orders/my-orders" /> */}
+                        {/* <Route element={<UserOrders />} path="/orders/my-orders" /> */}
                     </Route>
                 </Routes>
                 {/* className={`${(isFilterExpanded) ? "shadow-screen" : ""}`} */}

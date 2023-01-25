@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import { ToggleDetails } from "../store/system.action.js"
+import { useEffect } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+
+import { ToggleDetails } from '../store/system.action.js';
 
 export function ProfileNestRoutes() {
 
     useEffect(() => {
-        document.querySelector('.icon-nav-container').style.display = 'none'
         ToggleDetails(true)
     }, [])
 

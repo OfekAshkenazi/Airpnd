@@ -1,6 +1,12 @@
 .user-orders {
     background-color: #f3f3f3;
-    padding: em(6px);
+    padding: em(12px);
+    border-radius: 5px;
+}
+
+.host-dashboard {
+    background-color: #f3f3f3;
+    padding: em(12px);
     border-radius: 5px;
 }
 
@@ -45,7 +51,7 @@
     }
 }
 
-.order-preview{
+.order-preview {
     font-family: circularH;
     padding: em(10px);
     position: relative;
@@ -71,6 +77,7 @@
     font-family: circularH;
     background-color: white;
     width: 50%;
+
     .order-display {
         display: flex;
         flex-direction: column;
