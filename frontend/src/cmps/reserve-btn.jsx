@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { makeStyles } from '@mui/styles'
 import Button from '@mui/material/Button'
-import { useNavigate, NavLink } from 'react-router-dom'
+import { useNavigate, NavLink, useSearchParams } from 'react-router-dom'
 import { orderService } from '../services/order.service.local'
 import { updateOrder } from '../store/system.action'
 
@@ -36,12 +36,13 @@ const useStyles = makeStyles({
 export function ReserveBtn({ order, numericDate, stay }) {
   const classes = useStyles()
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   async function onAddNewOrder(order, stay) {
     try {
       order[0].stayId =  stay._id
       await updateOrder(order[0])
-      navigate('/orders')
+      navigate('/book/stays')
     } catch (err) { console.log(err) }
   }
   return <NavLink to="/book/stays" className={classes.root}
