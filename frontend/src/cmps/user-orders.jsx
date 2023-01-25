@@ -32,7 +32,7 @@ export function UserOrders() {
                                 New York, NY,United states Dec 30 - Jan 04
                             </div>
                             <div className="order-indiction">
-                                <p style={{ color: '#ebd301' }}><PendingIcon /> pending</p>
+                                <p style={{ color: '#ebd301' }}><PendingIcon /> {order.status}</p>
                             </div>
                         </div>
                     )

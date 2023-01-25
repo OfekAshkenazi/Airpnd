@@ -7,7 +7,7 @@ module.exports = {
     query,
     getById,
     add,
-    // update,
+    update,
 }
 
 
@@ -48,5 +48,22 @@ async function add(order,loggedinUser) {
         throw err
     }
 }
+
+async function update(order) {
+    try {
+        console.log(order)
+        const orderToSave = {
+            status: order.status
+        }
+        console.log(orderToSave)
+        const collection = await dbService.getCollection('order')
+        await collection.updateOne({ _id: ObjectId(order._id) }, { $set: orderToSave })
+        return orderToSave
+    } catch (err) {
+        logger.error(`cannot update order ${order._id}`, err)
+        throw err
+    }
+}
+
 
 

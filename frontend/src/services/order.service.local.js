@@ -10,7 +10,9 @@ export const orderService = {
     query,
     remove,
     add,
-    getEmptyOrder
+    getEmptyOrder,
+    update,
+    getById
 }
 
 async function query() {
@@ -18,6 +20,16 @@ async function query() {
         const orders = await httpService.get(ORDER_KEY)
         return orders
     } catch (err) { console.log(err); throw err }
+}
+
+async function getById(orderId) {
+    try {
+        const order = await httpService.get(ORDER_KEY + `/${orderId}`)
+        return order
+    } catch (err) {
+        console.log(err)
+        throw err
+    }
 }
 
 async function remove(orderId) {
@@ -36,6 +48,43 @@ async function add(order) {
         throw err
     }
 }
+
+async function update(order) {
+    let savedOrder
+    if (order._id) {
+        savedOrder = await httpService.put(`order/${order._id}`, order)
+
+    } else {
+        savedOrder = await httpService.post('order', order)
+    }
+    return savedOrder
+}
+
+function getEmptyOrder() {
+    const newOrder = {
+        "hostId": "",
+        "totalPrice": '',
+        "startDate": new Date(),
+        "endDate": addDays(new Date(), 6),
+        "guests": {
+            "adults": 1,
+            "children": 0,
+            "infants": 0,
+            "pets": 0,
+        },
+        "stay": {
+            "_id": '',
+            "name": '',
+            "price": ''
+        },
+        "msgs": [],
+        "status": "pending",
+        'key': 'selection'
+    }
+    return newOrder
+}
+
+
 
 function _createOrders() {
     let orders = storageService.loadFromStorage(ORDER_KEY)
@@ -92,28 +141,4 @@ function _createOrders() {
         return orders
     }
     return orders
-}
-
-function getEmptyOrder() {
-    const newOrder = {
-        "hostId": "",
-        "totalPrice": '',
-        "startDate": new Date(),
-        "endDate": addDays(new Date(), 6),
-        "guests": {
-            "adults": 1,
-            "children": 0,
-            "infants": 0,
-            "pets": 0,
-        },
-        "stay": {
-            "_id": '',
-            "name": '',
-            "price": ''
-        },
-        "msgs": [],
-        "status": "pending",
-        'key': 'selection'
-    }
-    return newOrder
 }

@@ -7,7 +7,7 @@ module.exports = {
   getOrders,
   getOrderById,
   addOrder,
-  //   updateOrder,
+  updateOrder,
   //   removeOrder,
 }
 
@@ -45,16 +45,16 @@ async function addOrder(req, res) {
   }
 }
 
-// async function updateOrder(req, res) {
-//   try {
-//     const stay = req.body
-//     const updatedStay = await stayService.update(stay)
-//     res.json(updatedStay)
-//   } catch (err) {
-//     logger.error('Failed to update stay', err)
-//     res.status(500).send({ err: 'Failed to update stay' })
-//   }
-// }
+async function updateOrder(req, res) {
+  try {
+    const order = req.body
+    const updatedOrder = await orderService.update(order)
+    res.json(updatedOrder)
+  } catch (err) {
+    logger.error('Failed to update order', err)
+    res.status(500).send({ err: 'Failed to update order' })
+  }
+}
 
 // async function removeOrder(req, res) {
 //   try {

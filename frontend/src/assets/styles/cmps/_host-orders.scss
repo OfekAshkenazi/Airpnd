@@ -3,18 +3,34 @@
     border-radius: 5px;
 
     .host-orders-headline {
-        background-color: #fff;
+        padding: em(10px);
+        background-color: rgb(255, 255, 255);
         justify-content: space-between;
+        border-radius: em(7px) em(7px) em(0px) em(0px);
     }
 
     .order-status {
+        padding: em(10px);
+        justify-content: space-between;
+        background-color: #fff;
+
         .user-img-order-container {
             img {
                 height: 40px;
                 width: 40px;
                 border-radius: 50%;
-                object-fit: cove
+                object-fit: cover
             }
+        }
+
+        .orders-left-side {
+            gap: em(10px);
+            flex-grow: 1;
+        }
+
+        .order-right-side {
+            justify-content: space-between;
+            flex-grow: 1;
         }
     }
 }
