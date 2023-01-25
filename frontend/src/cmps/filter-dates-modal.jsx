@@ -27,24 +27,19 @@ export function FilterDatesModal() {
   }
 
   return (
-    <section className='filter-dates-modal'>
-      <div>
-        <p>
-          <DateRange
-            editableDateInputs={true}
-            onChange={(item) => {
-              setOrder([item.selection])
-              handleDateChange(item.selection)
-            }
-            }
-            ranges={order}
-            months={2}
-            direction={'horizontal'}
-            className='date-modal'
-          />
-
-        </p>
-      </div>
-    </section>
+    <div className='filter-dates-modal'>
+      <DateRange
+        editableDateInputs={true}
+        onChange={(item) => {
+          setOrder([item.selection])
+          handleDateChange(item.selection)
+        }
+        }
+        ranges={order}
+        months={2}
+        direction={'horizontal'}
+        className='date-modal'
+      />
+    </div>
   )
 }
