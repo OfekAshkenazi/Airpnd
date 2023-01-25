@@ -19,7 +19,10 @@ export async function updateOrder(order) {
   try {
     console.log('from store')
     // const newOrder = await orderService.add(order)
-    store.dispatch({SET_ORDER, order})
+    store.dispatch({
+      type: SET_ORDER,
+      order
+    })
   }
   catch (err) {
     console.error('Cannot update stay')
