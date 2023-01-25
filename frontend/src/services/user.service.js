@@ -29,9 +29,11 @@ function remove(userId) {
     return httpService.delete(`user/${userId}`)
 }
 
-async function update(userToUpdate) {
-    const user = await httpService.put(API_KEY + `/${userToUpdate._id}`, userToUpdate)
-    return user
+async function update(userToUpdate, userId) {
+    try {
+        const user = await httpService.put(API_KEY + `/${userId}`, userToUpdate)
+        return user
+    } catch (err) { console.log(err); throw err }
 }
 
 async function login(userCred) {

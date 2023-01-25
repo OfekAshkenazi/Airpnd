@@ -4,6 +4,7 @@ import { showErrorMsg } from "../services/event-bus.service";
 import { orderService } from "../services/order.service.local"
 
 export function UserOrders() {
+
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
@@ -22,7 +23,6 @@ export function UserOrders() {
     return (
         <section className="orders-details">
             <div className="order-list">
-
                 {orders.map(order => {
                     return (
                         <div key={order._id} className="order-preview">

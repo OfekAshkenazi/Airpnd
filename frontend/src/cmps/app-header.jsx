@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { UserPagesModal } from '../cmps/user-pages-modal.jsx';
 
 import logo from '../assets/img/logo.png';
 import IconBxGlobe from '../assets/svg/globe-icon';
 import IconMenu_hamburger from '../assets/svg/open-hamburger-icon';
 import IconBxsUserCircle from '../assets/svg/user-icon';
+import { UserPagesModal } from '../cmps/user-pages-modal.jsx';
 import routes from '../routes';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
 import { login, logout, signup } from '../store/user.actions.js';
@@ -27,6 +27,7 @@ export function AppHeader({ layout }) {
 
     const [isGuestModalOpen, setIsGuestModalOpen] = useState(false)
     const [isWhereModalOpen, setIsWhereModalOpen] = useState(false)
+    const [isDateModalOpen, setIsDateModalOpen] = useState(false)
 
     async function onLogin(credentials) {
         try {
@@ -61,10 +62,17 @@ export function AppHeader({ layout }) {
 
         setIsGuestModalOpen(true)
         setIsWhereModalOpen(false)
+        setIsDateModalOpen(false)
     }
 
     function onAddWhere() {
         setIsWhereModalOpen(true)
+        setIsGuestModalOpen(false)
+        setIsDateModalOpen(false)
+    }
+    function onDateModal() {
+        setIsDateModalOpen(true)
+        setIsWhereModalOpen(false)
         setIsGuestModalOpen(false)
     }
 
@@ -85,7 +93,7 @@ export function AppHeader({ layout }) {
                             <p className='logo-title'>airpnd</p>
                         </div>
 
-                        <StayFilter onAddGuest={onAddGuest} onAddWhere={onAddWhere} />
+                        <StayFilter onAddGuest={onAddGuest} onAddWhere={onAddWhere} onDateModal={onDateModal} />
                         {user &&
                             <>
                                 <span className="user-info">
@@ -105,7 +113,7 @@ export function AppHeader({ layout }) {
                                 <LoginSignup onLogin={onLogin} onSignup={onSignup} />
                             </section>
                         }
-                        <StayFilterExpanded isGuestModalOpen={isGuestModalOpen} isWhereModalOpen={isWhereModalOpen} onAddGuest={onAddGuest} onAddWhere={onAddWhere} />
+                        <StayFilterExpanded isGuestModalOpen={isGuestModalOpen} isWhereModalOpen={isWhereModalOpen} isDateModalOpen={isDateModalOpen} onAddGuest={onAddGuest} onAddWhere={onAddWhere} onDateModal={onDateModal} />
                     </div>
 
                     {!isFilterExpanded && <div className='full hr-header'>

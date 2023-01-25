@@ -3,7 +3,24 @@ import { store } from '../store/store.js'
 
 import { showErrorMsg } from '../services/event-bus.service.js'
 import { LOADING_DONE, LOADING_START } from "./system.reducer.js";
-import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER } from "./user.reducer.js";
+import { REMOVE_USER, SET_USER, SET_USERS, UPDATE_USER } from "./user.reducer.js";
+
+
+export function getActionUpdateUser(user) {
+    return {
+        type: UPDATE_USER,
+        user
+    }
+}
+
+export async function updateUser(user) {
+    try {
+        const savedUser = await userService.update(user, user._id)
+        store.dispatch(getActionUpdateUser(savedUser))
+        return savedUser
+    } catch (err) { console.log(err); throw err }
+}
+
 
 export async function loadUsers() {
     try {

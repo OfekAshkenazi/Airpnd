@@ -3,15 +3,12 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { StayList } from '../cmps/stay.list.jsx';
-
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
-
 import { stayService } from '../services/stay.service.js';
 import { userService } from '../services/user.service.js';
-
 import { addStay, loadStays, removeStay, updateStay } from '../store/stay.actions.js';
-
 import { ToggleDetails } from '../store/system.action.js';
+import { updateUser } from '../store/user.actions.js';
 
 export function StayIndex() {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -21,9 +18,6 @@ export function StayIndex() {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
     const user = useSelector(storeState => storeState.userModule.user)
     const navigate = useNavigate()
-    if (stays) {
-        console.log(stays)
-    }
     useEffect(() => {
         loadStays(filterBy)
         ToggleDetails(false)
@@ -50,14 +44,22 @@ export function StayIndex() {
 
     async function onAddToWishList(stayId) {
         try {
-            const stay = await stayService.getById(stayId)
-            // for demo
-            stay.inWishList = !stay.inWishList
-            // for real
-            stay.likedByUsers.push(user._id)
-            await updateStay(stay)
-            user.wishList.push(stay._id)
-            await userService.update(user._id)
+            if (user.wishList.includes(stayId)) {
+                const stay = await stayService.getById(stayId)
+                const strIdx = stay.likedByUsers.indexOf(user._id)
+                stay.likedByUsers.slice(strIdx, strIdx + 1)
+                await updateStay(stay)
+                const userStrIdx = user.wishList.indexOf(stayId)
+                user.wishList.slice(userStrIdx, userStrIdx + 1)
+                await updateUser(user, user._id)
+            } else {
+                const stay = await stayService.getById(stayId)
+                stay.likedByUsers.push(user._id)
+                await updateStay(stay)
+                user.wishList.push(stay._id)
+                await updateUser(user, user._id)
+            }
+
         } catch (err) {
             showErrorMsg('Cannot Add To Wish-list')
         }
