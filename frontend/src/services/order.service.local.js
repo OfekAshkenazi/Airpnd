@@ -98,10 +98,6 @@ function _createOrders() {
 function getEmptyOrder() {
     const newOrder = {
         "hostId": "",
-        "buyer": {
-            "_id": userService.getLoggedinUser()._id,
-            "fullname": userService.getLoggedinUser().fullname,
-        },
         "totalPrice": '',
         "startDate": new Date(),
         "endDate": addDays(new Date(), 6),

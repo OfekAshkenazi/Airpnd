@@ -65,7 +65,7 @@ export function StayDetails() {
         </div>
         <StayExpanded stay={stay} />
         <ReviewList stay={stay} />
-        <GoogleMap lat={stay.loc.lat} lng={stay.loc.lan} />
+        <GoogleMap lat={+stay.loc.lat} lng={+stay.loc.lan} />
     </section>
 }
 
