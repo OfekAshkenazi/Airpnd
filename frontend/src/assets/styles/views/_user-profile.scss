@@ -70,6 +70,22 @@
     .order-indiction {
         display: flex;
         align-items: center;
+
+
+        p {
+
+            &.approve {
+                color: rgb(56, 242, 121);
+            }
+
+            &.decline {
+                color: rgb(255, 76, 76);
+            }
+
+            &.pending {
+                color: rgb(248, 227, 0)
+            }
+        }
     }
 }
 

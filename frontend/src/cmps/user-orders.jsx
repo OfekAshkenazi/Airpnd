@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import { PendingIcon } from "../assets/svg/pending-icon";
-import { showErrorMsg } from "../services/event-bus.service";
-import { orderService } from "../services/order.service.local"
+import { useEffect, useState } from 'react';
+
+import { PendingIcon } from '../assets/svg/pending-icon';
+import { showErrorMsg } from '../services/event-bus.service';
+import { orderService } from '../services/order.service.local';
 
 export function UserOrders() {
 
@@ -32,7 +33,7 @@ export function UserOrders() {
                                 New York, NY,United states Dec 30 - Jan 04
                             </div>
                             <div className="order-indiction">
-                                <p style={{ color: '#ebd301' }}><PendingIcon /> {order.status}</p>
+                                <p className={`${order.status}`}><PendingIcon /> {order.status}</p>
                             </div>
                         </div>
                     )
