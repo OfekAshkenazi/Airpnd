@@ -9,15 +9,14 @@ module.exports = {
     getById,
     add,
     update,
-    addCarMsg,
-    removeCarMsg
 }
 
 
 async function query(filterBy) {
     try {
         const criteria = {
-            name: { $regex: filterBy.txt, $options: 'i' }
+            name: { $regex: filterBy.txt, $options: 'i' },
+           
         }
         const collection = await dbService.getCollection('stay')
         var stays = await collection.find(criteria).toArray()
@@ -39,21 +38,21 @@ async function getById(stayId) {
     }
 }
 
-async function remove(carId) {
+async function remove(stayId) {
     try {
-        const collection = await dbService.getCollection('car')
-        await collection.deleteOne({ _id: ObjectId(carId) })
-        return carId
+        const collection = await dbService.getCollection('stay')
+        await collection.deleteOne({ _id: ObjectId(stayId) })
+        return stayId
     } catch (err) {
-        logger.error(`cannot remove car ${carId}`, err)
+        logger.error(`cannot remove car ${stayId}`, err)
         throw err
     }
 }
 
-async function add(car) {
+async function add(stay) {
     try {
-        const collection = await dbService.getCollection('car')
-        await collection.insertOne(car)
+        const collection = await dbService.getCollection('stay')
+        await collection.insertOne(stay)
         return car
     } catch (err) {
         logger.error('cannot insert car', err)
@@ -71,29 +70,6 @@ async function update(stay) {
         return stay
     } catch (err) {
         logger.error(`cannot update stay ${stay._id}`, err)
-        throw err
-    }
-}
-
-async function addCarMsg(carId, msg) {
-    try {
-        msg.id = utilService.makeId()
-        const collection = await dbService.getCollection('car')
-        await collection.updateOne({ _id: ObjectId(carId) }, { $push: { msgs: msg } })
-        return msg
-    } catch (err) {
-        logger.error(`cannot add car msg ${carId}`, err)
-        throw err
-    }
-}
-
-async function removeCarMsg(carId, msgId) {
-    try {
-        const collection = await dbService.getCollection('car')
-        await collection.updateOne({ _id: ObjectId(carId) }, { $pull: { msgs: { id: msgId } } })
-        return msgId
-    } catch (err) {
-        logger.error(`cannot add car msg ${carId}`, err)
         throw err
     }
 }

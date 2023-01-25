@@ -5,8 +5,8 @@ const logger = require('../../services/logger.service')
 
 module.exports = {
   getOrders,
-//   getOrderById,
-//   addOrder,
+  getOrderById,
+  addOrder,
 //   updateOrder,
 //   removeOrder,
 }
@@ -22,29 +22,27 @@ async function getOrders(req, res) {
   }
 }
 
-// async function getOrderById(req, res) {
-//   try {
-//     const stayId = req.params.id
-//     const stay = await stayService.getById(stayId)
-//     res.json(stay)
-//   } catch (err) {
-//     logger.error('Failed to get stay', err)
-//     res.status(500).send({ err: 'Failed to get stay' })
-//   }
-// }
+async function getOrderById(req, res) {
+  try {
+    const orderId = req.params.id
+    const order = await orderService.getById(orderId)
+    res.json(order)
+  } catch (err) {
+    logger.error('Failed to get order', err)
+    res.status(500).send({ err: 'Failed to get order' })
+  }
+}
 
-// async function addOrder(req, res) {
-//   const { loggedinUser } = req
-//   try {
-//     const stay = req.body
-//     stay.owner = loggedinUser
-//     const addedStay = await stayService.add(stay)
-//     res.json(addedStay)
-//   } catch (err) {
-//     logger.error('Failed to add stay', err)
-//     res.status(500).send({ err: 'Failed to add stay' })
-//   }
-// }
+async function addOrder(req, res) {
+  try {
+    const order = req.body
+    const addedOrder = await orderService.add(order)
+    res.json(addedOrder)
+  } catch (err) {
+    logger.error('Failed to add order', err)
+    res.status(500).send({ err: 'Failed to add order' })
+  }
+}
 
 // async function updateOrder(req, res) {
 //   try {

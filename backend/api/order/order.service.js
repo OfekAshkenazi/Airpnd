@@ -5,8 +5,8 @@ const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
     query,
-    // getById,
-    // add,
+    getById,
+    add,
     // update,
 }
 
@@ -22,6 +22,26 @@ async function query() {
     }
 }
 
+async function getById(orderId) {
+    try {
+        const collection = await dbService.getCollection('order')
+        const order = collection.findOne({ _id: ObjectId(orderId) })
+        return order
+    } catch (err) {
+        logger.error(`while finding stay ${orderId}`, err)
+        throw err
+    }
+}
 
+async function add(order) {
+    try {
+        const collection = await dbService.getCollection('order')
+        await collection.insertOne(order)
+        return order
+    } catch (err) {
+        logger.error('cannot insert order', err)
+        throw err
+    }
+}
 
 
