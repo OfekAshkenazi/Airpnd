@@ -10,6 +10,7 @@ export function WishList() {
     const [wishes, setWishes] = useState([])
     const user = useSelector(storeState => storeState.userModule.user)
     const navigate = useNavigate()
+    
     useEffect(() => {
         onLoadWishes()
         ToggleDetails(true)

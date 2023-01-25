@@ -1,0 +1,20 @@
+.host-orders {
+    padding: em(12px);
+    border-radius: 5px;
+
+    .host-orders-headline {
+        background-color: #fff;
+        justify-content: space-between;
+    }
+
+    .order-status {
+        .user-img-order-container {
+            img {
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                object-fit: cove
+            }
+        }
+    }
+}
