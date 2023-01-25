@@ -32,14 +32,15 @@ export function ReviewList({ stay }) {
         <section className="review-list">
             <h2 className="flex">
                 <img style={{ width: '18px', height: '18px' }} src={require("../assets/img/icons/star.png")} />
-                {getRating()}
+                {8}
+                {/* {getRating()} */}
                 <span className="seperator">·</span>
                 <p>7 reviews</p>
             </h2>
             <div className="review-head-lins">
-                <p>CleanLiness</p>
+                <p>Cleanliness</p>
                 <span className="progress-container">
-                    <progress max="5" value={getRating()}></progress>{getRating()}
+                    <progress max="5" value={9}></progress>{9}
                 </span>
                 <p>Communication</p>
                 <span className="progress-container">
@@ -47,11 +48,11 @@ export function ReviewList({ stay }) {
                 </span>
                 <p>Check-in</p>
                 <span className="progress-container">
-                    <progress max="5" value={getRating()}></progress>{getRating()}
+                    <progress max="5" value={8}></progress>{8}
                 </span>
                 <p>Accuracy</p>
                 <span className="progress-container">
-                    <progress max="5" value={getRating()}></progress>{getRating()}
+                    <progress max="5" value={9}></progress>{9}
                 </span>
                 <p>Location</p>
                 <span className="progress-container">
@@ -59,7 +60,7 @@ export function ReviewList({ stay }) {
                 </span>
                 <p>Value</p>
                 <span className="progress-container">
-                    <progress max="5" value={getRating()}></progress>{getRating()}
+                    <progress max="5" value={8.5}></progress>{8.5}
                 </span>
             </div>
             <ul className="review-list-preview">
