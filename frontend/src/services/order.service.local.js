@@ -2,6 +2,7 @@ import { storageService } from "./async-storage.service"
 import { httpService } from "./http.service"
 import { userService } from "./user.service"
 import { utilService } from "./util.service"
+import { addDays } from 'date-fns'
 
 const ORDER_KEY = 'order'
 
@@ -96,27 +97,28 @@ function _createOrders() {
 
 function getEmptyOrder() {
     const newOrder = {
-        "hostId": "u102",
+        "hostId": "",
         "buyer": {
-            "_id": "u101",
-            "fullname": "User 1"
+            "_id": userService.getLoggedinUser()._id,
+            "fullname": userService.getLoggedinUser().fullname,
         },
-        "totalPrice": 160,
-        "startDate": "2025/10/15",
-        "endDate": "2025/10/17",
+        "totalPrice": '',
+        "startDate": new Date(),
+        "endDate": addDays(new Date(), 6),
         "guests": {
-            "adults": 0,
-            "kids": 0,
+            "adults": 1,
+            "children": 0,
             "infants": 0,
             "pets": 0,
         },
         "stay": {
-            "_id": "h102",
-            "name": "House Of Uncle My",
-            "price": 80.00
+            "_id": '',
+            "name": '',
+            "price": ''
         },
         "msgs": [],
-        "status": "pending"
+        "status": "pending",
+        'key': 'selection'
     }
     return newOrder
 }

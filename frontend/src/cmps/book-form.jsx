@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import { ReserveBtn } from '../cmps/reserve-btn.jsx'
 import { GuestPicker } from '../cmps/guest-picker.jsx'
@@ -10,20 +11,13 @@ import '../../node_modules/react-date-range/dist/styles.css'
 import '../../node_modules/react-date-range/dist/theme/default.css'
 
 export function BookingForm({ stay }) {
+    const currOrder = useSelector(storeState => storeState.systemModule.order)
+    const [order, setOrder] = useState([currOrder])
+    const [guests, setGuests] = useState(order[0].guests)
     const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
     const [isGuestPickerOpen, setIsGuestPickerOpen] = useState(false)
     const [numClicks, setNumClicks] = useState(0)
-    const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0, pets: 0 })
-
-    const [order, setOrder] = useState([
-        {
-            startDate: new Date(),
-            endDate: addDays(new Date(), 6),
-            guests: { infants: 0, pets: 0, adults: 1, children: 0 },
-            key: 'selection'
-        }
-    ])
-
+    
     const stayPrice = priceCalc(stay.price)
     const serviceFee = 100
     const totalPrice = (parseFloat(stayPrice.replace(/,/g, '')) + serviceFee).toLocaleString()
@@ -87,13 +81,12 @@ export function BookingForm({ stay }) {
                 direction={'horizontal'}
                 className='date-range'
             />}
-            {/* <BasicSelect className="select-dropdown" handleGuestsChange={handleGuestChange} /> */}
             <div className="guest-picker" onClick={() => setIsGuestPickerOpen(!isGuestPickerOpen)}>
                 <div className="guest-side"><span className="bold">GUESTS</span>
                     <span className="second-row">{guests.adults + guests.children + guests.infants + guests.pets} guests</span></div>
                 <div className="arrow-side"><img src={require(`../assets/img/icons/arrow-down.png`)} alt="" /></div>
             </div>
-            {isGuestPickerOpen && <GuestPicker guests={guests} setGuests={setGuests} handleGuestChange={handleGuestChange} />}
+            {isGuestPickerOpen && <GuestPicker guests={guests} setGuests={setGuests}  handleGuestChange={handleGuestChange} />}
 
         </div>
         <ReserveBtn className="reserve" order={order} numericDate={numericDate} stay={stay} />
@@ -106,5 +99,6 @@ export function BookingForm({ stay }) {
             </div>
         </div>
     </div>
+
 }
 

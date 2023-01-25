@@ -2,6 +2,8 @@ import * as React from 'react'
 import { makeStyles } from '@mui/styles'
 import Button from '@mui/material/Button'
 import { useNavigate, NavLink } from 'react-router-dom'
+import { orderService } from '../services/order.service.local'
+import { updateOrder } from '../store/system.action'
 
 const useStyles = makeStyles({
   root: {
@@ -11,10 +13,10 @@ const useStyles = makeStyles({
     textTransform: 'none !important',
     fontWeight: '600 !important',
     // marginTop: '12px !important',
-    marginBottom:'16px !important',
-    textAlign:'center !important',
-    alignItems:'center !important',
-    textDecoration:'none !important',
+    marginBottom: '16px !important',
+    textAlign: 'center !important',
+    alignItems: 'center !important',
+    textDecoration: 'none !important',
     background: 'radial-gradient(circle at left,#FF385C 0%,#E61E4D 27.5%,#E31C5F 40%,#D70466 57.5%,#BD1E59 75%,#BD1E59 100%)',
     border: 0,
     borderRadius: '10px !important',
@@ -35,22 +37,14 @@ export function ReserveBtn({ order, numericDate, stay }) {
   const classes = useStyles()
   const navigate = useNavigate()
 
-  async function onAddNewOrder() {
-    // try {
-    //   let newOrder = orderService.getEmptyOrder()
-    //   newOrder.startDate = numericDate(order[0].startDate)
-    //   newOrder.endDate = numericDate(order[0].endDate)
-    //   newOrder.guests = order[0].guests
-    //   newOrder.stay.name = stay.name
-    //   await orderService.add(newOrder)
-    //   showSuccessMsg('Order been sent')
-    //   navigate('/orders')
-    // } catch (err) {
-    //   console.log(err)
-    //   showErrorMsg('Cannot make new order')
-    // }
+  async function onAddNewOrder(order, stay) {
+    try {
+      order[0].stayId =  stay._id
+      await updateOrder(order[0])
+      navigate('/orders')
+    } catch (err) { console.log(err) }
   }
-  return  <NavLink to="/book/stays" className={classes.root}
-  ><Button onClick={() => onAddNewOrder()} className={classes.root}>Reserve</Button>
-    </NavLink>
+  return <NavLink to="/book/stays" className={classes.root}
+  ><Button onClick={() => onAddNewOrder(order, stay)} className={classes.root}>Reserve</Button>
+  </NavLink>
 }
