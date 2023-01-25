@@ -1,17 +1,13 @@
-import { faGlobe, faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 import logo from '../assets/img/logo.png';
-import IconBxGlobe from '../assets/svg/globe-icon';
 import IconMenu_hamburger from '../assets/svg/open-hamburger-icon';
 import IconBxsUserCircle from '../assets/svg/user-icon';
 import { UserPagesModal } from '../cmps/user-pages-modal.jsx';
-import routes from '../routes';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
-import { login, logout, signup } from '../store/user.actions.js';
+import { login, signup } from '../store/user.actions.js';
 import { LoginSignup } from './login-signup.jsx';
 import { StayFilter } from './stay-filter';
 import { StayFilterExpanded } from './stay-filter-expanded';

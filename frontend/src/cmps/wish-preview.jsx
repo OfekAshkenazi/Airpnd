@@ -1,6 +1,6 @@
-export function WishPreview({ wish }) {
+export function WishPreview({ wish,onMoveToWishDetails }) {
     return (
-        <article>
+        <article onClick={() => onMoveToWishDetails(wish._id)}>
             <div className="wish-preview-img-container">
                 <img src={wish.imgUrls[0]} />
                 <img src={wish.imgUrls[1]} />
