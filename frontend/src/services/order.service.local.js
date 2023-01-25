@@ -27,15 +27,14 @@ async function remove(orderId) {
 }
 
 async function add(order) {
-    // for real jsut send also the userID
-    // const aboutUser = await userService.getById(aboutUserId)
-    // const orderToAdd = {
-    //     ...order,
-    //     byUser: aboutUser
-    // }
-    
-    const addedOrder = await httpService.post(ORDER_KEY, order)
-    return addedOrder
+    try {
+        const addedOrder = await httpService.post(ORDER_KEY, order)
+        return addedOrder
+
+    } catch (err) {
+        console.log(err)
+        throw err
+    }
 }
 
 function _createOrders() {

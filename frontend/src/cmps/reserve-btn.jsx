@@ -4,6 +4,7 @@ import Button from '@mui/material/Button'
 import { useNavigate, NavLink, useSearchParams, useParams } from 'react-router-dom'
 import { orderService } from '../services/order.service.local'
 import { updateOrder } from '../store/system.action'
+import { userService } from '../services/user.service'
 
 const useStyles = makeStyles({
   root: {
@@ -33,16 +34,20 @@ const useStyles = makeStyles({
   },
 })
 
-export function ReserveBtn({ order, numericDate, stay }) {
+export function ReserveBtn({ order, numericDate, stay, totalPrice }) {
   const classes = useStyles()
   let { stayId } = useParams()
   const { startDate, endDate, guests } = order[0]
   const { adults, children, infants, pets } = guests
   const navigate = useNavigate()
-  console.log(order[0])
+
   async function onAddNewOrder(order, stay) {
     try {
       order[0].stayId = stay._id
+      order[0].totalPrice = totalPrice
+      order[0].hostId = userService.getLoggedinUser()
+      order[0].byUser = userService.getLoggedinUser()
+      //JUST FOR DEMO. LATER - change key host 
       await updateOrder(order[0])
       navigate(`/book/stays/${stayId}/${adults}/${children}/${infants}/${pets}/${startDate}/${endDate}`)
     } catch (err) { console.log(err) }

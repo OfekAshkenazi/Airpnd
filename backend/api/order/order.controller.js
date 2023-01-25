@@ -7,8 +7,8 @@ module.exports = {
   getOrders,
   getOrderById,
   addOrder,
-//   updateOrder,
-//   removeOrder,
+  //   updateOrder,
+  //   removeOrder,
 }
 
 async function getOrders(req, res) {
@@ -35,8 +35,9 @@ async function getOrderById(req, res) {
 
 async function addOrder(req, res) {
   try {
+    const { loggedinUser } = req
     const order = req.body
-    const addedOrder = await orderService.add(order)
+    const addedOrder = await orderService.add(order, loggedinUser)
     res.json(addedOrder)
   } catch (err) {
     logger.error('Failed to add order', err)

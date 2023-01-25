@@ -88,7 +88,7 @@ export function BookingForm({ stay }) {
             {isGuestPickerOpen && <GuestPicker guests={guests} setGuests={setGuests} handleGuestChange={handleGuestChange} />}
 
         </div>
-        <ReserveBtn className="reserve" order={order} numericDate={numericDate} stay={stay} />
+        <ReserveBtn className="reserve" order={order} numericDate={numericDate} stay={stay} totalPrice={totalPrice} />
         <p>You won't be charged yet</p>
         <div className="summary">
             <div className="prices">

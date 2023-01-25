@@ -14,12 +14,14 @@ export function StayConfirm() {
     navigate(-1)
   }
 
+  console.log(order)
+
   // if (order.stay._id === '') order.stay = stayService.getById(stayId)
   // console.log(order)
   async function onAddNewOrder() {
     try {
       // order[0].stayId = stay._id
-      await updateOrder(order)
+      await orderService.add(order)
       navigate(`/stay/${stayId}`)
     }
     catch (err) {
