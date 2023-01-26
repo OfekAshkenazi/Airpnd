@@ -4,7 +4,7 @@
   align-items: center;
   margin-left: em(58px);
   align-self: flex-start;
-  width: clamp(800px, 33.333%, 24.875em);
+  width: clamp(680px, 33.333%, 24.875em);
   padding: em(10px) em(32px);
   border: em(1px) solid $clrBorderGray;
   border-radius: em(12px);
@@ -20,13 +20,35 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: em(16px);
-    // width: em(320px);
+    padding-top: em(16px);
+    padding-bottom: em(19px);
     width: 100%;
+
+    .right-side{
+      display: flex;
+      justify-content: space-between;
+    }
 
     .price {
       font-size: 20px;
       font-weight: bold;
+    }
+
+    .rating{
+      display: flex;
+      align-items: center;
+      font-size: em(13px);
+      font-weight: 600;
+
+      .img-star{
+        width: em(16px);
+        padding-right: em(3px);
+      }
+    }
+
+    .seperator{
+      padding-left: em(7px);
+      padding-right: em(7px);
     }
 
     .night {
@@ -54,28 +76,27 @@
   .checkin-out {
     color: $clrBlackFont;
     display: flex;
-    height: 60px;
     font-size: em(12px);
-    font-weight: 600;
-
+    
     .checkin {
       flex-direction: column;
+      flex: 1;
       border-top-left-radius: em(8px);
       border-bottom: none;
       border-right: none !important;
+      font-weight: 900;
       padding: em(14px) em(14px);
       border: em(1px) solid rgba(0, 0, 0, .32);
-      flex: 1;
-
     }
 
     .checkout {
       flex-direction: column;
+      flex: 1;
       border-top-right-radius: em(8px);
+      font-weight: 900;
       border-bottom: none;
       padding: em(14px) em(14px);
       border: em(1px) solid rgba(0, 0, 0, .32);
-      flex: 1;
     }
 
     span {
@@ -85,10 +106,6 @@
 
   label {
     font-size: 18px;
-  }
-
-  .reserve {
-    transition: 1s;
   }
 
   p {
