@@ -3,7 +3,7 @@ import { utilService } from '../services/util.service';
 
 const commonCities = ['Maui', 'Rio De Janeiro', 'Barcelona', 'Istanbul']
 const commonCountries = ['United States', 'Brazil', 'Spain', 'Turkey', 'Canada']
-const manyPlaces = ['United States', 'Brazil', 'Spain', 'Turkey', 'Canada']
+const manyPlaces = ['United States', 'Brazil', 'Spain', 'Turkey', 'Canada', 'Maui', 'Rio De Janeiro', 'Barcelona', 'Istanbul', 'New York']
 export function FilterWhereModal({ setFilterByToEdit }) {
 
   function onCommonSearch(place) {
