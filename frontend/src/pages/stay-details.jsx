@@ -10,7 +10,6 @@ import { ToggleDetails } from "../store/system.action.js"
 import { useSelector } from 'react-redux';
 import { PropagateLoader } from 'react-spinners';
 
-
 export function StayDetails() {
     const [stay, setStay] = useState(null)
     const { stayId } = useParams()
@@ -47,7 +46,6 @@ export function StayDetails() {
             <div className='flex align-center'>
                 <img className="img-star" src={require("../assets/img/icons/star.png")} />
                 <span>{getRating()}</span>
-                {console.log(stay)}
                 <span className="seperator">·</span>
                 <span className="stay-reviews">{(stay.reviews.length)} reviews</span>
                 <span className="seperator">·</span>

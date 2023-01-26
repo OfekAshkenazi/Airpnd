@@ -1,9 +1,9 @@
 .amenities {
     border-top: em(1px) solid rgb(221, 221, 221);
-    margin-top: em(33px);
+    margin-top: em(28px);
 
     h2 {
-        margin-top: em(33px);
+        margin-top: em(20px);
     }
 
     .offers {
@@ -16,7 +16,8 @@
 
     .amenitie {
         flex-basis: calc(50% - 1px);
-        padding: em(20px);
+        padding-top: em(20px);
+        padding-right: em(30px);
         display: flex;
         align-items: center;
     }
@@ -27,4 +28,51 @@
         width: 24px;
         margin-right: em(8px);
     }
+
+    .amenitie-txt {
+        padding-left: em(8px);
+    }
+
+    .amenitie-btn {
+        border-radius: em(8px);
+        border-width: 1px;
+        border-style: solid;
+        transition: box-shadow 0.2s ease, transform 0.1s ease;
+        border-color: $clrBlackFont;
+        background-color: $clrMBg;
+        padding: em(15px) em(26px);
+        margin-top: em(37px);
+        font-weight: 550;
+        font-size: em(16px);
+    }
+
+    .amenities-modal {
+        position: fixed;
+        z-index: 100;
+        padding-top: 100px;
+        /* Location of the box */
+        left: 30%;
+        top: 10%;
+        width: 50%;
+        height: 70%;
+        overflow: auto;
+        background-color: $clrMBg;
+        box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+        padding: em(8px);
+
+
+        .amenities-list{
+            padding-left: em(24px);
+
+            .amenitie-preview{
+                padding-top: em(22px);
+                color: $clrGrayFont;
+                border-bottom: 1px solid rgb(221, 221, 221);
+                margin-right: em(24px);
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+
 }

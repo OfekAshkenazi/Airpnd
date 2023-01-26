@@ -1,6 +1,5 @@
 .stay-expanded {
     display: flex;
-    // justify-content: space-between;
     margin-top: em(50px);
 
     .expanded-left {
@@ -69,7 +68,7 @@
 
     .air-cover {
         border-top: em(1px) solid $clrBorderGray;
-        margin-top: em(28px);
+        margin-top: em(30px);
         display: flex;
         flex-direction: column;
 
@@ -78,7 +77,7 @@
             height: em(26px);
             border-radius: 0;
             margin-top: em(33px);
-            margin-bottom: em(29px);
+            margin-bottom: em(26px);
         }
 
         .txt {
