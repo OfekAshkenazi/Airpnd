@@ -93,6 +93,7 @@
     font-family: circularH;
     background-color: white;
     width: 50%;
+    border-radius: em(8px);
 
     .order-display {
         display: flex;
@@ -102,8 +103,12 @@
         background-color: white;
         grid-template-rows: repeat(2, 1fr);
         border: 1px solid #ddd;
-        border-radius: 8px;
+        border-radius: em(8px);
         box-shadow: #0000001f 0 6px 16px;
+    }
+
+    .order-preview-details-modal {
+        padding: em(10.5px) em(4px);
     }
 
     .order-img {
@@ -132,4 +137,5 @@
             border-end-end-radius: 8px;
         }
     }
+
 }

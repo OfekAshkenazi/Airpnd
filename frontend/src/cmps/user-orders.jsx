@@ -5,9 +5,8 @@ import { showErrorMsg } from '../services/event-bus.service';
 import { orderService } from '../services/order.service.local';
 
 export function UserOrders() {
-
     const [orders, setOrders] = useState([])
-
+    const [currOrder, setCurrOrder] = useState(null)
     useEffect(() => {
         onLoadOrders()
     }, [])
@@ -16,21 +15,23 @@ export function UserOrders() {
         try {
             const dataOrders = await orderService.query()
             setOrders(dataOrders)
+            setCurrOrder(dataOrders[0])
         } catch (err) {
             showErrorMsg('Cannot load orders')
         }
     }
-
+    console.log(currOrder)
+    if(!currOrder) return <h2>loading</h2>
     return (
         <section className="orders-details">
             <div className="order-list">
                 {orders.map(order => {
                     return (
-                        <div key={order._id} className="order-preview">
+                        <div key={order._id} onClick={() => setCurrOrder(order)} className="order-preview">
                             <div>
                                 {order.stay.name}
                                 <br></br>
-                               {order.stay.loc.city}, {order.stay.loc.countrey} Dec 30 - Jan 04
+                                {order.stay.loc.city}, {order.stay.loc.countrey} Dec 30 - Jan 04
                             </div>
                             <div className="order-indiction">
                                 <p className={`${order.status}`}><PendingIcon /> {order.status}</p>
@@ -42,24 +43,19 @@ export function UserOrders() {
             <div className="order-preview-modal">
                 <section className="order-display">
                     <div className="order-img">
-                        <img className="order-img1" src="https://a0.muscache.com/im/pictures/f987e19d-2688-4390-a67b-e4e03c8fd592.jpg?im_w=720" alt="" />
-                        <img className="order-img2" src="https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large" alt="" />
-                        <img className="order-img3" src="https://img.staticmb.com/mbcontent//images/uploads/2022/12/Most-Beautiful-House-in-the-World.jpg" alt="" />
+                        <img className="order-img1" src={currOrder.stay.imgUrls[0]} alt="" />
+                        <img className="order-img2" src={currOrder.stay.imgUrls[1]} alt="" />
+                        <img className="order-img3" src={currOrder.stay.imgUrls[2]} alt="" />
                     </div>
                 </section>
                 <section>
-                    <div>
-                        2 Bedroom upper east side
-                        <br></br>
-                        New York, NY,United
-                        <br></br>
-                        Dates: states Dec 30 - Jan 04
-                        <br></br>
-                        Guests: 1
-                        <br></br>
-                        Total Price: $150
-                        <br></br>
-                        Order Status: pending
+                    <div className="order-preview-details-modal">
+                        <p>{currOrder.stay.name}</p>
+                        <p>{currOrder.stay.loc.city}, {currOrder.stay.loc.countrey}</p>
+                        <p> Dates: states Dec 30 - Jan 04</p>
+                        <p>{currOrder.guests.adults}</p>
+                        <p>Total price: {currOrder.totalPrice}</p>
+                        <p> Order Status: {currOrder.status}</p>
                     </div>
                 </section>
             </div>

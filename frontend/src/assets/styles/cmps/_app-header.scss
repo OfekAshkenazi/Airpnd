@@ -115,13 +115,11 @@
 }
 
 .shadow {
-
     position: relative;
-
     div {
         position: absolute;
         top: 0px;
-        height: 100vh;
+        min-height: 100vh;
         width: 100%;
 
         background-color: #a9abae;
