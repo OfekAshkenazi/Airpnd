@@ -14,16 +14,7 @@ module.exports = {
 
 async function query(filterBy) {
     try {
-        const criteria = {
-            $or: [
-                { "loc.country": { $regex: filterBy.txt, $options: 'i' } },
-                { "loc.city": { $regex: filterBy.txt, $options: 'i' } }
-            ],
-            type: { $regex: filterBy.type, $options: 'i' },
-        
-            // "likedByUsers": { $regex: `${filterBy.userId}`, $options: 'i' } 
-
-        }
+        const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('stay')
         var stays = await collection.find(criteria).toArray()
         return stays
@@ -32,6 +23,29 @@ async function query(filterBy) {
         throw err
     }
 }
+
+function _buildCriteria(filterBy) {
+    let criteria = {
+        $or: [
+            { "loc.country": { $regex: filterBy.txt, $options: 'i' } },
+            { "loc.city": { $regex: filterBy.txt, $options: 'i' } }
+        ],
+        type: { $regex: filterBy.type, $options: 'i' }    
+    }
+    if(filterBy.userId.length > 4) {
+        criteria = {
+            $or: [
+                { "loc.country": { $regex: filterBy.txt, $options: 'i' } },
+                { "loc.city": { $regex: filterBy.txt, $options: 'i' } }
+            ],
+            type: { $regex: filterBy.type, $options: 'i' },  
+            "likedByUsers": { $regex: `${filterBy.userId}`, $options: 'i' } 
+        } 
+    }
+   
+    return criteria
+}
+
 
 async function getById(stayId) {
     try {

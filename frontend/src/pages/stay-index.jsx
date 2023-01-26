@@ -44,10 +44,19 @@ export function StayIndex() {
     async function onAddToWishList(stayId) {
         try {
             const stay = await stayService.getById(stayId)
-            stay.likedByUsers.push(user._id)
-            await updateStay(stay)
-            user.wishList.push(stay._id)
-            await updateUser(user, user._id)
+            if (stay.likedByUsers.includes(user._id)) {
+                const idxUserId = stay.likedByUsers.indexOf(user._id)
+                stay.likedByUsers.splice(idxUserId, 1)
+                await updateStay(stay)
+                const idxStayId = user.wishList.indexOf(stay._id)
+                user.wishList.splice(idxStayId, 1)
+                await updateUser(user, user._id)
+            } else {
+                stay.likedByUsers.push(user._id)
+                await updateStay(stay)
+                user.wishList.push(stay._id)
+                await updateUser(user, user._id)
+            }
         } catch (err) {
             showErrorMsg('Cannot Add To Wish-list')
         }
@@ -66,7 +75,7 @@ export function StayIndex() {
         }
     }
 
-    if(!stays.length) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
+    if (!stays.length) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
 
     return (
         <section className={`stay-container `}>

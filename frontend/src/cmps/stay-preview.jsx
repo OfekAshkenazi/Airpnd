@@ -5,9 +5,11 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import IconHeart from '../assets/svg/icon-heart';
+import IconSuitHeart from '../cmps/svg-cmps/icon-heart-preview';
 
 export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
     let [idx, setIdx] = useState(0)
+
     const user = useSelector(storeState => storeState.userModule.user)
 
     function fixIdxForImages(diff) {
@@ -28,26 +30,20 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
         stay.reviews.forEach(review => {
             totalRating += review.rate
         })
-        return (totalRating / stay.reviews.length).toFixed(1)
+        return (totalRating / stay.reviews.length).toFixed(2)
     }
 
     function heartStatus() {
         if (!user) {
             return <IconHeart fill={"#41454fd2"} />
         }
-        if (stay.likedByUsers.includes(user._id)) {
+        else if (stay.likedByUsers.includes(user._id)) {
             return <IconHeart fill={"#FF385C"} />
         }
-
         else {
             return <IconHeart fill={"#41454fd2"} />
         }
     }
-
-    function getRandomRate() {
-        return (Math.random() * (5 - 4.2) + 4.2).toFixed(1);
-    }
-
 
 
     return (
@@ -62,7 +58,7 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
                     <button onClick={() => fixIdxForImages(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
                 </div>
                 <div className="doots">
-                    {stay.imgUrls.map((url, index) => <div onClick={() => setIdx(index)} key={url} className="doot"></div>)}
+                    {stay.imgUrls.map((url, index) => <div onClick={() => setIdx(index)} key={url} className={`doot ${idx === index ? 'doot-active' : ''}`}></div>)}
                 </div>
             </div>
             <div className="stay-small-details grid" onClick={() => onMoveToStayDetails(stay._id)}>
@@ -72,7 +68,7 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
                     </div>
                     <div className="preview-rate flex">
                         <FontAwesomeIcon style={{ width: '13px' }} icon={faStar} />
-                        {getRandomRate()}
+                        {getRating()}
                     </div>
                 </div>
                 <p>{stay.loc.address}</p>

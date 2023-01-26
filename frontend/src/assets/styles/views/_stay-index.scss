@@ -1,6 +1,7 @@
 .stay-container {
     display: flex;
     justify-content: center;
+    margin-top: em(19.5px);
 }
 
 .stay-grid {
@@ -87,15 +88,15 @@
         position: absolute;
         display: flex;
         justify-content: end;
-        top: em(15px);
-        right: em(14px);
+        top: em(17px);
+        right: em(17px);
         cursor: pointer;
     }
 }
 
 .stay-small-details {
     position: relative;
-    bottom: em(10px);
+    bottom: em(12px);
 
     .small-details-header {
         justify-content: space-between;
@@ -109,14 +110,16 @@
 
     .priceP {
         position: relative;
-        font-weight: 600;
+        font-weight: bold;
         color: #222;
         font-size: em(16px);
         top: em(5px);
 
         span {
+            color: #222222;
             font-weight: 0;
-            font-size: em(14px);
+            font-size: em(15px);
+            // font-family: Helvetica, sans-serif;
         }
     }
 }
@@ -140,7 +143,7 @@
     cursor: pointer;
     width: 7px;
     height: 7px;
-    background-color: #d9d8d8;
+    background-color: #a8a7a0;
     border-radius: 50%;
     transition: 0.3s;
 
@@ -150,9 +153,14 @@
     }
 }
 
+.doot-active {
+    background-color: white;
+    scale: 1.01;
+}
+
 .preview-rate {
     justify-content: space-between;
-    width: em(40px);
+    gap: em(4px);
 }
 
 .my-heart {
