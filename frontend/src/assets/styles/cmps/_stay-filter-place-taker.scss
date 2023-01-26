@@ -1,0 +1,24 @@
+.stay-filter-place-taker {
+  display: flex;
+  gap: 14px;
+  // background-color: aqua;
+
+  button {
+    font-size: 17px;
+    font-family: circularL;
+    background-color: white;
+    padding-bottom: 8px;
+    margin-top: 10px;
+
+    &.stays {
+      // padding-bottom: 10px;
+      border-bottom: 2px solid black;
+    }
+
+    &:hover:not(:first-child) {
+      transition: 0.1s;
+      border-bottom: 2px solid rgb(169, 169, 169);
+
+    }
+  }
+}
