@@ -55,29 +55,44 @@ export function StayConfirm() {
     }
   }
 
-  // if (order.stay._id === '') {
-  //   return <section>Loading...</section>
-  // }
+  if (order.stay._id === '') {
+    return <section>Loading...</section>
+  }
   return <section className="stay-confirm">
-    <div className="main-line"><button className="back-btn" onClick={handleBackClick}> back</button> <h1>Request to book</h1></div>
+    <div className="main-line">
+      <button className="back-btn" onClick={handleBackClick}>
+        <img className="back-img" src={require(`../assets/img/icons/back.png`)} />
+      </button>
+      <h1>Confirm and book</h1>
+    </div>
     <div className="order-sum">
       <div className="left-side">
         <p>Your trip</p>
-        <div className="dates"><div className="left">Dates <span>{(stayService.extractDate(startDate))}-{(stayService.extractDate(endDate))}</span>
+        <div className="dates">
+          <div className="left">Dates <span>{(stayService.extractDate(startDate))}- {(stayService.extractDate(endDate))}</span>
+          </div>
         </div>
-        </div>
-        <div className="guests"><div className="left">Guests<span>{(parseInt(adults) + parseInt(children) + parseInt(infants) + parseInt(pets))}</span>  </div>
+        <div className="guests">
+          <div className="left">Guests<span>{(parseInt(adults) + parseInt(children) + parseInt(infants) + parseInt(pets))}</span>  </div>
         </div>
         <button className="book-btn" onClick={() => onAddNewOrder()}>Book Now </button>
       </div>
       <div className="modal">
         <div className="modal-top">
+          <img className="img-confirm" src={order.stay.imgUrls[0]} />
           <div className="modal-info">
-            <span>{order.stay.type}</span>
-            <span>{order.stay.name}</span>
+            <span className="prop-type">{order.stay.type}</span>
+            <span className="prop-name">{order.stay.name}</span>
           </div>
-          {/* <img className="img-confirm" src={order.stay.imgUrls[0]} /> */}
         </div>
+        <div className="air-cover">Your booking is protected by  <img className="back-img" src={require(`../assets/img//aircover.png`)} />
+        </div>
+        <div className="price-details">
+          <div className="price">Price Details</div>
+          <div className="sum">1,963.29$ x 5 night <span>9816.45$</span></div>
+        </div>
+        <div className="total">Total ($) <span className="total-num">9,816.45$</span> </div>
+        <div className="deposit">This property requires a 1,100.91$ security deposit. It will be collected separately by the property prior to your arrival or at check-in.</div>
       </div>
     </div>
   </section>
