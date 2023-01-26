@@ -30,7 +30,7 @@ export function UserOrders() {
                             <div>
                                 {order.stay.name}
                                 <br></br>
-                                New York, NY,United states Dec 30 - Jan 04
+                               {order.stay.loc.city}, {order.stay.loc.countrey} Dec 30 - Jan 04
                             </div>
                             <div className="order-indiction">
                                 <p className={`${order.status}`}><PendingIcon /> {order.status}</p>
@@ -38,7 +38,6 @@ export function UserOrders() {
                         </div>
                     )
                 })}
-             
             </div>
             <div className="order-preview-modal">
                 <section className="order-display">
