@@ -1,7 +1,7 @@
 import { BookingForm } from '../cmps/book-form.jsx';
 import { Amenities } from '../cmps/amenities.jsx';
 
-export function StayExpanded({ stay }) {
+export function StayExpanded({ stay, getRating }) {
     const firstName = stay.host.fullname.split(" ")[0]
 
     return <section className="stay-expanded">
@@ -39,6 +39,6 @@ export function StayExpanded({ stay }) {
             </div>
             <Amenities stay={stay} />
         </div>
-        <BookingForm stay={stay} />
+        <BookingForm stay={stay} getRating={getRating} />
     </section>
 }

@@ -36,21 +36,18 @@ export function StayDetails() {
         if (!stay.reviews || stay.reviews.length === 0) {
             return null
         }
-        let totalRating = 0
-        stay.reviews.forEach(review => {
-            totalRating += review.rate
-        })
-        return (totalRating / stay.reviews.length).toFixed(1)
+        return (stay.reviews.reduce((acc, review) => acc + review.rate, 0) / stay.reviews.length).toFixed(2)
     }
 
     if (!stay) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
+
     return <section className="stay-details">
         <h1 className="stay-name">{stay.name}</h1>
         <div className="stay-info flex align-center">
-            <div>
+            <div className='flex align-center'>
                 <img className="img-star" src={require("../assets/img/icons/star.png")} />
-                <span>4.8</span>
-                {/* <span>{getRating()}</span> */}
+                <span>{getRating()}</span>
+                {console.log(stay)}
                 <span className="seperator">·</span>
                 <span className="stay-reviews">{(stay.reviews.length)} reviews</span>
                 <span className="seperator">·</span>
@@ -70,7 +67,7 @@ export function StayDetails() {
                 </div>
             ))}
         </div>
-        <StayExpanded stay={stay} />
+        <StayExpanded stay={stay} getRating={getRating} />
         <ReviewList stay={stay} />
         <div className="reserve-mobile">
             <div className="info-side">

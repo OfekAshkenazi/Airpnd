@@ -4,14 +4,17 @@ import { useSelector } from 'react-redux'
 import { stayService } from '../services/stay.service'
 import { updateOrder } from '../store/system.action'
 import { orderService } from '../services/order.service.local'
-import { HotelSharp } from '@mui/icons-material'
 import { PropagateLoader } from 'react-spinners';
+import { useEffect } from 'react'
 
 export function StayConfirm() {
   const order = useSelector(storeState => storeState.systemModule.order)
   let navigate = useNavigate()
   const params = useParams()
   const { stayId, startDate, endDate, adults, children, infants, pets } = params
+  useEffect(() => {
+    console.log(order)
+  }, [order])
 
   function handleBackClick() {
     navigate(-1)
@@ -27,18 +30,18 @@ export function StayConfirm() {
       order.guests.children = children
       order.guests.infants = infants
       order.guests.pets = pets
-      order.endDate = endDate
-      order.startDate = startDate
-      setOrder()
-
+      // order.endDate = new Date()
+      // order.startDate = new Date()
+      setOrder(stay)
     } catch (error) {
       console.log(error)
     }
   }
 
-  async function setOrder() {
+  async function setOrder(stay) {
     try {
-      await updateOrder(order)
+      const updatedOrder = { ...order, stay: stay }
+      await updateOrder(updatedOrder)
     }
     catch (err) {
       console.log(err)

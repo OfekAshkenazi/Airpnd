@@ -1,17 +1,15 @@
 .action-btn {
     .guest-picker {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         border: em(1px) solid rgba(0, 0, 0, 0.32);
         border-top: none;
         border-bottom-left-radius: em(8px);
         border-bottom-right-radius: em(8px);
-        font-size: em(10px);
-        display: flex;
-        // flex-direction: column;
-        justify-content: space-between;
+        font-size: em(9px);
         padding-left: em(18px);
-        // margin-bottom: em(24px);
-        display: flex;
-        align-items: center;
+        padding-top: em(8px);
 
         .guest-side {
             display: flex;
