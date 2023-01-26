@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import IconHeart from '../assets/svg/icon-heart';
-import IconSuitHeart from '../cmps/svg-cmps/icon-heart-preview';
 
 export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
     let [idx, setIdx] = useState(0)

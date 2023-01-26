@@ -1,0 +1,39 @@
+.app-mobile-footer {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    bottom: 0px;
+    background-color: #fff;
+    justify-content: space-around;
+    border-top: em(0.5px) solid rgba(128, 128, 128, 0.473);
+    box-shadow: 0 0 em(7px) #d6d0d6;
+
+    a {
+        text-decoration: none;
+    }
+
+    .icon-mobile-footer {
+        align-items: center;
+        color: $clrGrayFont;
+        gap: em(5px);
+        padding: em(7px) em(0px);
+
+        &.active {
+            color: rgb(241, 37, 75);
+            border-bottom: em(2px) solid rgb(241, 37, 75);
+        }
+
+        p {
+            font-size: em(13px)
+        }
+    }
+
+    .icon-airpnd-footer {
+        width: 24px;
+        height: 24px;
+    }
+
+    @media (max-width: 800px) {
+        display: flex;
+    }
+}
