@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router';
 
 import { AppFooter } from './cmps/app-footer';
 import { AppHeader } from './cmps/app-header';
+import { AppMobileFooter } from './cmps/app-mobile-footer';
 import { HostOrders } from './cmps/host-orders';
 import { UserMsg } from './cmps/user-msg';
 import { UserOrders } from './cmps/user-orders';
@@ -44,6 +45,7 @@ export function RootCmp() {
                 {/* className={`${(isFilterExpanded) ? "shadow-screen" : ""}`} */}
             </main>
             {/* <AppFooter /> */}
+            <AppMobileFooter />
             <UserMsg />
         </section >
     )

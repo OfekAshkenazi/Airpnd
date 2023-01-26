@@ -1,4 +1,3 @@
-import { positions } from '@mui/system';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -7,11 +6,14 @@ import logo from '../assets/img/logo.png';
 import IconMenu_hamburger from '../assets/svg/open-hamburger-icon';
 import { UserPagesModal } from '../cmps/user-pages-modal.jsx';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
+import { stayService } from '../services/stay.service';
+import { onSetFilter } from '../store/stay.actions';
 import { login, signup } from '../store/user.actions.js';
 import { LoginSignup } from './login-signup.jsx';
 import { StayFilter } from './stay-filter';
 import { StayFilterExpanded } from './stay-filter-expanded';
 import { NavIconFilter } from './stay-filter-nav-icon';
+import { StayFilterPlaceTaker } from './stay-filter-place-taker';
 
 export function AppHeader({ layout }) {
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
@@ -46,6 +48,7 @@ export function AppHeader({ layout }) {
     const navigate = useNavigate()
     function onLogoClick() {
         navigate(`/`)
+        onSetFilter(stayService.getEmptyFilter())
     }
 
     function openUserModal() {
@@ -89,13 +92,14 @@ export function AppHeader({ layout }) {
                             <p className='logo-title'>airpnd</p>
                         </div>
 
-                        <StayFilter onAddGuest={onAddGuest} onAddWhere={onAddWhere} onDateModal={onDateModal} />
+                        {!isFilterExpanded && <StayFilter onAddGuest={onAddGuest} onAddWhere={onAddWhere} onDateModal={onDateModal} />}
+                        {isFilterExpanded && <StayFilterPlaceTaker />}
                         {user &&
                             <>
                                 <span className="user-info">
                                     <button className='btn-airpnd-your-home' >Airpnd your home</button>
                                     <button onClick={openUserModal} className='btn-user'>
-                                        <IconMenu_hamburger width='22px' height='34px' className='icon-hamburger' />
+                                        <IconMenu_hamburger width='22px' height='33px' className='icon-hamburger' />
                                         <img src={user.imgUrl} alt="" />
                                     </button>
                                     {userModal && <UserPagesModal setUserModal={setUserModal} />}
@@ -120,10 +124,6 @@ export function AppHeader({ layout }) {
                     </div>
 
                 </section>
-
-                {/* {isFilterExpanded && <div className='full hr-header'>
-                    <hr />
-                </div>} */}
             </header>
 
         </ >

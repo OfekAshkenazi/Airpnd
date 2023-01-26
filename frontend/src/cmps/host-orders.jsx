@@ -8,6 +8,7 @@ import { PropagateLoader } from 'react-spinners';
 
 export function HostOrders() {
   const user = useSelector(storeState => storeState.userModule.user)
+  
   const [orders, setOrders] = useState([])
 
   useEffect(() => {

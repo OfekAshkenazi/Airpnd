@@ -15,14 +15,9 @@ export function StayFilter({ onAddGuest, onAddWhere, onDateModal }) {
         getActionFilterExpanded(true)
     }
 
-    function closeFilterExpanded() {
-        getActionFilterExpanded(false)
-    }
-
     return (
         <section className="stay-filter-header">
 
-            {/* <button onClick={closeFilterExpanded}>close</button> */}
             <div onClick={openFilterExpanded} className="stay-filter-btns">
                 <button className="stay-filter-btn any-where" onClick={onAddWhere}> Anywhere</button>
                 <span></span>
