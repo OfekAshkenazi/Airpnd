@@ -1,12 +1,18 @@
 import IconMapPin from '../assets/svg/location-icon';
+import { utilService } from '../services/util.service';
 
 const commonCities = ['Maui', 'Rio De Janeiro', 'Barcelona', 'Istanbul']
 const commonCountries = ['United States', 'Brazil', 'Spain', 'Turkey', 'Canada']
-
+const manyPlaces = ['United States', 'Brazil', 'Spain', 'Turkey', 'Canada']
 export function FilterWhereModal({ setFilterByToEdit }) {
 
   function onCommonSearch(place) {
     setFilterByToEdit((prevFilter) => ({ ...prevFilter, txt: `${place}` }))
+  }
+
+  function onFlexAble(manyPlaces) {
+    const randomIdx = utilService.getRandomIntInclusive(0, manyPlaces.length - 1)
+    setFilterByToEdit((prevFilter) => ({ ...prevFilter, txt: `${manyPlaces[randomIdx]}` }))
   }
 
   return (
@@ -29,7 +35,7 @@ export function FilterWhereModal({ setFilterByToEdit }) {
         <h4>Search by region</h4>
 
         <div className='countries-list'>
-          <div className='country'>
+          <div className='country' onClick={() => onFlexAble(manyPlaces)}>
             <img src={require(`../assets/img/countries/flexable.png`)} alt="flexable" />
             <p>I'm flexible</p>
           </div>
