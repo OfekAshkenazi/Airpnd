@@ -42,14 +42,24 @@
             }
 
             .btn-user {
-                margin-top: 4px;
                 background-color: white;
                 border: solid 1px #ddd;
                 border-radius: 50px;
                 color: #666f7a;
                 padding-top: 3px;
-                padding-right: 3px;
+                padding-right: 4.5px;
                 padding-left: 10px;
+
+                img {
+                    object-fit: cover;
+                    width: em(38px);
+                    height: em(38px);
+                    border-radius: 50%;
+                }
+
+                .icon-hamburger {
+                    margin-right: em(5px);
+                }
 
                 &:hover {
                     transition: 0.3s;

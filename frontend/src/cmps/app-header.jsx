@@ -4,7 +4,6 @@ import {  useNavigate } from 'react-router-dom';
 
 import logo from '../assets/img/logo.png';
 import IconMenu_hamburger from '../assets/svg/open-hamburger-icon';
-import IconBxsUserCircle from '../assets/svg/user-icon';
 import { UserPagesModal } from '../cmps/user-pages-modal.jsx';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
 import { login, signup } from '../store/user.actions.js';
@@ -94,10 +93,9 @@ export function AppHeader({ layout }) {
                             <>
                                 <span className="user-info">
                                     <button className='btn-airpnd-your-home' >Airpnd your home</button>
-                                    {/* <button className='btn-globe'><IconBxGlobe className='icon-glob' width='20px' height='20px' /></button> */}
                                     <button onClick={openUserModal} className='btn-user'>
                                         <IconMenu_hamburger width='22px' height='34px' className='icon-hamburger' />
-                                        <IconBxsUserCircle width='37px' height='33px' className='icon-user' />
+                                        <img src={user.imgUrl} alt="" />
                                     </button>
                                     {userModal && <UserPagesModal setUserModal={setUserModal} />}
                                 </span>
