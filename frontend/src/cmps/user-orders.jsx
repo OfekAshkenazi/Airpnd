@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { PendingIcon } from '../assets/svg/pending-icon';
 import { showErrorMsg } from '../services/event-bus.service';
 import { orderService } from '../services/order.service.local';
+import { PropagateLoader } from 'react-spinners';
 
 export function UserOrders() {
     const [orders, setOrders] = useState([])
@@ -20,8 +21,8 @@ export function UserOrders() {
             showErrorMsg('Cannot load orders')
         }
     }
-    console.log(currOrder)
-    if (!currOrder) return <h2>loading</h2>
+    console.log(currOrder)  
+    if (!currOrder) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
     return (
         <section className="orders-details">
             <div className="order-list">

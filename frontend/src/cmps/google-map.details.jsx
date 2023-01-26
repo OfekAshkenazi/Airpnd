@@ -1,13 +1,14 @@
 import GoogleMapReact from 'google-map-react';
 import { useState } from 'react';
+import { PropagateLoader } from 'react-spinners';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 export function GoogleMap({ lat, lng }) {
 
     const [coordinates, setCoordinates] = useState({ lat, lng })
-    const zoom = 7
-    if(!coordinates) return <h2>loading</h2>
+    const zoom = 7          
+    if(!coordinates) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
     return (
         <section>
             <div className="google-map" style={{ height: '480px', width: '100%' }}>

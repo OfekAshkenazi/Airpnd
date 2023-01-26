@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { showErrorMsg } from '../services/event-bus.service';
 import { orderService } from '../services/order.service.local';
 import { HostOrdersList } from './host-orders-list';
+import { PropagateLoader } from 'react-spinners';
 
 export function HostOrders() {
   const user = useSelector(storeState => storeState.userModule.user)
@@ -33,8 +34,8 @@ export function HostOrders() {
       showErrorMsg('Cannot complete request')
     }
 
-  }
-  if (!orders.length) return <h2>loading...</h2>
+  }    
+  if (!orders.length) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
 
   return (
     <section className='host-orders'>

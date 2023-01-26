@@ -8,6 +8,8 @@ import { StayExpanded } from '../cmps/stay-expanded.jsx'
 import { stayService } from "../services/stay.service.js"
 import { ToggleDetails } from "../store/system.action.js"
 import { useSelector } from 'react-redux';
+import { PropagateLoader } from 'react-spinners';
+
 
 export function StayDetails() {
     const [stay, setStay] = useState(null)
@@ -41,7 +43,7 @@ export function StayDetails() {
         return (totalRating / stay.reviews.length).toFixed(1)
     }
 
-    if (!stay) return <div>Loading...</div>
+    if (!stay) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
     return <section className="stay-details">
         <h1 className="stay-name">{stay.name}</h1>
         <div className="stay-info flex align-center">

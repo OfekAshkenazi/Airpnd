@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import PropagateLoader from 'react-spinners/PropagateLoader.js';
 
 import { StayList } from '../cmps/stay.list.jsx';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
@@ -64,6 +65,8 @@ export function StayIndex() {
             showErrorMsg('Cannot update car')
         }
     }
+
+    if(!stays.length) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
 
     return (
         <section className={`stay-container `}>

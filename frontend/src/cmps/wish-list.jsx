@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { PropagateLoader } from 'react-spinners';
 
 import { showErrorMsg } from '../services/event-bus.service.js';
 import { stayService } from '../services/stay.service.js';
@@ -30,7 +31,7 @@ export function WishList() {
     function onMoveToWishDetails(wishId) {
         navigate(`/stay/${wishId}`)
     }
-    if (!wishes.length) return <h2>loading</h2>
+    if (!wishes.length) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
     return (
         <ul className="wishList-list">
             {wishes.map(wish => <li key={wish._id}>

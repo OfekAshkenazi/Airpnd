@@ -5,6 +5,7 @@ import { stayService } from '../services/stay.service'
 import { updateOrder } from '../store/system.action'
 import { orderService } from '../services/order.service.local'
 import { HotelSharp } from '@mui/icons-material'
+import { PropagateLoader } from 'react-spinners';
 
 export function StayConfirm() {
   const order = useSelector(storeState => storeState.systemModule.order)
@@ -56,7 +57,7 @@ export function StayConfirm() {
   }
 
   if (order.stay._id === '') {
-    return <section>Loading...</section>
+    return <div className="loader"><PropagateLoader color="#ff395c" /></div>
   }
   return <section className="stay-confirm">
     <div className="main-line">
