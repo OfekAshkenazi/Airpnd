@@ -53,8 +53,8 @@ export function NavIconFilter() {
         <section className='icon-nav-container'>
             <div className='icon-nav'>
                 {!isFilterExpanded && <div className="filter-icon-pagination">
-                    <button onClick={() => pagination(-1)} className='icons-left'><FontAwesomeIcon icon={faAngleLeft} /></button>
-                    <button onClick={() => pagination(+1)} className='icons-right'><FontAwesomeIcon icon={faAngleRight} /></button>
+                    <button onClick={() => pagination(-1)} className={`icons-left ${(idx === 0) ? 'start' : ''}`}><FontAwesomeIcon icon={faAngleLeft} /></button>
+                    <button onClick={() => pagination(+1)} className={`icons-right ${(idx === 12) ? 'end' : ''}`}><FontAwesomeIcon icon={faAngleRight} /></button>
                 </div>}
                 {
                     labelsPage.map(label => {

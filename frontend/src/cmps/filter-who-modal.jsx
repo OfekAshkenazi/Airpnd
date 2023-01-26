@@ -1,5 +1,5 @@
-import IconMinusCircle from '../assets/svg/minus.jsx';
-import IconPlusCircle from '../assets/svg/plus.jsx';
+import IconArrows_circle_minus from '../assets/svg/minus-icon.jsx';
+import IconArrows_circle_plus from '../assets/svg/plus-icon.jsx';
 import { BasicSelect } from '../cmps/select-dropdown.jsx';
 
 
@@ -13,10 +13,10 @@ export function FilterWhoModal() {
           <p>Adults</p>
           <p>Ages 13 or above</p>
         </div>
-        <div className='modal-btn-group'>
-          <button><IconMinusCircle /></button>
-          <span>0</span>
-          <button><IconPlusCircle /></button>
+        <div className='modal-btn-group '>
+          <button><IconArrows_circle_minus /></button>
+          <span>1</span>
+          <button><IconArrows_circle_plus /></button>
         </div>
       </div>
 
@@ -26,9 +26,9 @@ export function FilterWhoModal() {
           <p>Ages 2–12</p>
         </div>
         <div className='modal-btn-group'>
-          <button><IconMinusCircle /></button>
+          <button><IconArrows_circle_minus /></button>
           <span>0</span>
-          <button><IconPlusCircle /></button>
+          <button><IconArrows_circle_plus /></button>
         </div>
       </div>
 
@@ -38,9 +38,9 @@ export function FilterWhoModal() {
           <p>Under 2</p>
         </div>
         <div className='modal-btn-group'>
-          <button><IconMinusCircle /></button>
+          <button><IconArrows_circle_minus /></button>
           <span>0</span>
-          <button><IconPlusCircle /></button>
+          <button><IconArrows_circle_plus /></button>
         </div>
       </div>
 
@@ -50,9 +50,9 @@ export function FilterWhoModal() {
           <p className='flex'>Bringing a service animal?</p>
         </div>
         <div className='modal-btn-group'>
-          <button><IconMinusCircle /></button>
+          <button><IconArrows_circle_minus /></button>
           <span>0</span>
-          <button><IconPlusCircle /></button>
+          <button><IconArrows_circle_plus /></button>
         </div>
       </div>
     </section>
