@@ -17,7 +17,6 @@ export async function ToggleDetails(isDetailsOpen) {
 
 export async function updateOrder(order) {
   try {
-    console.log(order)
     store.dispatch({type:SET_ORDER, order})
   }
   catch (err) {
