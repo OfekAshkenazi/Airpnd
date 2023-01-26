@@ -20,7 +20,8 @@ async function query(filterBy) {
                 { "loc.city": { $regex: filterBy.txt, $options: 'i' } }
             ],
             type: { $regex: filterBy.type, $options: 'i' },
-            "likedByUsers": { $regex: `${filterBy.userId}`, $options: 'i' } 
+        
+            // "likedByUsers": { $regex: `${filterBy.userId}`, $options: 'i' } 
 
         }
         const collection = await dbService.getCollection('stay')

@@ -21,10 +21,10 @@ export function WishList() {
 
     async function onLoadWishes() {
         try {
-            let userFilter = stayService.getEmptyFilter()
-            userFilter.userId = user._id
-            onSetFilter(userFilter)
-            const dataStays = await stayService.query(filterBy)
+            // let userFilter = stayService.getEmptyFilter()
+            // userFilter.userId = user._id
+            // onSetFilter(userFilter)
+            const dataStays = await stayService.query()
             const filterStay = dataStays.filter(stay => user.wishList.includes(stay._id))
             setWishes(filterStay)
         } catch (err) {
