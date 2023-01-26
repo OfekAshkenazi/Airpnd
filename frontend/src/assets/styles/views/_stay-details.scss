@@ -1,4 +1,49 @@
 .stay-details {
+
+    .reserve-mobile {
+        position: absolute;
+        right: 10000px;
+        padding: 0 0 0 0;
+        margin: 0 0 0 0;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        @include for-mobile-layout {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background-color: $clrMBg;
+            border-top: em(1px) solid $clrBorderGray;
+            z-index: 99999;
+
+            .btn-container {
+                width: em(115px);
+                height: em(55px);
+                align-self: flex-end;
+            }
+
+            .info-side {
+                display: flex;
+                flex-direction: column;
+                padding: em(16px);
+                font-size: em(18px);
+
+                .price {
+                    font-weight: 900;
+
+                    .night {
+                        font-weight: 300;
+                    }
+                }
+
+                .dates {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
     color: var($clrBlackFont);
     font-size: em(15px);
     font-family: circularL;
@@ -14,7 +59,8 @@
 }
 
 .stay-info {
-    margin-top: em(8px);;
+    margin-top: em(8px);
+    ;
     margin-bottom: em(26px);
     font-weight: 600;
     justify-content: space-between;
@@ -53,7 +99,7 @@
             align-items: center;
             font-size: em(18px);
             padding: em(6px);
-            
+
             &:hover {
                 background-color: $clrHoverGray;
                 border-radius: em(8px);
@@ -63,7 +109,6 @@
 
         .share-btn,
         .save-btn {
-            // padding: 8px 0px;
             color: $clrBlackFont;
             border: none;
             font-weight: bold;
@@ -107,8 +152,12 @@
         border-bottom-right-radius: em(16px);
     }
 
-    .grid-img-1, .grid-img-2,.grid-img-3, .grid-img-4, .grid-img-5{
-        
+    .grid-img-1,
+    .grid-img-2,
+    .grid-img-3,
+    .grid-img-4,
+    .grid-img-5 {
+
         :hover {
             cursor: pointer;
             transition: 0.4s;
@@ -121,4 +170,5 @@
     img {
         object-fit: cover;
     }
+
 }

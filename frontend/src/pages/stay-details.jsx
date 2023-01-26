@@ -2,14 +2,18 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ReviewList } from '../cmps/review-llist'
 import { GoogleMap } from '../cmps/google-map.details.jsx';
+import { ReserveBtn } from '../cmps/reserve-btn.jsx'
 
 import { StayExpanded } from '../cmps/stay-expanded.jsx'
 import { stayService } from "../services/stay.service.js"
 import { ToggleDetails } from "../store/system.action.js"
+import { useSelector } from 'react-redux';
 
 export function StayDetails() {
     const [stay, setStay] = useState(null)
     const { stayId } = useParams()
+    const currOrder = useSelector(storeState => storeState.systemModule.order)
+    const [order, setOrder] = useState([currOrder])
 
     useEffect(() => {
         loadStay()
@@ -66,9 +70,16 @@ export function StayDetails() {
         </div>
         <StayExpanded stay={stay} />
         <ReviewList stay={stay} />
+        <div className="reserve-mobile">
+            <div className="info-side">
+                <div className="price">{stay.price}$ <span className="night"> night </span> </div>
+                <span className="dates">dates</span>
+            </div>
+            <ReserveBtn className="mobile-btn" order={order} numericDate={new Date} stay={1} totalPrice={1} />
+        </div>
         <GoogleMap lat={+stay.loc.lat} lng={+stay.loc.lan} />
     </section>
 }
 
-// 
+//
 // 

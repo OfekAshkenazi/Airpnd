@@ -4,13 +4,17 @@
   align-items: center;
   margin-left: em(58px);
   align-self: flex-start;
-  width: clamp(550px, 33.333%, 24.875em);
+  width: clamp(800px, 33.333%, 24.875em);
   padding: em(10px) em(32px);
   border: em(1px) solid $clrBorderGray;
   border-radius: em(12px);
   box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
   position: sticky;
   top: em(50px);
+
+  @include for-mobile-layout {
+    display: none;
+}
 
   .header {
     display: flex;
@@ -42,7 +46,7 @@
     position: relative;
     width: 100%;
 
-    :hover{
+    :hover {
       cursor: pointer;
     }
   }
@@ -103,12 +107,14 @@
         justify-content: space-between;
         color: $clrGrayFont;
         font-weight: normal;
-        text-decoration: underline;
         line-height: em(40px);
+        color: $clrBlackFont;
 
-        .right {
-          text-decoration: none;
+
+        .left {
+          text-decoration: underline;
         }
+
       }
 
     }
@@ -128,7 +134,7 @@
   .date-range {
     position: absolute;
     z-index: 1000;
-    top: em(90px);
-    right: 10px;
+    top: em(75px);
+    right: .5px;
   }
 }

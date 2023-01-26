@@ -9,8 +9,7 @@
         // flex-direction: column;
         justify-content: space-between;
         padding-left: em(18px);
-        margin-bottom: em(24px);
-        height: em(90px);
+        // margin-bottom: em(24px);
         display: flex;
         align-items: center;
 
@@ -113,4 +112,10 @@
             }
         }
     }
+}
+
+.disabled {
+    opacity: 20%;
+    background-color: #b3b3b3c9 !important;
+    cursor: not-allowed;
 }
