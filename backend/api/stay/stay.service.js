@@ -19,7 +19,10 @@ async function query(filterBy) {
                 { "loc.country": { $regex: filterBy.txt, $options: 'i' } },
                 { "loc.city": { $regex: filterBy.txt, $options: 'i' } }
             ],
-            type: { $regex: filterBy.type, $options: 'i' }
+            type: { $regex: filterBy.type, $options: 'i' },
+        
+            // "likedByUsers": { $regex: `${filterBy.userId}`, $options: 'i' } 
+
         }
         const collection = await dbService.getCollection('stay')
         var stays = await collection.find(criteria).toArray()
