@@ -21,7 +21,7 @@ export function UserOrders() {
         }
     }
     console.log(currOrder)
-    if(!currOrder) return <h2>loading</h2>
+    if (!currOrder) return <h2>loading</h2>
     return (
         <section className="orders-details">
             <div className="order-list">
@@ -52,8 +52,8 @@ export function UserOrders() {
                     <div className="order-preview-details-modal">
                         <p>{currOrder.stay.name}</p>
                         <p>{currOrder.stay.loc.city}, {currOrder.stay.loc.countrey}</p>
-                        <p> Dates: states Dec 30 - Jan 04</p>
-                        <p>{currOrder.guests.adults}</p>
+                        <p>Dates: states Dec 30 - Jan 04</p>
+                        <p>Guests: {currOrder.guests.adults}</p>
                         <p>Total price: {currOrder.totalPrice}</p>
                         <p> Order Status: {currOrder.status}</p>
                     </div>
