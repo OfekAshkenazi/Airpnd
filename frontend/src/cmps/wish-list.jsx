@@ -5,6 +5,7 @@ import { PropagateLoader } from 'react-spinners';
 
 import { showErrorMsg } from '../services/event-bus.service.js';
 import { stayService } from '../services/stay.service.js';
+import { onSetFilter } from '../store/stay.actions.js';
 import { ToggleDetails } from '../store/system.action.js';
 import { WishPreview } from './wish-preview.jsx';
 
@@ -12,7 +13,7 @@ export function WishList() {
     const [wishes, setWishes] = useState([])
     const user = useSelector(storeState => storeState.userModule.user)
     const navigate = useNavigate()
-
+    const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
     useEffect(() => {
         onLoadWishes()
         ToggleDetails(true)
@@ -20,7 +21,10 @@ export function WishList() {
 
     async function onLoadWishes() {
         try {
-            const dataStays = await stayService.query()
+            let userFilter = stayService.getEmptyFilter()
+            userFilter.userId = user._id
+            onSetFilter(userFilter)
+            const dataStays = await stayService.query(filterBy)
             const filterStay = dataStays.filter(stay => user.wishList.includes(stay._id))
             setWishes(filterStay)
         } catch (err) {
