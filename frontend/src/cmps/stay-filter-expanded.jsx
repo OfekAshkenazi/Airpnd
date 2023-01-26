@@ -13,7 +13,7 @@ import { FilterWhoModal } from './filter-who-modal';
 export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateModalOpen, onAddGuest, onAddWhere, onDateModal }) {
   const [searchParams, setSearchParams] = useSearchParams()
   const queryFilterBy = stayService.getFilterFromSearchParams(searchParams)
-  const [filterByToEdit, setFilterBy] = useState(queryFilterBy)
+  const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy)
   const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
   const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
 
@@ -22,14 +22,13 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
   // console.log('filterBy:', filterBy)
   // console.log('filterByToEdit:', filterByToEdit)
   // console.log('searchParams:', searchParams)
-  // useEffect(() => {
-  //   onSetFilter(searchParams)
-  // }, [])
-
+  useEffect(() => {
+    onSetFilter(filterByToEdit)
+  }, [filterByToEdit])
   function handleChange({ target }) {
     let { value, name: field, type } = target
     value = (type === 'range') ? +value : value
-    setFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
+    setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
   }
 
   function onFilter(ev) {
@@ -54,7 +53,7 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
               <p>Where</p>
               <input type="text" name="txt" id="txt" value={filterByToEdit.txt} onChange={handleChange} placeholder="Search destinations" className='filter-where-input unbold' />
             </label>
-            {isWhereModalOpen ? <FilterWhereModal /> : ''}
+            {isWhereModalOpen ? <FilterWhereModal setFilterByToEdit={setFilterByToEdit} filterByToEdit={filterByToEdit} /> : ''}
           </div>
         </form>
         <span></span>

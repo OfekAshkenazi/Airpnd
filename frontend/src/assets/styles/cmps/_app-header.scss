@@ -17,13 +17,14 @@
 }
 
 .app-header {
+
     .first-row-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         // flex-wrap: wrap;
         position: relative;
-        padding: 10px 0px;
+        padding: 13px 0px 6px 0px;
 
         .user-info {
             display: flex;

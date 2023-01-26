@@ -1,6 +1,7 @@
+import { positions } from '@mui/system';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import logo from '../assets/img/logo.png';
 import IconMenu_hamburger from '../assets/svg/open-hamburger-icon';
@@ -125,6 +126,6 @@ export function AppHeader({ layout }) {
                 </div>} */}
             </header>
 
-        </>
+        </ >
     )
 }

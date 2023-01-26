@@ -57,7 +57,7 @@
     }
   }
 
-  .search-by-regions {
+  .common-countries {
     flex-grow: 1;
     border-left: #e7e7e7 1px solid;
     display: flex;
@@ -67,7 +67,7 @@
     gap: 10px;
 
 
-    .regions-list {
+    .countries-list {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;
@@ -75,7 +75,7 @@
       align-items: center;
       gap: 20px;
 
-      .region {
+      .country {
         cursor: pointer;
 
         img {
