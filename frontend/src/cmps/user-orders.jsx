@@ -38,26 +38,7 @@ export function UserOrders() {
                         </div>
                     )
                 })}
-                <div className="order-preview">
-                    <div>
-                        2 Bedroom upper east side
-                        <br></br>
-                        New York, NY,United states Dec 30 - Jan 04
-                    </div>
-                    <div className="order-indiction">
-                        <p style={{ color: 'green' }}>approve</p>
-                    </div>
-                </div>
-                <div className="order-preview">
-                    <div>
-                        2 Bedroom upper east side
-                        <br></br>
-                        New York, NY,United states Dec 30 - Jan 04
-                    </div>
-                    <div className="order-indiction">
-                        <p style={{ color: 'red' }}>decline</p>
-                    </div>
-                </div>
+             
             </div>
             <div className="order-preview-modal">
                 <section className="order-display">

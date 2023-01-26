@@ -17,9 +17,14 @@ export const orderService = {
 
 async function query() {
     try {
-        const orders = await httpService.get(ORDER_KEY)
+        const user = userService.getLoggedinUser()
+        console.log(user)
+        const orders = await httpService.get(ORDER_KEY, user)
         return orders
-    } catch (err) { console.log(err); throw err }
+    } catch (err) {
+        console.log(err)
+        throw err
+    }
 }
 
 async function getById(orderId) {

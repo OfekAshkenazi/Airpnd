@@ -5,7 +5,7 @@ const { getOrders, getOrderById, addOrder, updateOrder, removeOrder } = require(
 const router = express.Router()
 
 router.get('/', log, getOrders)
-router.post('/', requireAuth,addOrder)
+router.post('/', requireAuth, addOrder)
 router.get('/:id', getOrderById)
 router.put('/:id', updateOrder)
 

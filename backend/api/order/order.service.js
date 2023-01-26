@@ -11,14 +11,13 @@ module.exports = {
 }
 
 
-async function query() {
+async function query(user) {
     try {
         const criteria = {
-            "hostId._id": { $regex: "63cfe9a88276fe4e2c861da5", $options: 'i' } 
+            "hostId._id": { $regex: `${user._id}`, $options: 'i' } 
         }
         const collection = await dbService.getCollection('order')
         let orders = await collection.find(criteria).toArray()
-        console.log(orders)
         return orders
     } catch (err) {
         logger.error('cannot find orders', err)

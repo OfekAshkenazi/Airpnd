@@ -15,7 +15,6 @@ export function HostOrders() {
 
   async function onLoadOrders() {
     try {
-
       const hostOrders = await orderService.query()
       setOrders(hostOrders)
     } catch (err) {
@@ -35,13 +34,13 @@ export function HostOrders() {
     }
 
   }
-  console.log(orders)
   if (!orders.length) return <h2>loading...</h2>
+
   return (
     <section className='host-orders'>
       <div className="host-orders-headline flex">
-        <h4>Buyer</h4>
-        <h4>StayName</h4>
+        <h4>Client</h4>
+        <h4>Property type</h4>
         <h4>Date</h4>
         <h4>Price</h4>
         <h4>Status</h4>
