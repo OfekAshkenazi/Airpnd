@@ -1,0 +1,11 @@
+// body {
+.shadow-screen {
+    position: fixed;
+    inset: 0;
+    cursor: pointer;
+    pointer-events: none;
+    transition: opacity .6s;
+    background-color: rgb(207, 17, 17);
+}
+
+// }

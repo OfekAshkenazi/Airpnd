@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6790c542.css",
+    "main.js": "/static/js/main.5783d347.js",
+    "static/media/CircularStd-Light.otf": "/static/media/CircularStd-Light.4a1a0bfcc3a53847a945.otf",
+    "static/media/CircularStd-Black.otf": "/static/media/CircularStd-Black.757b8ac8efa71be3fcd0.otf",
+    "static/media/CircularStd-Bold.otf": "/static/media/CircularStd-Bold.5c4514a8399ec0064b9b.otf",
+    "static/media/CircularStd-Book.otf": "/static/media/CircularStd-Book.9048137056e4347dbbd5.otf",
+    "service-worker.js": "/service-worker.js",
+    "static/media/AirbnbCereal_W_Bd.otf": "/static/media/AirbnbCereal_W_Bd.a776e4204206c17ac014.otf",
+    "static/media/logo.png": "/static/media/logo.842021961f47426e8e77.png",
+    "static/media/wheelchair.png": "/static/media/wheelchair.5588a79cfca4bfeaf646.png",
+    "static/media/fire.png": "/static/media/fire.4fa412f318198b47c487.png",
+    "static/media/buzzerwireless.png": "/static/media/buzzerwireless.738e471d7e0bcb16cbf2.png",
+    "static/media/aircover.png": "/static/media/aircover.8dd223fbe16b14f13a9e.png",
+    "static/media/translation.png": "/static/media/translation.3f47c9d96d57b20c45e6.png",
+    "static/media/pool.png": "/static/media/pool.543ca0680c60bc90e8a1.png",
+    "static/media/hair.png": "/static/media/hair.646ce03141b11b54b7e9.png",
+    "static/media/flexable.png": "/static/media/flexable.38cf3ab3513d5b9688ad.png",
+    "static/media/cable.png": "/static/media/cable.f30826aa6a19e1cba9e6.png",
+    "static/media/doorman.png": "/static/media/doorman.a1d41639e3744fd8f3aa.png",
+    "static/media/United States.png": "/static/media/United States.b92752a7fca6d4ee330d.png",
+    "index.html": "/index.html",
+    "main.6790c542.css.map": "/static/css/main.6790c542.css.map",
+    "main.5783d347.js.map": "/static/js/main.5783d347.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6790c542.css",
+    "static/js/main.5783d347.js"
+  ]
+}
