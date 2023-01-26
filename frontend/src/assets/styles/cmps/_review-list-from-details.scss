@@ -92,8 +92,8 @@
 
         img {
             object-fit: cover;
-            width: 3em;
-            height: 3em;
+            width: em(50px);
+            height: em(50px);
             border-radius: 50%;
         }
     }

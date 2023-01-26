@@ -1,16 +1,21 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { showErrorMsg } from '../services/event-bus.service';
 import { orderService } from '../services/order.service.local';
+import { HostOrdersList } from './host-orders-list';
 
 export function HostOrders() {
+  const user = useSelector(storeState => storeState.userModule.user)
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
     onLoadOrders()
   }, [])
+
   async function onLoadOrders() {
     try {
+
       const hostOrders = await orderService.query()
       setOrders(hostOrders)
     } catch (err) {
@@ -18,12 +23,6 @@ export function HostOrders() {
       showErrorMsg('Cannot load orders')
     }
   }
-  // function handleChange({ target }) {
-  //   let { value, name: field, type } = target
-  //   value = (type === 'range') ? +value : value
-  //   setFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
-  // }
-
 
   async function handelSelectChange(event, orderId) {
     let { value } = event.target
@@ -32,14 +31,11 @@ export function HostOrders() {
       orderToSave.status = value
       await orderService.update(orderToSave)
     } catch (err) {
-      console.log(err)
       showErrorMsg('Cannot complete request')
     }
-    console.log(value)
-    console.log(orderId)
 
   }
-
+  console.log(orders)
   if (!orders.length) return <h2>loading...</h2>
   return (
     <section className='host-orders'>
@@ -51,31 +47,7 @@ export function HostOrders() {
         <h4>Status</h4>
         <h4></h4>
       </div>
-      <div className="order-status align-center flex">
-        <div className="orders-left-side align-center flex">
-          <div className="flex align-center">
-            <div className="user-img-order-container">
-              <img src={require("../assets/user-img/anglina.jpg")} alt="" />
-            </div>
-            <p>{orders[0].byUser.fullname}</p>
-          </div>
-          <p>Moshik Place</p>
-        </div>
-        <div className="order-right-side align-center flex">
-          <p>{orders[0].startDate.slice(0, 10)}</p>
-          <p>{orders[0].totalPrice}</p>
-          <div className="status-indicator align-center flex">
-            <p>😎</p>
-            <p>{orders[0].status}</p>
-          </div>
-
-          <select onChange={(event) => handelSelectChange(event, orders[0]._id)} name="status" id="">
-            <option value="pending">Pending</option>
-            <option value="approve">Approve</option>
-            <option value="decline">Decline</option>
-          </select>
-        </div>
-      </div>
+      <HostOrdersList handelSelectChange={handelSelectChange} orders={orders}/>
     </section>
   )
 }
