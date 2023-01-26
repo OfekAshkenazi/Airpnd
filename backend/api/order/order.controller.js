@@ -13,8 +13,9 @@ module.exports = {
 
 async function getOrders(req, res) {
   try {
+    const user = req.query
     logger.debug('Getting orders')
-    const orders = await orderService.query()
+    const orders = await orderService.query(user)
     res.json(orders)
   } catch (err) {
     logger.error('Failed to get orders', err)
