@@ -1,16 +1,9 @@
-import { useState } from 'react';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { LoginSignup } from '../cmps/login-signup.jsx';
-import { LoginSignup } from '../cmps/login-signup.jsx';
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
+import { showErrorMsg } from '../services/event-bus.service.js';
 import { getHostOrderFilter, getWishFilter } from '../services/wishList.service.js';
 import { ToggleLoginModal } from '../store/system.action.js';
-import { login, signup } from '../store/user.actions';
-import { login, signup } from '../store/user.actions';
-import { logout } from '../store/user.actions.js';
 import { logout } from '../store/user.actions.js';
 
 export function UserPagesModal({ setUserModal }) {
@@ -32,7 +25,7 @@ export function UserPagesModal({ setUserModal }) {
         setUserModal(false)
     }
 
-    function handleClickHost() {
+    function handleClickLogin() {
         ToggleLoginModal(!isLoginModalOpen)
         setUserModal(false)
     }
