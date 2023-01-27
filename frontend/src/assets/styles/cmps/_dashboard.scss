@@ -1,11 +1,65 @@
 .dashboard-page {
     margin-top: em(10px);
     background-color: #ffffff;
-}
 
-.chart-container {
-    background-color: #fff1d7;
-    max-width: 330px;
-    padding: em(7.5px);
-    border-radius: em(7px);
+.charts-container {
+    display: flex;
+}
+    .chart-container {
+        // background-color: #fff1d7;
+        max-width: 330px;
+        padding: em(7.5px);
+        border-radius: em(7px);
+    }
+
+
+    ///PEER - TAX /// 
+
+    .tax-report {
+        font-family: circularL;
+        color: $clrGrayFont;
+        display: flex;
+        // flex-direction: column;
+        align-items: center;
+        padding: 40px;
+        font-size: em(14px);
+        font-weight: 400;
+        border-radius: 8px;
+        background: #76b852;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0.1), #76b852);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.1), #76b852);
+        
+
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        .tax-head {
+            align-self: flex-start;
+            padding-bottom: em(32px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tax {
+            font-weight: 600;
+            font-size: em(20px);
+            color: $clrBlackFont;
+        }
+
+        .tax-bottom {
+            display: flex;
+            flex-direction: column;
+            align-self: flex-end;
+
+            span {
+                font-weight: 600;
+            }
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    }
 }

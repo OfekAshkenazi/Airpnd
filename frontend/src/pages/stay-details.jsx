@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ReviewList } from '../cmps/review-llist'
 import { GoogleMap } from '../cmps/google-map.details.jsx';
-import { TaxReport } from '../cmps/tax-report.jsx';
 import { ReserveBtn } from '../cmps/reserve-btn.jsx'
 
 import { StayExpanded } from '../cmps/stay-expanded.jsx'
@@ -75,8 +74,7 @@ export function StayDetails() {
             </div>
             <ReserveBtn className="mobile-btn" order={order} numericDate={new Date} stay={1} totalPrice={1} />
         </div>
-        {/* <GoogleMap lat={+stay.loc.lat} lng={+stay.loc.lan} />  */}
-        { <TaxReport  /> }
+        <GoogleMap lat={+stay.loc.lat} lng={+stay.loc.lan} /> 
     </section>
 }
 
