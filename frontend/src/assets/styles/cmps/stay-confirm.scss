@@ -70,7 +70,7 @@
 
             .book-btn {
                 color: $clrMBg;
-                background-color: #b0b0b0;
+                background-color: rgb(227, 28, 95);
                 padding: em(16px);
                 border-radius: em(8px);
                 font-weight: 600;
@@ -131,15 +131,21 @@
                 border-bottom: 1px solid rgb(221, 221, 221);
 
                 .price{
-                    font-size: em(20px);
+                    font-size: em(22px);
                     color: $clrBlackFont;
-                    font-weight: 600;
+                    font-weight: 900;
                     padding-bottom: em(14px);
                 }
 
                 .sum{
                     display: flex;
                     justify-content: space-between;
+                    font-size: em(15px);
+                    color: rgb(34, 34, 34);
+
+                    .sum-left{
+                        text-decoration: underline;
+                    }
                 }
             }
             

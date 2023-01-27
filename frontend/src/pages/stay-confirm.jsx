@@ -13,7 +13,6 @@ export function StayConfirm() {
   const params = useParams()
   const { stayId, startDate, endDate, adults, children, infants, pets } = params
   useEffect(() => {
-    console.log(order)
   }, [order])
 
   function handleBackClick() {
@@ -79,7 +78,7 @@ export function StayConfirm() {
         <div className="guests">
           <div className="left">Guests<span>{(parseInt(adults) + parseInt(children) + parseInt(infants) + parseInt(pets))}</span>  </div>
         </div>
-        <button className="book-btn" onClick={() => onAddNewOrder()}>Book Now </button>
+        <button className="book-btn" onClick={() => onAddNewOrder()}>Book and pay </button>
       </div>
       <div className="modal">
         <div className="modal-top">
@@ -92,8 +91,8 @@ export function StayConfirm() {
         <div className="air-cover">Your booking is protected by  <img className="back-img" src={require(`../assets/img//aircover.png`)} />
         </div>
         <div className="price-details">
-          <div className="price">Price Details</div>
-          <div className="sum">$1,963.29 x 5 night <span>$9816.45</span></div>
+          <div className="price">Price details</div>
+          <div className="sum"><div className="sum-left">$1,963.29 USD x 5 night </div><div className="sum-right">$9,816.45</div></div>
         </div>
         <div className="total">Total (USD) <span className="total-num">$9,816.45</span> </div>
         <div className="deposit">This property requires a $1,100.91 security deposit. It will be collected separately by the property prior to your arrival or at check-in.</div>

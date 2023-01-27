@@ -20,7 +20,12 @@
 
     .review-head-lins {
         display: grid;
-        grid-template: repeat(3, 1fr)/repeat(4, 1fr);
+        
+        grid-template: repeat(3, 1fr)/repeat(2, 1fr);
+        @media (min-width: 740px) {
+            grid-template: repeat(3, 1fr)/repeat(4, 1fr);
+        }
+
         gap: 10px;
         margin-bottom: em(30px);
         align-items: center;
@@ -72,7 +77,12 @@
 .review-list-preview {
     padding-top: em(16px);
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+
+    @media (min-width: 740px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     grid-gap: 20px;
     margin-bottom: em(24px);
 
@@ -113,5 +123,9 @@
 }
 
 .google-map {
-    margin-top: em(64px);
+    margin-top: em(34px);
+
+    h2{
+padding-bottom: 16px;
+    }
 }

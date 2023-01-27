@@ -65,7 +65,7 @@ export function StayDetails() {
                 </div>
             ))}
         </div>
-        <StayExpanded stay={stay} getRating={getRating} />
+         { <StayExpanded stay={stay} getRating={getRating} /> }
         <ReviewList stay={stay} />
         <div className="reserve-mobile">
             <div className="info-side">
@@ -74,7 +74,7 @@ export function StayDetails() {
             </div>
             <ReserveBtn className="mobile-btn" order={order} numericDate={new Date} stay={1} totalPrice={1} />
         </div>
-        <GoogleMap lat={+stay.loc.lat} lng={+stay.loc.lan} />
+        <GoogleMap lat={+stay.loc.lat} lng={+stay.loc.lan} /> 
     </section>
 }
 

@@ -1,5 +1,6 @@
 .stay-details {
-
+    display: grid;
+width: 100%;
     .reserve-mobile {
         position: absolute;
         right: 10000px;
@@ -51,123 +52,140 @@
     .stay-name {
         font-weight: 600;
         font-size: 1.625em;
-    }
-}
-
-.stay-name {
-    margin-top: em(10px);
-    font-weight: bold;
-}
-
-.stay-info {
-    margin-bottom: em(26px);
-    font-weight: 600;
-    justify-content: space-between;
-
-    .img-star {
-        width: em(15px);
-        margin-right: em(7px);
+        margin-top: em(10px);
+        font-weight: bold;
     }
 
-    .stay-reviews {
-        margin-left: em(8px);
-        text-decoration: underline;
-    }
+    .stay-info {
+        margin-bottom: em(26px);
+        font-weight: 600;
+        justify-content: space-between;
 
-    .stay-location {
-        margin-left: em(8px);
-        text-decoration: underline;
-    }
-
-    .seperator {
-        margin: 0 4px;
-    }
-
-    .action-btn {
-        display: flex;
-        align-items: center;
-
-        img {
-            height: em(15px);
+        .img-star {
             width: em(15px);
-            margin-right: em(1.5px);
+            margin-right: em(7px);
         }
 
-        .duo {
+        .stay-reviews {
+            margin-left: em(8px);
+            text-decoration: underline;
+        }
+
+        .stay-location {
+            margin-left: em(8px);
+            text-decoration: underline;
+        }
+
+        .seperator {
+            margin: 0 4px;
+        }
+        
+        .action-btn {
+
+            display: none;
+
+            @media (min-width: 740px) {
             display: flex;
             align-items: center;
-            font-size: em(18px);
-            padding: em(6px);
 
-            &:hover {
-                background-color: $clrHoverGray;
-                border-radius: em(8px);
-                cursor: pointer;
+            img {
+                height: em(15px);
+                width: em(15px);
+                margin-right: em(1.5px);
+            }
+
+                .duo {
+                    display: flex;
+                    align-items: center;
+                    font-size: em(18px);
+                    padding: em(6px);
+
+                    &:hover {
+                        background-color: $clrHoverGray;
+                        border-radius: em(8px);
+                        cursor: pointer;
+                    }
+                }
+
+                .share-btn,
+                .save-btn {
+                    color: $clrBlackFont;
+                    border: none;
+                    font-weight: bold;
+                    cursor: pointer;
+                    background-color: transparent;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .imgs-container {
+
+        display: grid;
+        .grid-img-1 {
+            aspect-ratio: 667/444;
+        }
+
+        @media (max-width: 740px) {
+            .grid-img-2,
+            .grid-img-3,
+            .grid-img-4,
+            .grid-img-5 {
+                display: none;
             }
         }
 
-        .share-btn,
-        .save-btn {
-            color: $clrBlackFont;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            background-color: transparent;
-            text-decoration: underline;
-        }
-    }
-}
+        @media (min-width: 740px) {
+            grid-template: repeat(2, 26vh)/2fr 1fr 1fr;
+            gap: em(8px);
+            grid-template-areas:
+                "grid-img-1 grid-img-2 grid-img-3"
+                "grid-img-1 grid-img-4 grid-img-5";
 
-.imgs-container {
-    margin-bottom: em(40px);
-    display: grid;
-    grid-template: repeat(2, 26vh)/2fr 1fr 1fr;
-    gap: em(8px);
-    grid-template-areas:
-        "grid-img-1 grid-img-2 grid-img-3"
-        "grid-img-1 grid-img-4 grid-img-5";
+            .grid-img-1 {
+                grid-area: grid-img-1;
+            }
+
+            .grid-img-1 img {
+                border-bottom-left-radius: em(16px);
+                border-top-left-radius: em(16px);
+            }
+
+            .grid-img-3 img {
+                border-top-right-radius: em(16px);
+            }
+
+            .grid-img-5 img {
+                border-bottom-right-radius: em(16px);
+            }
+
+            .grid-img-1,
+            .grid-img-2,
+            .grid-img-3,
+            .grid-img-4,
+            .grid-img-5 {
+
+                :hover {
+                    cursor: pointer;
+                    transition: 0.4s;
+                    filter: brightness(90%);
+                }
+            }
+        }
+
+    }
 
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-
     }
 
-    .grid-img-1 {
-        grid-area: grid-img-1;
-    }
-
-    .grid-img-1 img {
-        border-bottom-left-radius: em(16px);
-        border-top-left-radius: em(16px);
-    }
-
-    .grid-img-3 img {
-        border-top-right-radius: em(16px);
-    }
-
-    .grid-img-5 img {
-        border-bottom-right-radius: em(16px);
-    }
-
-    .grid-img-1,
-    .grid-img-2,
-    .grid-img-3,
-    .grid-img-4,
-    .grid-img-5 {
-
-        :hover {
-            cursor: pointer;
-            transition: 0.4s;
-            filter: brightness(90%);
+    .capacity {
+        img {
+            object-fit: cover;
         }
-    }
-}
 
-.capacity {
-    img {
-        object-fit: cover;
     }
-
 }

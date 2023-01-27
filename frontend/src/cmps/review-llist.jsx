@@ -30,7 +30,7 @@ export function ReviewList({ stay }) {
                 <img className ="star-img" style={{ width: '18px', height: '18px' }} src={require("../assets/img/icons/star.png")} />
                 {getRating()}
                 <span className="seperator">·</span>
-                <p>7 reviews</p>
+                <p>{stay.reviews.length} reviews</p>
             </h2>
             <div className="review-head-lins">
                 <p>Cleanliness</p>
