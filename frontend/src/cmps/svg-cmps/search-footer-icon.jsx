@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 function IconSearch(props) {
   return (
@@ -7,7 +7,7 @@ function IconSearch(props) {
       display="block"
       height="24px"
       width="24px"
-      stroke-width =  "4"
+      strokeWidth="4"
       overflow="visible"
       fill="currentColor"
       {...props}

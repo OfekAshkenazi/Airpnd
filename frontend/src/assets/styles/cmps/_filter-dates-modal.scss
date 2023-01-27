@@ -5,7 +5,13 @@
   position: absolute;
   // height: 10px;
   width: 800px;
-  top: em(88px);
+  top: em(85px);
   right: em(-490px);
   // right: em(280px);
+
+  @media (max-width: 1100px) {
+    transition: 0.3s;
+    width: 712px;
+    right: em(-385px);
+  }
 }

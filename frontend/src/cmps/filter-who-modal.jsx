@@ -1,11 +1,27 @@
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import IconArrows_circle_minus from '../assets/svg/minus-icon.jsx';
 import IconArrows_circle_plus from '../assets/svg/plus-icon.jsx';
-import { BasicSelect } from '../cmps/select-dropdown.jsx';
+import { orderService } from '../services/order.service.local.js';
+import { updateOrder } from '../store/system.action.js';
 
 
 
 export function FilterWhoModal() {
-
+  const order = useSelector(storeState => storeState.systemModule.order)
+  // const [currOrder, setCurrOrder] = useState(order)
+  // const { adults, children, infants, pets } = guests
+  console.log(order)
+  useEffect(() => {
+    console.log('blacheack')
+  }, [order])
+  async function handleAdultsChange(diff) {
+    order.guests.adults += diff
+    console.log(order.guests)
+    // setCurrOrder(currOrder)
+    await updateOrder(order)
+  }
   return (
     <section className='filter-who-modal'>
       <div className='guest-select flex'>
@@ -14,9 +30,9 @@ export function FilterWhoModal() {
           <p>Ages 13 or above</p>
         </div>
         <div className='modal-btn-group '>
-          <button><IconArrows_circle_minus /></button>
-          <span>1</span>
-          <button><IconArrows_circle_plus /></button>
+          <button onClick={() => handleAdultsChange(-1)}><IconArrows_circle_minus /></button>
+          <span>{order.guests.adults}</span>
+          <button onClick={() => handleAdultsChange(+1)}><IconArrows_circle_plus /></button>
         </div>
       </div>
 
@@ -26,9 +42,9 @@ export function FilterWhoModal() {
           <p>Ages 2–12</p>
         </div>
         <div className='modal-btn-group'>
-          <button><IconArrows_circle_minus /></button>
-          <span>0</span>
-          <button><IconArrows_circle_plus /></button>
+          <button onClick={() => handleAdultsChange(-1)}><IconArrows_circle_minus /></button>
+          <span>{order.guests.children}</span>
+          <button onClick={() => handleAdultsChange(+1)}><IconArrows_circle_plus /></button>
         </div>
       </div>
 
@@ -38,9 +54,9 @@ export function FilterWhoModal() {
           <p>Under 2</p>
         </div>
         <div className='modal-btn-group'>
-          <button><IconArrows_circle_minus /></button>
-          <span>0</span>
-          <button><IconArrows_circle_plus /></button>
+          <button onClick={() => handleAdultsChange(-1)}><IconArrows_circle_minus /></button>
+          <span>{order.guests.infants}</span>
+          <button onClick={() => handleAdultsChange(+1)}><IconArrows_circle_plus /></button>
         </div>
       </div>
 
@@ -50,9 +66,9 @@ export function FilterWhoModal() {
           <p className='flex'>Bringing a service animal?</p>
         </div>
         <div className='modal-btn-group'>
-          <button><IconArrows_circle_minus /></button>
-          <span>0</span>
-          <button><IconArrows_circle_plus /></button>
+          <button onClick={() => handleAdultsChange(-1)}><IconArrows_circle_minus /></button>
+          <span>{order.guests.pets}</span>
+          <button onClick={() => handleAdultsChange(+1)}><IconArrows_circle_plus /></button>
         </div>
       </div>
     </section>
