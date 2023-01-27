@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router';
 
 import { AppFooter } from './cmps/app-footer';
 import { AppHeader } from './cmps/app-header';
 import { AppMobileFooter } from './cmps/app-mobile-footer';
-import { DasheBoard } from './cmps/dashBoard-host';
+import { DashBoard } from './cmps/dashboard-host';
 import { HostOrders } from './cmps/host-orders';
 import { LoginSignup } from './cmps/login-signup';
 import { UserMsg } from './cmps/user-msg';
@@ -20,9 +21,13 @@ import { login, signup } from './store/user.actions';
 
 export function RootCmp() {
     const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
+    
+    const isLoginModalOpen = useSelector(storeState => storeState.systemModule.isLoginModalOpen)
+
     const layout = isDetailsOpen ? 'main-container narrow' : 'main-container'
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
-    const [loginModal, setLoginModal] = useState(false)
+    
+
     function closeFilterExpanded() {
         if (isFilterExpanded) {
             getActionFilterExpanded(false)
@@ -62,14 +67,14 @@ export function RootCmp() {
                     </Route>
                     <Route element={<HostProfileNested />} path="/host">
                         <Route element={<HostOrders />} path="/host/orders" />
-                        <Route element={<DasheBoard />} path="/host/dashboard" />
+                        <Route element={<DashBoard />} path="/host/dashboard" />
                         {/* <Route element={<UserOrders />} path="/orders/my-orders" /> */}
                     </Route>
                 </Routes>
                 {/* className={`${(isFilterExpanded) ? "shadow-screen" : ""}`} */}
             </main>
             {/* <AppFooter /> */}
-            {loginModal && <LoginSignup onLogin={onLogin} onSignup={onSignup} />}
+            {isLoginModalOpen && <LoginSignup onLogin={onLogin} onSignup={onSignup} />}
             <AppMobileFooter />
             <UserMsg />
         </section >
