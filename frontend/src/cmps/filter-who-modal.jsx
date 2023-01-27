@@ -6,22 +6,29 @@ import IconArrows_circle_plus from '../assets/svg/plus-icon.jsx';
 import { orderService } from '../services/order.service.local.js';
 import { updateOrder } from '../store/system.action.js';
 
-
-
 export function FilterWhoModal() {
-  const order = useSelector(storeState => storeState.systemModule.order)
-  // const [currOrder, setCurrOrder] = useState(order)
-  // const { adults, children, infants, pets } = guests
+  let order = useSelector(storeState => storeState.systemModule.order)
   console.log(order)
   useEffect(() => {
-    console.log('blacheack')
-  }, [order])
+    console.log('hihihi')
+  }, [])
+
+
   async function handleAdultsChange(diff) {
-    order.guests.adults += diff
-    console.log(order.guests)
-    // setCurrOrder(currOrder)
-    await updateOrder(order)
+    try {
+
+      // await updateOrder(copyOrder)
+    } catch (err) {
+      console.log(err)
+    }
   }
+
+  //   guests{
+  //     "adults": 1,
+  //     "children": 0,
+  //     "infants": 0,
+  //     "pets": 0
+  // }
   return (
     <section className='filter-who-modal'>
       <div className='guest-select flex'>

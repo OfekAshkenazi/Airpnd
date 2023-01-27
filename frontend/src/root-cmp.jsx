@@ -21,7 +21,7 @@ export function RootCmp() {
     const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
     const layout = isDetailsOpen ? 'main-container narrow' : 'main-container'
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
-    const [loginModal, setLoginModal] = useState(true)
+    const [loginModal, setLoginModal] = useState(false)
     function closeFilterExpanded() {
         if (isFilterExpanded) {
             getActionFilterExpanded(false)
