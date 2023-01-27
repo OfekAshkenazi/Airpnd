@@ -70,6 +70,7 @@ export function BookingForm({ stay, getRating }) {
         const formattedPrice = totalPrice.toLocaleString()
         return formattedPrice
     }
+    
     return <div className="book-form">
         <div className="header">
             <div className="price"> ${stay.price} <span className="night">night</span></div>
