@@ -19,10 +19,12 @@ export function HostStayList() {
   return (
     <section className='host-stay-list flex'>
       <div className='host-stay'>
-        {/* <img src="" alt="" /> */}
-        <div>
-          <h4>White City Villa</h4>
-          <p>1901 thornoids sdiof sadisod </p>
+        <div className='flex'>
+          <img src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436917/mqkfjmfpmyqpqmzmqgau.jpg" alt="" />
+          <span>
+            <h4>White City Villa</h4>
+            <p>1901 thornoids sdiof sadisod </p>
+          </span>
         </div>
         <div>
           <p>for rent</p>
@@ -32,17 +34,44 @@ export function HostStayList() {
           56
           |
           56
-          <div>
-            <span>
-              <p>
-                $48,000
-              </p>
-              <p>/year</p>
-            </span>
-          </div>
+        </div>
+
+        <div>
+          <span className='flex'>
+            <p>
+              $48,000
+            </p>
+            <p>/year</p>
+          </span>
         </div>
       </div>
-      <div className='host-stay'>hello</div>
-    </section>
+      <div className='host-stay'>
+        <div className='flex'>
+          <img src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436204/wzbrvr4mcsuub6gvwbry.jpg" alt="" />
+          <span>
+            <h4>White City Villa</h4>
+            <p>1901 thornoids sdiof sadisod </p>
+          </span>
+        </div>
+        <div>
+          <p>for rent</p>
+        </div>
+        <div>
+          56
+          56
+          |
+          56
+        </div>
+
+        <div>
+          <span className='flex'>
+            <p>
+              $48,000
+            </p>
+            <p>/year</p>
+          </span>
+        </div>
+      </div>
+    </section >
   )
 }
