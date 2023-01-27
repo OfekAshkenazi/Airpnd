@@ -18,9 +18,9 @@ export function FilterWhereModal({ setFilterByToEdit }) {
   return (
     <section className='filter-where-modal'>
       <div className='common-searches'>
-        <h4>Common search</h4>
+        <h4>Common search cities</h4>
         {commonCities.map((city, idx) => {
-          return <div key={city} className='common-search' onClick={() => onCommonSearch(city)}>
+          return <div key={city} className='common-cities' onClick={() => onCommonSearch(city)}>
             <span className='place-icon'><IconMapPin /></span>
             <span className='place-content'>
               <p className='common-city'>{city}</p>
@@ -32,7 +32,7 @@ export function FilterWhereModal({ setFilterByToEdit }) {
       </div>
 
       <div className='common-countries'>
-        <h4>Search by region</h4>
+        <h4>Common search countries</h4>
 
         <div className='countries-list'>
           <div className='country' onClick={() => onFlexAble(manyPlaces)}>
