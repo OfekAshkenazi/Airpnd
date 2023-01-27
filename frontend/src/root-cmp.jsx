@@ -17,6 +17,7 @@ import { ProfileNestRoutes } from './pages/profile-nest-routes';
 import routes from './routes';
 import { showErrorMsg, showSuccessMsg } from './services/event-bus.service';
 import { getActionFilterExpanded } from './store/filter.expanded.action';
+import { ToggleLoginModal } from './store/system.action';
 import { login, signup } from './store/user.actions';
 
 export function RootCmp() {
@@ -28,14 +29,19 @@ export function RootCmp() {
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
 
 
-    function closeFilterExpanded() {
+    function closeShadowScreen() {
         if (isFilterExpanded) {
             getActionFilterExpanded(false)
+        }
+        if (isLoginModalOpen) {
+            ToggleLoginModal(!isLoginModalOpen)
+
         }
     }
 
 
     async function onLogin(credentials) {
+
         try {
             const user = await login(credentials)
             showSuccessMsg(`Welcome: ${user.fullname}`)
@@ -53,11 +59,12 @@ export function RootCmp() {
         }
     }
 
+
     return (
         <section >
             <AppHeader layout={layout} />
-            <div className={`${(isFilterExpanded) ? "shadow" : ""}`} onClick={closeFilterExpanded}><div ></div></div>
-            <main onClick={closeFilterExpanded} className={` ${layout}`} >
+            <div className={`${(isFilterExpanded) ? "shadow" : ""} ${(isLoginModalOpen) ? "shadow" : ""}`} onClick={closeShadowScreen}><div ></div></div>
+            <main className={` ${layout}`} >
                 {/* {isFilterExpanded&& } */}
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}

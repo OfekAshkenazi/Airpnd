@@ -1,13 +1,17 @@
+import { useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { LoginSignup } from '../cmps/login-signup.jsx';
+import { LoginSignup } from '../cmps/login-signup.jsx';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
 import { getHostOrderFilter, getWishFilter } from '../services/wishList.service.js';
-import { logout } from '../store/user.actions.js';
-import { login, signup } from '../store/user.actions';
-import { LoginSignup } from '../cmps/login-signup.jsx';
-import { useState } from 'react';
 import { ToggleLoginModal } from '../store/system.action.js';
+import { login, signup } from '../store/user.actions';
+import { login, signup } from '../store/user.actions';
+import { logout } from '../store/user.actions.js';
+import { logout } from '../store/user.actions.js';
 
 export function UserPagesModal({ setUserModal }) {
     const user = useSelector(storeState => storeState.userModule.user)
@@ -46,7 +50,7 @@ export function UserPagesModal({ setUserModal }) {
                 <div onClick={() => setUserModal(false)} className="page-item flex bold"><Link to="/orders/my-orders">Trips</Link></div>
                 <div onClick={handleClickHostDashBoard} className="page-item flex bold"><Link to="/host/dashboard">Host</Link></div>
                 <div onClick={setUserWishes} className="page-item flex bold"><Link to="/orders/wishlist">Wishlist</Link></div>
-                <div onClick={handleClickHost} className="page-item flex bold"><Link>Account</Link></div>
+                <div onClick={handleClickLogin} className="page-item flex bold"><Link>Account</Link></div>
             </section>
             <hr />
             {/* <section className="grey"> */}

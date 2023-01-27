@@ -16,6 +16,16 @@
     justify-content: space-between;
     padding: em(24px) em(4px) em(24px) em(0px);
 
+    .modal-btn-group {
+
+      .disable-btn {
+        &>* {
+
+          color: #dfdfdf;
+        }
+      }
+    }
+
     .guest-select-contant {
       display: flex;
       flex-direction: column;

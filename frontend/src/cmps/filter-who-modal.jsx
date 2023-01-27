@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { disable } from 'workbox-navigation-preload';
 
 import IconArrows_circle_minus from '../assets/svg/minus-icon.jsx';
 import IconArrows_circle_plus from '../assets/svg/plus-icon.jsx';
@@ -8,28 +9,44 @@ import { updateOrder } from '../store/system.action.js';
 import { TotalExpenses } from './total-expenses.jsx';
 
 export function FilterWhoModal() {
-  let order = useSelector(storeState => storeState.systemModule.order)
+  const { order } = useSelector(storeState => storeState.systemModule)
+  const { guests } = order
+  const { adults, children, infants, pets } = guests
+
   console.log(order)
+  console.log(guests)
+  console.log(adults)
   useEffect(() => {
     console.log('hihihi')
-  }, [])
+  }, [order])
 
 
-  async function handleAdultsChange(diff) {
-    try {
-
-      // await updateOrder(copyOrder)
-    } catch (err) {
-      console.log(err)
-    }
+  function handleAdultsChange(diff) {
+    let newAdults = adults + diff
+    // (newAdults === -1) ? newAdults = 0 : newAdults
+    order.guests.adults = newAdults
+    updateOrder(order)
   }
 
-  //   guests{
-  //     "adults": 1,
-  //     "children": 0,
-  //     "infants": 0,
-  //     "pets": 0
-  // }
+  function handleChildrenChange(diff) {
+    let newChildren = children + diff
+    order.guests.children = newChildren
+    updateOrder(order)
+  }
+
+  function handleInfantsChange(diff) {
+    let newInfants = infants + diff
+    order.guests.infants = newInfants
+    updateOrder(order)
+  }
+
+  function handlePetsChange(diff) {
+    let newPets = pets + diff
+    order.guests.pets = newPets
+    updateOrder(order)
+  }
+
+
   return (
 
     <section className='filter-who-modal'>
@@ -39,7 +56,7 @@ export function FilterWhoModal() {
           <p>Ages 13 or above</p>
         </div>
         <div className='modal-btn-group '>
-          <button onClick={() => handleAdultsChange(-1)}><IconArrows_circle_minus /></button>
+          <button onClick={() => handleAdultsChange(-1)} className={`${(adults === 1) ? "disable-btn" : ""}`}><IconArrows_circle_minus /></button>
           <span>{order.guests.adults}</span>
           <button onClick={() => handleAdultsChange(+1)}><IconArrows_circle_plus /></button>
         </div>
@@ -51,9 +68,9 @@ export function FilterWhoModal() {
           <p>Ages 2–12</p>
         </div>
         <div className='modal-btn-group'>
-          <button onClick={() => handleAdultsChange(-1)}><IconArrows_circle_minus /></button>
+          <button onClick={() => handleChildrenChange(-1)} className={`${(children === 0) ? "disable-btn" : ""}`} ><IconArrows_circle_minus /></button>
           <span>{order.guests.children}</span>
-          <button onClick={() => handleAdultsChange(+1)}><IconArrows_circle_plus /></button>
+          <button onClick={() => handleChildrenChange(+1)}><IconArrows_circle_plus /></button>
         </div>
       </div>
 
@@ -63,9 +80,9 @@ export function FilterWhoModal() {
           <p>Under 2</p>
         </div>
         <div className='modal-btn-group'>
-          <button onClick={() => handleAdultsChange(-1)}><IconArrows_circle_minus /></button>
+          <button onClick={() => handleInfantsChange(-1)} className={`${(infants === 0) ? "disable-btn" : ""}`}><IconArrows_circle_minus /></button>
           <span>{order.guests.infants}</span>
-          <button onClick={() => handleAdultsChange(+1)}><IconArrows_circle_plus /></button>
+          <button onClick={() => handleInfantsChange(+1)}><IconArrows_circle_plus /></button>
         </div>
       </div>
 
@@ -75,11 +92,11 @@ export function FilterWhoModal() {
           <p className='flex'>Bringing a service animal?</p>
         </div>
         <div className='modal-btn-group'>
-          <button onClick={() => handleAdultsChange(-1)}><IconArrows_circle_minus /></button>
+          <button onClick={() => handlePetsChange(-1)} className={`${(pets === 0) ? "disable-btn" : ""}`}><IconArrows_circle_minus /></button>
           <span>{order.guests.pets}</span>
-          <button onClick={() => handleAdultsChange(+1)}><IconArrows_circle_plus /></button>
+          <button onClick={() => handlePetsChange(+1)}><IconArrows_circle_plus /></button>
         </div>
       </div>
-    </section>
+    </section >
   )
 }
