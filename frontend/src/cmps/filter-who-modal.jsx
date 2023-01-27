@@ -5,6 +5,7 @@ import IconArrows_circle_minus from '../assets/svg/minus-icon.jsx';
 import IconArrows_circle_plus from '../assets/svg/plus-icon.jsx';
 import { orderService } from '../services/order.service.local.js';
 import { updateOrder } from '../store/system.action.js';
+import { TotalExpenses } from './total-expenses.jsx';
 
 export function FilterWhoModal() {
   let order = useSelector(storeState => storeState.systemModule.order)
@@ -31,6 +32,7 @@ export function FilterWhoModal() {
   // }
   return (
     <section className='filter-who-modal'>
+      <TotalExpenses />
       <div className='guest-select flex'>
         <div className='guest-select-contant'>
           <p>Adults</p>
