@@ -23,6 +23,11 @@ export function UserPagesModal({ setUserModal }) {
         }
     }
 
+    function handleClickHost() {
+        ToggleLoginModal(!isLoginModalOpen)
+        setUserModal(false)
+    }
+
     function setUserWishes() {
         getWishFilter(user)
         setUserModal(false)
@@ -34,9 +39,9 @@ export function UserPagesModal({ setUserModal }) {
                 {/* <div onClick={closeModal} className="page-item flex bold"><Link>Messages</Link></div> */}
                 {/* <div onClick={closeModal} className="page-item flex bold"><Link>Notifications</Link></div> */}
                 <div onClick={() => setUserModal(false)} className="page-item flex bold"><Link to="/orders/my-orders">Trips</Link></div>
-                <div onClick={() => setUserModal(false)} className="page-item flex bold"><Link to="/host/orders">Host</Link></div>
+                <div onClick={() => setUserModal(false)} className="page-item flex bold"><Link to="/host/dashboard">Host</Link></div>
                 <div onClick={setUserWishes} className="page-item flex bold"><Link to="/orders/wishlist">Wishlist</Link></div>
-                <div onClick={() => ToggleLoginModal(!isLoginModalOpen)} className="page-item flex bold"><Link>Account</Link></div>
+                <div onClick={handleClickHost} className="page-item flex bold"><Link>Account</Link></div>
             </section>
             <hr />
             {/* <section className="grey"> */}

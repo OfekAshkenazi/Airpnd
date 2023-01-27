@@ -2,13 +2,14 @@ import { borderRadius, height } from '@mui/system';
 import GoogleMapReact from 'google-map-react';
 import { useState } from 'react';
 import { PropagateLoader } from 'react-spinners';
+import IconHouseFill from './svg-cmps/house-icon';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 export function GoogleMapHostStays() {
 
-    const [coordinates, setCoordinates] = useState({ lat: 34, lng: 36 })
-    const zoom = 7
+    const [coordinates, setCoordinates] = useState({ lat: 32, lng: 34 })
+    const zoom = 8
     if (!coordinates) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
     return (
         <div className="google-map-host" >
@@ -20,9 +21,9 @@ export function GoogleMapHostStays() {
            
             >
                 <AnyReactComponent
-                    lat={34}
-                    lng={36}
-                    text="icon placeHolder"
+                    lat={32}
+                    lng={34}
+                    text={<IconHouseFill />}
                 />
             </GoogleMapReact>
         </div>
