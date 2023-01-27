@@ -31,8 +31,8 @@ export function FilterWhoModal() {
   //     "pets": 0
   // }
   return (
+
     <section className='filter-who-modal'>
-      <TotalExpenses />
       <div className='guest-select flex'>
         <div className='guest-select-contant'>
           <p>Adults</p>
