@@ -9,7 +9,6 @@ import { useEffect } from 'react'
 
 export function StayConfirm() {
   const order = useSelector(storeState => storeState.systemModule.order)
-  console.log(order)
   let navigate = useNavigate()
   const params = useParams()
   const { stayId, startDate, endDate, adults, children, infants, pets } = params
@@ -21,15 +20,14 @@ export function StayConfirm() {
   }
 
   if (order.stay._id === '') getCurrOrder()
-
   async function getCurrOrder() {
     try {
       const stay = await stayService.getById(stayId)
       order.stay = stay
-      order.guests.adults = adults
-      order.guests.children = children
-      order.guests.infants = infants
-      order.guests.pets = pets
+      order.guests.adults = parseInt(adults)
+      order.guests.children = parseInt(children)
+      order.guests.infants = parseInt(infants)
+      order.guests.pets = parseInt(pets)
       // order.endDate = new Date()
       // order.startDate = new Date()
       setOrder(stay)
@@ -50,19 +48,24 @@ export function StayConfirm() {
 
   async function onAddNewOrder() {
     try {
-      // order[0].stayId = stay._id
       await orderService.add(order)
-      navigate(`/stay/${stayId}`)
+      navigate(`/orders/my-orders`)
     }
     catch (err) {
       console.log(err)
     }
   }
 
+  function getDayDifference(date1, date2) {
+    const timeDiff = Math.abs(date2.getTime() - date1.getTime())
+    const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24))
+    return dayDiff
+  }
+
   if (order.stay._id === '') {
     return <div className="loader"><PropagateLoader color="#ff395c" /></div>
   }
-  
+
   return <section className="stay-confirm">
     <div className="main-line">
       <button className="back-btn" onClick={handleBackClick}>
@@ -72,15 +75,17 @@ export function StayConfirm() {
     </div>
     <div className="order-sum">
       <div className="left-side">
-        <p>Your trip</p>
-        <div className="dates">
-          <div className="left">Dates <span>{(stayService.extractDate(startDate))}- {(stayService.extractDate(endDate))}</span>
+        <p className="trip">Your trip</p>
+        <div className="trip-sum">
+          <div className="dates">
+            <div className="left">Dates <span>{(stayService.extractDate(startDate))}- {(stayService.extractDate(endDate))}</span>
+            </div>
           </div>
+          <div className="guests">
+            <div className="left">Guests<span>{(parseInt(adults) + parseInt(children) + parseInt(infants) + parseInt(pets))}</span>  </div>
+          </div>
+          <button className="book-btn" onClick={() => onAddNewOrder()}>Book and pay </button>
         </div>
-        <div className="guests">
-          <div className="left">Guests<span>{(parseInt(adults) + parseInt(children) + parseInt(infants) + parseInt(pets))}</span>  </div>
-        </div>
-        <button className="book-btn" onClick={() => onAddNewOrder()}>Book and pay </button>
       </div>
       <div className="modal">
         <div className="modal-top">
@@ -94,9 +99,9 @@ export function StayConfirm() {
         </div>
         <div className="price-details">
           <div className="price">Price details</div>
-          <div className="sum"><div className="sum-left">$1,963.29 USD x 5 night </div><div className="sum-right">$9,816.45</div></div>
+          <div className="sum"><div className="sum-left">${order.stay.price} USD x {getDayDifference(order.startDate, order.endDate)} nights </div><div className="sum-right">${order.totalPrice}</div></div>
         </div>
-        <div className="total">Total (USD) <span className="total-num">$9,816.45</span> </div>
+        <div className="total">Total (USD) <span className="total-num">${order.totalPrice}</span> </div>
         <div className="deposit">This property requires a $1,100.91 security deposit. It will be collected separately by the property prior to your arrival or at check-in.</div>
       </div>
     </div>
