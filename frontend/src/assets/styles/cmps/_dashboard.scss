@@ -2,17 +2,34 @@
     margin-top: em(10px);
     background-color: #ffffff;
 
-.charts-container {
-    display: flex;
-    justify-content: space-between;
-}
+    .charts-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
     .chart-container {
-        // background-color: #fff1d7;
         max-width: 330px;
-        padding: em(12px);
+        padding: em(17px);
         border-radius: em(7px);
     }
 
+    .total-earn {
+        background-color: #fddfb3;
+
+    }
+
+    .total-expenses {
+        background-color: #ffeee6;
+    }
+
+    .google-map-host {
+        width: 85%;
+        margin: auto;
+        padding: em(10px);
+        height: 290px;
+    }
 
     ///PEER - TAX /// 
 
@@ -30,8 +47,10 @@
         /* fallback for old browsers */
         background: -webkit-linear-gradient(to left, #76b852, #76b852b3, #f5f5f5);
         /* Chrome 10-25, Safari 5.1-6 */
+        // align-items: flex-end;
+        justify-content: flex-start;
         background: linear-gradient(to left, #76b852, #76b852b3, #f5f5f5);
-        
+
 
         .tax-head {
             align-self: flex-start;
