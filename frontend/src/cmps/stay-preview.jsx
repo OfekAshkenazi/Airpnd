@@ -44,6 +44,7 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
         }
     }
 
+    const stayPrice = (parseFloat(JSON.stringify(stay.price).replace(/,/g, ''))).toLocaleString()
 
     return (
         <article className="stay-grid" >
@@ -72,7 +73,7 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
                 </div>
                 <p>{stay.loc.address}</p>
                 <p>Jan 25 - Feb 1</p>
-                <p className='priceP'>${stay.price}<span> night</span></p>
+                <p className='priceP'>${stayPrice}<span> night</span></p>
             </div>
         </article >
     )
