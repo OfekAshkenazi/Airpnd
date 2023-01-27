@@ -2,9 +2,10 @@ import { borderRadius, height } from '@mui/system';
 import GoogleMapReact from 'google-map-react';
 import { useState } from 'react';
 import { PropagateLoader } from 'react-spinners';
+import IconHouseHeartFill from './svg-cmps/house-icon';
 import IconHouseFill from './svg-cmps/house-icon';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const AnyReactComponent = ({ text }) => <div className="flex column" style={{width: '50px', alignItems: 'center', fontWeight: 'bold'}}> <p stlye={{width: '45px'}}>Your stay</p> <p>{text}</p></div>;
 
 export function GoogleMapHostStays() {
 
@@ -18,12 +19,11 @@ export function GoogleMapHostStays() {
                 defaultCenter={coordinates}
                 center={coordinates}
                 defaultZoom={zoom}
-           
             >
                 <AnyReactComponent
                     lat={32}
                     lng={34}
-                    text={<IconHouseFill />}
+                    text={<IconHouseHeartFill />}
                 />
             </GoogleMapReact>
         </div>

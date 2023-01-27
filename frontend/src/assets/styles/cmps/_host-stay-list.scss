@@ -1,17 +1,29 @@
 .host-stay-list {
-  flex-direction: column;
-  gap: 10px;
-  // text-justify: center;
-  justify-items: center;
+  padding: em(10px);
 
   .host-stay {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: em(10px);
 
-    img {
-      border-radius: 5px;
-      width: 50px;
-      height: 50px;
+    .img-desc-container {
+      align-items: center;
+      gap: em(10px);
+      width: 33.33333%;
+
+      img {
+        border-radius: 5px;
+        width: 50px;
+        height: 50px;
+      }
+
     }
+
+    .icons-container {
+      width: 33.33333%;
+    } 
+
+   
   }
 }

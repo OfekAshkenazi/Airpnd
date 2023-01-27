@@ -1,19 +1,24 @@
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink, Outlet } from 'react-router-dom';
+import { getHostOrderFilter } from '../services/wishList.service.js';
 
 import { ToggleDetails } from '../store/system.action.js';
 
 
 export function HostProfileNested() {
+  const user = useSelector(storeState => storeState.userModule.user)
+
 
   useEffect(() => {
     ToggleDetails(true)
   }, [])
 
+
   return (
     <section className="host-dashboard">
       <div className="nav-orders-details">
-        <NavLink className="btn-link" to="/host/dashboard">Dashboard</NavLink>
+        <NavLink onClick={() => getHostOrderFilter(user)} className="btn-link" to="/host/dashboard">Dashboard</NavLink>
         <NavLink className="btn-link" to="/host/orders">Orders</NavLink>
         <NavLink className="btn-link" to="/host/stays">My Stays</NavLink>
         <NavLink className="btn-link" to="/host/add-stay">Add a stay</NavLink>

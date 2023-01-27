@@ -21,9 +21,9 @@ function extractDate(dateString) {
     return date.toDateString().slice(0, 11)
 }
 
-async function query(filterBy = { txt: '', label: '', userId: '' }) {
+async function query(filterBy = { txt: '', label: '', userId: '', hostId: '' }) {
     let stays
-    let queryParams = `?txt=${filterBy.txt}&type=${filterBy.label}&userId=${filterBy.userId}`
+    let queryParams = `?txt=${filterBy.txt}&type=${filterBy.label}&userId=${filterBy.userId}&hostId=${filterBy.hostId}`
     try {
         stays = await httpService.get(API_KEY + queryParams)
         return stays
@@ -44,7 +44,7 @@ function getFilterFromSearchParams(searchParams) {
 }
 
 function getEmptyFilter() {
-    return { txt: '', label: '', userId: '' }
+    return { txt: '', label: '', userId: '', hostId: '' }
 }
 
 async function getById(stayId) {

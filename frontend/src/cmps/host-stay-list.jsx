@@ -1,77 +1,48 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { PropagateLoader } from 'react-spinners';
+import { showErrorMsg } from '../services/event-bus.service.js';
+import { stayService } from '../services/stay.service.js';
+import { cleanFilter, getHostOrderFilter } from '../services/wishList.service.js';
+import { HostStayPreview } from './host-stay-preview.jsx';
+
 
 export function HostStayList() {
+  const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
   const user = useSelector(storeState => storeState.userModule.user)
-
   const [hostStays, setHostStays] = useState([])
 
+
   useEffect(() => {
+    // getHostOrderFilter(user)
     onLoadHostStays()
+    return () => {
+      cleanFilter()
+    }
   }, [])
 
+
   async function onLoadHostStays() {
-    console.log('hi')
+    try {
+      const dataStays = await stayService.query(filterBy)
+      setHostStays(dataStays)
+    } catch (err) {
+      console.log(err)
+      showErrorMsg('Cannot load orders')
+    }
   }
 
-  // if (!user.isOwner) return <h2>you are not owner</h2>
+  if (hostStays.length > 15) return
+  
   return (
-    <section className='host-stay-list flex'>
-      <div className='host-stay'>
-        <div className='flex'>
-          <img src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436917/mqkfjmfpmyqpqmzmqgau.jpg" alt="" />
-          <span>
-            <h4>White City Villa</h4>
-            <p>1901 thornoids sdiof sadisod </p>
-          </span>
-        </div>
-        <div>
-          <p>for rent</p>
-        </div>
-        <div>
-          56
-          56
-          |
-          56
-        </div>
-
-        <div>
-          <span className='flex'>
-            <p>
-              $48,000
-            </p>
-            <p>/year</p>
-          </span>
-        </div>
-      </div>
-      <div className='host-stay'>
-        <div className='flex'>
-          <img src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436204/wzbrvr4mcsuub6gvwbry.jpg" alt="" />
-          <span>
-            <h4>White City Villa</h4>
-            <p>1901 thornoids sdiof sadisod </p>
-          </span>
-        </div>
-        <div>
-          <p>for rent</p>
-        </div>
-        <div>
-          56
-          56
-          |
-          56
-        </div>
-
-        <div>
-          <span className='flex'>
-            <p>
-              $48,000
-            </p>
-            <p>/year</p>
-          </span>
-        </div>
-      </div>
+    <section className=''>
+      <ul className="host-stay-list flex column">
+        {hostStays.map(stay => <li key={stay._id}>
+          <HostStayPreview stay={stay} />
+        </li>)}
+      </ul>
     </section >
   )
 }
+

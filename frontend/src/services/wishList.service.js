@@ -9,6 +9,11 @@ export function getWishFilter(user) {
 
 export function cleanFilter() {
     let userFilter = stayService.getEmptyFilter()
-    userFilter.userId = ''
     onSetFilter(userFilter)
+}
+
+export function getHostOrderFilter(user) {
+    let hostFilter = stayService.getEmptyFilter()
+    hostFilter.hostId = user._id
+    onSetFilter(hostFilter)
 }
