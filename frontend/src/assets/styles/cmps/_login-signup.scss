@@ -1,0 +1,72 @@
+.login-page {
+    background-color: white;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+    box-shadow: 0 0 em(7px) white;
+    padding: em(15px);
+    width: 350px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+        font-family: circularH;
+        align-self: flex-start;
+    }
+
+    .login-conatiner {
+        align-self: flex-start;
+        border-radius: 5px;
+        border: 2px solid rgba(27, 27, 27, .34);
+        width: 300px;
+        // height: 300px;
+    }
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+
+        :first-child {
+            border-bottom: 2px solid rgba(27, 27, 27, .34);
+        }
+
+        input {
+            font-size: 16px;
+            padding-left: 12px;
+            border: 0;
+            padding: em(5px);
+            margin-top: em(5px);
+            outline: none;
+        }
+    }
+
+    .signup-section {
+        align-self: flex-start;
+    }
+
+    .signup-form {
+        margin-top: em(5px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+        border: 2px solid rgba(27, 27, 27, .34);
+
+        :not(:last-child) {
+            border-bottom: 2px solid rgba(27, 27, 27, .34);
+
+        }
+
+        input {
+            font-size: 16px;
+            padding-left: 12px;
+            border: 0;
+            padding: em(5px);
+            margin-top: em(5px);
+            outline: none;
+        }
+    }
+}

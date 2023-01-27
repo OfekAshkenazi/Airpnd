@@ -93,10 +93,10 @@ export function StayConfirm() {
         </div>
         <div className="price-details">
           <div className="price">Price Details</div>
-          <div className="sum">1,963.29$ x 5 night <span>9816.45$</span></div>
+          <div className="sum">$1,963.29 x 5 night <span>$9816.45</span></div>
         </div>
-        <div className="total">Total ($) <span className="total-num">9,816.45$</span> </div>
-        <div className="deposit">This property requires a 1,100.91$ security deposit. It will be collected separately by the property prior to your arrival or at check-in.</div>
+        <div className="total">Total (USD) <span className="total-num">$9,816.45</span> </div>
+        <div className="deposit">This property requires a $1,100.91 security deposit. It will be collected separately by the property prior to your arrival or at check-in.</div>
       </div>
     </div>
   </section>

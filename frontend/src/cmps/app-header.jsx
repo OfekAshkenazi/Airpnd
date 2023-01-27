@@ -94,24 +94,15 @@ export function AppHeader({ layout }) {
 
                         {!isFilterExpanded && <StayFilter onAddGuest={onAddGuest} onAddWhere={onAddWhere} onDateModal={onDateModal} />}
                         {isFilterExpanded && <StayFilterPlaceTaker />}
-                        {user &&
-                            <>
-                                <span className="user-info">
-                                    <button className='btn-airpnd-your-home' >Airpnd your home</button>
-                                    <button onClick={openUserModal} className='btn-user'>
-                                        <IconMenu_hamburger width='22px' height='33px' className='icon-hamburger' />
-                                        <img src={user.imgUrl} alt="" />
-                                    </button>
-                                    {userModal && <UserPagesModal setUserModal={setUserModal} />}
-                                </span>
-                            </>
-                        }
 
-                        {!user &&
-                            <section className="user-info">
-                                <LoginSignup onLogin={onLogin} onSignup={onSignup} />
-                            </section>
-                        }
+                        <span className="user-info">
+                            <button className='btn-airpnd-your-home' >Airpnd your home</button>
+                            <button onClick={openUserModal} className='btn-user'>
+                                <IconMenu_hamburger width='22px' height='33px' className='icon-hamburger' />
+                                <img src={user ? user.imgUrl : require(`../assets/user-img/japanese.jpg`)} alt="" />                            </button>
+                            {userModal && <UserPagesModal setUserModal={setUserModal} />}
+                        </span>
+
                         <StayFilterExpanded isGuestModalOpen={isGuestModalOpen} isWhereModalOpen={isWhereModalOpen} isDateModalOpen={isDateModalOpen} onAddGuest={onAddGuest} onAddWhere={onAddWhere} onDateModal={onDateModal} />
                     </div>
 
