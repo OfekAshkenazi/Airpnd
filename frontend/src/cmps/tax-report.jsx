@@ -6,7 +6,7 @@ export function TaxReport() {
                 <span className="tax">Tax Report</span>
             </div>
             <div className="tax-bottom">
-                <div className="prepare">Prepare you yearly tax reports untill <span>Dev 23</span></div></div>
+                <div className="prepare">Prepare you yearly tax reports untill <span>Dec 23</span></div></div>
         </div>
         <img src={require(`../assets/img/tax.png`)} />
     </section>

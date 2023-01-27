@@ -4,11 +4,12 @@
 
 .charts-container {
     display: flex;
+    justify-content: space-between;
 }
     .chart-container {
         // background-color: #fff1d7;
         max-width: 330px;
-        padding: em(7.5px);
+        padding: em(12px);
         border-radius: em(7px);
     }
 
@@ -27,12 +28,10 @@
         border-radius: 8px;
         background: #76b852;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0.1), #76b852);
+        background: -webkit-linear-gradient(to left, #76b852, #76b852b3, #f5f5f5);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, rgba(255, 255, 255, 0.1), #76b852);
+        background: linear-gradient(to left, #76b852, #76b852b3, #f5f5f5);
         
-
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
         .tax-head {
             align-self: flex-start;
