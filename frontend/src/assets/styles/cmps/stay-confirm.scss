@@ -1,46 +1,76 @@
 .stay-confirm {
     font-family: circularL;
-    padding: em(66px);
+
+    @media(min-width: 720px) {
+        padding: em(66px);
+    }
 
     .main-line {
         display: flex;
+        padding: em(16px);
 
         .back-btn {
             background-color: var(--clrMBg);
-            
-            :hover{
+
+            :hover {
                 border-radius: 50%;
                 background-color: $clrHoverGray;
             }
         }
-        
+
         h1 {
             font-size: em(32px);
             font-weight: 2200;
         }
-        
+
         .back-img {
             height: em(18px);
             padding-right: em(32px);
-            
+
         }
     }
 
     .order-sum {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column-reverse;
+
+        @media (min-width: 720px) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
 
         .left-side {
+
+            .trip-sum {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin-bottom: em(64px);
+
+                @media(min-width: 720px) {
+                    display: block;
+                }
+            }
+
             p {
                 font-weight: 600;
                 font-size: em(24px);
-                padding: em(24px) 0 em(12px);
+                padding: em(8px);
+                @media (min-width:720px){
+                padding: em(24px) 0 em(12px);}
             }
 
             .dates,
             .guests {
                 display: flex;
+                flex: 1;
+
+                @media(min-width: 720px) {
+                    flex: 0;
+                }
+
                 grid-gap: 12px;
                 font-weight: 600;
                 font-size: em(16px);
@@ -74,18 +104,22 @@
                 padding: em(16px);
                 border-radius: em(8px);
                 font-weight: 600;
+                flex: 1;
 
-                :hover{
+                :hover {
                     background-color: green;
                 }
             }
         }
 
         .modal {
+            @media(min-width: 720px) {
+                width: clamp(500px, 33.333%, 400px);
+            }
+
             padding: em(24px);
             border: 1px solid rgb(221, 221, 221);
             border-radius: em(12px);
-            width: clamp(500px, 33.333%, 400px);
             color: $clrGrayFont;
 
             .modal-top {
@@ -125,31 +159,31 @@
                 }
             }
 
-            .price-details{
+            .price-details {
                 padding-bottom: em(28px);
                 padding-top: em(16px);
                 border-bottom: 1px solid rgb(221, 221, 221);
 
-                .price{
+                .price {
                     font-size: em(22px);
                     color: $clrBlackFont;
                     font-weight: 900;
                     padding-bottom: em(14px);
                 }
 
-                .sum{
+                .sum {
                     display: flex;
                     justify-content: space-between;
                     font-size: em(15px);
                     color: rgb(34, 34, 34);
 
-                    .sum-left{
+                    .sum-left {
                         text-decoration: underline;
                     }
                 }
             }
-            
-            .total{
+
+            .total {
                 padding-top: em(16px);
                 padding-bottom: em(16px);
                 display: flex;
@@ -159,11 +193,11 @@
                 border-bottom: 1px solid rgb(221, 221, 221);
             }
 
-            .deposit{
-                padding-top: em(56px);
+            .deposit {
+                padding-top: em(18px);
                 font-size: em(12px);
             }
-            
+
         }
     }
 }
