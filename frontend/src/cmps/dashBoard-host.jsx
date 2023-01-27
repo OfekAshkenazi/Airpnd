@@ -4,7 +4,7 @@ import { HostStayList } from './host-stay-list.jsx';
 import { TotalEarn } from './total-earn';
 import { TotalExpenses } from './total-expenses.jsx';
 
-export function Dashboard() {
+export function DashBoard() {
     return (
         <section className="dashboard-page">
             <section className="charts-container">

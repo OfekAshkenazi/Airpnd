@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router';
 import { AppFooter } from './cmps/app-footer';
 import { AppHeader } from './cmps/app-header';
 import { AppMobileFooter } from './cmps/app-mobile-footer';
-import { Dashboard } from './cmps/dashboard-host';
+import { DashBoard } from './cmps/dashboard-host';
 import { HostOrders } from './cmps/host-orders';
 import { LoginSignup } from './cmps/login-signup';
 import { UserMsg } from './cmps/user-msg';
@@ -62,7 +62,7 @@ export function RootCmp() {
                     </Route>
                     <Route element={<HostProfileNested />} path="/host">
                         <Route element={<HostOrders />} path="/host/orders" />
-                        <Route element={<Dashboard />} path="/host/dashboard" />
+                        <Route element={<DashBoard />} path="/host/dashboard" />
                         {/* <Route element={<UserOrders />} path="/orders/my-orders" /> */}
                     </Route>
                 </Routes>

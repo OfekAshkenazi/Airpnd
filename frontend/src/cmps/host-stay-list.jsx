@@ -15,7 +15,7 @@ export function HostStayList() {
     console.log('hi')
   }
 
-  if (!user.isOwner) return <h2>you are not owner</h2>
+  // if (!user.isOwner) return <h2>you are not owner</h2>
   return (
     <section className='host-stay-list flex'>
       <div className='host-stay'>
