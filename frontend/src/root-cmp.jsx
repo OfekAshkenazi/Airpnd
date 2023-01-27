@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router';
 
@@ -20,9 +21,13 @@ import { login, signup } from './store/user.actions';
 
 export function RootCmp() {
     const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
+    
+    const isLoginModalOpen = useSelector(storeState => storeState.systemModule.isLoginModalOpen)
+
     const layout = isDetailsOpen ? 'main-container narrow' : 'main-container'
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
-    const [loginModal, setLoginModal] = useState(false)
+    
+
     function closeFilterExpanded() {
         if (isFilterExpanded) {
             getActionFilterExpanded(false)
@@ -69,7 +74,7 @@ export function RootCmp() {
                 {/* className={`${(isFilterExpanded) ? "shadow-screen" : ""}`} */}
             </main>
             {/* <AppFooter /> */}
-            {loginModal && <LoginSignup onLogin={onLogin} onSignup={onSignup} />}
+            {isLoginModalOpen && <LoginSignup onLogin={onLogin} onSignup={onSignup} />}
             <AppMobileFooter />
             <UserMsg />
         </section >
