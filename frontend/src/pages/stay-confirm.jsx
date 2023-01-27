@@ -61,6 +61,7 @@ export function StayConfirm() {
   if (order.stay._id === '') {
     return <div className="loader"><PropagateLoader color="#ff395c" /></div>
   }
+  
   return <section className="stay-confirm">
     <div className="main-line">
       <button className="back-btn" onClick={handleBackClick}>
