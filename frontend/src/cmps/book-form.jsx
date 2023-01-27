@@ -8,7 +8,7 @@ import { differenceInCalendarDays } from 'date-fns'
 
 import '../../node_modules/react-date-range/dist/styles.css'
 import '../../node_modules/react-date-range/dist/theme/default.css'
-import { typeOf } from 'react-is'
+
 export function BookingForm({ stay, getRating }) {
     const currOrder = useSelector(storeState => storeState.systemModule.order)
     const [order, setOrder] = useState([currOrder])
@@ -31,7 +31,6 @@ export function BookingForm({ stay, getRating }) {
             document.removeEventListener('click', handleClick)
         }
     }, [setIsDatePickerOpen, setIsGuestPickerOpen])
-
     order[0].stay = stay
     const stayPrice = priceCalc(stay.price)
     const serviceFee = 100
@@ -70,7 +69,7 @@ export function BookingForm({ stay, getRating }) {
         const formattedPrice = totalPrice.toLocaleString()
         return formattedPrice
     }
-    
+
     return <div className="book-form">
         <div className="header">
             <div className="price"> ${stay.price} <span className="night">night</span></div>

@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 
 export function StayConfirm() {
   const order = useSelector(storeState => storeState.systemModule.order)
+  console.log(order)
   let navigate = useNavigate()
   const params = useParams()
   const { stayId, startDate, endDate, adults, children, infants, pets } = params

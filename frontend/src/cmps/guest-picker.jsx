@@ -7,7 +7,7 @@ export function GuestPicker({ guests, setGuests, handleGuestChange }) {
       ...guests,
       [name]: guests[name] + 1,
     })
-    handleGuestChange(guests)
+    handleGuestChange({...guests, [name]: guests[name] + 1 })
   }
 
   const handleDecrement = (name) => {
@@ -17,7 +17,7 @@ export function GuestPicker({ guests, setGuests, handleGuestChange }) {
         [name]: guests[name] - 1,
       })
     }
-    handleGuestChange(guests)
+    handleGuestChange({...guests, [name]: guests[name] - 1 })
   }
 
   return (
