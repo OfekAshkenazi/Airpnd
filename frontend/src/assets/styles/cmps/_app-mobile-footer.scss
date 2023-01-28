@@ -12,11 +12,18 @@
         text-decoration: none;
     }
 
+    .login-footer {
+        font-size: em(16px);
+        color: $clrGrayFont;
+
+    }
+
     .icon-mobile-footer {
         align-items: center;
         color: $clrGrayFont;
         gap: em(5px);
         padding: em(7px) em(0px);
+        cursor: pointer;
 
         &.active {
             color: rgb(241, 37, 75);

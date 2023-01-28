@@ -16,6 +16,15 @@ export const userService = {
     update,
 }
 
+let loggedUser = getLoggedinUser()
+
+if (!loggedUser) {
+    (async () => {
+        await login({ username: 'ofeka25', password: 123 })
+
+    })();
+}
+
 function getUsers() {
     return httpService.get(API_KEY)
 }

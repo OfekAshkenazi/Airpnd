@@ -38,6 +38,8 @@ export function HostStayList() {
   console.log(hostStays.length)
   if (hostStays.length > 15) return
 
+
+  if(!hostStays.length) return 
   return (
     <section className=''>
       <ul className="host-stay-list flex column">

@@ -16,12 +16,15 @@ import { HostProfileNested } from './pages/host-profile-nested';
 import { ProfileNestRoutes } from './pages/profile-nest-routes';
 import routes from './routes';
 import { showErrorMsg, showSuccessMsg } from './services/event-bus.service';
+import { userService } from './services/user.service';
 import { getActionFilterExpanded } from './store/filter.expanded.action';
 import { ToggleLoginModal } from './store/system.action';
 import { login, signup } from './store/user.actions';
 
+
 export function RootCmp() {
     const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
+
 
     const isLoginModalOpen = useSelector(storeState => storeState.systemModule.isLoginModalOpen)
 

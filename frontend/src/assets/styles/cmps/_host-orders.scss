@@ -2,11 +2,6 @@
     padding: em(12px);
     border-radius: 5px;
 
-    p {
-        font-family: circularL;
-        font-weight: bold;
-        text-transform: capitalize;
-    }
 
     .host-orders-headline {
         display: grid;
@@ -15,7 +10,13 @@
         align-items: center;
         padding-inline: 15px;
 
- 
+        p {
+            font-family: circularH;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+
         :last-child {
             justify-self: flex-end;
         }
@@ -33,6 +34,12 @@
         gap: 20px;
         align-items: center;
         padding-inline: 15px;
+
+        p {
+            font-family: circularL;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
 
         .user-img-order-container {
             display: flex;

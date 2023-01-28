@@ -5,7 +5,7 @@ export function HostStayPreview({ stay }) {
     return (
         <div className='host-stay align-center'>
             <div className='img-desc-container flex'>
-                <img src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436917/mqkfjmfpmyqpqmzmqgau.jpg" alt="" />
+                <img src={stay.imgUrls[0]} alt="" />
                 <div className="desc flex column">
                     <h4>{stay.name}</h4>
                     <p>{stay.loc.address}</p>

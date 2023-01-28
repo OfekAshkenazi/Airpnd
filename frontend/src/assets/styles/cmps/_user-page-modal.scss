@@ -14,6 +14,7 @@
     .bold {
         div {
             &:hover {
+                border-radius: em(7px);
                 background-color: rgb(241, 241, 241)
             }
 
@@ -47,7 +48,8 @@
             color: #424242;
 
             &:hover {
-                background-color: rgb(241, 241, 241)
+                border-radius: em(7px);
+                background-color: rgb(241, 241, 241);
             }
         }
 

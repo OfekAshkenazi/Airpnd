@@ -38,7 +38,7 @@ async function addOrder(req, res) {
     const order = req.body
     const addedOrder = await orderService.add(order, loggedinUser)
 
-    socketService.emitToUser({ type: 'review-about-you', data: order, userId: order.hostId })
+    socketService.emitToUser({ type: 'order-coming', data: order, userId: order.hostId })
 
 
     res.json(addedOrder)
@@ -53,7 +53,7 @@ async function updateOrder(req, res) {
     const order = req.body
     const updatedOrder = await orderService.update(order)
 
-    socketService.emitToUser({ type: 'review-about-you', data: order, userId: order.byUser._id })
+    // socketService.emitToUser({ type: 'review-about-you', data: order, userId: order.byUser._id })
 
     res.json(updatedOrder)
   } catch (err) {
