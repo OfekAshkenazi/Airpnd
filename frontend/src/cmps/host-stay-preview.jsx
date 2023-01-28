@@ -4,8 +4,8 @@ import IconShower from './svg-cmps/shower-icon.jsx';
 export function HostStayPreview({ stay }) {
     return (
         <div className='host-stay align-center'>
+            <img src={stay.imgUrls[0]} alt="" />
             <div className='img-desc-container flex'>
-                <img src={stay.imgUrls[0]} alt="" />
                 <div className="desc flex column">
                     <h4>{stay.name}</h4>
                     <p>{stay.loc.address}</p>
