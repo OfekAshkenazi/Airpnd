@@ -2,23 +2,20 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router';
-import routes from './routes';
 
 import { AppFooter } from './cmps/app-footer';
 import { AppHeader } from './cmps/app-header';
 import { AppMobileFooter } from './cmps/app-mobile-footer';
-import { DashBoard } from './cmps/dashboard-host';
+import { DashBoard } from './cmps/dashboard-host1';
 import { HostOrders } from './cmps/host-orders';
 import { LoginSignup } from './cmps/login-signup';
 import { UserMsg } from './cmps/user-msg';
 import { UserOrders } from './cmps/user-orders';
 import { WishList } from './cmps/wish-list';
-
 import { HostProfileNested } from './pages/host-profile-nested';
 import { ProfileNestRoutes } from './pages/profile-nest-routes';
-
+import routes from './routes';
 import { showErrorMsg, showSuccessMsg } from './services/event-bus.service';
-
 import { getActionFilterExpanded } from './store/filter.expanded.action';
 import { ToggleLoginModal } from './store/system.action';
 import { login, signup } from './store/user.actions';
