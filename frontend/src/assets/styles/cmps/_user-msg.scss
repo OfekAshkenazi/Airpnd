@@ -1,11 +1,25 @@
 .user-msg {
-    color: white;
-    padding: 10px;
-    font-size: 1.4em;
+    // color: white;
+    // padding: 10px;
+    // font-size: 1.4em;
+    // position: fixed;
+    // top: 0;
+    // right: 0;
+    // background-color: grey;
+
+
+    background-color: #f3f5f3;
+    border: 1px solid $clrLogo;
+    box-shadow: 0 0 6px #ddd;
     position: fixed;
-    top: 0;
-    right: 0;
-    background-color: grey;
+    top: 1em;
+    right: 0.5em;
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    // font-family: CerealReg;
+    border-radius: 10px;
+    z-index: 8000;
 }
 
 .user-msg button {
@@ -17,7 +31,8 @@
 }
 
 .user-msg.success {
-    background-color: rgb(41, 189, 73);
+    // background-color: rgb(41, 189, 73);
+
 }
 
 .user-msg.error {
