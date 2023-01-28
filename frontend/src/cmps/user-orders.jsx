@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
+import { PropagateLoader } from 'react-spinners';
 
 import { PendingIcon } from '../assets/svg/pending-icon';
 import { showErrorMsg } from '../services/event-bus.service';
 import { orderService } from '../services/order.service.local';
-import { PropagateLoader } from 'react-spinners';
 
 export function UserOrders() {
     const [orders, setOrders] = useState([])
     const [currOrder, setCurrOrder] = useState(null)
     useEffect(() => {
         onLoadOrders()
+        console.log('orders');
     }, [])
-
     async function onLoadOrders() {
         try {
             const dataOrders = await orderService.query()
@@ -21,7 +21,7 @@ export function UserOrders() {
             showErrorMsg('Cannot load orders')
         }
     }
-    console.log(currOrder)  
+    console.log(currOrder)
     if (!currOrder) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
     return (
         <section className="orders-details">

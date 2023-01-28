@@ -1,15 +1,25 @@
 .user-page-modal {
     position: absolute;
-    top: em(50px);
+    top: em(65px);
     right: em(0px);
     background-color: white;
-    box-shadow: 0 0 em(5px) #d6d0d6;
+    box-shadow: 0 0 em(5px) #beb9be;
     display: flex;
     flex-direction: column;
     border-radius: em(10px);
     z-index: 1000;
     cursor: pointer;
     padding: 10px 8px;
+
+    .bold {
+        div {
+            &:hover {
+                background-color: rgb(241, 241, 241)
+            }
+
+        }
+
+    }
 
     hr {
         width: 100%;
@@ -35,7 +45,12 @@
         .page-item {
             font-family: circularL;
             color: #424242;
+
+            &:hover {
+                background-color: rgb(241, 241, 241)
+            }
         }
+
     }
 
     a {
