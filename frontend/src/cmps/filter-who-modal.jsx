@@ -58,7 +58,7 @@ export function FilterWhoModal({ setWhoCounter, whoCounter }) {
       <div className='guest-select flex'>
         <div className='guest-select-contant'>
           <p>Adults</p>
-          <p>Ages 13 or above</p>
+          <p className='unbold'>Ages 13 or above</p>
         </div>
         <div className='modal-btn-group '>
           <button onClick={() => handleAdultsChange(-1)} className={`${(adults === 1) ? "disable-btn" : ""}`} disabled={(adults === 1) ? true : false}><IconArrows_circle_minus /></button>
@@ -70,7 +70,7 @@ export function FilterWhoModal({ setWhoCounter, whoCounter }) {
       <div className='guest-select flex'>
         <div className='guest-select-contant'>
           <p>Children</p>
-          <p>Ages 2–12</p>
+          <p className='unbold'>Ages 2–12</p>
         </div>
         <div className='modal-btn-group'>
           <button onClick={() => handleChildrenChange(-1)} className={`${(children === 0) ? "disable-btn" : ""}`} disabled={(children === 0) ? true : false} ><IconArrows_circle_minus /></button>
@@ -82,7 +82,7 @@ export function FilterWhoModal({ setWhoCounter, whoCounter }) {
       <div className='guest-select flex'>
         <div className='guest-select-contant'>
           <p>Infants</p>
-          <p>Under 2</p>
+          <p className='unbold'>Under 2</p>
         </div>
         <div className='modal-btn-group'>
           <button onClick={() => handleInfantsChange(-1)} className={`${(infants === 0) ? "disable-btn" : ""}`} disabled={(infants === 0) ? true : false}><IconArrows_circle_minus /></button>
@@ -94,7 +94,7 @@ export function FilterWhoModal({ setWhoCounter, whoCounter }) {
       <div className='guest-select flex'>
         <div className='guest-select-contant'>
           <p>Pets</p>
-          <p className='flex'>Bringing a service animal?</p>
+          <p className='unbold'>Bringing a service animal?</p>
         </div>
         <div className='modal-btn-group'>
           <button onClick={() => handlePetsChange(-1)} className={`${(pets === 0) ? "disable-btn" : ""}`} disabled={(pets === 0) ? true : false}><IconArrows_circle_minus /></button>
