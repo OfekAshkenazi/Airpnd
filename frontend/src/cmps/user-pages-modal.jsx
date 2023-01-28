@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { showErrorMsg } from '../services/event-bus.service.js';
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
 import { getHostOrderFilter, getWishFilter } from '../services/wishList.service.js';
 import { ToggleLoginModal } from '../store/system.action.js';
 import { logout } from '../store/user.actions.js';
@@ -33,6 +33,7 @@ export function UserPagesModal({ setUserModal }) {
     function setUserWishes() {
         getWishFilter(user)
         setUserModal(false)
+        showSuccessMsg('showhshowhwho')
     }
 
     return (

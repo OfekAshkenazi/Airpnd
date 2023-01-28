@@ -38,7 +38,7 @@ async function addOrder(req, res) {
     const order = req.body
     const addedOrder = await orderService.add(order, loggedinUser)
 
-    // socketService.emitToUser({ type: 'review-about-you', data: order, hostId: order.aboutUser._id })
+    socketService.emitToUser({ type: 'review-about-you', data: order, hostId: order.byUser._id })
 
 
     res.json(addedOrder)

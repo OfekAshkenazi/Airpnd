@@ -3,19 +3,20 @@ import { httpService } from "./http.service"
 import { userService } from "./user.service"
 import { utilService } from "./util.service"
 import { addDays } from 'date-fns'
-import { socketService } from "./socket.service"
-
+import { socketService, SOCKET_EVENT_ORDER_FOR_HOST } from "./socket.service"
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
 const ORDER_KEY = 'order'
+    (() => {
+        // socketService.on(SOCKET_EVENT_REVIEW_ADDED, (review) => {
+        //     console.log('GOT from socket', review)
+        //     store.dispatch(getActionAddReview(review))
+        // })
+        socketService.on(SOCKET_EVENT_ORDER_FOR_HOST, (order) => {
+            showSuccessMsg(`New Order money yayyy ${order._id}`)
+        })
+    })()
 
-// (() => {
-//     // socketService.on(SOCKET_EVENT_REVIEW_ADDED, (review) => {
-//     //     console.log('GOT from socket', review)
-//     //     store.dispatch(getActionAddReview(review))
-//     // })
-//     // socketService.on(SOCKET_EVENT_ORDER_FOR_HOST, (order) => {
-//     //     // showSuccessMsg(`New Order money yayyy`)
-//     // })
-// })()
+
 
 
 export const orderService = {
