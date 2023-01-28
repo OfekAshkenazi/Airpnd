@@ -2,6 +2,7 @@
     background-color: #f3f3f3;
     padding: em(12px);
     border-radius: 5px;
+    // width: 100%;
 }
 
 .host-dashboard {
@@ -43,8 +44,9 @@
 
     @media (max-width: 1100px) {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
+        // width: 95%;
     }
 
 
@@ -69,6 +71,7 @@
     cursor: pointer;
     align-items: center;
     border: 1px solid white;
+    width: 100%;
 
     &:hover {
         border: 1px solid $clrGrayFont;

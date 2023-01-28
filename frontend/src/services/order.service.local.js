@@ -14,6 +14,7 @@ import { utilService } from './util.service';
     // })
     socketService.on(SOCKET_EVENT_ORDER_FOR_HOST, (order) => {
         showSuccessMsg(`New Order money yayyy ${order._id}`)
+        query()
     })
 })()
 
@@ -29,12 +30,12 @@ export const orderService = {
     getById
 }
 
-const ORDER_KEY = 'order'
+// const ORDER_KEY = 'order'
 
 async function query() {
     try {
         const user = userService.getLoggedinUser()
-        const orders = await httpService.get(ORDER_KEY, user)
+        const orders = await httpService.get('order', user)
         return orders
     } catch (err) {
         console.log(err)
@@ -44,7 +45,7 @@ async function query() {
 
 async function getById(orderId) {
     try {
-        const order = await httpService.get(ORDER_KEY + `/${orderId}`)
+        const order = await httpService.get('order' + `/${orderId}`)
         return order
     } catch (err) {
         console.log(err)
@@ -54,13 +55,13 @@ async function getById(orderId) {
 
 async function remove(orderId) {
     try {
-        await httpService.remove(ORDER_KEY, orderId)
+        await httpService.remove('order', orderId)
     } catch (err) { console.log(err); throw err }
 }
 
 async function add(order) {
     try {
-        const addedOrder = await httpService.post(ORDER_KEY, order)
+        const addedOrder = await httpService.post('order', order)
         return addedOrder
 
     } catch (err) {
@@ -107,7 +108,7 @@ function getEmptyOrder() {
 
 
 function _createOrders() {
-    let orders = storageService.loadFromStorage(ORDER_KEY)
+    let orders = storageService.loadFromStorage('order')
     if (!orders) {
         orders =
             [
@@ -157,7 +158,7 @@ function _createOrders() {
                 },
 
             ]
-        storageService.saveToStorage(ORDER_KEY, orders)
+        storageService.saveToStorage('order', orders)
         return orders
     }
     return orders
