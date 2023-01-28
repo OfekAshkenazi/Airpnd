@@ -1,16 +1,7 @@
-import React from 'react';
-
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
 import { width } from '@mui/system';
+import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title, Tooltip } from 'chart.js';
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(
     CategoryScale,
@@ -53,7 +44,7 @@ export function TotalEarn() {
             {
                 label: `Revenue ${totalPrice}`,
                 data: monyEarnd,
-                backgroundColor: '#ffbe5b',
+                backgroundColor: '#2a5811',
             },
         ],
     }
