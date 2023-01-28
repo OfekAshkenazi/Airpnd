@@ -3,25 +3,40 @@
     position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -60%);
+    transform: translate(-50%, -55%);
     box-shadow: 0 0 em(7px) white;
     padding: em(15px);
     width: 350px;
-    height: 350px;
+    height: 400px;
+    border-radius: em(7px);
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 10;
 
+    .btn-signup-login {
+        width: 100%;
+        color: #fff;
+        border: none;
+        background: radial-gradient(circle at left, #ff385c 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+        border-radius: em(10px);
+        font-weight: 600;
+        height: em(50px);
+        transition: 1s;
+        margin: em(20px) em(0px) em(28px);
+        font-size: em(16px);
+    }
+
     h3 {
         font-family: circularH;
-        align-self: flex-start;
+        align-self: center;
+        padding: em(0px) em(0px) em(5px) em(0px);
     }
 
     .login-conatiner {
-        align-self: flex-start;
-        border-radius: 5px;
-        border: 2px solid rgba(27, 27, 27, .34);
+        align-self: center;
+        // border-radius: 5px;
+        // border: 2px solid rgba(27, 27, 27, .34);
         width: 300px;
         // height: 300px;
     }
@@ -29,17 +44,25 @@
     .login-form {
         display: flex;
         flex-direction: column;
+        height: 112px;
+        border-radius: 8px;
+        border: 1px solid rgba(27, 27, 27, .34);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: em(2px);
 
         :first-child {
-            border-bottom: 2px solid rgba(27, 27, 27, .34);
+            border-radius: 0px;
+            border-bottom: 0.5px solid rgba(27, 27, 27, .34);
         }
 
         input {
             font-size: 16px;
-            padding-left: 12px;
+            padding-left: em(12px);
+            height: 47.5%;
             border: 0;
-            padding: em(5px);
-            margin-top: em(5px);
+            border-radius: 8px;
             outline: none;
         }
     }
@@ -64,10 +87,15 @@
         input {
             font-size: 16px;
             padding-left: 12px;
+            height: 47.5%;
             border: 0;
-            padding: em(5px);
-            margin-top: em(5px);
+            border-radius: 8px;
             outline: none;
         }
+    }
+
+    hr {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
     }
 }

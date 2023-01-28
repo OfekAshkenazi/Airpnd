@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { ReviewList } from '../cmps/review-llist'
 import { GoogleMap } from '../cmps/google-map.details.jsx';
 import { ReserveBtn } from '../cmps/reserve-btn.jsx'
@@ -15,11 +15,18 @@ export function StayDetails() {
     const { stayId } = useParams()
     const currOrder = useSelector(storeState => storeState.systemModule.order)
     const [order, setOrder] = useState([currOrder])
-
+    const navigate = useNavigate()
     useEffect(() => {
         loadStay()
         ToggleDetails(true)
     }, [])
+
+
+    function handleBackClick() {
+        navigate(-1)
+    }
+
+
 
     async function loadStay() {
         try {
@@ -41,6 +48,7 @@ export function StayDetails() {
     if (!stay) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
 
     return <section className="stay-details">
+
         <h1 className="stay-name">{stay.name}</h1>
         <div className="stay-info flex align-center">
             <div className='flex align-center'>
@@ -52,6 +60,9 @@ export function StayDetails() {
                 <span className="stay-location">{stay.loc.city}, {stay.loc.country}</span>
             </div>
             <div className="action-btn ">
+                <button className="back-btn-details" onClick={handleBackClick}>
+                    <img className="back-img-details" src={require(`../assets/img/icons/back.png`)} />
+                </button>
                 <div className="duo"><img src={require("../assets/img/icons/share.png")} />
                     <button className="share-btn">Share</button></div>
                 <div className="duo"><img src={require("../assets/img/icons/heart.png")} />
@@ -64,8 +75,10 @@ export function StayDetails() {
                     <img src={url} />
                 </div>
             ))}
+
         </div>
-         { <StayExpanded stay={stay} getRating={getRating} /> }
+
+        {<StayExpanded stay={stay} getRating={getRating} />}
         <ReviewList stay={stay} />
         <div className="reserve-mobile">
             <div className="info-side">
@@ -74,7 +87,7 @@ export function StayDetails() {
             </div>
             <ReserveBtn className="mobile-btn" order={order} numericDate={new Date} stay={1} totalPrice={1} />
         </div>
-        <GoogleMap lat={+stay.loc.lat} lng={+stay.loc.lan} /> 
+        <GoogleMap lat={+stay.loc.lat} lng={+stay.loc.lan} />
     </section>
 }
 

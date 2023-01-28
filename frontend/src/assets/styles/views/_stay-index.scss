@@ -11,7 +11,7 @@
 
 .stay-list {
     display: grid;
-    grid-template-columns: repeat(1, 287px);
+    grid-template-columns: repeat(1, 1fr);
     gap: em(60px) em(24px);
 
     @include for-narrow-layout {

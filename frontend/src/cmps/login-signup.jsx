@@ -66,7 +66,7 @@ export function LoginSignup(props) {
                         <button></button>
                     </form>
                 </div>
-                <button onClick={onLogin}>Login!</button>
+                <button className="btn-signup-login" onClick={onLogin}>Login!</button>
             </>}
 
             {isSignup && <div className="signup-section">
@@ -97,10 +97,10 @@ export function LoginSignup(props) {
                     />
                     {/* <ImgUploader onUploaded={onUploaded} /> */}
                 </form>
-                <button onClick={toggleSignup}>Signup</button>
+                <button className="btn-signup-login" onClick={toggleSignup}>Signup</button>
             </div>}
-
-            <button className="btn-link" onClick={toggleSignup}>{!isSignup ? 'Signup' : 'Login'}</button>
+            <hr />
+            <button className="btn-signup-login" onClick={toggleSignup}>{!isSignup ? 'Signup' : 'Login'}</button>
         </div>
     )
 }

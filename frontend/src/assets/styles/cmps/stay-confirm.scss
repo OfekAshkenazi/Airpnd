@@ -212,3 +212,19 @@
         }
     }
 }
+
+.back-btn-details {
+    position: relative;
+    // bottom: em(2px);
+    background-color:  $clrHoverGray;
+    height: em(35px);
+    width: em(35px);
+    border-radius: 50%;
+    
+
+    :hover {
+        opacity: 1.2;
+        scale: 1.02;
+        background-color: $clrHoverGray;
+    }
+}

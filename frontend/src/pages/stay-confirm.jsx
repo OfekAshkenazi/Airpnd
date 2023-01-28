@@ -19,6 +19,7 @@ export function StayConfirm() {
   function handleBackClick() {
     navigate(-1)
   }
+
   if (order.stay._id === '') getCurrOrder()
   async function getCurrOrder() {
     try {
