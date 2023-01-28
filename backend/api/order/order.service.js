@@ -1,3 +1,4 @@
+const { SYSTEM_USER_COLLECTION } = require('mongodb/lib/db')
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
@@ -74,15 +75,16 @@ async function remove(orderId) {
 }
 function _buildCriteria(user) {
     let criteria
-    if (user.isOwner) {
+    if (user.isOwner === 'true') {
         criteria = {
-            "hostId": { $regex: `${user._id}`, $options: 'i' }
-        }
-        return criteria
-    } else {
+                "hostId": { $regex: `${user._id}`, $options: 'i' }
+            }
+            return criteria
+        } else if (user.isOwner === 'false') {
         criteria = {
             "byUser._id": { $regex: `${user._id}`, $options: 'i' }
         }
         return criteria
     }
+    return criteria
 }
