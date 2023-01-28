@@ -42,8 +42,8 @@ export function HostOrders() {
     <section className='host-orders'>
       <div className="host-orders-headline flex">
         <p>Client</p>
-        <p>Property type</p>
-        <p>Date</p>
+        <p className="mobile-gone">Property type</p>
+        <p className="mobile-gone">Date</p>
         <p>Price</p>
         <p>Status</p>
       </div>
