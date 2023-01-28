@@ -46,7 +46,7 @@ export function TotalExpenses() {
       {
         label: `Total expenses ${totalPrice}`,
         data: [540, 210, 130, 400, 100, 200, 400, 300, 250, 300, 230],
-        backgroundColor: 'rgba(255, 60, 0, 0.5)',
+        backgroundColor: '#fc9930',
       },
     ],
   }

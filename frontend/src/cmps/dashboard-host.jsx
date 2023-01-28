@@ -14,7 +14,7 @@ export function DashBoard() {
                 <div className="chart-container total-expenses">
                     <TotalExpenses />
                 </div>
-                <div className="chart-container">
+                <div className="tax-report">
                     <TaxReport />
                 </div>
             </section>

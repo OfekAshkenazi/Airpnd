@@ -31,18 +31,13 @@
 }
 
 .orders-details {
+    display: flex;
     padding: em(5px);
     margin-top: em(15px);
-    display: flex;
     gap: em(15px);
+    background-color: #fff;
 
-    @media (max-width: 1100px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        // width: 95%;
-    }
-
+    @media (max-width: 720px) {}
 
     .order-list {
         background-color: #fff;
@@ -55,25 +50,47 @@
 }
 
 .order-preview {
-    font-family: circularH;
+    display: grid;
+    font-size: em(13px);
+    @media(min-width:720px) {
+        font-size: em(16px);
+        grid-template-columns: 1fr auto;
+    }
+
+    gap: 10px;
+    font-family: circularL;
     padding: em(10px);
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 10px;
-    border-radius: 8px;
     cursor: pointer;
-    align-items: center;
-    border: 1px solid white;
-    width: 100%;
+    border-radius: 8px;
+    border: 2px solid white;
+
+    &.selected-order {
+        border: 2px solid $clrGrayFont;
+    }
 
     &:hover {
-        border: 1px solid $clrGrayFont;
+        border: 2px solid $clrGrayFont;
+    }
+
+    .preview-txt {
+        display: flex;
+        flex-direction: column;
+
+        .preview-name {
+            font-weight: 600;
+        }
+
+        .preview-loc {
+            font-weight: 300;
+        }
     }
 
     .order-indiction {
         display: flex;
         align-items: center;
+        font-weight: 600;
+        font-family: circularH;
 
 
         p {
@@ -94,57 +111,94 @@
 }
 
 .order-preview-modal {
-    font-family: circularH;
-    background-color: white;
     width: 50%;
     border-radius: em(8px);
+    box-shadow: #0000001f 0 6px 16px;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    position: sticky;
+    top: em(50px);
+    font-size: em(13px);
 
-    .order-display {
-        display: flex;
-        flex-direction: column;
-        padding: em(24px);
-        gap: em(15px);
-        background-color: white;
-        grid-template-rows: repeat(2, 1fr);
-        border: 1px solid #ddd;
-        border-radius: em(8px);
-        box-shadow: #0000001f 0 6px 16px;
+    @media(min-width:720px) {
+        display: block;
+        font-size: em(16px);
     }
 
-    .order-preview-details-modal {
-        padding: em(10.5px) em(4px);
+    .order-display {
+        padding: em(8px);
+
+        @media(min-width:720px) {
+            padding: em(24px);
+        }
     }
 
     .order-img {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: em(150px) em(150px);
-        gap: 4px;
 
-        :hover {
-            transition: 0.4s;
-            filter: brightness(80%);
-        }
-
-        img {
-            object-fit: cover;
-            background-size: cover;
-            height: 100%;
-        }
-
-        :first-child {
-            grid-row: 1/-1;
-            border-start-start-radius: 8px;
-            border-end-start-radius: 8px;
-        }
-
-        :nth-child(2) {
-            border-start-end-radius: 8px;
-        }
-
+        :nth-child(2),
         :nth-child(3) {
-            border-end-end-radius: 8px;
+            display: none;
         }
+
+
+        @media(min-width: 720px) {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: em(150px) em(150px);
+            gap: 4px;
+
+            :hover {
+                transition: 0.4s;
+                filter: brightness(80%);
+            }
+
+            img {
+                object-fit: cover;
+                background-size: cover;
+                height: 100%;
+            }
+
+            :first-child {
+                grid-row: 1/-1;
+                border-start-start-radius: 8px;
+                border-end-start-radius: 8px;
+            }
+
+            :nth-child(2) {
+                display: block;
+                border-start-end-radius: 8px;
+            }
+
+            :nth-child(3) {
+                display: block;
+                border-end-end-radius: 8px;
+            }
+        }
+    }
+
+    .order-preview-details-modal {
+        font-family: circularH;
+        display: flex;
+        flex-direction: column;
+        padding-top: em(4px);
+        padding-left: em(4px);
+
+        @media(min-width:720px) {
+            padding-top: em(16px);
+            padding-left: em(28px);
+        }
+
+        .preview-bold {
+            padding-bottom: em(8px);
+            font-weight: 600;
+
+            .regular {
+                font-weight: 600;
+                font-family: circularL;
+            }
+        }
+
     }
 
 }

@@ -4,6 +4,7 @@ import IconShower from './svg-cmps/shower-icon.jsx';
 export function HostStayPreview({ stay }) {
     return (
         <div className='host-stay align-center'>
+            <img src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436917/mqkfjmfpmyqpqmzmqgau.jpg" alt="" />
             <div className='img-desc-container flex'>
                 <img src={stay.imgUrls[0]} alt="" />
                 <div className="desc flex column">
@@ -22,11 +23,11 @@ export function HostStayPreview({ stay }) {
                 </div>
             </div>
             <div>
-                <span className='flex'>
+                <span className='flex money'>
                     <p>
                         $5,175
                     </p>
-                    <p>/year</p>
+                    <p className='unbold'>/year</p>
                 </span>
             </div>
         </div>

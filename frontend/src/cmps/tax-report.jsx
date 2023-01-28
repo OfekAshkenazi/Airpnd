@@ -1,5 +1,5 @@
 export function TaxReport() {
-    return <section className="tax-report">
+    return <>
         <div className="tax-left">
             <div className="tax-head">
                 <span className="important">Important</span>
@@ -9,5 +9,5 @@ export function TaxReport() {
                 <div className="prepare">Prepare you yearly tax reports untill <span>Dec 23</span></div></div>
         </div>
         <img src={require(`../assets/img/tax.png`)} />
-    </section>
+    </>
 }

@@ -1,7 +1,5 @@
 .dashboard-page {
     margin-top: em(10px);
-    background-color: #ffffff;
-    background: linear-gradient(to left, #bfdfd5, #ddefce, #e3e9cd);
 
     .charts-container {
         display: flex;
@@ -19,12 +17,14 @@
     }
 
     .total-earn {
-        background-color: #fddfb3;
+        background-color: #e2fdc3;
+        background: linear-gradient(to right, #677e5b, #76b852b3, #f5f5f5);
 
     }
 
     .total-expenses {
-        background-color: #ffeee6;
+        background-color: #fbce9f;
+        // border: 1px solid rgb(157, 157, 157);
     }
 
     .google-map-host {
@@ -39,13 +39,13 @@
         font-family: circularL;
         color: $clrGrayFont;
         display: flex;
-        align-items: center;
-        padding: 35px;
+        max-width: 330px;
+        padding: em(35px) em(17px);
         font-size: em(14px);
         font-weight: 400;
         border-radius: 8px;
         justify-content: flex-start;
-        background: linear-gradient(to left, #76b852, #76b852b3, #f5f5f5);
+        background: linear-gradient(to left, #233a17, #76b852b3, #f5f5f5);
 
 
         .tax-head {

@@ -5,12 +5,13 @@ import { PendingIcon } from '../assets/svg/pending-icon';
 import { showErrorMsg } from '../services/event-bus.service';
 import { orderService } from '../services/order.service.local';
 
+import { stayService } from '../services/stay.service'
+
 export function UserOrders() {
     const [orders, setOrders] = useState([])
     const [currOrder, setCurrOrder] = useState(null)
     useEffect(() => {
         onLoadOrders()
-        console.log('orders');
     }, [])
     async function onLoadOrders() {
         try {
@@ -21,18 +22,19 @@ export function UserOrders() {
             showErrorMsg('Cannot load orders')
         }
     }
-    console.log(currOrder)
+
     if (!currOrder) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
+
     return (
         <section className="orders-details">
             <div className="order-list">
                 {orders.map(order => {
                     return (
-                        <div key={order._id} onClick={() => setCurrOrder(order)} className="order-preview">
-                            <div>
-                                {order.stay.name}
-                                <br></br>
-                                {order.stay.loc.city}, {order.stay.loc.countrey} Dec 30 - Jan 04
+                        <div key={order._id} onClick={() => setCurrOrder(order)} className={`order-preview ${currOrder === order ? 'selected-order' : ''}`}>
+
+                            <div className="preview-txt">
+                                <span className="preview-name">{order.stay.name}</span>
+                                <span className="preview-loc"> {order.stay.loc.city}, {order.stay.loc.countrey} Dec 30 - Jan 04</span>
                             </div>
                             <div className="order-indiction">
                                 <p className={`${order.status}`}><PendingIcon /> {order.status}</p>
@@ -51,15 +53,20 @@ export function UserOrders() {
                 </section>
                 <section>
                     <div className="order-preview-details-modal">
-                        <p>{currOrder.stay.name}</p>
-                        <p>{currOrder.stay.loc.city}, {currOrder.stay.loc.countrey}</p>
-                        <p>Dates: states Dec 30 - Jan 04</p>
-                        <p>Guests: {currOrder.guests.adults}</p>
-                        <p>Total price: {currOrder.totalPrice}</p>
-                        <p> Order Status: {currOrder.status}</p>
+                        <div className="preview-bold">{currOrder.stay.name}</div>
+                        <div className="preview-bold">{currOrder.stay.loc.city}, {currOrder.stay.loc.countrey}</div>
+                        <div className="preview-bold">Dates:{' '}
+                            <span className="regular">
+                                {(stayService.extractDate(currOrder.startDate))} - {(stayService.extractDate(currOrder.endDate))}
+                            </span></div>
+                        <div className="preview-bold">Guests:
+                            <span className="preview-regular"> {currOrder.guests.adults + currOrder.guests.children + currOrder.guests.infants + currOrder.guests.pets} </span></div>
+                        <div className="preview-bold">Total price: <span className="regular"> {currOrder.totalPrice}</span></div>
+                        <div className="preview-bold">Order Status: <span className="regular"> {currOrder.status}</span></div>
                     </div>
                 </section>
             </div>
         </section>
+
     )
 }
