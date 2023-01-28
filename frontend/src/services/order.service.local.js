@@ -1,20 +1,20 @@
 import { addDays } from 'date-fns';
 
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
+import { showSuccessMsg } from '../services/event-bus.service.js';
 import { storageService } from './async-storage.service';
 import { httpService } from './http.service';
-import { SOCKET_EVENT_ORDER_FOR_HOST, socketService } from './socket.service';
+import { SOCKET_EVENT_ORDER_FOR_HOST, socketService, SOCKET_EVENT_ORDER_FOR_USER } from './socket.service';
 import { userService } from './user.service';
-import { utilService } from './util.service';
+
 
 (() => {
-    // socketService.on(SOCKET_EVENT_REVIEW_ADDED, (review) => {
-    //     console.log('GOT from socket', review)
-    //     store.dispatch(getActionAddReview(review))
-    // })
-    socketService.on(SOCKET_EVENT_ORDER_FOR_HOST, (order) => {
-        showSuccessMsg(`New Order money yayyy ${order._id}`)
+    socketService.on(SOCKET_EVENT_ORDER_FOR_USER, (order) => {
+        showSuccessMsg(`Your order was answered`)
         query()
+
+    })
+    socketService.on(SOCKET_EVENT_ORDER_FOR_HOST, (order) => {
+        showSuccessMsg(`Order recived`)
     })
 })()
 

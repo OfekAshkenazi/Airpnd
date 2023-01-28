@@ -7,8 +7,8 @@ export function HostOrderPreview({ handelSelectChange, order }) {
                 <img src={order.byUser.imgUrl} alt="" />
                 {order.byUser.fullname}
             </p>
-            <p className="type">{order.stay.type}</p>
-            <p>{order.startDate.slice(0, 10)}</p>
+            <p className="type mobile-gone">{order.stay.type}</p>
+            <p className="mobile-gone">{order.startDate.slice(0, 10)}</p>
             <p className="price-host-order">$ {order.totalPrice}</p>
             <div className="status-indicator align-center flex">
                 <select onChange={(event) => handelSelectChange(event, order._id)} name="status" id="">
