@@ -1,6 +1,5 @@
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
-const utilService = require('../../services/util.service')
 const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
@@ -8,8 +7,8 @@ module.exports = {
     getById,
     add,
     update,
+    remove
 }
-
 
 async function query(user) {
     try {
@@ -64,5 +63,14 @@ async function update(order) {
     }
 }
 
-
+async function remove(orderId) {
+    try {
+        const collection = await dbService.getCollection('order')
+        await collection.deleteOne({ _id: ObjectId(orderId) })
+        return orderId
+    } catch (err) {
+        logger.error(`cannot remove order ${orderId}`, err)
+        throw err
+    }
+}
 

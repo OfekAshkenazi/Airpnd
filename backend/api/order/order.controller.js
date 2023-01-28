@@ -1,14 +1,12 @@
 const orderService = require('./order.service.js')
-
 const logger = require('../../services/logger.service')
-
 
 module.exports = {
   getOrders,
   getOrderById,
   addOrder,
   updateOrder,
-  //   removeOrder,
+  removeOrder,
 }
 
 async function getOrders(req, res) {
@@ -57,16 +55,16 @@ async function updateOrder(req, res) {
   }
 }
 
-// async function removeOrder(req, res) {
-//   try {
-//     const stayId = req.params.id
-//     const removedId = await stayService.remove(stayId)
-//     res.send(removedId)
-//   } catch (err) {
-//     logger.error('Failed to remove stay', err)
-//     res.status(500).send({ err: 'Failed to remove stay' })
-//   }
-// }
+async function removeOrder(req, res) {
+  try {
+    const orderId = req.params.id
+    const removedId = await orderService.remove(orderId)
+    res.send(removedId)
+  } catch (err) {
+    logger.error('Failed to remove order', err)
+    res.status(500).send({ err: 'Failed to remove order' })
+  }
+}
 
 
 
