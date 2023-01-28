@@ -14,11 +14,11 @@ export function StayConfirm() {
   const { stayId, startDate, endDate, adults, children, infants, pets } = params
   useEffect(() => {
   }, [order])
-
+  const totalPrice = (parseFloat(order.totalPrice.replace(/,/g, '')) - 100).toLocaleString()
+  
   function handleBackClick() {
     navigate(-1)
   }
-
   if (order.stay._id === '') getCurrOrder()
   async function getCurrOrder() {
     try {
@@ -82,7 +82,7 @@ export function StayConfirm() {
             </div>
           </div>
           <div className="guests">
-            <div className="left">Guests<span>{(parseInt(adults) + parseInt(children) + parseInt(infants) + parseInt(pets))}</span>  </div>
+            <div className="left">Guests<span className="guests-span">{(parseInt(adults) + parseInt(children) + parseInt(infants) + parseInt(pets))}</span>  </div>
           </div>
           <button className="book-btn" onClick={() => onAddNewOrder()}>Book and pay </button>
         </div>
@@ -99,7 +99,8 @@ export function StayConfirm() {
         </div>
         <div className="price-details">
           <div className="price">Price details</div>
-          <div className="sum"><div className="sum-left">${order.stay.price} USD x {getDayDifference(order.startDate, order.endDate)} nights </div><div className="sum-right">${order.totalPrice}</div></div>
+          <div className="sum"><div className="sum-left">${order.stay.price} USD x {getDayDifference(order.startDate, order.endDate)} nights </div><div className="sum-right">${totalPrice}</div></div>
+          <div className="sum"><div className="sum-left">Service Fee</div><div className="sum-right">$100</div></div>
         </div>
         <div className="total">Total (USD) <span className="total-num">${order.totalPrice}</span> </div>
         <div className="deposit">This property requires a $1,100.91 security deposit. It will be collected separately by the property prior to your arrival or at check-in.</div>

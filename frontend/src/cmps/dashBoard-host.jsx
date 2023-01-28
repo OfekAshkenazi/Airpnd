@@ -1,4 +1,4 @@
-import { TaxReport } from '../cmps/tax-report.jsx';
+import { TaxReport } from './tax-report.jsx';
 import { GoogleMapHostStays } from './google-map-host-stays.jsx';
 import { HostStayList } from './host-stay-list.jsx';
 import { TotalEarn } from './total-earn';

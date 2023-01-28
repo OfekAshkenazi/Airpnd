@@ -11,6 +11,7 @@
 
         .back-btn {
             background-color: var(--clrMBg);
+            height: em(12px);
 
             :hover {
                 border-radius: 50%;
@@ -24,8 +25,8 @@
         }
 
         .back-img {
-            height: em(18px);
-            padding-right: em(32px);
+            // height: em(18px);
+            padding: em(12px);
 
         }
     }
@@ -44,9 +45,7 @@
 
             .trip-sum {
                 display: flex;
-                align-items: center;
-                justify-content: space-between;
-                flex-wrap: wrap;
+                // align-items: center;
                 margin-bottom: em(64px);
 
                 @media(min-width: 720px) {
@@ -55,11 +54,15 @@
             }
 
             p {
+                text-align: center;
                 font-weight: 600;
                 font-size: em(24px);
                 padding: em(8px);
-                @media (min-width:720px){
-                padding: em(24px) 0 em(12px);}
+
+                @media (min-width:720px) {
+                    padding: em(24px) 0 em(12px);
+                    text-align: left;
+                }
             }
 
             .dates,
@@ -71,7 +74,6 @@
                     flex: 0;
                 }
 
-                grid-gap: 12px;
                 font-weight: 600;
                 font-size: em(16px);
                 padding-bottom: em(22px);
@@ -91,6 +93,11 @@
                 .left {
                     display: flex;
                     flex-direction: column;
+                    padding-right: em(16px);
+
+                    .guests-span {
+                        text-align: center;
+                    }
 
                     span {
                         padding-top: em(8px);
@@ -104,7 +111,8 @@
                 padding: em(16px);
                 border-radius: em(8px);
                 font-weight: 600;
-                flex: 1;
+                height: 50%;
+                align-self: center;
 
                 :hover {
                     background-color: green;
@@ -160,7 +168,6 @@
             }
 
             .price-details {
-                padding-bottom: em(28px);
                 padding-top: em(16px);
                 border-bottom: 1px solid rgb(221, 221, 221);
 
@@ -176,6 +183,10 @@
                     justify-content: space-between;
                     font-size: em(15px);
                     color: rgb(34, 34, 34);
+
+                    :first-child {
+                        padding-bottom: em(16px);
+                    }
 
                     .sum-left {
                         text-decoration: underline;
