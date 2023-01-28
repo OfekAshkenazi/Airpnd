@@ -1,5 +1,5 @@
-import '../../node_modules/react-date-range/dist/styles.css'
-import '../../node_modules/react-date-range/dist/theme/default.css'
+import '../../node_modules/react-date-range/dist/styles.css';
+import '../../node_modules/react-date-range/dist/theme/default.css';
 
 import { DateRangePicker } from 'react-date-range';
 

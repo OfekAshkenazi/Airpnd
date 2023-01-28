@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router';
 import { AppFooter } from './cmps/app-footer';
 import { AppHeader } from './cmps/app-header';
 import { AppMobileFooter } from './cmps/app-mobile-footer';
-import { DashBoard } from './cmps/dashboard-host1';
+import { DashBoard } from './cmps/dashboard-host';
 import { HostOrders } from './cmps/host-orders';
 import { LoginSignup } from './cmps/login-signup';
 import { UserMsg } from './cmps/user-msg';
