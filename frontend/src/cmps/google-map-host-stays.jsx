@@ -5,11 +5,11 @@ import { PropagateLoader } from 'react-spinners';
 import IconHouseHeartFill from './svg-cmps/house-icon';
 import IconHouseFill from './svg-cmps/house-icon';
 
-const AnyReactComponent = ({ text }) => <div className="flex column" style={{width: '50px', alignItems: 'center', fontWeight: 'bold'}}> <p stlye={{width: '45px'}}>Your stay</p> <p>{text}</p></div>;
+const AnyReactComponent = ({ text }) => <div className="flex column" style={{ width: '50px', alignItems: 'center', fontWeight: 'bold' }}> <p stlye={{ width: '45px' }}>Your stay</p> <p>{text}</p></div>;
 
 export function GoogleMapHostStays() {
 
-    const [coordinates, setCoordinates] = useState({ lat: 32, lng: 34 })
+    const [coordinates, setCoordinates] = useState({ lat: 40.730610, lng: -73.935242 })
     const zoom = 8
     if (!coordinates) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
     return (
@@ -21,8 +21,8 @@ export function GoogleMapHostStays() {
                 defaultZoom={zoom}
             >
                 <AnyReactComponent
-                    lat={32}
-                    lng={34}
+                    lat={34}
+                    lng={-440}
                     text={<IconHouseHeartFill />}
                 />
             </GoogleMapReact>
