@@ -1,6 +1,5 @@
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
-const utilService = require('../../services/util.service')
 const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
@@ -10,7 +9,6 @@ module.exports = {
     add,
     update,
 }
-
 
 async function query(filterBy) {
     try {
@@ -54,7 +52,6 @@ function _buildCriteria(filterBy) {
    
     return criteria
 }
-
 
 async function getById(stayId) {
     try {

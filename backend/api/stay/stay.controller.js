@@ -2,7 +2,6 @@ const stayService = require('./stay.service.js')
 
 const logger = require('../../services/logger.service')
 
-
 module.exports = {
   getStays,
   getStayById,

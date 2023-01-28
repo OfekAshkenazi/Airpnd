@@ -10,7 +10,6 @@ export function StayFilter({ onAddGuest, onAddWhere, onDateModal, whoCounter }) 
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
     // const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
 
-    console.log(filterBy.txt)
     function openFilterExpanded() {
         getActionFilterExpanded(true)
     }

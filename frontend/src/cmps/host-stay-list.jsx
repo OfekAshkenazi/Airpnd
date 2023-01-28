@@ -16,8 +16,9 @@ export function HostStayList() {
 
 
   useEffect(() => {
-    // getHostOrderFilter(user)
+    getHostOrderFilter(user)
     onLoadHostStays()
+    
     return () => {
       cleanFilter()
     }
@@ -27,13 +28,14 @@ export function HostStayList() {
   async function onLoadHostStays() {
     try {
       const dataStays = await stayService.query(filterBy)
+
       setHostStays(dataStays)
     } catch (err) {
       console.log(err)
       showErrorMsg('Cannot load orders')
     }
   }
-
+  console.log(hostStays.length)
   if (hostStays.length > 15) return
 
   return (

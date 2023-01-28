@@ -2,6 +2,18 @@ const logger = require('./logger.service')
 
 var gIo = null
 
+module.exports = {
+    // set up the sockets service and define the API
+    setupSocketAPI,
+    // emit to everyone / everyone in a specific room (label)
+    emitTo, 
+    // emit to a specific user (if currently active in system)
+    emitToUser, 
+    // Send to all sockets BUT not the current socket - if found
+    // (otherwise broadcast to a room / to all)
+    broadcast,
+}
+
 function setupSocketAPI(http) {
     gIo = require('socket.io')(http, {
         cors: {
@@ -91,6 +103,7 @@ async function _getUserSocket(userId) {
     const socket = sockets.find(s => s.userId === userId)
     return socket
 }
+
 async function _getAllSockets() {
     // return all Socket instances
     const sockets = await gIo.fetchSockets()
@@ -102,18 +115,9 @@ async function _printSockets() {
     console.log(`Sockets: (count: ${sockets.length}):`)
     sockets.forEach(_printSocket)
 }
+
 function _printSocket(socket) {
     console.log(`Socket - socketId: ${socket.id} userId: ${socket.userId}`)
 }
 
-module.exports = {
-    // set up the sockets service and define the API
-    setupSocketAPI,
-    // emit to everyone / everyone in a specific room (label)
-    emitTo, 
-    // emit to a specific user (if currently active in system)
-    emitToUser, 
-    // Send to all sockets BUT not the current socket - if found
-    // (otherwise broadcast to a room / to all)
-    broadcast,
-}
+

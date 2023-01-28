@@ -1,6 +1,5 @@
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
-const utilService = require('../../services/util.service')
 const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
@@ -8,14 +7,13 @@ module.exports = {
     getById,
     add,
     update,
+    remove
 }
-
 
 async function query(user) {
     try {
-        const criteria = {
-            "hostId._id": { $regex: `${user._id}`, $options: 'i' } 
-        }
+        const criteria = _buildCriteria(user)
+
         const collection = await dbService.getCollection('order')
         let orders = await collection.find(criteria).toArray()
         return orders
@@ -36,7 +34,7 @@ async function getById(orderId) {
     }
 }
 
-async function add(order,loggedinUser) {
+async function add(order, loggedinUser) {
     try {
 
         const collection = await dbService.getCollection('order')
@@ -64,5 +62,27 @@ async function update(order) {
     }
 }
 
-
-
+async function remove(orderId) {
+    try {
+        const collection = await dbService.getCollection('order')
+        await collection.deleteOne({ _id: ObjectId(orderId) })
+        return orderId
+    } catch (err) {
+        logger.error(`cannot remove order ${orderId}`, err)
+        throw err
+    }
+}
+function _buildCriteria(user) {
+    let criteria
+    if (user.isOwner) {
+        criteria = {
+            "hostId": { $regex: `${user._id}`, $options: 'i' }
+        }
+        return criteria
+    } else {
+        criteria = {
+            "byUser._id": { $regex: `${user._id}`, $options: 'i' }
+        }
+        return criteria
+    }
+}
