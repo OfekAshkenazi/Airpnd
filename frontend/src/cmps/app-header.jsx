@@ -20,7 +20,7 @@ export function AppHeader({ layout }) {
     // const [isFilterExpanded, setIsFilterExpanded] = useState(false)
     const user = useSelector(storeState => storeState.userModule.user)
     const [userModal, setUserModal] = useState(false)
-
+    const [whoCounter, setWhoCounter] = useState(1)
 
 
     const [isGuestModalOpen, setIsGuestModalOpen] = useState(false)
@@ -92,7 +92,7 @@ export function AppHeader({ layout }) {
                             <p className='logo-title'>airpnd</p>
                         </div>
 
-                        {!isFilterExpanded && <StayFilter onAddGuest={onAddGuest} onAddWhere={onAddWhere} onDateModal={onDateModal} />}
+                        {!isFilterExpanded && <StayFilter onAddGuest={onAddGuest} onAddWhere={onAddWhere} onDateModal={onDateModal} whoCounter={whoCounter} />}
                         {isFilterExpanded && <StayFilterPlaceTaker />}
 
                         <span className="user-info">
@@ -103,7 +103,7 @@ export function AppHeader({ layout }) {
                             {userModal && <UserPagesModal setUserModal={setUserModal} />}
                         </span>
 
-                        <StayFilterExpanded isGuestModalOpen={isGuestModalOpen} isWhereModalOpen={isWhereModalOpen} isDateModalOpen={isDateModalOpen} onAddGuest={onAddGuest} onAddWhere={onAddWhere} onDateModal={onDateModal} />
+                        <StayFilterExpanded isGuestModalOpen={isGuestModalOpen} isWhereModalOpen={isWhereModalOpen} isDateModalOpen={isDateModalOpen} onAddGuest={onAddGuest} onAddWhere={onAddWhere} onDateModal={onDateModal} whoCounter={whoCounter} setWhoCounter={setWhoCounter} />
                     </div>
 
                     {!isFilterExpanded && <div className='full hr-header'>
