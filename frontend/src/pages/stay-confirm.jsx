@@ -6,6 +6,8 @@ import { updateOrder } from '../store/system.action'
 import { orderService } from '../services/order.service.local'
 import { PropagateLoader } from 'react-spinners';
 import { useEffect } from 'react'
+import { userService } from '../services/user.service'
+import { showErrorMsg } from '../services/event-bus.service'
 
 export function StayConfirm() {
   const order = useSelector(storeState => storeState.systemModule.order)
@@ -49,6 +51,11 @@ export function StayConfirm() {
 
   async function onAddNewOrder() {
     try {
+      const user = userService.getLoggedinUser()
+      if(!user) {
+        showErrorMsg('pls log in ')
+        return 
+      }
       await orderService.add(order)
       navigate(`/orders/my-orders`)
     }

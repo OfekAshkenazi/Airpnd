@@ -6,84 +6,61 @@
         font-family: circularL;
         font-weight: bold;
         text-transform: capitalize;
-
-        &.approve {
-            color: rgb(1, 114, 1);
-        }
-
-        &.decline {
-            color: rgb(255, 76, 76);
-        }
-
-        &.pending {
-            color: rgb(248, 227, 0)
-        }
     }
 
     .host-orders-headline {
-        font-family: circularL;
-        // padding: em(15px);
-        background-color: rgb(255, 255, 255);
-        justify-content: space-around;
-        border-radius: em(7px) em(7px) em(0px) em(0px);
-        font-size: em(17px);
+        display: grid;
+        grid-template: 65px/.9fr 1fr .6fr .5fr .5fr;
+        gap: 20px;
+        align-items: center;
+        padding-inline: 15px;
 
-        h4 {
-            padding: em(15px);
-            border-bottom: em(1px) solid $clrGrayFont;
-        }
-
+ 
         :last-child {
-            border-bottom: em(0px) $clrGrayFont;
-
+            justify-self: flex-end;
         }
+
+    }
+
+    .host-orders-list {
+        display: flex;
+        flex-direction: column;
     }
 
     .order-status {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        padding: em(15px);
-        background-color: #fff;
+        grid-template: 65px/.9fr 1fr .6fr .5fr .5fr;
+        gap: 20px;
         align-items: center;
+        padding-inline: 15px;
 
         .user-img-order-container {
             display: flex;
             align-items: center;
 
             img {
-                margin-right: em(10px);
-                height: 40px;
-                width: 40px;
+                margin-right: em(6.5px);
+                height: 32px;
+                width: 32px;
                 border-radius: 50%;
                 object-fit: cover
             }
         }
 
-        .orders-left-side {
-            grid-column: 1 / 3;
-            align-items: center;
-            justify-content: space-between;
 
 
-        }
+        .status-indicator {
+            gap: 5px;
+            justify-self: flex-end;
 
-        .order-right-side {
-            grid-column: 3 / -1;
-            justify-content: space-evenly;
-            align-items: center;
+            select {
+                text-transform: capitalize;
+                padding: em(7.5px);
+                border: none;
+                background-color: rgb(247, 238, 238);
 
-            .status-indicator {
-                gap: 5px;
-
-                select {
-                    text-transform: capitalize;
-                    padding: em(7.5px);
-                    border: none;
-                    background-color: rgb(247, 238, 238);
-
-                    option {
-                        padding: em(5px);
-                    }
+                option {
+                    padding: em(5px);
                 }
             }
         }

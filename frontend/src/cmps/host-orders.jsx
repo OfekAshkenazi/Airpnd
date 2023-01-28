@@ -41,12 +41,11 @@ export function HostOrders() {
   return (
     <section className='host-orders'>
       <div className="host-orders-headline flex">
-        <h4>Client</h4>
-        <h4>Property type</h4>
-        <h4>Date</h4>
-        <h4>Price</h4>
-        <h4>Status</h4>
-        <h4></h4>
+        <p>Client</p>
+        <p>Property type</p>
+        <p>Date</p>
+        <p>Price</p>
+        <p>Status</p>
       </div>
       <HostOrdersList handelSelectChange={handelSelectChange} orders={orders}/>
     </section>
