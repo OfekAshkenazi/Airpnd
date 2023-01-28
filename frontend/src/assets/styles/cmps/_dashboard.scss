@@ -1,12 +1,15 @@
 .dashboard-page {
     margin-top: em(10px);
     background-color: #ffffff;
+    background: linear-gradient(to left, #bfdfd5, #ddefce, #e3e9cd);
 
     .charts-container {
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
         align-items: center;
+        padding-top: 10px;
+        gap: 10px;
     }
 
     .chart-container {
@@ -25,29 +28,22 @@
     }
 
     .google-map-host {
-        width: 85%;
+        width: 95%;
         margin: auto;
         padding: em(10px);
         height: 290px;
     }
 
     ///PEER - TAX /// 
-
     .tax-report {
         font-family: circularL;
         color: $clrGrayFont;
         display: flex;
-        // flex-direction: column;
         align-items: center;
-        padding: 40px;
+        padding: 35px;
         font-size: em(14px);
         font-weight: 400;
         border-radius: 8px;
-        background: #76b852;
-        /* fallback for old browsers */
-        background: -webkit-linear-gradient(to left, #76b852, #76b852b3, #f5f5f5);
-        /* Chrome 10-25, Safari 5.1-6 */
-        // align-items: flex-end;
         justify-content: flex-start;
         background: linear-gradient(to left, #76b852, #76b852b3, #f5f5f5);
 
