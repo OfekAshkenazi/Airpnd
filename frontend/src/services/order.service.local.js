@@ -3,8 +3,20 @@ import { httpService } from "./http.service"
 import { userService } from "./user.service"
 import { utilService } from "./util.service"
 import { addDays } from 'date-fns'
+import { socketService } from "./socket.service"
 
 const ORDER_KEY = 'order'
+
+// (() => {
+//     // socketService.on(SOCKET_EVENT_REVIEW_ADDED, (review) => {
+//     //     console.log('GOT from socket', review)
+//     //     store.dispatch(getActionAddReview(review))
+//     // })
+//     // socketService.on(SOCKET_EVENT_ORDER_FOR_HOST, (order) => {
+//     //     // showSuccessMsg(`New Order money yayyy`)
+//     // })
+// })()
+
 
 export const orderService = {
     query,
@@ -18,7 +30,6 @@ export const orderService = {
 async function query() {
     try {
         const user = userService.getLoggedinUser()
-        console.log(user)
         const orders = await httpService.get(ORDER_KEY, user)
         return orders
     } catch (err) {

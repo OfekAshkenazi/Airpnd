@@ -13,7 +13,7 @@ export function ReserveBtn({ order, numericDate, stay, totalPrice }) {
     try {
       order[0].stayId = stay._id
       order[0].totalPrice = totalPrice
-      order[0].hostId = userService.getLoggedinUser()
+      order[0].hostId = '63cfe8da8276fe4e2c861da4'
       order[0].byUser = userService.getLoggedinUser()
       //JUST FOR DEMO. LATER - change key host 
       await updateOrder(order[0])
