@@ -99,7 +99,7 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
           <div className={`filter-who ${(isGuestModalOpen) ? "active" : ""}`} onClick={() => onAddGuest()}>
             <div className='filter-who-content'>
               <p>Who</p>
-              <p className='unbold'>{`${(whoCounter > 1) ? whoCounter + ' guest' : data.checkIn}`}</p>
+              <p className={`unbold ${(whoCounter > 1) ? 'number' : ''}`}>{`${(whoCounter > 1) ? whoCounter + ' guest' : data.checkIn}`}</p>
               {isGuestModalOpen ? <FilterWhoModal setWhoCounter={setWhoCounter} whoCounter={whoCounter} /> : ''}
             </div>
 
