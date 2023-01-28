@@ -11,16 +11,16 @@
     z-index: 100;
 
     .con.show {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #ebebeb;
-        animation: scale-display 0.5s;
-        border: 1.5px solid #ddd;
-        border-radius: 50px;
-        padding: 0px;
 
         .stay-filter-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ebebeb;
+            animation: scale-display 0.5s;
+            border: 1.5px solid #ddd;
+            border-radius: 50px;
+            padding: 0px;
 
             .filter-where {
                 position: relative;
@@ -64,123 +64,128 @@
                     }
                 }
             }
-        }
 
-        .filter-check-in {
-            position: relative;
-            font-family: CerealBd;
-            border-radius: 50px;
-            display: flex;
-            flex-direction: column;
-            padding: 13px 27px;
-            background-color: #ebebeb;
-
-            &:hover {
-                background-color: #ddd;
-            }
-
-            &.active {
-                padding-top: 12px;
-                // padding-buttom: 1000px;
-                background-color: #fff;
-                box-shadow: 0 0 15px rgb(207, 207, 207);
-            }
-
-        }
-
-        .filter-check-out {
-            font-family: CerealBd;
-            border-radius: 50px;
-            display: flex;
-            flex-direction: column;
-            padding: 13px 27px;
-            background-color: #ebebeb;
-
-            &:hover {
-                background-color: #ddd;
-            }
-        }
+            // }
 
 
-
-        .filter-who {
-            position: relative;
-            border-radius: 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-right: 10px;
-
-            &:hover {
-                background-color: #ddd;
-            }
-
-            &.active {
-                padding-top: 1px;
-                padding-buttom: 1px;
-                background-color: #fff;
-                box-shadow: 0 0 15px rgb(207, 207, 207);
-            }
-
-            .filter-who-content {
-                padding: 13px 30px;
+            .filter-check-in {
                 position: relative;
+                font-family: CerealBd;
+                border-radius: 50px;
+                display: flex;
+                flex-direction: column;
+                padding: 13px 27px;
+                background-color: #ebebeb;
+
+                &:hover {
+                    background-color: #ddd;
+                }
+
+                &.active {
+                    padding-top: 12px;
+                    // padding-buttom: 1000px;
+                    background-color: #fff;
+                    box-shadow: 0 0 15px rgb(207, 207, 207);
+                }
+
             }
 
-            .btn-search-filter {
+            .filter-check-out {
                 font-family: CerealBd;
-                color: #ffffff;
-                font-size: 20px;
-                width: 138px;
-                height: 50px;
                 border-radius: 50px;
-                background-color: #e31a5f;
                 display: flex;
-                align-items: center;
-                gap: 6px;
+                flex-direction: column;
+                padding: 13px 27px;
+                background-color: #ebebeb;
 
-                @media (max-width: 1100px) {
-                    transition: 0.3s;
-                    width: 50px;
-
-                    .search-word {
-                        display: none;
-                    }
+                &:hover {
+                    background-color: #ddd;
                 }
             }
 
-            p.search-icon {
-                padding-left: 10px;
-                padding-top: 6px;
+
+
+
+            .filter-who {
+                position: relative;
+                border-radius: 50px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-right: 10px;
+
+                &:hover {
+                    background-color: #ddd;
+                }
+
+                &.active {
+                    padding-top: 1px;
+                    padding-buttom: 1px;
+                    background-color: #fff;
+                    box-shadow: 0 0 15px rgb(207, 207, 207);
+                }
+
+                .filter-who-content {
+                    padding: 13px 30px;
+                    position: relative;
+                }
+
+                .btn-search-filter {
+                    font-family: CerealBd;
+                    color: #ffffff;
+                    font-size: 20px;
+                    width: 138px;
+                    height: 50px;
+                    border-radius: 50px;
+                    background-color: #e31a5f;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+
+                    @media (max-width: 1100px) {
+                        transition: 0.3s;
+                        width: 50px;
+
+                        .search-word {
+                            display: none;
+                        }
+                    }
+                }
+
+                p.search-icon {
+                    padding-left: 10px;
+                    padding-top: 6px;
+                }
             }
-        }
 
-        & .unbold {
-            font-family: circularL;
-            color: #717171;
-            font-size: 16px;
-        }
 
-        @keyframes scale-display {
-            0% {
-                height: 0;
-                opacity: 0;
-                transform: scale(0);
-                -webkit-transform: scale(0);
+            & .unbold {
+                font-family: circularL;
+                color: #717171;
+                font-size: 16px;
             }
 
-            100% {
-                height: 100px;
-                opacity: 1;
-                transform: scale(1);
-                -webkit-transform: scale(1);
-            }
-        }
+            @keyframes scale-display {
+                0% {
+                    height: 0;
+                    opacity: 0;
+                    transform: scale(0);
+                    -webkit-transform: scale(0);
+                }
 
-        &>span {
-            height: 34px;
-            width: 1px;
-            background-color: #ddd;
+                100% {
+                    height: 100px;
+                    opacity: 1;
+                    transform: scale(1);
+                    -webkit-transform: scale(1);
+                }
+            }
+
+            &>span {
+                height: 34px;
+                width: 1px;
+                background-color: #ddd;
+            }
         }
     }
 
