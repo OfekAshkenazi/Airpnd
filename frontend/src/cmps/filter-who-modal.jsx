@@ -17,9 +17,6 @@ export function FilterWhoModal({ setWhoCounter, whoCounter }) {
     if (!diff) diff = 1
     let newCount = whoCounter + diff
     // let allGuests = adults + children + infants + pets
-    console.log('whoCounter', whoCounter);
-    // console.log('diff', diff);
-    console.log('newCount', newCount);
     setWhoCounter(newCount)
   }
 

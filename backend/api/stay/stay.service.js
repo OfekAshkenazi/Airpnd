@@ -10,7 +10,8 @@ module.exports = {
     update,
 }
 
-async function query(filterBy) {
+async function query(filterBy = { txt: '', label: '', userId: '', hostId: '' }) {
+    console.log(filterBy, 'hi from filter')
     try {
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('stay')
@@ -28,28 +29,32 @@ function _buildCriteria(filterBy) {
             { "loc.country": { $regex: filterBy.txt, $options: 'i' } },
             { "loc.city": { $regex: filterBy.txt, $options: 'i' } }
         ],
-        type: { $regex: filterBy.type, $options: 'i' }    
+        type: { $regex: filterBy.type, $options: 'i' }
     }
-    if(filterBy.userId.length > 4) {
+    if (filterBy.userId.length > 4) {
         criteria = {
             $or: [
                 { "loc.country": { $regex: filterBy.txt, $options: 'i' } },
                 { "loc.city": { $regex: filterBy.txt, $options: 'i' } }
             ],
-            type: { $regex: filterBy.type, $options: 'i' },  
-            "likedByUsers": { $regex: `${filterBy.userId}`, $options: 'i' } 
-        } 
-    } else if (filterBy.hostId.length > 4) {
+            type: { $regex: filterBy.type, $options: 'i' },
+            "likedByUsers": { $regex: `${filterBy.userId}`, $options: 'i' }
+        }
+
+    }
+    else if (filterBy.hostId.length > 4) {
         criteria = {
             $or: [
                 { "loc.country": { $regex: filterBy.txt, $options: 'i' } },
                 { "loc.city": { $regex: filterBy.txt, $options: 'i' } }
             ],
-            type: { $regex: filterBy.type, $options: 'i' },  
-            "hostId": { $regex: `${filterBy.hostId}`, $options: 'i' } 
-        } 
-    }
-   
+            type: { $regex: filterBy.type, $options: 'i' },
+            "hostId": { $regex: `${filterBy.hostId}`, $options: 'i' }
+        }
+
+    } 
+
+
     return criteria
 }
 

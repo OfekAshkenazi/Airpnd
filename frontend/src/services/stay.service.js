@@ -21,7 +21,7 @@ function extractDate(dateString) {
     return date.toDateString().slice(0, 11)
 }
 
-async function query(filterBy = { txt: '', label: '', userId: '', hostId: '' }) {
+async function query(filterBy) {
     let stays
     let queryParams = `?txt=${filterBy.txt}&type=${filterBy.label}&userId=${filterBy.userId}&hostId=${filterBy.hostId}`
     try {
@@ -31,8 +31,6 @@ async function query(filterBy = { txt: '', label: '', userId: '', hostId: '' }) 
         console.log(err)
     }
 }
-// &type=${filterBy.type}
-// let queryParams = `?name=${filterBy.name}&inStock=${filterBy.inStock}`
 
 function getFilterFromSearchParams(searchParams) {
     const emptyFilter = getEmptyFilter()

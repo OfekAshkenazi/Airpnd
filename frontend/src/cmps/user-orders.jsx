@@ -10,9 +10,12 @@ import { stayService } from '../services/stay.service'
 export function UserOrders() {
     const [orders, setOrders] = useState([])
     const [currOrder, setCurrOrder] = useState(null)
+
+
     useEffect(() => {
         onLoadOrders()
     }, [])
+    
     async function onLoadOrders() {
         try {
             const dataOrders = await orderService.query()

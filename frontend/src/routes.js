@@ -4,7 +4,7 @@ import { StayConfirm } from './pages/stay-confirm.jsx'
 
 const routes = [
     {
-        path: '/',
+        path: '',
         component: <StayIndex />,
         label: 'stays'
     },

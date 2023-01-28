@@ -10,7 +10,7 @@ import { userService } from './user.service';
 (() => {
     socketService.on(SOCKET_EVENT_ORDER_FOR_USER, (order) => {
         showSuccessMsg(`Your order was answered`)
-        query()
+        
 
     })
     socketService.on(SOCKET_EVENT_ORDER_FOR_HOST, (order) => {
