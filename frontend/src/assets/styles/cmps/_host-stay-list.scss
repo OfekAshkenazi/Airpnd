@@ -2,8 +2,8 @@
   padding: em(10px);
 
   .host-stay {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    // gird // justify-content: space-between;
     align-items: center;
     padding: em(10px);
 
@@ -18,9 +18,9 @@
         height: 50px;
       }
     }
-    
+
     .icons-container {
       width: 33.33333%;
-    } 
+    }
   }
 }
