@@ -13,7 +13,7 @@ import { FilterWhoModal } from './filter-who-modal';
 export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateModalOpen, onAddGuest, onAddWhere, onDateModal, whoCounter, setWhoCounter }) {
   const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
 
-  
+
   const [searchParams, setSearchParams] = useSearchParams()
   const queryFilterBy = stayService.getFilterFromSearchParams(searchParams)
   const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy)
@@ -38,7 +38,7 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
   const data = {
     checkIn: 'Add dates',
     checkOut: 'Add dates',
-    who: 'Add guests',
+    who: 'guests',
   }
 
   function closeModal() {
@@ -89,7 +89,7 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
           <div className={`filter-who ${(isGuestModalOpen) ? "active" : ""}`} onClick={() => onAddGuest()}>
             <div className='filter-who-content'>
               <p>Who</p>
-              <p className={`unbold ${(whoCounter > 1) ? 'number' : ''}`}>{`${(whoCounter > 1) ? whoCounter + ' guest' : data.checkIn}`}</p>
+              <p className={`unbold`}>{`${(whoCounter > 1) ? whoCounter + ' guest' : data.who}`}</p>
               {isGuestModalOpen ? <FilterWhoModal setWhoCounter={setWhoCounter} whoCounter={whoCounter} /> : ''}
             </div>
 

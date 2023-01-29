@@ -20,7 +20,7 @@ export function AppHeader({ layout }) {
     // const [isFilterExpanded, setIsFilterExpanded] = useState(false)
     const user = useSelector(storeState => storeState.userModule.user)
     const [userModal, setUserModal] = useState(false)
-    const [whoCounter, setWhoCounter] = useState(1)
+    const [whoCounter, setWhoCounter] = useState(0)
 
 
     const [isGuestModalOpen, setIsGuestModalOpen] = useState(false)
