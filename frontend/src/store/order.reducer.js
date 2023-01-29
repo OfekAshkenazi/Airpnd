@@ -15,7 +15,7 @@ export function orderReducer(state = initialState, action) {
     let orders
     switch (action.type) {
         case SET_ORDERS:
-            newState = { ...state, orders: action.oreders }
+            newState = { ...state, orders: action.orders }
             break
         case REMOVE_ORDER:
             const lastRemovedorder = state.orders.find(order => order._id === action.orderId)

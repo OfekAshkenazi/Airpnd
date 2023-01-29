@@ -17,7 +17,7 @@ export function HostOrderPreview({ handelSelectChange, order }) {
                     <option value="decline">Decline</option>
                 </select>
             </div>
-           
+
         </div>
     )
 }

@@ -14,7 +14,7 @@ module.exports = {
 async function query(user) {
     try {
         const criteria = _buildCriteria(user)
-
+        console.log(user)
         const collection = await dbService.getCollection('order')
         let orders = await collection.find(criteria).toArray()
         return orders
@@ -77,10 +77,10 @@ function _buildCriteria(user) {
     let criteria
     if (user.isOwner === 'true') {
         criteria = {
-                "hostId": { $regex: `${user._id}`, $options: 'i' }
-            }
-            return criteria
-        } else if (user.isOwner === 'false') {
+            "hostId": { $regex: `${user._id}`, $options: 'i' }
+        }
+        return criteria
+    } else if (user.isOwner === 'false') {
         criteria = {
             "byUser._id": { $regex: `${user._id}`, $options: 'i' }
         }

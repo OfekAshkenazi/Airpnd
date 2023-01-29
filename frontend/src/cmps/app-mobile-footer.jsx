@@ -23,7 +23,7 @@ export function AppMobileFooter() {
         ToggleLoginModal(!isLoginModalOpen)
     }
 
-    
+
     async function onLogout() {
         try {
             await logout()
@@ -57,11 +57,11 @@ export function AppMobileFooter() {
             </p>}
 
             {user && <p onClick={onLogout} className={"icon-mobile-footer flex column"} >
-               <IconLogout />
+                <IconLogout />
                 <span className="login-footer">Logout</span>
             </p>}
 
-            {user?.isOwner &&<NavLink className={"icon-mobile-footer flex column"} to="/host/orders">
+            {user?.isOwner && <NavLink className={"icon-mobile-footer flex column"} to="/host/orders">
                 <IconCircleHost />
                 <p>Host</p>
             </NavLink>}

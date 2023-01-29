@@ -1,6 +1,7 @@
 const orderService = require('./order.service.js')
 const logger = require('../../services/logger.service')
 const socketService = require('../../services/socket.service')
+
 module.exports = {
   getOrders,
   getOrderById,
@@ -12,6 +13,7 @@ module.exports = {
 async function getOrders(req, res) {
   try {
     const user = req.query
+    console.log(user)
     logger.debug('Getting orders')
     const orders = await orderService.query(user)
     res.json(orders)
@@ -39,7 +41,6 @@ async function addOrder(req, res) {
     const addedOrder = await orderService.add(order, loggedinUser)
 
     socketService.emitToUser({ type: 'order-coming', data: order, userId: order.hostId })
-
 
     res.json(addedOrder)
   } catch (err) {
