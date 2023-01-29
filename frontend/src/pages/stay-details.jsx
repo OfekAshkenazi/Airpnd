@@ -61,7 +61,7 @@ export function StayDetails() {
             </div>
             <div className="action-btn ">
                 <button className="back-btn-details" onClick={handleBackClick}>
-                    <img className="back-img-details" src={require(`../assets/img/icons/back.png`)} />
+                    <img  onClick={handleBackClick}className="back-img-details" src={require(`../assets/img/icons/back.png`)} />
                 </button>
                 <div className="duo"><img src={require("../assets/img/icons/share.png")} />
                     <button className="share-btn">Share</button></div>
@@ -87,7 +87,7 @@ export function StayDetails() {
             </div>
             <ReserveBtn className="mobile-btn" order={order} numericDate={new Date} stay={1} totalPrice={1} />
         </div>
-        <GoogleMap lat={+stay.loc.lat} lng={+stay.loc.lan} />
+        <GoogleMap lat={+stay.loc.lan} lng={+stay.loc.lat} />
     </section>
 }
 

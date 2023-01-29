@@ -1,6 +1,7 @@
 .stay-details {
     display: grid;
-width: 100%;
+    width: 100%;
+
     .reserve-mobile {
         position: absolute;
         right: 10000px;
@@ -79,21 +80,19 @@ width: 100%;
         .seperator {
             margin: 0 4px;
         }
-        
+
         .action-btn {
-            // display: block;
-            // align-items: center;
             display: none;
 
             @media (min-width: 740px) {
-            display: flex;
-            align-items: center;
+                display: flex;
+                align-items: center;
 
-            img {
-                height: em(15px);
-                width: em(15px);
-                margin-right: em(1.5px);
-            }
+                img {
+                    height: em(15px);
+                    width: em(15px);
+                    margin-right: em(1.5px);
+                }
 
                 .duo {
                     display: flex;
@@ -106,6 +105,10 @@ width: 100%;
                         border-radius: em(8px);
                         cursor: pointer;
                     }
+                }
+
+                .back-img-details{
+                    margin-top: em(4px);
                 }
 
                 .share-btn,
@@ -124,11 +127,13 @@ width: 100%;
     .imgs-container {
 
         display: grid;
+
         .grid-img-1 {
             aspect-ratio: 667/444;
         }
 
         @media (max-width: 740px) {
+
             .grid-img-2,
             .grid-img-3,
             .grid-img-4,

@@ -80,7 +80,6 @@ export function AppHeader({ layout }) {
     //     setIsGuestModalOpen(true)
     // }
 
-
     return (
         <>
             <header className={`full header ${(isFilterExpanded) ? "expanded" : ""} ${(layout === 'main-container narrow') ? "narrow" : ""}`} >

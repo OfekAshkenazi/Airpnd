@@ -69,17 +69,20 @@
             .guests {
                 display: flex;
                 flex: 1;
+                
 
                 @media(min-width: 720px) {
                     flex: 0;
                 }
 
+                font-family: circularH;
                 font-weight: 600;
                 font-size: em(16px);
                 padding-bottom: em(22px);
                 line-height: em(20px);
 
                 span {
+                    font-family: circularL;
                     font-weight: 400;
                 }
 
@@ -97,6 +100,9 @@
 
                     .guests-span {
                         text-align: center;
+                        @media(min-width:720px){
+                            text-align: left;
+                        }
                     }
 
                     span {
@@ -216,7 +222,7 @@
 .back-btn-details {
     position: relative;
     // bottom: em(2px);
-    background-color:  $clrHoverGray;
+    background-color:  white;
     height: em(35px);
     width: em(35px);
     border-radius: 50%;
