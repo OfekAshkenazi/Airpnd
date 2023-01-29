@@ -1,3 +1,4 @@
+import SimpleSelect from "./host-select-order"
 
 export function HostOrderPreview({ handelSelectChange, order }) {
 
@@ -7,7 +8,7 @@ export function HostOrderPreview({ handelSelectChange, order }) {
         var lastInitial = parts[parts.length - 1][0]
         return firstName + " " + lastInitial + "."
     }
-    
+
 
     return (
         <div className="order-status">
@@ -18,14 +19,19 @@ export function HostOrderPreview({ handelSelectChange, order }) {
             <p className="type mobile-gone">{order.stay.type}</p>
             <p className="mobile-gone">{order.startDate.slice(0, 10)}</p>
             <p className="price-host-order">$ {order.totalPrice}</p>
-            <div className="status-indicator align-center flex">
-                <select onChange={(event) => handelSelectChange(event, order._id)} name="status" id="">
-                    <option value={order.status}>{order.status}</option>
-                    <option value="approve">Approve</option>
-                    <option value="decline">Decline</option>
-                </select>
+            <div className="status-indicator align-center flex column">
+                <button onClick={() => handelSelectChange('approve', order._id)} className={order.status === 'approve' ? 'approve active' : 'approve'} ><span class="text">Approve</span></button>
+                <button onClick={() => handelSelectChange('approve', order._id)} className={order.status === 'decline' ? 'decline active' : 'decline'} ><span class="text">Decline</span></button>
             </div>
-
         </div>
     )
 }
+
+
+
+
+{/* <select onChange={(event) => handelSelectChange(event, order._id)} name="status" id="">
+<option value={order.status}>{order.status}</option>
+<option value="approve">Approve</option>
+<option value="decline">Decline</option>
+</select> */}
