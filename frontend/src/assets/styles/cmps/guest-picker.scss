@@ -10,11 +10,13 @@
         font-size: em(9px);
         padding-left: em(18px);
         padding-top: em(8px);
+        font-family: circularH;
+        font-weight: 300;
 
         .guest-side {
             display: flex;
             flex-direction: column;
-            padding-bottom: em(28px);
+            padding-bottom: em(14px);
         }
 
         .arrow-side {
@@ -28,14 +30,16 @@
         }
 
         .bold {
-            margin-top: em(10px);
+            margin-top: em(11px);
             font-weight: bold;
             color: $clrBlackFont;
             font-size: em(21px);
         }
 
         .second-row {
-            font-size: em(24px);
+            font-size: em(28px);
+            font-family: circularL;
+            padding-top: em(3px);
         }
     }
 

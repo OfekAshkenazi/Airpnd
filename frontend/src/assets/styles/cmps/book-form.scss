@@ -66,7 +66,6 @@
   }
 
   .action-btn {
-    // padding: 10px 10px;
     position: relative;
     width: 100%;
 
@@ -86,23 +85,30 @@
       border-top-left-radius: em(8px);
       border-bottom: none;
       border-right: none !important;
-      font-weight: 900;
+      font-weight: 600;
       padding: em(14px) em(14px);
       border: em(1px) solid rgba(0, 0, 0, .32);
+      font-family: circularH;
+      font-size: em(14px);
     }
 
     .checkout {
       flex-direction: column;
       flex: 1;
       border-top-right-radius: em(8px);
-      font-weight: 900;
+      font-weight: 600;
       border-bottom: none;
       padding: em(14px) em(14px);
       border: em(1px) solid rgba(0, 0, 0, .32);
+      font-family: circularH;
+      font-size: em(14px);
     }
 
     span {
       font-weight: 400;
+      font-family: circularL;
+      padding-top: em(2px);
+      font-size: em(22px);
     }
   }
 

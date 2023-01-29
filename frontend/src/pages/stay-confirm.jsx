@@ -16,8 +16,9 @@ export function StayConfirm() {
   const { stayId, startDate, endDate, adults, children, infants, pets } = params
   useEffect(() => {
   }, [order])
-  const totalPrice = (parseFloat(order.totalPrice.replace(/,/g, '')) - 100).toLocaleString()
   
+  const totalPrice = (parseFloat(order.totalPrice.replace(/,/g, '')) - 100).toLocaleString()
+
   function handleBackClick() {
     navigate(-1)
   }
@@ -52,9 +53,9 @@ export function StayConfirm() {
   async function onAddNewOrder() {
     try {
       const user = userService.getLoggedinUser()
-      if(!user) {
+      if (!user) {
         showErrorMsg('pls log in ')
-        return 
+        return
       }
       await orderService.add(order)
       navigate(`/orders/my-orders`)

@@ -77,15 +77,14 @@ export function StayDetails() {
             ))}
 
         </div>
-
         {<StayExpanded stay={stay} getRating={getRating} />}
         <ReviewList stay={stay} />
         <div className="reserve-mobile">
             <div className="info-side">
                 <div className="price">{stay.price}$ <span className="night"> night </span> </div>
-                <span className="dates">dates</span>
+                <span className="dates">{stayService.extractDate(currOrder.startDate)} - {stayService.extractDate(currOrder.endDate)}</span>
             </div>
-            <ReserveBtn className="mobile-btn" order={order} numericDate={new Date} stay={1} totalPrice={1} />
+            <ReserveBtn className="mobile-btn" order={order} numericDate={new Date} stay={stay} totalPrice={'240'} />
         </div>
         <GoogleMap lat={+stay.loc.lan} lng={+stay.loc.lat} />
     </section>

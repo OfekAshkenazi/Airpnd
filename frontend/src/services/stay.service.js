@@ -13,8 +13,15 @@ export const stayService = {
     getEmptyStay,
     getEmptyFilter,
     getFilterFromSearchParams,
-    extractDate
+    extractDate,
+    getDayDifference
 }
+
+function getDayDifference(date1, date2) {
+    const timeDiff = Math.abs(date2.getTime() - date1.getTime())
+    const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24))
+    return dayDiff
+  }
 
 function extractDate(dateString) {
     const date = new Date(dateString)

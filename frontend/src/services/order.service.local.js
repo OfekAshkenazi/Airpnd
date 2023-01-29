@@ -14,7 +14,7 @@ import { userService } from './user.service';
 
     })
     socketService.on(SOCKET_EVENT_ORDER_FOR_HOST, (order) => {
-        showSuccessMsg(`Order recived`)
+        showSuccessMsg(`Order received`)
     })
 })()
 

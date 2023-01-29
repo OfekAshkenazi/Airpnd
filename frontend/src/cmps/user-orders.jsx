@@ -15,7 +15,7 @@ export function UserOrders() {
     useEffect(() => {
         onLoadOrders()
     }, [])
-    
+
     async function onLoadOrders() {
         try {
             const dataOrders = await orderService.query()
@@ -40,7 +40,7 @@ export function UserOrders() {
                                 <span className="preview-loc"> {order.stay.loc.city}, {order.stay.loc.countrey} Dec 30 - Jan 04</span>
                             </div>
                             <div className="order-indiction">
-                                <p className={`${order.status}`}><PendingIcon /> {order.status}</p>
+                                <p className={`${order.status}`}>{order.status}</p>
                             </div>
                         </div>
                     )

@@ -17,7 +17,6 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
   const [searchParams, setSearchParams] = useSearchParams()
   const queryFilterBy = stayService.getFilterFromSearchParams(searchParams)
   const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy)
-  console.log('queryFilterBy:', queryFilterBy)
 
   useEffect(() => {
     setSearchParams(filterByToEdit)

@@ -1,11 +1,19 @@
 
 export function HostOrderPreview({ handelSelectChange, order }) {
 
+    function shortenName(name) {
+        var parts = name.split(" ")
+        var firstName = parts[0]
+        var lastInitial = parts[parts.length - 1][0]
+        return firstName + " " + lastInitial + "."
+    }
+    
+
     return (
         <div className="order-status">
             <p className="user-img-order-container">
                 <img src={order.byUser.imgUrl} alt="" />
-                {order.byUser.fullname}
+                {shortenName(order.byUser.fullname)}
             </p>
             <p className="type mobile-gone">{order.stay.type}</p>
             <p className="mobile-gone">{order.startDate.slice(0, 10)}</p>
