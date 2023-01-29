@@ -129,6 +129,7 @@
                     padding: 13px 30px;
                     position: relative;
 
+
                     .number {
                         padding: 0px 9.5px;
                     }
@@ -190,14 +191,79 @@
                 width: 1px;
                 background-color: #ddd;
             }
+
+            // @media (max-width: 800px) {
+            //     .filter-who {
+            //         display: none;
+            //     }
+
+            //     .filter-check-out {
+            //         display: none;
+            //     }
+
+            //     .filter-check-in {
+            //         display: none;
+            //     }
+
+            //     .filter-where {
+            //         // display: none;
+
+            //         background-color: aqua;
+            //         width: 400px;
+            //     }
+
+            //     // position: absolute;
+            // }
         }
     }
 
     @media (max-width: 800px) {
-        display: none;
-    }
-}
+        margin-top: 60px;
+        width: 100%;
 
-.dark {
-    background-color: #bfbfbf;
+        .con.show {
+            .stay-filter-form {
+                .filter-who {
+
+                    padding-right: 0px;
+
+                    .filter-who-content {
+                        display: none;
+
+                        .number {
+                            display: none;
+                        }
+                    }
+
+                    .btn-search-filter {
+                        position: absolute;
+                        left: -65px;
+                        z-index: 10000;
+                    }
+
+                    p.search-icon {
+                        padding-left: 10px;
+                        padding-top: 6px;
+                    }
+                }
+
+
+                .filter-check-out {
+                    display: none;
+                }
+
+                .filter-check-in {
+                    display: none;
+                }
+
+                .filter-where {
+                    width: 365px;
+                }
+            }
+        }
+
+        .dark {
+            background-color: #bfbfbf;
+        }
+    }
 }

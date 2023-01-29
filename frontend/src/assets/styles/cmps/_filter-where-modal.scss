@@ -120,4 +120,32 @@
     }
 
   }
+
+  @media (max-width: 800px) {
+    transition: 0.3s;
+    width: 100%;
+
+    // display: ;
+    flex-direction: column;
+
+    .common-cities {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .common-countries {
+      padding-top: 20px;
+
+      .countries-list {
+        // display: grid;
+        // grid-template-columns: 1fr 1fr;
+        // grid-template-rows: 1fr 1fr 1frs;
+        // justify-items: center;
+        // align-items: center;
+        // gap: 20px;
+        display: none;
+      }
+    }
+
+  }
 }
