@@ -24,7 +24,8 @@ export function TotalEarn() {
         },
     }
 
-    let monyEarnd = [1130, 790, 1280, 1560, 630, 780, 1200, 1300, 550, 600, 530]
+    // let monyEarnd = [1130, 790, 1280, 1560, 630, 780, 1200, 1300, 550, 600, 530]
+    let monyEarnd = [1130, 790, 1280, 1560, 630,780 ]
 
     function getMoneyEarend() {
         const chartData = monyEarnd.reduce((acc, money) => {
@@ -37,7 +38,8 @@ export function TotalEarn() {
     const totalPrice = (parseFloat(JSON.stringify(money).replace(/,/g, ''))).toLocaleString()
 
 
-    const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December']
+    // const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December']
+    const labels = ['January', 'February', 'March', 'April', 'May', 'June']
     const data = {
         labels,
         datasets: [
@@ -45,6 +47,7 @@ export function TotalEarn() {
                 label: `Revenue ${totalPrice}`,
                 data: monyEarnd,
                 backgroundColor: '#2a5811',
+                borderRadiusx:'5px'
             },
         ],
     }

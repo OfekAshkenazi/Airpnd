@@ -8,17 +8,16 @@ export function DashBoard() {
     return (
         <section className="dashboard-page">
             <section className="charts-container">
-                <div className="chart-container total-earn">
-                    <TotalEarn />
-                </div>
-                <div className="chart-container total-expenses">
-                    <TotalExpenses />
-                </div>
+
                 <div className="tax-report">
                     <TaxReport />
                 </div>
+                <div className="chart-container total-earn">
+                    <TotalEarn />
+                </div>
             </section>
-            <GoogleMapHostStays />
+            {/* <GoogleMapHostStays /> */}
+            
             <HostStayList />
 
         </section>

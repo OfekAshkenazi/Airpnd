@@ -35,13 +35,14 @@ export function HostStayList() {
       showErrorMsg('Cannot load orders')
     }
   }
-  console.log(hostStays.length)
+  // console.log(hostStays.length)
   if (hostStays.length > 15) return
 
 
   if(!hostStays.length) return 
   return (
     <section className=''>
+      <h2>Your preoperies</h2>
       <ul className="host-stay-list flex column">
         {hostStays.map(stay => <li key={stay._id}>
           <HostStayPreview stay={stay} />
