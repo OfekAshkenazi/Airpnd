@@ -2,7 +2,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 import { stayService } from '../services/stay.service'
-import { updateOrder } from '../store/system.action'
+import { updateOrder } from '../store/order.action'
 import { orderService } from '../services/order.service.local'
 import { PropagateLoader } from 'react-spinners';
 import { useEffect } from 'react'
@@ -10,7 +10,7 @@ import { userService } from '../services/user.service'
 import { showErrorMsg } from '../services/event-bus.service'
 
 export function StayConfirm() {
-  const order = useSelector(storeState => storeState.systemModule.order)
+  const order = useSelector(storeState => storeState.orderModule.order)
   let navigate = useNavigate()
   const params = useParams()
   const { stayId, startDate, endDate, adults, children, infants, pets } = params

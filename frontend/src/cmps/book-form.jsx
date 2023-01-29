@@ -8,11 +8,12 @@ import { differenceInCalendarDays } from 'date-fns'
 
 import '../../node_modules/react-date-range/dist/styles.css'
 import '../../node_modules/react-date-range/dist/theme/default.css'
+import { updateOrder } from '../store/order.action.js'
 
 export function BookingForm({ stay, getRating }) {
-    const currOrder = useSelector(storeState => storeState.systemModule.order)
-    const [order, setOrder] = useState([currOrder])
-    const [guests, setGuests] = useState(order[0].guests)
+    const order = useSelector(storeState => storeState.orderModule.order)
+    const [currOrder, setOrder] = useState([order])
+    const [guests, setGuests] = useState(currOrder[0].guests)
     const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
     const [isGuestPickerOpen, setIsGuestPickerOpen] = useState(false)
     const [numClicks, setNumClicks] = useState(0)
@@ -31,22 +32,27 @@ export function BookingForm({ stay, getRating }) {
             document.removeEventListener('click', handleClick)
         }
     }, [setIsDatePickerOpen, setIsGuestPickerOpen])
-    order[0].stay = stay
+    currOrder[0].stay = stay
     const stayPrice = priceCalc(stay.price)
     const serviceFee = 100
     const totalPrice = (parseFloat(stayPrice.replace(/,/g, '')) + serviceFee).toLocaleString()
 
     function handleGuestChange(newGuests) {
         setOrder(prevOrder => {
-            const updatedOrder = { ...prevOrder[0] }
-            updatedOrder.guests = { ...updatedOrder.guests, ...newGuests }
-            return [updatedOrder]
+            const updatedOrder1 = { ...prevOrder[0] }
+            updatedOrder1.guests = { ...updatedOrder1.guests, ...newGuests }
+            setTimeout(() => {
+                updateOrder(updatedOrder1)
+            }, 500)
+            return [updatedOrder1]
         })
     }
 
     function handleDateChange(range) {
         const { startDate, endDate } = range
         setOrder(prevOrder => [{ ...prevOrder[0], startDate, endDate }])
+        updateOrder(currOrder)
+
     }
 
     function numericDate(date) {
@@ -59,7 +65,7 @@ export function BookingForm({ stay, getRating }) {
     }
 
     function daysNumCalc() {
-        const numberOfDays = differenceInCalendarDays(order[0].endDate, order[0].startDate)
+        const numberOfDays = differenceInCalendarDays(currOrder[0].endDate, currOrder[0].startDate)
         return numberOfDays
     }
 
@@ -86,8 +92,8 @@ export function BookingForm({ stay, getRating }) {
                 setIsDatePickerOpen(!isDatePickerOpen)
                 setIsGuestPickerOpen(false)
             }}>
-                <div className='checkin flex'>CHECK-IN <span className="check-date">{numericDate(order[0].startDate)}</span></div>
-                <div className='checkout flex'>CHECKOUT<span className="check-date">{numericDate(order[0].endDate)}</span></div>
+                <div className='checkin flex'>CHECK-IN <span className="check-date">{numericDate(currOrder[0].startDate)}</span></div>
+                <div className='checkout flex'>CHECKOUT<span className="check-date">{numericDate(currOrder[0].endDate)}</span></div>
             </div>
             {isDatePickerOpen && <DateRange
                 editableDateInputs={true}
@@ -98,7 +104,7 @@ export function BookingForm({ stay, getRating }) {
                     if (numClicks % 2) setIsDatePickerOpen(false)
                 }
                 }
-                ranges={order}
+                ranges={currOrder}
                 months={2}
                 direction={'horizontal'}
                 className='date-range'
@@ -114,7 +120,7 @@ export function BookingForm({ stay, getRating }) {
             {isGuestPickerOpen && <GuestPicker guests={guests} setGuests={setGuests} handleGuestChange={handleGuestChange} />}
 
         </div>
-        <ReserveBtn className="reserve" order={order} numericDate={numericDate} stay={stay} totalPrice={totalPrice} />
+        <ReserveBtn className="reserve" order={currOrder} numericDate={numericDate} stay={stay} totalPrice={totalPrice} />
         <p>You won't be charged yet</p>
         <div className="summary">
             <div className="prices">

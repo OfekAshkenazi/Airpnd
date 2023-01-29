@@ -1,14 +1,16 @@
 import * as React from 'react'
 import { useNavigate, NavLink, useSearchParams, useParams } from 'react-router-dom'
-import { updateOrder } from '../store/system.action'
+import { updateOrder } from '../store/order.action'
 import { userService } from '../services/user.service'
+import { useSelector } from 'react-redux'
 
 export function ReserveBtn({ order, numericDate, stay, totalPrice }) {
   let { stayId } = useParams()
+  // const order1 = useSelector(storeState => storeState.orderModule.order)
+
   const { startDate, endDate, guests } = order[0]
   const { adults, children, infants, pets } = guests
   const navigate = useNavigate()
-  
   async function onAddNewOrder(order, stay) {
     try {
       order[0].stayId = stay._id

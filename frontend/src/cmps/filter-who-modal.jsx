@@ -5,11 +5,13 @@ import { disable } from 'workbox-navigation-preload';
 import IconArrows_circle_minus from '../assets/svg/minus-icon.jsx';
 import IconArrows_circle_plus from '../assets/svg/plus-icon.jsx';
 import { orderService } from '../services/order.service.local.js';
-import { updateOrder } from '../store/system.action.js';
+import { updateOrder } from '../store/order.action.js';
 import { TotalExpenses } from './total-expenses.jsx';
 
 export function FilterWhoModal({ setWhoCounter, whoCounter }) {
-  const { order } = useSelector(storeState => storeState.systemModule)
+  const  {order}  = useSelector(storeState => storeState.orderModule)
+ 
+  
   const { guests } = order
   const { adults, children, infants, pets } = guests
 

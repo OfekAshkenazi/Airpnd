@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { PropagateLoader } from 'react-spinners';
 
-import { showErrorMsg } from '../services/event-bus.service';
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
 import { orderService } from '../services/order.service.local';
+import { loadOrders } from '../store/order.action';
 import { HostOrdersList } from './host-orders-list';
+
 
 export function HostOrders() {
   const user = useSelector(storeState => storeState.userModule.user)
-
-  const [orders, setOrders] = useState([])
+  const orders = useSelector(storeState => storeState.orderModule.orders)
 
   useEffect(() => {
     onLoadOrders()
@@ -17,24 +18,13 @@ export function HostOrders() {
 
   async function onLoadOrders() {
     try {
-      const hostOrders = await orderService.query()
-      setOrders(hostOrders)
+      await loadOrders()
     } catch (err) {
       console.log(err)
       showErrorMsg('Cannot load orders')
     }
   }
 
-  // async function handelSelectChange(txt,orderId) {
-  //   try {
-  //     const orderToSave = await orderService.getById(orderId)
-  //     orderToSave.status = txt
-  //     await orderService.update(orderToSave)
-  //   } catch (err) {
-  //     showErrorMsg('Cannot complete request')
-  //   }
-
-  // }
 
   async function handelSelectChange(event, orderId) {
     let { value } = event.target

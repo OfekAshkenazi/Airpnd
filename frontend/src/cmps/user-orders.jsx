@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { PropagateLoader } from 'react-spinners';
 
 import { PendingIcon } from '../assets/svg/pending-icon';
@@ -6,9 +7,11 @@ import { showErrorMsg } from '../services/event-bus.service';
 import { orderService } from '../services/order.service.local';
 
 import { stayService } from '../services/stay.service'
+import { loadOrders } from '../store/order.action';
 
 export function UserOrders() {
-    const [orders, setOrders] = useState([])
+    // const [orders, setOrders] = useState([])
+    const orders = useSelector(storeState => storeState.orderModule.orders)
     const [currOrder, setCurrOrder] = useState(null)
 
 
@@ -18,9 +21,9 @@ export function UserOrders() {
 
     async function onLoadOrders() {
         try {
-            const dataOrders = await orderService.query()
-            setOrders(dataOrders)
+            const dataOrders = await loadOrders()
             setCurrOrder(dataOrders[0])
+            console.log(dataOrders)
         } catch (err) {
             showErrorMsg('Cannot load orders')
         }

@@ -13,20 +13,19 @@ import { PropagateLoader } from 'react-spinners';
 export function StayDetails() {
     const [stay, setStay] = useState(null)
     const { stayId } = useParams()
-    const currOrder = useSelector(storeState => storeState.systemModule.order)
-    const [order, setOrder] = useState([currOrder])
+    const order = useSelector(storeState => storeState.orderModule.order)
+    const [currOrder, setOrder] = useState([order])
+
     const navigate = useNavigate()
     useEffect(() => {
         loadStay()
         ToggleDetails(true)
     }, [])
-
-
+    
+    
     function handleBackClick() {
         navigate(-1)
     }
-
-
 
     async function loadStay() {
         try {
@@ -44,7 +43,6 @@ export function StayDetails() {
         }
         return (stay.reviews.reduce((acc, review) => acc + review.rate, 0) / stay.reviews.length).toFixed(2)
     }
-
     if (!stay) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
 
     return <section className="stay-details">
@@ -82,9 +80,9 @@ export function StayDetails() {
         <div className="reserve-mobile">
             <div className="info-side">
                 <div className="price">{stay.price}$ <span className="night"> night </span> </div>
-                <span className="dates">{stayService.extractDate(currOrder.startDate)} - {stayService.extractDate(currOrder.endDate)}</span>
+                <span className="dates">{stayService.extractDate(order.startDate)} - {stayService.extractDate(order.endDate)}</span>
             </div>
-            <ReserveBtn className="mobile-btn" order={order} numericDate={new Date} stay={stay} totalPrice={'240'} />
+            <ReserveBtn className="mobile-btn" order={currOrder} numericDate={new Date} stay={stay} totalPrice={order.totalPrice} />
         </div>
         <GoogleMap lat={+stay.loc.lan} lng={+stay.loc.lat} />
     </section>

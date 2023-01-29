@@ -24,8 +24,6 @@ import { login, signup } from './store/user.actions';
 
 export function RootCmp() {
     const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
-
-
     const isLoginModalOpen = useSelector(storeState => storeState.systemModule.isLoginModalOpen)
 
     const layout = isDetailsOpen ? 'main-container narrow' : 'main-container'
