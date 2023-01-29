@@ -1,6 +1,7 @@
 import { addDays } from 'date-fns';
 
 import { showSuccessMsg } from '../services/event-bus.service.js';
+import { loadOrders } from '../store/order.action.js';
 import { storageService } from './async-storage.service';
 import { httpService } from './http.service';
 import { SOCKET_EVENT_ORDER_FOR_HOST, socketService, SOCKET_EVENT_ORDER_FOR_USER } from './socket.service';
@@ -9,8 +10,8 @@ import { userService } from './user.service';
 
 (() => {
     socketService.on(SOCKET_EVENT_ORDER_FOR_USER, (order) => {
-        showSuccessMsg(`Your order was answered`)
-        
+        loadOrders()
+        showSuccessMsg(`Your order was ${order.status}`)
 
     })
     socketService.on(SOCKET_EVENT_ORDER_FOR_HOST, (order) => {
@@ -35,6 +36,7 @@ export const orderService = {
 async function query() {
     try {
         const user = userService.getLoggedinUser()
+        console.log(user)
         const orders = await httpService.get('order', user)
         return orders
     } catch (err) {
