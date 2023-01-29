@@ -218,10 +218,13 @@
     }
 
     @media (max-width: 800px) {
-        margin-top: 60px;
+        margin-top: 90px;
         width: 100%;
+        border-radius: 50px;
 
         .con.show {
+            width: 100%;
+
             .stay-filter-form {
                 .filter-who {
 
@@ -257,7 +260,7 @@
                 }
 
                 .filter-where {
-                    width: 365px;
+                    width: 100%;
                 }
             }
         }

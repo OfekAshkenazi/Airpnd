@@ -67,6 +67,7 @@
 
       .img-desc-container {
         width: 100%;
+        padding: 20px 0px;
         grid-area: content;
         text-align: center;
         justify-content: center;
@@ -75,14 +76,16 @@
 
       .icons-container {
         // width: 33.33333%;
-        padding-left: 40px;
+        // padding-left: 40px;
+        // justify-content: center;
         grid-area: icons;
+        margin-left: 70px;
       }
 
       .money {
         grid-area: money;
         font-size: 18px;
-        padding-left: 30px;
+        padding-left: 10px;
 
       }
     }
