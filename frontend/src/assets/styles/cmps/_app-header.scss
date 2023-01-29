@@ -48,14 +48,14 @@
                 border: solid 1px #ddd;
                 border-radius: 50px;
                 color: #666f7a;
-                padding-top: 2px;
+                padding-top: em(5px);
                 padding-right: 4.5px;
                 padding-left: 10px;
 
                 img {
                     object-fit: cover;
-                    width: em(38px);
-                    height: em(38px);
+                    width: em(42px);
+                    height: em(42px);
                     border-radius: 50%;
                 }
 
@@ -109,9 +109,7 @@
                 display: none;
             }
         }
-
     }
-
 
 }
 

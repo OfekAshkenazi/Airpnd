@@ -15,7 +15,7 @@ export function UserOrders() {
     useEffect(() => {
         onLoadOrders()
     }, [])
-    
+
     async function onLoadOrders() {
         try {
             const dataOrders = await orderService.query()
