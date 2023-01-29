@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { PropagateLoader } from 'react-spinners';
 
 import { showErrorMsg } from '../services/event-bus.service';
 import { orderService } from '../services/order.service.local';
 import { HostOrdersList } from './host-orders-list';
-import { PropagateLoader } from 'react-spinners';
 
 export function HostOrders() {
   const user = useSelector(storeState => storeState.userModule.user)
@@ -25,17 +25,27 @@ export function HostOrders() {
     }
   }
 
-  async function handelSelectChange(txt,orderId) {
+  // async function handelSelectChange(txt,orderId) {
+  //   try {
+  //     const orderToSave = await orderService.getById(orderId)
+  //     orderToSave.status = txt
+  //     await orderService.update(orderToSave)
+  //   } catch (err) {
+  //     showErrorMsg('Cannot complete request')
+  //   }
+
+  // }
+
+  async function handelSelectChange(event, orderId) {
+    let { value } = event.target
     try {
       const orderToSave = await orderService.getById(orderId)
-      orderToSave.status = txt
+      orderToSave.status = value
       await orderService.update(orderToSave)
     } catch (err) {
       showErrorMsg('Cannot complete request')
     }
-
   }
-
   if (!orders.length) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
 
   return (
