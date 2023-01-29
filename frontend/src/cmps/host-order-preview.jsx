@@ -1,4 +1,4 @@
-import SimpleSelect from "./host-select-order"
+import SimpleSelect from './host-select-order';
 
 export function HostOrderPreview({ handelSelectChange, order }) {
 
@@ -20,8 +20,8 @@ export function HostOrderPreview({ handelSelectChange, order }) {
             <p className="mobile-gone">{order.startDate.slice(0, 10)}</p>
             <p className="price-host-order">$ {order.totalPrice}</p>
             <div className="status-indicator align-center flex column">
-                <button onClick={() => handelSelectChange('approve', order._id)} className={order.status === 'approve' ? 'approve active' : 'approve'} ><span class="text">Approve</span></button>
-                <button onClick={() => handelSelectChange('approve', order._id)} className={order.status === 'decline' ? 'decline active' : 'decline'} ><span class="text">Decline</span></button>
+                <button onClick={() => handelSelectChange('approve', order._id)} className={order.status === 'approve' ? 'approve active' : 'approve'} >Approve</button>
+                <button onClick={() => handelSelectChange('decline', order._id)} className={order.status === 'decline' ? 'decline active' : 'decline'} >Decline</button>
             </div>
         </div>
     )
