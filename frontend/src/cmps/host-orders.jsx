@@ -8,7 +8,7 @@ import { PropagateLoader } from 'react-spinners';
 
 export function HostOrders() {
   const user = useSelector(storeState => storeState.userModule.user)
-  
+
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
@@ -25,17 +25,17 @@ export function HostOrders() {
     }
   }
 
-  async function handelSelectChange(event, orderId) {
-    let { value } = event.target
+  async function handelSelectChange(txt,orderId) {
     try {
       const orderToSave = await orderService.getById(orderId)
-      orderToSave.status = value
+      orderToSave.status = txt
       await orderService.update(orderToSave)
     } catch (err) {
       showErrorMsg('Cannot complete request')
     }
 
-  }    
+  }
+
   if (!orders.length) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
 
   return (
@@ -47,7 +47,20 @@ export function HostOrders() {
         <p>Price</p>
         <p>Status</p>
       </div>
-      <HostOrdersList handelSelectChange={handelSelectChange} orders={orders}/>
+      <HostOrdersList handelSelectChange={handelSelectChange} orders={orders} />
     </section>
   )
 }
+
+
+// async function handelSelectChange(event, orderId) {
+//   let { value } = event.target
+//   try {
+//     const orderToSave = await orderService.getById(orderId)
+//     orderToSave.status = value
+//     await orderService.update(orderToSave)
+//   } catch (err) {
+//     showErrorMsg('Cannot complete request')
+//   }
+
+// }    
