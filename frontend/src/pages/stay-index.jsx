@@ -14,12 +14,18 @@ import { updateUser } from '../store/user.actions.js';
 export function StayIndex() {
     const stays = useSelector(storeState => storeState.stayModule.stays)
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
+
+    const [searchParams, setSearchParams] = useSearchParams()
+    const queryFilterBy = stayService.getFilterFromSearchParams(searchParams)
+
     const user = useSelector(storeState => storeState.userModule.user)
     const navigate = useNavigate()
 
+
+
     useEffect(() => {
-        loadStays(filterBy)
         ToggleDetails(false)
+        loadStays(queryFilterBy)
     }, [filterBy])
 
     //work

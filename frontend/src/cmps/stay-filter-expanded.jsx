@@ -11,27 +11,18 @@ import { FilterWhereModal } from './filter-where-modal';
 import { FilterWhoModal } from './filter-who-modal';
 
 export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateModalOpen, onAddGuest, onAddWhere, onDateModal, whoCounter, setWhoCounter }) {
+  const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
+
+  
   const [searchParams, setSearchParams] = useSearchParams()
   const queryFilterBy = stayService.getFilterFromSearchParams(searchParams)
   const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy)
-  const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
-  const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
-
-  // const [whoCounter, setWhoCounter] = useState(1)
-  // console.log('queryFilterBy:', queryFilterBy)
-  // console.log('filterBy:', filterBy)
-  // console.log('filterByToEdit:', filterByToEdit)
-  // console.log('searchParams:', searchParams)
+  console.log('queryFilterBy:', queryFilterBy)
 
   useEffect(() => {
-    // onSetFilter(filterByToEdit)
-    filterByToEdit.txt = ''
+    setSearchParams(filterByToEdit)
+    onSetFilter(filterByToEdit)
   }, [])
-
-  // useEffect(() => {
-  //   countGuests()
-  // }, [whoCounter])
-
 
   function handleChange({ target }) {
     let { value, name: field, type } = target

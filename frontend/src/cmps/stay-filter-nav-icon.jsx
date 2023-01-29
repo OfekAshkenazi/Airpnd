@@ -3,17 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 
-import { IconFiltering } from '../assets/svg/filtring-icon';
 import { labels, stayService } from '../services/stay.service';
 import { onSetFilter } from '../store/stay.actions';
 
 export function NavIconFilter() {
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
-    // const [searchParams, setSearchParams] = useSearchParams()
-    // const queryFilterBy = stayService.getFilterFromSearchParams(searchParams)
-
+    const [searchParams, setSearchParams] = useSearchParams()
+    const queryFilterBy = stayService.getFilterFromSearchParams(searchParams)
+    const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy)
 
     const [idx, setIdx] = useState(0)
     const pageSize = 14
@@ -42,11 +41,11 @@ export function NavIconFilter() {
 
     }
 
-    function onFilterByLabel(label) {
-        let filterBy = stayService.getEmptyFilter()
-        filterBy.label = label
-        onSetFilter(filterBy)
-        console.log('filterBy:', filterBy)
+    function onFilterByLabel(Currlabel) {
+        filterByToEdit.label = Currlabel
+        console.log(filterByToEdit)
+        setSearchParams(filterByToEdit)
+        onSetFilter(filterByToEdit)
     }
 
     return (
@@ -58,12 +57,12 @@ export function NavIconFilter() {
                 </div>}
                 {
                     labelsPage.map(label => {
-                        return <NavLink key={label} style={{ textDecoration: 'none' }}>
-                            <div className='icon-preview' onClick={() => onFilterByLabel(label)}>
+                        return (
+                            <div key={label} className='icon-preview' onClick={() => onFilterByLabel(label)}>
                                 <img src={require(`../assets/icon-nav-filter/${label}.png`)} alt="" />
-                                <p>{`${label}`}</p>
+                                <p onClick={() => onFilterByLabel(label)}>{`${label}`}</p>
                             </div>
-                        </NavLink>
+                        )
                     })
                 }
                 {/* <button className="btn-icon-filter"><IconFiltering /> Filters</button> */}
