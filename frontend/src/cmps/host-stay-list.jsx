@@ -42,8 +42,8 @@ export function HostStayList() {
   if(!hostStays.length) return 
 
   return (
-    <section className=''>
-      <h2>Your preoperies</h2>
+    <section className='host-list-container'>
+      <h2>Your properties</h2>
       <ul className="host-stay-list flex column">
         {hostStays.map(stay => <li key={stay._id}>
           <HostStayPreview stay={stay} />
