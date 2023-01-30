@@ -6,7 +6,7 @@ import { PropagateLoader } from 'react-spinners';
 import { showErrorMsg } from '../services/event-bus.service.js';
 import { stayService } from '../services/stay.service.js';
 import { cleanFilter, getWishFilter } from '../services/wishList.service.js';
-import { loadWishes } from '../store/stay.actions.js';
+import { loadWishes, onSetFilter } from '../store/stay.actions.js';
 import { ToggleDetails } from '../store/system.action.js';
 import { WishPreview } from './wish-preview.jsx';
 
@@ -42,7 +42,6 @@ export function WishList() {
     function onMoveToWishDetails(wishId) {
         navigate(`/stay/${wishId}`)
     }
-
     function getWishFilter(userId) {
         let userFilter = structuredClone(filterBy)
         userFilter.userId = userId
