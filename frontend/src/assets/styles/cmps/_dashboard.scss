@@ -17,9 +17,11 @@
     }
 
     .total-earn {
-        background-color: #e2fdc3;
-        background: linear-gradient(to right, #50793ab4, #76b852b3, #f5f5f5);
-
+        box-shadow: #0000001f 0 6px 16px;
+        padding: em(24px);
+        border-radius: em(12px);
+        max-height: 250px;
+        width: 100%;
     }
 
     .total-expenses {
@@ -37,15 +39,20 @@
     ///PEER - TAX /// 
     .tax-report {
         font-family: circularL;
-        color: $clrGrayFont;
+        // color: $clrGrayFont;
         display: flex;
         max-width: 330px;
-        padding: em(35px) em(17px);
-        font-size: em(14px);
+        padding: em(30px) em(17px);
+        font-size: em(16px);
         font-weight: 400;
         border-radius: 8px;
         justify-content: flex-start;
-        background: linear-gradient(to left, #50793ab4, #76b852b3, #f5f5f5);
+        box-shadow: #0000001f 0 6px 16px;
+        border-radius: em(12px);
+        max-height: 250px;
+        width: 100%;
+        // background: linear-gradient(to left, #50793ab4, #76b852b3, #f5f5f5);
+        // padding: em(24px);
 
 
         .tax-head {
@@ -77,4 +84,50 @@
         }
     }
 
+    .res-status {
+
+        font-family: circularL;
+        max-width: 330px;
+        padding: em(30px) em(17px);
+        font-size: em(16px);
+        border-radius: 8px;
+        box-shadow: #0000001f 0 6px 16px;
+        border-radius: em(12px);
+        max-height: 250px;
+        width: 100%;
+
+        .res-status-box {
+            display: flex;
+            flex-direction: column;
+            // padding: em(14px);
+
+            .curr-status {
+                padding-top: em(16px);
+
+                .status-line {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: em(4px);
+                    font-size: em(18px);
+
+                    span {
+                        text-align: left;
+
+                    }
+
+                    .pending {
+                        color: orange;
+                    }
+
+                    .approved {
+                        color:green;
+
+                    }
+                    .decline {
+                        color:red;
+                    }
+                }
+            }
+        }
+    }
 }

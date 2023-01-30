@@ -1,7 +1,8 @@
-import { width } from '@mui/system';
+import { display } from '@mui/system';
 import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title, Tooltip } from 'chart.js';
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
+import { disable } from 'workbox-navigation-preload';
 
 ChartJS.register(
     CategoryScale,
@@ -18,14 +19,47 @@ export function TotalEarn() {
         responsive: true,
         plugins: {
             title: {
-                display: false,
-                text: 'Chart.js Bar Chart',
+                display: true,
+                text: 'Revenue last year $6,170',
+                font: {
+                    size: 18,
+                },
+                align: "start",
             },
+            legend: {
+                display: false,
+                labels: {
+                    font: {
+                        size: 18,
+                        family: 'circularH',
+                        sytle: 'bold'
+                    }
+                }
+            },
+
         },
+        scales: {
+            x: {
+                grid: {
+                    display: false,
+                },
+                ticks: {
+                    font: {
+                        size: 18
+                    }
+                }
+
+            },
+            y: {
+                grid: {
+                    display: false
+                },
+                display: false
+            }
+        }
     }
 
-    // let monyEarnd = [1130, 790, 1280, 1560, 630, 780, 1200, 1300, 550, 600, 530]
-    let monyEarnd = [1130, 790, 1280, 1560, 630,780 ]
+    let monyEarnd = [1130, 790, 1280, 1560, 630, 780]
 
     function getMoneyEarend() {
         const chartData = monyEarnd.reduce((acc, money) => {
@@ -34,20 +68,18 @@ export function TotalEarn() {
         }, 0)
         return chartData
     }
+
     const money = getMoneyEarend()
     const totalPrice = (parseFloat(JSON.stringify(money).replace(/,/g, ''))).toLocaleString()
 
-
-    // const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December']
-    const labels = ['January', 'February', 'March', 'April', 'May', 'June']
+    const labels = ['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Nov']
     const data = {
         labels,
         datasets: [
             {
-                label: `Revenue ${totalPrice}`,
+                // label: `Revenue lseconast year $${totalPrice}`,
                 data: monyEarnd,
-                backgroundColor: '#2a5811',
-                borderRadiusx:'5px'
+                backgroundColor: ['#6c26fc', '#1d28de', '#2d83f5', '#2497e9', '#1db9de', '#21ffd3']
             },
         ],
     }
