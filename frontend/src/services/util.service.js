@@ -6,7 +6,8 @@ export const utilService = {
     randomPastTime,
     saveToStorage,
     loadFromStorage,
-    formatTime
+    formatTime,
+    shortenName
 }
 
 function makeId(length = 6) {
@@ -87,3 +88,11 @@ function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
 }
+
+function shortenName(name) {
+    var parts = name.split(" ")
+    var firstName = parts[0]
+    var lastInitial = parts[parts.length - 1][0]
+    return firstName + " " + lastInitial + "."
+}
+ 
