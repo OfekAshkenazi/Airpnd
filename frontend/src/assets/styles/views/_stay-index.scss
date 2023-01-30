@@ -45,8 +45,7 @@
         width: 100%;
         aspect-ratio: 1.0550819672/1;
         object-fit: cover;
-        border-radius: 10px;
-        transition: 0.3s ease-in-out all;
+        border-radius: em(10px);
         cursor: pointer;
     }
 
@@ -54,12 +53,8 @@
         position: relative;
         justify-content: space-between;
         align-items: center;
-        margin: 0 em(14px);
-        bottom: em(135px);
-
-        @media(min-width: 1100px) and (max-width: 1200px) {
-            bottom: em(115px);
-        }
+        margin: 0 em(6px);
+        bottom: 45%;
 
         button {
             width: 25px;
@@ -114,6 +109,11 @@
         color: #222;
         font-size: em(16px);
         top: em(5px);
+
+        :first-child {
+            font-family: circularH;
+            font-size: em(17px);
+        }
 
         span {
             color: #222222;
