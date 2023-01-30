@@ -52,9 +52,7 @@ function _buildCriteria(filterBy) {
             "hostId": { $regex: `${filterBy.hostId}`, $options: 'i' }
         }
 
-    } 
-
-
+    }
     return criteria
 }
 
@@ -104,4 +102,3 @@ async function update(stay) {
         throw err
     }
 }
-

@@ -1,12 +1,11 @@
-import { useSelector } from "react-redux"
 import { onSetFilter } from "../store/stay.actions"
 import { stayService } from "./stay.service"
 
 
-export function getWishFilter(userId) {
+export function getWishFilter(user) {
     let userFilter = stayService.getEmptyFilter()
-    userFilter.userId = userId
-    onSetFilter(userFilter)
+    userFilter.userId = user._id
+    onSetFilter(...userFilter)
     return userFilter
 }
 
