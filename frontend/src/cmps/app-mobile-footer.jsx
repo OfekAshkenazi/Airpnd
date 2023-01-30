@@ -41,7 +41,7 @@ export function AppMobileFooter() {
                 <p>Explore</p>
             </NavLink>
 
-            <NavLink className={"icon-mobile-footer flex column"} to={`/orders/wishlist/${user._id}`} onClick={() => getWishFilter(user)}>
+            <NavLink className={"icon-mobile-footer flex column"} to={`/orders/wishlist`} onClick={() => getWishFilter(user)}>
                 <FontAwesomeIcon className="icon-airpnd-footer" icon={faHeartbeat} />
                 <p>Wishlists</p>
             </NavLink>

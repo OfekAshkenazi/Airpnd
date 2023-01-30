@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
 import { getHostOrderFilter, getWishFilter } from '../services/wishList.service.js';
@@ -9,7 +9,7 @@ import { logout } from '../store/user.actions.js';
 export function UserPagesModal({ setUserModal }) {
     const user = useSelector(storeState => storeState.userModule.user)
     const isLoginModalOpen = useSelector(storeState => storeState.systemModule.isLoginModalOpen)
-
+    const navigate = useNavigate()
 
     async function onLogout() {
         try {
@@ -18,6 +18,15 @@ export function UserPagesModal({ setUserModal }) {
         } catch (err) {
             showErrorMsg('Cannot logout')
         }
+    }
+
+    function handleClickTrips(user) {
+        if (!user) {
+            setUserModal(false)
+            return showErrorMsg('Please login')
+        }
+        setUserModal(false)
+        navigate('/orders/my-orders')
     }
 
     function handleClickHostDashBoard() {
@@ -40,7 +49,7 @@ export function UserPagesModal({ setUserModal }) {
             <section className="bold">
                 {/* <div onClick={closeModal} className="page-item flex bold"><Link>Messages</Link></div> */}
                 {/* <div onClick={closeModal} className="page-item flex bold"><Link>Notifications</Link></div> */}
-                <Link to="/orders/my-orders"><div onClick={() => setUserModal(false)} className="page-item flex bold">Trips</div></Link>
+                <div onClick={() => handleClickTrips(user)} className="page-item flex bold">Trips</div>
                 {user?.isOwner && <Link to="/host/dashboard"><div onClick={handleClickHostDashBoard} className="page-item flex bold">Host</div></Link>}
                 <Link to="/orders/wishlist"><div onClick={setUserWishes} className="page-item flex bold">Wishlist</div></Link>
                 <Link><div onClick={handleClickLogin} className="page-item flex bold">Account</div></Link>

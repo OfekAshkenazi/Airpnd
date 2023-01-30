@@ -27,6 +27,7 @@ export function UserOrders() {
 
     if (!currOrder) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
 
+    
     return (
         <section className="orders-details">
             <div className="order-list">
