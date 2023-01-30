@@ -33,7 +33,7 @@ export function orderReducer(state = initialState, action) {
             newState = { ...state, orders }
             break
         case SET_ORDER:
-            return { ...state, order: action.order }
+            return { ...state, order: {...action.order} }
         default:
     }
     return newState

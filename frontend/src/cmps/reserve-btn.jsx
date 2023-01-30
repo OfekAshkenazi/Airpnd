@@ -5,20 +5,18 @@ import { userService } from '../services/user.service'
 import { useSelector } from 'react-redux'
 
 export function ReserveBtn({ order, numericDate, stay, totalPrice }) {
-  let { stayId } = useParams()
+  // let { stayId } = useParams()
   // const order1 = useSelector(storeState => storeState.orderModule.order)
 
-  const { startDate, endDate, guests } = order[0]
-  const { adults, children, infants, pets } = guests
   const navigate = useNavigate()
   async function onAddNewOrder(order, stay) {
     try {
-      order[0].stayId = stay._id
-      order[0].totalPrice = totalPrice
-      order[0].hostId = '63cfe8da8276fe4e2c861da4'
-      order[0].byUser = userService.getLoggedinUser()
-      await updateOrder(order[0])
-      navigate(`/book/stays/${stayId}/${adults}/${children}/${infants}/${pets}/${startDate}/${endDate}`)
+      order.stayId = stay._id
+      order.totalPrice = totalPrice
+      order.hostId = '63cfe8da8276fe4e2c861da4'
+      order.byUser = userService.getLoggedinUser()
+      await updateOrder(order)
+      navigate(`/book/stays/${order.stayId}/${order.adults}/${order.children}/${order.infants}/${order.pets}/${order.startDate}/${order.endDate}`)
     } catch (err) { console.log(err) }
   }
 

@@ -1,19 +1,20 @@
-import { React, useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import '../../node_modules/react-date-range/dist/styles.css';
+import '../../node_modules/react-date-range/dist/theme/default.css';
 
-import { ReserveBtn } from '../cmps/reserve-btn.jsx'
-import { GuestPicker } from '../cmps/guest-picker.jsx'
-import { DateRange } from 'react-date-range'
-import { differenceInCalendarDays } from 'date-fns'
+import { differenceInCalendarDays } from 'date-fns';
+import { React, useEffect, useState } from 'react';
+import { DateRange } from 'react-date-range';
+import { useSelector } from 'react-redux';
 
-import '../../node_modules/react-date-range/dist/styles.css'
-import '../../node_modules/react-date-range/dist/theme/default.css'
-import { updateOrder } from '../store/order.action.js'
+import { GuestPicker } from '../cmps/guest-picker.jsx';
+import { ReserveBtn } from '../cmps/reserve-btn.jsx';
+import { updateOrder } from '../store/order.action.js';
 
 export function BookingForm({ stay, getRating }) {
     const order = useSelector(storeState => storeState.orderModule.order)
-    const [currOrder, setOrder] = useState([order])
-    const [guests, setGuests] = useState(currOrder[0].guests)
+    // const [currOrder, setOrder] = useState([order])
+    // const [guests, setGuests] = useState(currOrder[0].guests)
+
     const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
     const [isGuestPickerOpen, setIsGuestPickerOpen] = useState(false)
     const [numClicks, setNumClicks] = useState(0)
@@ -32,27 +33,19 @@ export function BookingForm({ stay, getRating }) {
             document.removeEventListener('click', handleClick)
         }
     }, [setIsDatePickerOpen, setIsGuestPickerOpen])
-    currOrder[0].stay = stay
+
+    order.stay = stay
     const stayPrice = priceCalc(stay.price)
     const serviceFee = 100
     const totalPrice = (parseFloat(stayPrice.replace(/,/g, '')) + serviceFee).toLocaleString()
 
-    function handleGuestChange(newGuests) {
-        setOrder(prevOrder => {
-            const updatedOrder1 = { ...prevOrder[0] }
-            updatedOrder1.guests = { ...updatedOrder1.guests, ...newGuests }
-            setTimeout(() => {
-                updateOrder(updatedOrder1)
-            }, 500)
-            return [updatedOrder1]
-        })
-    }
 
     function handleDateChange(range) {
+        const orderToSave = structuredClone(order)
         const { startDate, endDate } = range
-        setOrder(prevOrder => [{ ...prevOrder[0], startDate, endDate }])
-        updateOrder(currOrder)
-
+        orderToSave.startDate = startDate
+        orderToSave.endDate = endDate
+        updateOrder(orderToSave)
     }
 
     function numericDate(date) {
@@ -65,7 +58,7 @@ export function BookingForm({ stay, getRating }) {
     }
 
     function daysNumCalc() {
-        const numberOfDays = differenceInCalendarDays(currOrder[0].endDate, currOrder[0].startDate)
+        const numberOfDays = differenceInCalendarDays(order.endDate, order.startDate)
         return numberOfDays
     }
 
@@ -92,19 +85,19 @@ export function BookingForm({ stay, getRating }) {
                 setIsDatePickerOpen(!isDatePickerOpen)
                 setIsGuestPickerOpen(false)
             }}>
-                <div className='checkin flex'>CHECK-IN <span className="check-date">{numericDate(currOrder[0].startDate)}</span></div>
-                <div className='checkout flex'>CHECKOUT<span className="check-date">{numericDate(currOrder[0].endDate)}</span></div>
+                <div className='checkin flex'>CHECK-IN <span className="check-date">{numericDate(order.startDate)}</span></div>
+                <div className='checkout flex'>CHECKOUT<span className="check-date">{numericDate(order.endDate)}</span></div>
             </div>
             {isDatePickerOpen && <DateRange
                 editableDateInputs={true}
-                onChange={(item) => {
-                    setOrder([item.selection])
-                    handleDateChange(item.selection)
+                onChange={({ range1 }) => {
+                    console.log(range1)
+                    handleDateChange(range1)
                     setNumClicks(numClicks + 1)
                     if (numClicks % 2) setIsDatePickerOpen(false)
                 }
                 }
-                ranges={currOrder}
+                ranges={[order.startDate, order.endDate]}
                 months={2}
                 direction={'horizontal'}
                 className='date-range'
@@ -112,15 +105,15 @@ export function BookingForm({ stay, getRating }) {
             <div className="guest-picker" onClick={() => setIsGuestPickerOpen(!isGuestPickerOpen)
             }>
                 <div className="guest-side"><span className="bold">GUESTS</span>
-                    <span className="second-row">{parseInt(guests.adults) + parseInt(guests.children) + parseInt(guests.infants) + parseInt(guests.pets)} guests
+                    <span className="second-row">{parseInt(order.guests.adults) + parseInt(order.guests.children) + parseInt(order.guests.infants) + parseInt(order.guests.pets)} guests
                     </span>
                 </div>
                 <div className="arrow-side"><img src={require(`../assets/img/icons/arrow-down.png`)} alt="" /></div>
             </div>
-            {isGuestPickerOpen && <GuestPicker guests={guests} setGuests={setGuests} handleGuestChange={handleGuestChange} />}
+            {isGuestPickerOpen && <GuestPicker />}
 
         </div>
-        <ReserveBtn className="reserve" order={currOrder} numericDate={numericDate} stay={stay} totalPrice={totalPrice} />
+        <ReserveBtn className="reserve" order={order} numericDate={numericDate} stay={stay} totalPrice={totalPrice} />
         <p>You won't be charged yet</p>
         <div className="summary">
             <div className="prices">
