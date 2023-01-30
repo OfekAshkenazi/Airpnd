@@ -111,11 +111,13 @@
                     font-size: em(18px);
 
                     span {
-                        text-align: left;
+                        // text-align: left;
+                        font-family: circularH;
 
                     }
 
                     .pending {
+                        padding-right: em(2px);
                         color: orange;
                     }
 

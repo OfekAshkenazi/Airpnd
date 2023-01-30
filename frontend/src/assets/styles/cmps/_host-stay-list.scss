@@ -1,6 +1,6 @@
 .host-stay-list {
-  padding: em(10px);
-  font-family: Arial, Helvetica, sans-serif;
+  padding-top: em(20px);
+  font-family: circularL;
 
   .host-stay {
     display: flex;
@@ -14,7 +14,7 @@
       width: 33.33333%;
 
       h4 {
-        font-family: CerealBd;
+        // font-family: CerealBd;
 
       }
     }

@@ -40,6 +40,7 @@ export function HostStayList() {
 
 
   if(!hostStays.length) return 
+
   return (
     <section className=''>
       <h2>Your preoperies</h2>

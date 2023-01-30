@@ -10,11 +10,11 @@ export function DashBoard() {
         <section className="dashboard-page">
             <section className="charts-container">
 
-                <div className="tax-report">
-                    <TaxReport />
-                </div>
                 <div className="res-status">
                     <ResStatus />
+                </div>
+                <div className="tax-report">
+                    <TaxReport />
                 </div>
                 <div className="chart-container total-earn">
                     <TotalEarn />
