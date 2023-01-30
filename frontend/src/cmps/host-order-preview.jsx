@@ -19,13 +19,5 @@ export function HostOrderPreview({ handelSelectChange, order }) {
     )
 }
 
-{/* <select onChange={(event) => handelSelectChange(event, order._id)} name="status" id="">
-    <option value={order.status}>{order.status}</option>
-    <option value="approve">Approve</option>
-    <option value="decline">Decline</option>
-</select> */}
-
-{/* <button onClick={() => handelSelectChange('approve', order._id)} className={order.status === 'approve' ? 'approve active' : 'approve'} >Approve</button>
-<button onClick={() => handelSelectChange('decline', order._id)} className={order.status === 'decline' ? 'decline active' : 'decline'} >Decline</button> */}
 
 

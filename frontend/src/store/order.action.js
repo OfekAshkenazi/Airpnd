@@ -49,7 +49,7 @@ export async function addOrder(order) {
 
 export async function updateOrderStatus(order) {
   try {
-    const savedOrder = await orderService.save(order)
+    const savedOrder = await orderService.update(order)
     store.dispatch({ type: UPDATE_ORDER, order })
     return savedOrder
   } catch (err) {
