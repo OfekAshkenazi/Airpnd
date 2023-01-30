@@ -14,10 +14,10 @@ export function HostOrderPreview({ handelSelectChange, order }) {
         <div className="order-status">
             <p className="user-img-order-container">
                 <img src={order.byUser.imgUrl} alt="" />
-                {shortenName(order.byUser.fullname)}
+                <p> {shortenName(order.byUser.fullname)}</p>
             </p>
             <p className="type mobile-gone">{order.stay.type}</p>
-            <p className="mobile-gone">{order.startDate.slice(0, 10)}</p>
+            <p className="date mobile-gone">{order.startDate.slice(0, 10)}</p>
             <p className="price-host-order">$ {order.totalPrice}</p>
             <div className="status-indicator align-center flex column">
                 <button onClick={() => handelSelectChange('approve', order._id)} className={order.status === 'approve' ? 'approve active' : 'approve'} >Approve</button>

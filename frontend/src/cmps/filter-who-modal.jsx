@@ -9,17 +9,24 @@ import { updateOrder } from '../store/order.action.js';
 import { TotalExpenses } from './total-expenses.jsx';
 
 export function FilterWhoModal({ setWhoCounter, whoCounter }) {
-  const  {order}  = useSelector(storeState => storeState.orderModule)
- 
-  
+  const { order } = useSelector(storeState => storeState.orderModule)
+
+
   const { guests } = order
   const { adults, children, infants, pets } = guests
+  let allGuests = adults + children + infants + pets
+  console.log(allGuests);
+
+  useEffect(() => {
+    setWhoCounter(allGuests)
+  }, [guests])
 
   function countGuests(diff) {
-    if (!diff) diff = 1
-    let newCount = whoCounter + diff
-    // let allGuests = adults + children + infants + pets
-    setWhoCounter(newCount)
+    // if (!diff) diff = 0
+    let currGuestsCount = allGuests + diff
+    // let newCount = whoCounter + diff
+    console.log(allGuests);
+    setWhoCounter(currGuestsCount)
   }
 
   function handleAdultsChange(diff) {
