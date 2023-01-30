@@ -96,7 +96,7 @@ export function BookingForm({ stay, getRating }) {
                     if (numClicks % 2) setIsDatePickerOpen(false)
                 }
                 }
-                ranges={[{startDate: order.startDate, endDate: order.endDate}]}
+                ranges={[{ startDate: order.startDate, endDate: order.endDate }]}
                 months={2}
                 direction={'horizontal'}
                 className='date-range'

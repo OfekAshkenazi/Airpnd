@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import IconBxSearch from '../assets/svg/search-magnifying';
 import { stayService } from '../services/stay.service.js';
+import { utilService } from '../services/util.service';
 import { getActionFilterExpanded } from '../store/filter.expanded.action';
 import { onSetFilter } from '../store/stay.actions';
 import { FilterDatesModal } from './filter-dates-modal';
@@ -12,7 +13,7 @@ import { FilterWhoModal } from './filter-who-modal';
 
 export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateModalOpen, onAddGuest, onAddWhere, onDateModal, whoCounter, setWhoCounter }) {
   const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
-
+  const order = useSelector(storeState => storeState.orderModule.order)
 
   const [searchParams, setSearchParams] = useSearchParams()
   const queryFilterBy = stayService.getFilterFromSearchParams(searchParams)
@@ -44,10 +45,12 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
   function closeModal() {
     getActionFilterExpanded(false)
   }
+
   function searchClick(ev) {
     ev.stopPropagation()
     getActionFilterExpanded(false)
   }
+
 
   return (
     <section className={`stay-filter-expanded `}>
@@ -69,7 +72,7 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
           <button type="button" className={`filter-check-in ${(isDateModalOpen) ? "active" : ""} font`} onClick={() => { onDateModal() }}>
             <div>
               <p>Check-in</p>
-              <p className='unbold'>{`${data.checkIn}`}</p>
+              <p className='unbold'>{`${(order.startDate) ? utilService.numericDate(order.startDate) : data.checkIn}`}</p>
             </div>
 
             {isDateModalOpen && <FilterDatesModal />}
@@ -81,7 +84,7 @@ export function StayFilterExpanded({ isGuestModalOpen, isWhereModalOpen, isDateM
           <button type="button" className={`filter-check-out ${(isDateModalOpen) ? "active" : ""}`} onClick={() => { onDateModal() }}>
             <div>
               <p>Check-out</p>
-              <p className='unbold'>{`${data.checkIn}`}</p>
+              <p className='unbold'>{`${(order.endDate) ? utilService.numericDate(order.endDate) : data.checkOut}`}</p>
             </div>
           </button>
           <span></span>

@@ -25,8 +25,6 @@ export function FilterDatesModal() {
         editableDateInputs={true}
         onChange={(range) => {
           handleDateChange(range)
-          // setNumClicks(numClicks + 1)
-          // if (numClicks % 2) setIsDatePickerOpen(false)
         }
         }
         ranges={[{ startDate: order.startDate, endDate: order.endDate }]}
