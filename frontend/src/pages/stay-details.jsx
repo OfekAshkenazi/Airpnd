@@ -14,13 +14,13 @@ export function StayDetails() {
     const [stay, setStay] = useState(null)
     const { stayId } = useParams()
     const order = useSelector(storeState => storeState.orderModule.order)
-    const [currOrder, setOrder] = useState([order])
+    const [currOrder, setOrder] = useState(order)
 
     const navigate = useNavigate()
     useEffect(() => {
         loadStay()
         ToggleDetails(true)
-    }, [])
+    }, [order])
     
     
     function handleBackClick() {

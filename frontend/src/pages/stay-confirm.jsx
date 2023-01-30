@@ -1,4 +1,4 @@
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 import { stayService } from '../services/stay.service'

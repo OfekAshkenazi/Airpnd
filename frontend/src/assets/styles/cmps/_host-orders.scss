@@ -4,13 +4,13 @@
 
     .host-orders-headline {
         display: grid;
-        grid-template: 65px/.9fr 1fr .6fr;
+        grid-template: 65px/.9fr 1fr .6fr 1fr;
         gap: 20px;
         align-items: center;
         padding-inline: 15px;
 
         @media (min-width: 600px) {
-            grid-template: 65px/.9fr 1fr .6fr .5fr .5fr;
+            grid-template: 65px/.7fr .9fr .6fr .5fr .5fr .5fr;
         }
 
         p {
@@ -35,7 +35,7 @@
             align-items: center;
 
             @media (min-width: 600px) {
-                grid-template: 70px/.9fr 1fr .6fr .5fr .5fr;
+                grid-template: 70px/.7fr .9fr .6fr .5fr .5fr .5fr;
             }
 
             p {
