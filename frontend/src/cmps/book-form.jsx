@@ -42,9 +42,10 @@ export function BookingForm({ stay, getRating }) {
 
     function handleDateChange(range) {
         const orderToSave = structuredClone(order)
-        const { startDate, endDate } = range
+        const { startDate, endDate } = range.range1
         orderToSave.startDate = startDate
         orderToSave.endDate = endDate
+        console.log(orderToSave)
         updateOrder(orderToSave)
     }
 
@@ -55,6 +56,7 @@ export function BookingForm({ stay, getRating }) {
             year: "numeric"
         })
         return formattedDate
+        return 'sss'
     }
 
     function daysNumCalc() {
@@ -90,14 +92,14 @@ export function BookingForm({ stay, getRating }) {
             </div>
             {isDatePickerOpen && <DateRange
                 editableDateInputs={true}
-                onChange={({ range1 }) => {
-                    console.log(range1)
-                    handleDateChange(range1)
-                    setNumClicks(numClicks + 1)
-                    if (numClicks % 2) setIsDatePickerOpen(false)
+                onChange={(range) => {
+                    console.log(range)
+                    handleDateChange(range)
+                    // setNumClicks(numClicks + 1)
+                    // if (numClicks % 2) setIsDatePickerOpen(false)
                 }
                 }
-                ranges={[order.startDate, order.endDate]}
+                ranges={[{startDate: order.startDate, endDate: order.endDate}]}
                 months={2}
                 direction={'horizontal'}
                 className='date-range'

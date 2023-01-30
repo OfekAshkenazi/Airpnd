@@ -91,7 +91,7 @@ export function StayConfirm() {
             </div>
           </div>
           <div className="guests">
-            <div className="left">Guests<span className="guests-span">{(parseInt(adults) + parseInt(children) + parseInt(infants) + parseInt(pets))}</span>  </div>
+            <div className="left">Guests<span className="guests-span">{(parseInt(order.guests.adults) + parseInt(order.guests.children) + parseInt(order.guests.infants) + parseInt(order.guests.pets))}</span>  </div>
           </div>
           <button className="book-btn" onClick={() => onAddNewOrder()}>Book and pay </button>
         </div>
