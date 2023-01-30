@@ -2,43 +2,37 @@ import { addDays } from 'date-fns';
 import { differenceInCalendarDays } from 'date-fns';
 import { useState } from 'react';
 import { DateRange } from 'react-date-range';
+import { useSelector } from 'react-redux';
+
+import { updateOrder } from '../store/order.action';
 
 export function FilterDatesModal() {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
-  const [order, setOrder] = useState([
-    {
-      startDate: new Date(),
-      endDate: addDays(new Date(), 6),
-      key: 'selection'
-    }
-  ])
+  const order = useSelector(storeState => storeState.orderModule.order)
 
-  function numericDate(date) {
-    const formattedDate = date.toLocaleDateString("en-US", {
-      day: "numeric",
-      month: "numeric",
-    })
-    return formattedDate
-  }
 
   function handleDateChange(range) {
-    const { startDate, endDate } = range
-    setOrder(prevOrder => [{ ...prevOrder[0], startDate, endDate }])
+    const orderToSave = structuredClone(order)
+    const { startDate, endDate } = range.range1
+    orderToSave.startDate = startDate
+    orderToSave.endDate = endDate
+    updateOrder(orderToSave)
   }
 
   return (
     <div className='filter-dates-modal'>
       <DateRange
         editableDateInputs={true}
-        onChange={(item) => {
-          setOrder([item.selection])
-          handleDateChange(item.selection)
+        onChange={(range) => {
+          handleDateChange(range)
+          // setNumClicks(numClicks + 1)
+          // if (numClicks % 2) setIsDatePickerOpen(false)
         }
         }
-        ranges={order}
+        ranges={[{ startDate: order.startDate, endDate: order.endDate }]}
         months={2}
         direction={'horizontal'}
-        className='date-modal'
+        className='date-range'
       />
     </div>
   )
