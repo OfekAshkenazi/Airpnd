@@ -2,6 +2,7 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+
 import { updateOrder } from '../store/order.action';
 
 export function GuestPicker() {
@@ -14,27 +15,6 @@ export function GuestPicker() {
     updateOrder(orderToSave)
   }
 
-
-
-
-
-  // const handleIncrement = (name) => {
-  //   setGuests({
-  //     ...guests,
-  //     [name]: guests[name] + 1,
-  //   })
-  //   handleGuestChange({...guests, [name]: guests[name] + 1 })
-  // }
-
-  // const handleDecrement = (name) => {
-  //   if (guests[name] > 0) {
-  //     setGuests({
-  //       ...guests,
-  //       [name]: guests[name] - 1,
-  //     })
-  //   }
-  //   handleGuestChange({...guests, [name]: guests[name] - 1 })
-  // }
 
   return (
     <section className='dropdown'>

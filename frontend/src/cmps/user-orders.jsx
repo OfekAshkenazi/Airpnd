@@ -5,8 +5,7 @@ import { PropagateLoader } from 'react-spinners';
 import { PendingIcon } from '../assets/svg/pending-icon';
 import { showErrorMsg } from '../services/event-bus.service';
 import { orderService } from '../services/order.service.local';
-
-import { stayService } from '../services/stay.service'
+import { stayService } from '../services/stay.service';
 import { loadOrders } from '../store/order.action';
 
 export function UserOrders() {
@@ -40,7 +39,7 @@ export function UserOrders() {
 
                             <div className="preview-txt">
                                 <span className="preview-name">{order.stay.name}</span>
-                                <span className="preview-loc"> {order.stay.loc.city}, {order.stay.loc.countrey} Dec 30 - Jan 04</span>
+                                <span className="preview-loc"> {order.stay.loc.city}, {order.stay.loc.countrey}  {(stayService.extractDate(order.startDate))} - {(stayService.extractDate(order.endDate))}</span>
                             </div>
                             <div className="order-indiction">
                                 <p className={`${order.status}`}>{order.status}</p>
