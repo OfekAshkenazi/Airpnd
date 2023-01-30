@@ -11,7 +11,6 @@ export function ReserveBtn({ order, numericDate, stay, totalPrice }) {
   
   async function onAddNewOrder(order, stay) {
     try {
-      console.log(order)
       order.stayId = stay._id
       order.totalPrice = totalPrice
       order.hostId = '63cfe8da8276fe4e2c861da4'
