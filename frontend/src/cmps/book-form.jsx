@@ -1,14 +1,14 @@
-import { React, useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import '../../node_modules/react-date-range/dist/styles.css';
+import '../../node_modules/react-date-range/dist/theme/default.css';
 
-import { ReserveBtn } from '../cmps/reserve-btn.jsx'
-import { GuestPicker } from '../cmps/guest-picker.jsx'
-import { DateRange } from 'react-date-range'
-import { differenceInCalendarDays } from 'date-fns'
+import { differenceInCalendarDays } from 'date-fns';
+import { React, useEffect, useState } from 'react';
+import { DateRange } from 'react-date-range';
+import { useSelector } from 'react-redux';
 
-import '../../node_modules/react-date-range/dist/styles.css'
-import '../../node_modules/react-date-range/dist/theme/default.css'
-import { updateOrder } from '../store/order.action.js'
+import { GuestPicker } from '../cmps/guest-picker.jsx';
+import { ReserveBtn } from '../cmps/reserve-btn.jsx';
+import { updateOrder } from '../store/order.action.js';
 
 export function BookingForm({ stay, getRating }) {
     const order = useSelector(storeState => storeState.orderModule.order)
@@ -51,7 +51,10 @@ export function BookingForm({ stay, getRating }) {
     function handleDateChange(range) {
         const { startDate, endDate } = range
         setOrder(prevOrder => [{ ...prevOrder[0], startDate, endDate }])
-        updateOrder(currOrder)
+        setTimeout(() => {
+            updateOrder(currOrder)
+            // updateOrder(updatedOrder1)
+        }, 500)
 
     }
 
