@@ -142,8 +142,8 @@
             padding-top: 10px;
 
             .order-status {
-                background-color: rgb(250, 217, 227);
                 border: 1px solid rgb(199, 195, 195);
+                box-shadow: 0 0 7px rgb(227, 227, 227);
                 display: grid;
                 padding: 10px;
                 grid-template-columns: 1fr 1fr 1fr;
@@ -157,7 +157,7 @@
                 text-align: center;
                 border-radius: 10px;
 
-                background-color: rgb(250, 217, 227);
+                // background-color: rgb(250, 217, 227);
 
                 .type {
                     grid-area: type;
