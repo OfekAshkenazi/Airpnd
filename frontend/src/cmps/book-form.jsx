@@ -12,9 +12,6 @@ import { updateOrder } from '../store/order.action.js';
 
 export function BookingForm({ stay, getRating }) {
     const order = useSelector(storeState => storeState.orderModule.order)
-    // const [currOrder, setOrder] = useState([order])
-    // const [guests, setGuests] = useState(currOrder[0].guests)
-
     const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
     const [isGuestPickerOpen, setIsGuestPickerOpen] = useState(false)
     const [numClicks, setNumClicks] = useState(0)
