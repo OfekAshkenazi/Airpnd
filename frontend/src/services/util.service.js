@@ -7,7 +7,8 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     formatTime,
-    shortenName
+    shortenName,
+    numericDate
 }
 
 function makeId(length = 6) {
@@ -72,11 +73,11 @@ function randomPastTime() {
     return Date.now() - pastTime
 }
 
-function debounce(func, timeout = 300){
+function debounce(func, timeout = 300) {
     let timer
     return (...args) => {
-      clearTimeout(timer)
-      timer = setTimeout(() => { func.apply(this, args) }, timeout)
+        clearTimeout(timer)
+        timer = setTimeout(() => { func.apply(this, args) }, timeout)
     }
 }
 
@@ -95,4 +96,12 @@ function shortenName(name) {
     var lastInitial = parts[parts.length - 1][0]
     return firstName + " " + lastInitial + "."
 }
- 
+
+function numericDate(date) {
+    const formattedDate = date.toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "numeric",
+        year: "numeric"
+    })
+    return formattedDate
+}

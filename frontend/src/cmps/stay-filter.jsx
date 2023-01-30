@@ -6,7 +6,6 @@ import IconMapPin from '../assets/svg/location-icon';
 import { getActionFilterExpanded } from '../store/filter.expanded.action';
 
 export function StayFilter({ onAddGuest, onAddWhere, onDateModal, whoCounter }) {
-
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
     // const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
 
