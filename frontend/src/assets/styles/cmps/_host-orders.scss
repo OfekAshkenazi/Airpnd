@@ -150,9 +150,9 @@
                 grid-template-rows: 1fr 1fr 1fr;
                 padding-top: 10px;
                 grid-template-areas:
-                    "image   image  image"
-                    "type   price    date"
-                    "status  status status";
+                    "image   type  price"
+                    "image   date-start    date-end"
+                    " image status status";
                 column-gap: 10px;
                 text-align: center;
                 border-radius: 10px;
@@ -164,7 +164,13 @@
                 }
 
                 .date {
-                    grid-area: date;
+                    &.start {
+                        grid-area: "date-start";
+                    }
+
+                    &.end {
+                        grid-area: "date-end";
+                    }
                 }
 
                 .price-host-order {

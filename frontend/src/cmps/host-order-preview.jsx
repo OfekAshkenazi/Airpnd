@@ -8,7 +8,8 @@ export function HostOrderPreview({ handelSelectChange, order }) {
                 {utilService.shortenName(order.byUser.fullname)}
             </p>
             <p className="type mobile-gone">{order.stay.type}</p>
-            <p className="date mobile-gone">{order.startDate.slice(0, 10)}</p>
+            <p className="date start mobile-gone">{order.startDate.slice(0, 10)}</p>
+            <p className="date end mobile-gone">{order.endDate.slice(0, 10)}</p>
             <p className="price-host-order">$ {order.totalPrice}</p>
             <div className="status-indicator align-center flex">
                 <button onClick={() => handelSelectChange('approve', order._id)} className={order.status === 'approve' ? 'approve active' : 'approve'} >Approve</button>
