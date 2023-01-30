@@ -42,7 +42,7 @@ export function LoginSignup(props) {
 
     return (
         <div className="login-page">
-            <h3>Welcome to airpnd</h3>
+            <h3>Welcome to Airpnd</h3>
             {!isSignup && <>
                 <div className="login-conatiner">
                     <form className="login-form" onSubmit={onLogin}>
@@ -69,7 +69,7 @@ export function LoginSignup(props) {
                 <button className="btn-signup-login" onClick={onLogin}>Login!</button>
             </>}
 
-            {isSignup && <div className="signup-section">
+            {isSignup && <div className="signup">
                 <form className="signup-form" onSubmit={onSignup}>
                     <input
                         type="text"

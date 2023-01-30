@@ -35,16 +35,46 @@
 
     .login-conatiner {
         align-self: center;
-        // border-radius: 5px;
-        // border: 2px solid rgba(27, 27, 27, .34);
-        width: 300px;
-        // height: 300px;
+        width: 100%;
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            height: 112px;
+            border-radius: 8px;
+            border: 1px solid rgba(27, 27, 27, .34);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: em(2px);
+
+            :first-child {
+                border-radius: 0px;
+                border-bottom: 0.5px solid rgba(27, 27, 27, .34);
+            }
+
+            input {
+                font-size: 16px;
+                padding-left: em(12px);
+                height: 47.5%;
+                border: 0;
+                border-radius: 8px;
+                outline: none;
+            }
+        }
+
     }
 
-    .login-form {
+    .signup {
+        align-self: center;
+        width: 100%;
+    }
+
+    .signup-form {
         display: flex;
         flex-direction: column;
         height: 112px;
+        width: 100%;
         border-radius: 8px;
         border: 1px solid rgba(27, 27, 27, .34);
         display: flex;
@@ -52,7 +82,7 @@
         justify-content: space-between;
         padding: em(2px);
 
-        :first-child {
+        :not(:last-child) {
             border-radius: 0px;
             border-bottom: 0.5px solid rgba(27, 27, 27, .34);
         }
@@ -60,33 +90,6 @@
         input {
             font-size: 16px;
             padding-left: em(12px);
-            height: 47.5%;
-            border: 0;
-            border-radius: 8px;
-            outline: none;
-        }
-    }
-
-    .signup-section {
-        align-self: flex-start;
-    }
-
-    .signup-form {
-        margin-top: em(5px);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-radius: 5px;
-        border: 2px solid rgba(27, 27, 27, .34);
-
-        :not(:last-child) {
-            border-bottom: 2px solid rgba(27, 27, 27, .34);
-
-        }
-
-        input {
-            font-size: 16px;
-            padding-left: 12px;
             height: 47.5%;
             border: 0;
             border-radius: 8px;

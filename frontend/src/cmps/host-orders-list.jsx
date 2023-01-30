@@ -5,7 +5,7 @@ export function HostOrdersList({ handelSelectChange, orders }) {
         <ul className="host-orders-list">
             {orders.map(order => <li key={order._id}>
                 <HostOrderPreview order={order} handelSelectChange={handelSelectChange} />
-            </li> )}
+            </li>)}
         </ul>
     )
 }

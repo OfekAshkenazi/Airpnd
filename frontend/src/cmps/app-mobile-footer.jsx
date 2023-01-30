@@ -61,7 +61,7 @@ export function AppMobileFooter() {
                 <span className="login-footer">Logout</span>
             </p>}
 
-            {user?.isOwner && <NavLink className={"icon-mobile-footer flex column"} to="/host/orders">
+            {user?.isOwner && <NavLink className={"icon-mobile-footer flex column"} to="/host/dashboard">
                 <IconCircleHost />
                 <p>Host</p>
             </NavLink>}
