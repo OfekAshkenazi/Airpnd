@@ -30,6 +30,7 @@ export function HostOrders() {
       const orderToSave = await orderService.getById(orderId)
       orderToSave.status = txt
       await orderService.update(orderToSave)
+      onLoadOrders()
     } catch (err) {
       showErrorMsg('Cannot complete request')
     }
