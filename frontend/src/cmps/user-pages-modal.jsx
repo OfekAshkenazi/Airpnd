@@ -1,10 +1,12 @@
 import { useSelector } from 'react-redux';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
 import { getHostOrderFilter, getWishFilter } from '../services/wishList.service.js';
+import { onSetFilter } from '../store/stay.actions.js';
 import { ToggleLoginModal } from '../store/system.action.js';
 import { logout } from '../store/user.actions.js';
+import { stayService } from '../services/stay.service.js';
 
 export function UserPagesModal({ setUserModal }) {
     const user = useSelector(storeState => storeState.userModule.user)
@@ -39,11 +41,6 @@ export function UserPagesModal({ setUserModal }) {
         setUserModal(false)
     }
 
-    function setUserWishes() {
-        getWishFilter(user)
-        setUserModal(false)
-    }
-
     return (
         <section className="user-page-modal">
             <section className="bold">
@@ -51,7 +48,7 @@ export function UserPagesModal({ setUserModal }) {
                 {/* <div onClick={closeModal} className="page-item flex bold"><Link>Notifications</Link></div> */}
                 <div onClick={() => handleClickTrips(user)} className="page-item flex bold">Trips</div>
                 {user?.isOwner && <Link to="/host/dashboard"><div onClick={handleClickHostDashBoard} className="page-item flex bold">Host</div></Link>}
-                <Link to="/orders/wishlist"><div onClick={setUserWishes} className="page-item flex bold">Wishlist</div></Link>
+                <Link to="/orders/wishlist"><div onClick={() => setUserModal(false)} className="page-item flex bold">Wishlist</div></Link>
                 <Link><div onClick={handleClickLogin} className="page-item flex bold">Account</div></Link>
             </section>
             <hr />

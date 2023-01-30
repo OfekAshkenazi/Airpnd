@@ -12,8 +12,8 @@ export function HostOrderPreview({ handelSelectChange, order }) {
             <p className="date end mobile-gone">{order.endDate.slice(0, 10)}</p>
             <p className="price-host-order">$ {order.totalPrice}</p>
             <div className="status-indicator align-center flex">
-                <button onClick={() => handelSelectChange('approved', order._id)} className={order.status === 'approve' ? 'approve active' : 'approve'} >Approve</button>
-                <button onClick={() => handelSelectChange('declined', order._id)} className={order.status === 'decline' ? 'decline active' : 'decline'} >Decline</button>
+                <button onClick={() => handelSelectChange('approved', order._id)} className={order.status === 'approved' ? 'approve active' : 'approve'} >Approve</button>
+                <button onClick={() => handelSelectChange('declined', order._id)} className={order.status === 'declined' ? 'decline active' : 'decline'} >Decline</button>
             </div>
         </div>
     )

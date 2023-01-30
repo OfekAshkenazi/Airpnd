@@ -42,19 +42,6 @@ function _buildCriteria(filterBy) {
         }
 
     }
-    else if (filterBy.hostId.length > 4) {
-        criteria = {
-            $or: [
-                { "loc.country": { $regex: filterBy.txt, $options: 'i' } },
-                { "loc.city": { $regex: filterBy.txt, $options: 'i' } }
-            ],
-            type: { $regex: filterBy.type, $options: 'i' },
-            "hostId": { $regex: `${filterBy.hostId}`, $options: 'i' }
-        }
-
-    } 
-
-
     return criteria
 }
 
@@ -105,3 +92,14 @@ async function update(stay) {
     }
 }
 
+//  else if (filterBy.hostId.length > 4) {
+//         criteria = {
+//             $or: [
+//                 { "loc.country": { $regex: filterBy.txt, $options: 'i' } },
+//                 { "loc.city": { $regex: filterBy.txt, $options: 'i' } }
+//             ],
+//             type: { $regex: filterBy.type, $options: 'i' },
+//             "hostId": { $regex: `${filterBy.hostId}`, $options: 'i' }
+//         }
+
+//     } 

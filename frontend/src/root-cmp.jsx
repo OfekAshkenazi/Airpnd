@@ -67,7 +67,7 @@ export function RootCmp() {
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
                     <Route element={<ProfileNestRoutes />} path="/orders">
-                        <Route element={<WishList />} path="/orders/wishlist/:userId" />
+                        <Route element={<WishList />} path="/orders/wishlist" />
                         <Route element={<UserOrders />} path="/orders/my-orders" />
                     </Route>
                     <Route element={<HostProfileNested />} path="/host">

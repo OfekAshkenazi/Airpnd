@@ -1,4 +1,5 @@
 import { stayService } from '../services/stay.service.js';
+import { userService } from '../services/user.service.js';
 import { ADD_STAY, REMOVE_STAY, SET_FILTER, SET_STAYS, SET_WISHES, UPDATE_STAY } from './stay.reducer.js';
 import { store } from './store.js';
 
@@ -46,6 +47,8 @@ export async function loadStays(filterBy) {
 
 export async function loadWishes(filterBy) {
     try {
+        const user = userService.getLoggedinUser()
+        filterBy.userId = user._id
         const wishes = await stayService.query(filterBy)
         store.dispatch(getActionSetWishes(wishes))
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { PropagateLoader } from 'react-spinners';
 
 import { showErrorMsg } from '../services/event-bus.service.js';
@@ -12,15 +12,11 @@ import { WishPreview } from './wish-preview.jsx';
 
 export function WishList() {
     const wishes = useSelector(storeState => storeState.stayModule.wishes)
-    const user = useSelector(storeState => storeState.userModule.user)
     const navigate = useNavigate()
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
 
- 
-
     useEffect(() => {
-        getWishFilter(user._id)
-        onLoadWishes()
+        onLoadWishes(filterBy)
         ToggleDetails(true)
 
         return () => {
@@ -28,25 +24,17 @@ export function WishList() {
         }
     }, [])
 
-    async function onLoadWishes() {
+    async function onLoadWishes(filterBy) {
         try {
-           await loadWishes()
-           
+            await loadWishes(filterBy)
         } catch (err) {
             console.log(err)
             showErrorMsg('Cannot load wishes')
         }
     }
 
-
     function onMoveToWishDetails(wishId) {
         navigate(`/stay/${wishId}`)
-    }
-    function getWishFilter(userId) {
-        let userFilter = structuredClone(filterBy)
-        userFilter.userId = userId
-        onSetFilter(userFilter)
-        return userFilter
     }
 
     if (!wishes.length) return <div className="loader"><PropagateLoader color="#ff395c" /></div>
