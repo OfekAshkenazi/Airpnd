@@ -45,7 +45,6 @@ export function BookingForm({ stay, getRating }) {
         const { startDate, endDate } = range.range1
         orderToSave.startDate = startDate
         orderToSave.endDate = endDate
-        console.log(orderToSave)
         updateOrder(orderToSave)
     }
 
@@ -93,10 +92,9 @@ export function BookingForm({ stay, getRating }) {
             {isDatePickerOpen && <DateRange
                 editableDateInputs={true}
                 onChange={(range) => {
-                    console.log(range)
                     handleDateChange(range)
-                    // setNumClicks(numClicks + 1)
-                    // if (numClicks % 2) setIsDatePickerOpen(false)
+                    setNumClicks(numClicks + 1)
+                    if (numClicks % 2) setIsDatePickerOpen(false)
                 }
                 }
                 ranges={[{startDate: order.startDate, endDate: order.endDate}]}
