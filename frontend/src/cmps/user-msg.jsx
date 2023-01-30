@@ -16,7 +16,7 @@ export function UserMsg() {
         timeoutIdRef.current = null
         clearTimeout(timeoutIdRef.current)
       }
-      timeoutIdRef.current = setTimeout(closeMsg, 5000)
+      timeoutIdRef.current = setTimeout(closeMsg, 7000)
     })
 
     // socketService.on(SOCKET_EVENT_ORDER_FOR_HOST, (order) => {
