@@ -43,7 +43,8 @@ export function HostOrders() {
       <div className="host-orders-headline flex">
         <p>Client</p>
         <p className="mobile-gone">Property type</p>
-        <p className="mobile-gone">Date</p>
+        <p className="mobile-gone">Start date</p>
+        <p className="mobile-gone">End date</p>
         <p>Price</p>
         <p>Status</p>
       </div>
