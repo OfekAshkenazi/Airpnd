@@ -10,52 +10,40 @@ import { TotalExpenses } from './total-expenses.jsx';
 
 export function FilterWhoModal({ setWhoCounter, whoCounter }) {
   const order = useSelector(storeState => storeState.orderModule.order)
-  // const { guests } = order
-  // const { adults, children, infants, pets } = guests
-  // let allGuests = adults + children + infants + pets
-  // console.log(allGuests);
 
-  // useEffect(() => {
-  //   setWhoCounter(allGuests)
-  // }, [guests])
 
-  function countGuests(diff) {
-    // if (!diff) diff = 0
-    // let currGuestsCount = allGuests + diff
-    // let newCount = whoCounter + diff
-    // console.log(allGuests);
-    // setWhoCounter(currGuestsCount)
+  useEffect(() => {
+    countGuests()
+
+  }, [order])
+  function countGuests() {
+    let count = parseInt(order.guests.adults) + parseInt(order.guests.children) + parseInt(order.guests.infants) + parseInt(order.guests.pets)
+    setWhoCounter(count)
+
   }
 
   function handleAdultsChange(diff) {
-    // let newAdults = adults + diff
     order.guests.adults += diff
-    // countGuests(diff)
     updateOrder(order)
+    // countGuests()
   }
 
   function handleChildrenChange(diff) {
-    // let newChildren = children + diff
-    // order.guests.children = newChildren
-    // countGuests(diff)
     order.guests.children += diff
     updateOrder(order)
+    // countGuests()
   }
 
   function handleInfantsChange(diff) {
-    // let newInfants = infants + diff
-    // order.guests.infants = newInfants
     order.guests.infants += diff
-    // countGuests(diff)
     updateOrder(order)
+    // countGuests()
   }
 
   function handlePetsChange(diff) {
-    // let newPets = pets + diff
     order.guests.pets += diff
-    // order.guests.pets = newPets
-    // countGuests(diff)
     updateOrder(order)
+    countGuests()
   }
 
 
