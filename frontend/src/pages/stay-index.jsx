@@ -22,7 +22,6 @@ export function StayIndex() {
     const navigate = useNavigate()
 
 
-
     useEffect(() => {
         ToggleDetails(false)
         loadStays(queryFilterBy)

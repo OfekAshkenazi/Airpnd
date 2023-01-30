@@ -16,8 +16,8 @@ export function StayConfirm() {
   const { stayId, startDate, endDate, adults, children, infants, pets } = params
   useEffect(() => {
   }, [order])
-  
-  const totalPrice = (parseFloat(order.totalPrice.replace(/,/g, '')) - 100).toLocaleString()
+
+  const totalPrice = order.totalPrice ? (parseFloat(order.totalPrice.replace(/,/g, '')) - 100).toLocaleString() : '$400'
 
   function handleBackClick() {
     navigate(-1)

@@ -5,10 +5,10 @@ import { userService } from '../services/user.service'
 import { useSelector } from 'react-redux'
 
 export function ReserveBtn({ order, numericDate, stay, totalPrice }) {
-  // let { stayId } = useParams()
   // const order1 = useSelector(storeState => storeState.orderModule.order)
 
   const navigate = useNavigate()
+  
   async function onAddNewOrder(order, stay) {
     try {
       order.stayId = stay._id

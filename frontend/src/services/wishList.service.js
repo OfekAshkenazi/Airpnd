@@ -1,9 +1,9 @@
 import { onSetFilter } from "../store/stay.actions"
 import { stayService } from "./stay.service"
 
-export function getWishFilter(user) {
+export function getWishFilter(userId) {
     let userFilter = stayService.getEmptyFilter()
-    userFilter.userId = user._id
+    userFilter.userId = userId
     onSetFilter(userFilter)
 }
 

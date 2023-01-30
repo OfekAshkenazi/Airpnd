@@ -2,7 +2,6 @@
     background-color: #f3f3f3;
     padding: em(12px);
     border-radius: 5px;
-    // width: 100%;
 }
 
 .nav-orders-details {
@@ -36,6 +35,7 @@
     margin-top: em(15px);
     gap: em(15px);
     background-color: #fff;
+    padding-bottom: em(65px);
 
     @media (max-width: 720px) {}
 
