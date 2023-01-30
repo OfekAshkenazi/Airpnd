@@ -55,7 +55,6 @@ export function BookingForm({ stay, getRating }) {
             year: "numeric"
         })
         return formattedDate
-        return 'sss'
     }
 
     function daysNumCalc() {
