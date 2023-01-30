@@ -59,8 +59,6 @@
                     border-radius: 50%;
                     object-fit: cover
                 }
-
-                @media (max-width: 600px) {}
             }
 
 
@@ -96,7 +94,7 @@
     }
 
     .decline {
-        background-color: rgb(250, 200, 190);
+        background-color: rgb(251, 167, 151);
 
         &.active {
             background-color: rgb(251, 34, 27);
@@ -112,108 +110,140 @@
 
 
 
-@media (max-width: 650px) {
+@media (max-width: 730px) {
 
     .host-orders {
+
         .host-orders-headline {
             display: none;
         }
 
         .host-orders-list {
+            // display: grid;
+            // grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 5px;
             padding-top: 10px;
 
             .order-status {
-                background-color: rgb(247, 200, 215);
+                background-color: rgb(250, 217, 227);
                 border: 1px solid rgb(199, 195, 195);
                 display: grid;
-                grid-template-columns: 1fr;
-                grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-
+                padding: 10px;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr;
+                padding-top: 10px;
+                grid-template-areas:
+                    "image   image  image"
+                    "type   price    date"
+                    "status  status status";
+                column-gap: 10px;
+                text-align: center;
+                // align-items: center;
                 border-radius: 10px;
 
-                p {
-                    background-color: aqua;
+
+                background-color: rgb(250, 217, 227);
+
+                .type {
+                    grid-area: type;
                 }
 
+                .date {
+                    grid-area: date;
+                }
+
+                .price-host-order {
+                    grid-area: price;
+                    text-align: center;
+                }
+
+
                 .user-img-order-container {
+                    grid-area: image;
                     display: flex;
+                    flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     gap: 10px;
                     padding-top: 5px;
 
                     img {
-                        margin-right: em(6.5px);
                         height: 50px;
                         width: 50px;
                         border-radius: 10%;
                         object-fit: cover;
-                        // align-self: ;
 
                     }
 
 
-
-
-                    .status-indicator {
-                        flex-direction: row;
-                        justify-self: center;
-                        gap: 100px;
-
-                        button {
-                            align-items: center;
-                            background-image: linear-gradient(144deg, #ff0800, #edb752 50%, #eb3b00);
-
-                            // .approve {
-                            //     background-image: linear-gradient(144deg, #ff0800, #edb752 50%, #eb3b00);
-                            // }
-
-                            border: 0;
-                            border-radius: 8px;
-                            box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-                            box-sizing: border-box;
-                            color: #FFFFFF;
-                            display: flex;
-                            font-family: Phantomsans,
-                                sans-serif;
-                            font-size: 16px;
-                            justify-content: center;
-                            line-height: 1em;
-                            padding: 3px;
-                            text-decoration: none;
-                            user-select: none;
-                            -webkit-user-select: none;
-                            touch-action: manipulation;
-                            white-space: nowrap;
-                            cursor: pointer;
-                        }
-
-                        button:active,
-                        button:hover {
-                            outline: 0;
-                        }
-
-                        button span {
-                            background-color: rgb(5, 6, 45);
-                            padding: 12px 17px;
-                            border-radius: 6px;
-                            transition: 300ms;
-
-                            .active {
-                                background-color: rgb(15, 233, 15);
-
-                            }
-                        }
-
-                        button:hover span {
-                            background: none;
-                        }
-
-                    }
                 }
+
+                .status-indicator {
+                    grid-area: status;
+                    flex-direction: row;
+                    justify-self: center;
+                    gap: 30px;
+                }
+
+
             }
         }
 
     }
 }
+
+
+// .status-indicator {
+//     flex-direction: row;
+//     justify-self: center;
+//     gap: 100px;
+
+//     button {
+//         align-items: center;
+//         background-image: linear-gradient(144deg, #ff0800, #edb752 50%, #eb3b00);
+
+//         // .approve {
+//         //     background-image: linear-gradient(144deg, #ff0800, #edb752 50%, #eb3b00);
+//         // }
+
+//         border: 0;
+//         border-radius: 8px;
+//         box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+//         box-sizing: border-box;
+//         color: #FFFFFF;
+//         display: flex;
+//         font-family: Phantomsans,
+//             sans-serif;
+//         font-size: 16px;
+//         justify-content: center;
+//         line-height: 1em;
+//         padding: 3px;
+//         text-decoration: none;
+//         user-select: none;
+//         -webkit-user-select: none;
+//         touch-action: manipulation;
+//         white-space: nowrap;
+//         cursor: pointer;
+//     }
+
+//     button:active,
+//     button:hover {
+//         outline: 0;
+//     }
+
+//     button span {
+//         background-color: rgb(5, 6, 45);
+//         padding: 12px 17px;
+//         border-radius: 6px;
+//         transition: 300ms;
+
+//         .active {
+//             background-color: rgb(15, 233, 15);
+
+//         }
+//     }
+
+//     button:hover span {
+//         background: none;
+//     }
+// }
