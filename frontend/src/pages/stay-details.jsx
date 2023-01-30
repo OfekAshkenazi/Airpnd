@@ -87,6 +87,3 @@ export function StayDetails() {
         <GoogleMap lat={+stay.loc.lan} lng={+stay.loc.lat} />
     </section>
 }
-
-//
-// 

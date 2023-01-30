@@ -6,7 +6,7 @@ export function WishPreview({ wish,onMoveToWishDetails }) {
                 <img src={wish.imgUrls[1]} />
                 <img src={wish.imgUrls[2]} />
             </div>
-            <h3>{wish.name}</h3>
+            <h3 className="wish-name">{wish.name}</h3>
         </article>
     )
 }

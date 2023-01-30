@@ -5,10 +5,10 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import IconHeart from '../assets/svg/icon-heart';
+import { utilService } from '../services/util.service';
 
-export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
+export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails, randomDates}) {
     let [idx, setIdx] = useState(0)
-
     const user = useSelector(storeState => storeState.userModule.user)
 
     function fixIdxForImages(diff) {
@@ -72,7 +72,7 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails }) {
                     </div>
                 </div>
                 <p>{stay.loc.address}</p>
-                <p>Jan 25 - Feb 1</p>
+                <p>{randomDates}</p>
                 <p className='priceP'>$ <span>{stayPrice}</span><span> night</span></p>
             </div>
         </article >

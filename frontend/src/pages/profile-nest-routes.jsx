@@ -15,8 +15,8 @@ export function ProfileNestRoutes() {
     return (
         <section className="user-orders">
             <div className="nav-orders-details">
-                <NavLink className="btn-link" to="/orders/my-orders">My trips</NavLink>
-                <NavLink onClick={() => getWishFilter(user)} className="btn-link" to="/orders/wishlist">Wish list</NavLink>
+                <NavLink className="btn-link" to={"/orders/my-orders"}>My trips</NavLink>
+                <NavLink onClick={() => getWishFilter(user)} className="btn-link" to={`/orders/wishlist/${user._id}`}>Wish list</NavLink>
             </div>
             <div className="nested-route">
                 <Outlet />

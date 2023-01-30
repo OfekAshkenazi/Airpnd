@@ -1,5 +1,5 @@
 import { stayService } from '../services/stay.service.js';
-import { ADD_STAY, REMOVE_STAY, SET_FILTER, SET_STAYS, UPDATE_STAY } from './stay.reducer.js';
+import { ADD_STAY, REMOVE_STAY, SET_FILTER, SET_STAYS, SET_WISHES, UPDATE_STAY } from './stay.reducer.js';
 import { store } from './store.js';
 
 // Action Creators:
@@ -17,6 +17,13 @@ export function getActionAddStay(stay) {
     }
 }
 
+export function getActionSetWishes(wishes) {
+    return {
+        type: SET_WISHES,
+        wishes
+    }
+}
+
 export function getActionUpdateStay(stay) {
     return {
         type: UPDATE_STAY,
@@ -31,6 +38,16 @@ export async function loadStays(filterBy) {
             type: SET_STAYS,
             stays
         })
+
+    } catch (err) {
+        throw err
+    }
+}
+
+export async function loadWishes(filterBy) {
+    try {
+        const wishes = await stayService.query(filterBy)
+        store.dispatch(getActionSetWishes(wishes))
 
     } catch (err) {
         throw err
