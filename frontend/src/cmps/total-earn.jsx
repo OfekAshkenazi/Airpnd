@@ -1,8 +1,6 @@
-import { display } from '@mui/system';
 import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title, Tooltip } from 'chart.js';
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import { disable } from 'workbox-navigation-preload';
 
 ChartJS.register(
     CategoryScale,
