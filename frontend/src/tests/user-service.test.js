@@ -18,7 +18,6 @@ describe('UserService', () => {
   beforeEach(() => {
     httpService.post.mockReset()
   })
-
   it('should login successfully', async () => {
     expect.assertions(2)
 
