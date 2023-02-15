@@ -15,7 +15,6 @@ export const userService = {
     remove,
     update,
 }
-
 // let loggedUser = getLoggedinUser()
 
 // if (!loggedUser) {
@@ -75,7 +74,7 @@ async function logout() {
 }
 
 function saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, wishList: user.wishList, isOwner: user.isOwner, listOfOwnStays: user.listOfOwnStays }
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, wishList: user.wishList, isOwner: user.isOwner}
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
