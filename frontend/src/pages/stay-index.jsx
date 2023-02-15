@@ -86,6 +86,7 @@ export function StayIndex() {
         <section className={`stay-container `}>
             <div className="div">branchtesting</div>
             {<StayList onAddToWishList={onAddToWishList} stays={stays} onMoveToStayDetails={onMoveToStayDetails} />}
+        <div>This is branch</div>
         </section>
 
     )
