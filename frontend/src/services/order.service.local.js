@@ -53,7 +53,10 @@ async function getById(orderId) {
 async function remove(orderId) {
     try {
         await httpService.remove('order', orderId)
-    } catch (err) { console.log(err); throw err }    
+    } catch (err) { 
+        console.log(err);
+        throw err 
+    }    
 }    
 
 async function add(order) {
