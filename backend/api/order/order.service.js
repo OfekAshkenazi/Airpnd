@@ -23,11 +23,11 @@ async function query(user) {
         throw err
     }
 }
-
 async function getById(orderId) {
     try {
         const collection = await dbService.getCollection('order')
         const order = collection.findOne({ _id: ObjectId(orderId) })
+        console.log(order)
         return order
     } catch (err) {
         logger.error(`while finding stay ${orderId}`, err)
@@ -37,7 +37,6 @@ async function getById(orderId) {
 
 async function add(order, loggedinUser) {
     try {
-
         const collection = await dbService.getCollection('order')
         await collection.insertOne(order)
         return order

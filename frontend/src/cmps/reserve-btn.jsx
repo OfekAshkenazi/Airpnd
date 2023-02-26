@@ -1,16 +1,18 @@
 import * as React from 'react'
-import { useNavigate, NavLink, useSearchParams, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { updateOrder } from '../store/order.action'
 import { userService } from '../services/user.service'
-import { useSelector } from 'react-redux'
+import { showErrorMsg } from '../services/event-bus.service'
 
 export function ReserveBtn({ order, numericDate, stay, totalPrice }) {
-  // const order1 = useSelector(storeState => storeState.orderModule.order)
 
   const navigate = useNavigate()
-  
+
   async function onAddNewOrder(order, stay) {
     try {
+      if (!userService.getLoggedinUser()) {
+        showErrorMsg('Pls log in to reserve')
+      }
       order.stayId = stay._id
       order.totalPrice = totalPrice
       order.hostId = '63cfe8da8276fe4e2c861da4'
@@ -20,111 +22,111 @@ export function ReserveBtn({ order, numericDate, stay, totalPrice }) {
     } catch (err) { console.log(err) }
   }
 
-  return  <div className="btn-container" onClick={() => onAddNewOrder(order, stay)}>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="cell"></div>
-  <div className="reserve-content">
-    <button className="reserve-btn">
-      <span className='reserve-txt'>Reserve</span>
-    </button>
+  return <div className="btn-container" onClick={() => onAddNewOrder(order, stay)}>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="reserve-content">
+      <button className="reserve-btn">
+        <span className='reserve-txt'>Reserve</span>
+      </button>
+    </div>
   </div>
-</div>
 }

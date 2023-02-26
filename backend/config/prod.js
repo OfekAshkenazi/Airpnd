@@ -1,4 +1,9 @@
+require('dotenv').config();
+
+const dbURL = process.env.DB_URL;
+const dbName = process.env.DB_NAME;
+
 module.exports = {
-  dbURL: 'mongodb+srv://proj_airpnd:proj123airpnd@cluster0.rhcuanv.mongodb.net/?retryWrites=true&w=majority',
-  dbName : 'airpnd_proj'
+  dbURL: dbURL,
+  dbName : dbName
 }
