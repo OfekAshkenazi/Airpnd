@@ -11,7 +11,6 @@ module.exports = {
 }
 
 async function query(filterBy = { txt: '', label: '', userId: '', hostId: '' }) {
-    console.log(filterBy, 'hi from filter')
     try {
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('stay')

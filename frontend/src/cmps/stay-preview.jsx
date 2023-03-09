@@ -1,25 +1,9 @@
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { faAngleLeft, faAngleRight, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
 
-import IconHeart from '../assets/svg/icon-heart';
-import { utilService } from '../services/util.service';
+import { ImageSlider } from './image-silder';
 
-export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails, randomDates}) {
-    let [idx, setIdx] = useState(0)
-    const user = useSelector(storeState => storeState.userModule.user)
-
-    function fixIdxForImages(diff) {
-        idx += diff
-        if (idx > stay.imgUrls.length - 1) {
-            idx = 0
-        } else if (idx === -1) {
-            idx = stay.imgUrls.length - 1
-        }
-        setIdx(idx)
-    }
+export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails, randomDates }) {
 
     function getRating() {
         if (!stay.reviews || stay.reviews.length === 0) {
@@ -32,35 +16,14 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails, random
         return (totalRating / stay.reviews.length).toFixed(2)
     }
 
-    function heartStatus() {
-        if (!user) {
-            return <IconHeart fill={"#41454fd2"} />
-        }
-        else if (stay.likedByUsers.includes(user._id)) {
-            return <IconHeart fill={"#FF385C"} />
-        }
-        else {
-            return <IconHeart fill={"#41454fd2"} />
-        }
-    }
 
     const stayPrice = (parseFloat(JSON.stringify(stay.price).replace(/,/g, ''))).toLocaleString()
 
     return (
         <article className="stay-grid" >
-            <div className="img-container">
-                <img onClick={() => onMoveToStayDetails(stay._id)} src={stay.imgUrls[idx]} alt="" />
-                <div className="wish-list" onClick={() => onAddToWishList(stay._id)} >
-                    {heartStatus()}
-                </div>
-                <div className="slider-btn flex">
-                    <button onClick={() => fixIdxForImages(-1)}><FontAwesomeIcon icon={faAngleLeft} /> </button>
-                    <button onClick={() => fixIdxForImages(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
-                </div>
-                <div className="doots">
-                    {stay.imgUrls.map((url, index) => <div onClick={() => setIdx(index)} key={url} className={`doot ${idx === index ? 'doot-active' : ''}`}></div>)}
-                </div>
-            </div>
+            <ImageSlider stay={stay} onAddToWishList={onAddToWishList} />
+
+
             <div className="stay-small-details grid" onClick={() => onMoveToStayDetails(stay._id)}>
                 <div className="small-details-header flex">
                     <div className="loc">

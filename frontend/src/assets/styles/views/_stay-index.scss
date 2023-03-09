@@ -36,62 +36,58 @@
     }
 }
 
-.img-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-
-    img {
-        width: 100%;
-        aspect-ratio: 1.0550819672/1;
-        object-fit: cover;
-        border-radius: em(10px);
-        cursor: pointer;
-    }
-
-    .slider-btn {
-        position: relative;
-        justify-content: space-between;
+.carousel-container {
+    button {
+        display: flex;
         align-items: center;
-        margin: 0 em(6px);
-        bottom: 45%;
+        justify-content: center;
 
-        button {
-            width: 25px;
-            height: 25px;
-            opacity: 0.000000001;
+        &.react-multiple-carousel__arrow {
+            background-color: white;
+            width: 19px;
+            height: 19px;
+            opacity: 0.6;
             border-radius: 20px;
-
-            @media (max-width: 500px) {
-                opacity: 0.6;
-            }
-        }
-    }
-
-    &:hover {
-        button {
             transition-duration: 0.6s;
-            opacity: 0.5;
 
             &:hover {
                 opacity: 1;
+                transition-duration: 0.6s;
             }
         }
+
+        &.react-multiple-carousel__arrow::before {
+            color: $clrBlackFont;
+            font-size: 20px;
+        }
+
     }
 
-    .wish-list {
-        position: absolute;
-        display: flex;
-        justify-content: end;
-        top: em(17px);
-        right: em(17px);
-        cursor: pointer;
+    .custom-dot {
+        bottom: em(7px);
     }
+
+}
+
+img {
+    width: 100%;
+    aspect-ratio: 1.0550819672/1;
+    object-fit: cover;
+    border-radius: em(10px);
+    cursor: pointer;
+}
+
+.wish-list {
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    top: em(17px);
+    right: em(17px);
+    cursor: pointer;
 }
 
 .stay-small-details {
-    position: relative;
-    bottom: em(12px);
+    margin-top: em(4.5px);
 
     .small-details-header {
         justify-content: space-between;
@@ -130,34 +126,6 @@
     font-size: 15px;
 }
 
-.doots {
-    position: absolute;
-    display: flex;
-    left: 40%;
-    bottom: em(30px);
-    gap: em(5px);
-    // z-index: 1;
-}
-
-.doot {
-    cursor: pointer;
-    width: 7px;
-    height: 7px;
-    background-color: #a8a7a0;
-    border-radius: 50%;
-    transition: 0.3s;
-
-    &:hover {
-        background-color: white;
-        scale: 1.01;
-    }
-}
-
-.doot-active {
-    background-color: white;
-    scale: 1.01;
-}
-
 .preview-rate {
     justify-content: space-between;
     gap: em(4px);
@@ -166,3 +134,35 @@
 .my-heart {
     color: #41454fd2;
 }
+
+
+
+// .slider-btn {
+//     position: relative;
+//     justify-content: space-between;
+//     align-items: center;
+//     margin: 0 em(6px);
+//     bottom: 45%;
+
+//     button {
+//         width: 25px;
+//         height: 25px;
+//         opacity: 0.000000001;
+//         border-radius: 20px;
+
+//         @media (max-width: 500px) {
+//             opacity: 0.6;
+//         }
+//     }
+// }
+
+// &:hover {
+//     button {
+//         transition-duration: 0.6s;
+//         opacity: 0.5;
+
+//         &:hover {
+//             opacity: 1;
+//         }
+//     }
+// }

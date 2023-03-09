@@ -109,11 +109,9 @@ export function AppHeader({ layout }) {
                         <hr />
                     </div>}
 
-                    <div className='second-row-header'>
-                        <NavIconFilter />
-                    </div>
 
                 </section>
+                <NavIconFilter />
             </header>
 
         </ >

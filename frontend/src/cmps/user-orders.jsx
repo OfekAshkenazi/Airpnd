@@ -19,7 +19,6 @@ export function UserOrders() {
         try {
             const dataOrders = await loadOrders()
             setCurrOrder(dataOrders[0])
-            console.log(dataOrders)
         } catch (err) {
             showErrorMsg('Cannot load orders')
         }
