@@ -15,9 +15,8 @@ export function ReserveBtn({ order, numericDate, stay, totalPrice }) {
       }
       order.stayId = stay._id
       order.totalPrice = totalPrice
-      order.hostId = '63cfe8da8276fe4e2c861da4'
+      order.hostId = '640db35e73bada2644efdcc9'
       order.byUser = userService.getLoggedinUser()
-      // await updateOrder(order)
       navigate(`/book/stays/${order.stayId}/${order.guests.adults}/${order.guests.children}/${order.guests.infants}/${order.guests.pets}/${order.startDate}/${order.endDate}`)
     } catch (err) { console.log(err) }
   }

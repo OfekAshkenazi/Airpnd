@@ -114,20 +114,14 @@
 }
 
 .shadow {
-    position: relative;
+    padding: 0;
+    margin: 0;
 
-    div {
-        position: absolute;
-        top: 0px;
-        min-height: 100vh;
-        width: 100%;
+    background-color: #a9abae;
+    opacity: 0.6;
+    cursor: pointer;
 
-        background-color: #a9abae;
-        opacity: 0.6;
-        z-index: 1;
-        cursor: pointer;
-
-    }
+    // }
 }
 
 .hr-header {

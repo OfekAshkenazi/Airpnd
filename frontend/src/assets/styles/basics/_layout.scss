@@ -23,7 +23,7 @@
         }
 
         @include for-wide-layout {
-            grid-template-columns: auto 1100px auto;
+            grid-template-columns: auto 1000px auto;
         }
 
         .icon-nav {

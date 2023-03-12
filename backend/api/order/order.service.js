@@ -48,13 +48,12 @@ async function add(order, loggedinUser) {
 
 async function update(order) {
     try {
-        console.log(order)
         const orderToSave = {
-            status: order.status
+            ...order
         }
-        console.log(orderToSave)
+
         const collection = await dbService.getCollection('order')
-        await collection.updateOne({ _id: ObjectId(order._id) }, { $set: orderToSave })
+        await collection.updateOne({ _id: ObjectId(orderToSave._id) }, { $set: orderToSave })
         return orderToSave
     } catch (err) {
         logger.error(`cannot update order ${order._id}`, err)
@@ -93,6 +92,7 @@ async function addOrderMsg(orderId, msg, loggedinUser) {
         const msgToSave = {
             txt: msg.txt,
             id: msg.id,
+            msgRead: msg.msgRead || false
         }
         const collection = await dbService.getCollection('order')
         await collection.updateOne({ _id: ObjectId(orderId) }, { $push: { msgs: msgToSave } })

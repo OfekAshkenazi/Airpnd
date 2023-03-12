@@ -40,6 +40,12 @@ export function LoginSignup(props) {
         setCredentials({ ...credentials, imgUrl })
     }
 
+    function handleSignUp() {
+        toggleSignup()
+        onSignup()
+    }
+
+
     return (
         <div className="login-page">
             <h3>Welcome to Airpnd</h3>
@@ -97,7 +103,7 @@ export function LoginSignup(props) {
                     />
                     {/* <ImgUploader onUploaded={onUploaded} /> */}
                 </form>
-                <button className="btn-signup-login" onClick={toggleSignup}>Signup</button>
+                <button className="btn-signup-login" onClick={handleSignUp}>Signup</button>
             </div>}
             <hr />
             <button className="btn-signup-login" onClick={toggleSignup}>{!isSignup ? 'Signup' : 'Login'}</button>

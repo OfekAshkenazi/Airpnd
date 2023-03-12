@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router';
 
-import { AppFooter } from './cmps/app-footer';
 import { AppHeader } from './cmps/app-header';
 import { AppMobileFooter } from './cmps/app-mobile-footer';
 import { DashBoard } from './cmps/host/dashboard-host';
@@ -16,7 +14,6 @@ import { HostProfileNested } from './pages/host-profile-nested';
 import { ProfileNestRoutes } from './pages/profile-nest-routes';
 import routes from './routes';
 import { showErrorMsg, showSuccessMsg } from './services/event-bus.service';
-import { userService } from './services/user.service';
 import { getActionFilterExpanded } from './store/filter.expanded.action';
 import { ToggleLoginModal } from './store/system.action';
 import { login, signup } from './store/user.actions';
@@ -59,11 +56,9 @@ export function RootCmp() {
     }
 
     return (
-        <section >
+        <section>
             <AppHeader layout={layout} />
-            <div className={`${(isFilterExpanded) ? "shadow" : ""} ${(isLoginModalOpen) ? "shadow" : ""}`} onClick={closeShadowScreen}><div ></div></div>
-            <main className={` ${layout}`} >
-                {/* {isFilterExpanded&& } */}
+            <main className={`${(isFilterExpanded) ? `${layout} shadow` : `${layout}`} ${(isLoginModalOpen) ? `${layout} shadow` : `${layout}`}`} onClick={closeShadowScreen}>
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
                     <Route element={<ProfileNestRoutes />} path="/orders">
@@ -76,9 +71,7 @@ export function RootCmp() {
                         {/* <Route element={<EditStay />} path="/host/edit-stay" /> */}
                     </Route>
                 </Routes>
-                {/* className={`${(isFilterExpanded) ? "shadow-screen" : ""}`} */}
             </main>
-            {/* <AppFooter /> */}
             {isLoginModalOpen && <LoginSignup onLogin={onLogin} onSignup={onSignup} />}
             <AppMobileFooter />
             <UserMsg />

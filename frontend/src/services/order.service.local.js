@@ -78,6 +78,7 @@ async function update(order) {
     } else {
         savedOrder = await httpService.post('order', order)
     }
+    console.log(savedOrder)
     return savedOrder
 }
 

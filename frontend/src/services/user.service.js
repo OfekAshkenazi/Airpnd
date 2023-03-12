@@ -15,14 +15,6 @@ export const userService = {
     remove,
     update,
 }
-// let loggedUser = getLoggedinUser()
-
-// if (!loggedUser) {
-//     (async () => {
-//         await login({ username: 'ofeka25', password: 123 })
-
-//     })();
-// }
 
 function getUsers() {
     return httpService.get(API_KEY)
@@ -59,7 +51,6 @@ async function signup(userCred) {
         const user = await httpService.post('auth/signup', userCred)
         socketService.login(user._id)
         return saveLocalUser(user)
-        // const user = await storageService.post('user', userCred)
 
     } catch (err) { console.log(err); throw err }
 }
@@ -82,17 +73,5 @@ function saveLocalUser(user) {
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
-
-// function _crateUsers() {
-//     const users = storageService.loadFromStorage(STOARGE_KEY_USERS)
-//     if (!users) {
-//         ; (async () => {
-//             await userService.signup({ fullname: 'User 1', username: 'puki', password: '123', "isOwner": false, wishList: ['10006546'] })
-//             await userService.signup({ fullname: 'User 2', username: 'muki', password: '123', "isOwner": true, imgUrl: "../user-img/baby.jpg", wishList: ['10006546'] })
-//         })()
-//         return users
-//     }
-//     return users
-// }
 
 

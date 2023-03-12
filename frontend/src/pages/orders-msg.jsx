@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import { OrderMsg } from "../cmps/order-msg-index"
 import { showErrorMsg } from "../services/event-bus.service"
 import { loadOrders } from "../store/order.action"
-
+import { saveOrder } from "../store/order.action"
 export function OrdersMsg() {
     const orders = useSelector(storeState => storeState.orderModule.orders)
 
@@ -22,9 +22,20 @@ export function OrdersMsg() {
         }
     }
 
-    function setInfoForMsgs(order) {
-        setRoomName(order._id)
-        setCurrOrder(order)
+    async function setInfoForMsgs(order) {
+        const orderToSave = structuredClone(order)
+        orderToSave.msgs.forEach(msg => {
+            msg.msgRead = true
+        })
+        
+        try {
+            const savedOrder = await saveOrder(orderToSave)
+            setCurrOrder(savedOrder)
+            setRoomName(savedOrder)
+        } catch (err) {
+            console.log(err)
+            showErrorMsg('Cannot read msgs')
+        }
     }
 
     return (
@@ -45,7 +56,7 @@ export function OrdersMsg() {
             </section>
 
 
-            { currOrder && <OrderMsg roomName={roomName} currOrder={currOrder} />}
+            {currOrder && <OrderMsg roomName={roomName} currOrder={currOrder} />}
 
 
         </section>
