@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { PropagateLoader } from 'react-spinners';
 
-import { showErrorMsg } from '../services/event-bus.service.js';
-import { stayService } from '../services/stay.service.js';
-import { cleanFilter, getHostOrderFilter } from '../services/wishList.service.js';
+import { showErrorMsg } from '../../services/event-bus.service.js';
+import { stayService } from '../../services/stay.service.js';
+import { cleanFilter, getHostOrderFilter } from '../../services/wishList.service.js';
 import { HostStayPreview } from './host-stay-preview.jsx';
 
 

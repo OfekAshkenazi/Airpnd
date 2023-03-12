@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { eventBus, showSuccessMsg } from '../services/event-bus.service.js';
-import { SOCKET_EVENT_ORDER_FOR_HOST, socketService } from '../services/socket.service.js';
 
 export function UserMsg() {
 
@@ -16,17 +15,9 @@ export function UserMsg() {
         timeoutIdRef.current = null
         clearTimeout(timeoutIdRef.current)
       }
-      timeoutIdRef.current = setTimeout(closeMsg, 7000)
+      timeoutIdRef.current = setTimeout(closeMsg, 2000)
     })
 
-    // socketService.on(SOCKET_EVENT_ORDER_FOR_HOST, (order) => {
-    //   showSuccessMsg(`New order about me `)
-    // })
-
-    return () => {
-      unsubscribe()
-      // socketService.off(SOCKET_EVENT_ORDER_FOR_HOST)
-    }
   }, [])
 
   function closeMsg() {

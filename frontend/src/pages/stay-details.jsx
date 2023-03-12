@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { ReviewList } from '../cmps/review-llist'
-import { GoogleMap } from '../cmps/google-map.details.jsx';
-import { ReserveBtn } from '../cmps/reserve-btn.jsx'
+import { ReviewList } from '../cmps/stay-details/review-list.jsx'
+import { GoogleMap } from '../cmps/google-maps/google-map.details.jsx';
+import { ReserveBtn } from '../cmps/stay-details/reserve-btn.jsx'
 
-import { StayExpanded } from '../cmps/stay-expanded.jsx'
+import { StayExpanded } from '../cmps/stay-details/stay-expanded.jsx'
 import { stayService } from "../services/stay.service.js"
 import { ToggleDetails } from "../store/system.action.js"
 import { useSelector } from 'react-redux';

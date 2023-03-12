@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { updateOrder } from '../store/order.action'
-import { userService } from '../services/user.service'
-import { showErrorMsg } from '../services/event-bus.service'
+import { updateOrder } from '../../store/order.action'
+import { userService } from '../../services/user.service'
+import { showErrorMsg } from '../../services/event-bus.service'
 
 export function ReserveBtn({ order, numericDate, stay, totalPrice }) {
 
@@ -17,7 +17,7 @@ export function ReserveBtn({ order, numericDate, stay, totalPrice }) {
       order.totalPrice = totalPrice
       order.hostId = '63cfe8da8276fe4e2c861da4'
       order.byUser = userService.getLoggedinUser()
-      await updateOrder(order)
+      // await updateOrder(order)
       navigate(`/book/stays/${order.stayId}/${order.guests.adults}/${order.guests.children}/${order.guests.infants}/${order.guests.pets}/${order.startDate}/${order.endDate}`)
     } catch (err) { console.log(err) }
   }

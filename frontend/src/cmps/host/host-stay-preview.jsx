@@ -1,5 +1,5 @@
-import IconBedKing from './svg-cmps/bed-icon.jsx';
-import IconShower from './svg-cmps/shower-icon.jsx';
+import IconBedKing from '../svg-cmps/bed-icon.jsx';
+import IconShower from '../svg-cmps/shower-icon.jsx';
 
 export function HostStayPreview({ stay }) {
     return (

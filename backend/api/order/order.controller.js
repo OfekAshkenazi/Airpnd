@@ -8,6 +8,7 @@ module.exports = {
   addOrder,
   updateOrder,
   removeOrder,
+  addOrderMsg
 }
 
 async function getOrders(req, res) {
@@ -74,5 +75,17 @@ async function removeOrder(req, res) {
   }
 }
 
+async function addOrderMsg(req, res) {
+  try {
+    const orderId = req.params.id
+    const msg = req.body
+    console.log(orderId, msg)
+    const savedMsg = await orderService.addOrderMsg(orderId, msg)
+    res.json(savedMsg)
 
+  } catch (err) {
+    logger.error('Cannot add msg', err)
+    res.status(500).send({ err: 'Cannot add msg' })
+  }
+}
 

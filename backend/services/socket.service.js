@@ -3,14 +3,9 @@ const logger = require('./logger.service')
 var gIo = null
 
 module.exports = {
-    // set up the sockets service and define the API
     setupSocketAPI,
-    // emit to everyone / everyone in a specific room (label)
     emitTo,
-    // emit to a specific user (if currently active in system)
     emitToUser,
-    // Send to all sockets BUT not the current socket - if found
-    // (otherwise broadcast to a room / to all)
     broadcast,
 }
 
@@ -36,9 +31,6 @@ function setupSocketAPI(http) {
         })
         socket.on('chat-send-msg', msg => {
             logger.info(`New chat msg from socket [id: ${socket.id}], emitting to topic ${socket.myTopic}`)
-            // emits to all sockets:
-            // gIo.emit('chat addMsg', msg)
-            // emits only to sockets in the same room
             gIo.to(socket.myTopic).emit('chat-add-msg', msg)
         })
         socket.on('user-watch', userId => {

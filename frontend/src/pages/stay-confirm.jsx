@@ -2,8 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 import { stayService } from '../services/stay.service'
-import { updateOrder } from '../store/order.action'
-import { orderService } from '../services/order.service.local'
+import { saveOrder, updateOrder } from '../store/order.action'
 import { PropagateLoader } from 'react-spinners';
 import { useEffect } from 'react'
 import { userService } from '../services/user.service'
@@ -32,11 +31,9 @@ export function StayConfirm() {
       order.guests.children = parseInt(children)
       order.guests.infants = parseInt(infants)
       order.guests.pets = parseInt(pets)
-      // order.endDate = new Date()
-      // order.startDate = new Date()
       setOrder(stay)
     } catch (error) {
-      console.log(error)
+      showErrorMsg('Could not find the order')
     }
   }
 
@@ -46,7 +43,7 @@ export function StayConfirm() {
       await updateOrder(updatedOrder)
     }
     catch (err) {
-      console.log(err)
+
     }
   }
 
@@ -57,11 +54,11 @@ export function StayConfirm() {
         showErrorMsg('pls log in ')
         return
       }
-      await orderService.add(order)
+      await saveOrder(order)
       navigate(`/orders/my-orders`)
     }
     catch (err) {
-      console.log(err)
+      showErrorMsg('Could not add new order')
     }
   }
 

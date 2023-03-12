@@ -27,7 +27,7 @@ export function ReviewList({ stay }) {
     return (
         <section className="review-list">
             <h2 className="flex">
-                <img className ="star-img" style={{ width: '18px', height: '18px' }} src={require("../assets/img/icons/star.png")} />
+                <img className ="star-img" style={{ width: '18px', height: '18px' }} src={require("../../assets/img/icons/star.png")} />
                 {getRating()}
                 <span className="seperator">·</span>
                 <p>{stay.reviews.length} reviews</p>

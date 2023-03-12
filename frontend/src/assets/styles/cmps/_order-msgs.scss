@@ -1,0 +1,13 @@
+.order-con {
+    max-height: 100px;
+    max-width: 150px;
+
+
+    img {
+        width: 50%;
+    }
+
+    &:hover {
+        border: 2px solid red;
+    }
+}

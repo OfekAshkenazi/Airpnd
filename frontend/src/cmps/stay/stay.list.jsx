@@ -1,4 +1,4 @@
-import { utilService } from "../services/util.service";
+import { utilService } from "../../services/util.service";
 import { StayPreview } from "./stay-preview";
 
 export function StayList({ stays, onAddToWishList, onMoveToStayDetails }) {

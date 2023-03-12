@@ -1,9 +1,9 @@
-import { GoogleMapHostStays } from './google-map-host-stays.jsx';
+import { GoogleMapHostStays } from '../google-maps/google-map-host-stays.jsx';
 import { HostStayList } from './host-stay-list.jsx';
-import { TaxReport } from './tax-report.jsx';
-import { ResStatus } from './res-status.jsx';
-import { TotalEarn } from './total-earn';
-import { TotalExpenses } from './total-expenses.jsx';
+import { TaxReport } from '../tax-report.jsx';
+import { ResStatus } from '../res-status.jsx';
+import { TotalEarn } from '../total-earn';
+import { TotalExpenses } from '../total-expenses.jsx';
 
 export function DashBoard() {
     return (

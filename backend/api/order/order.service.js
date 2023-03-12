@@ -8,13 +8,13 @@ module.exports = {
     getById,
     add,
     update,
-    remove
+    remove,
+    addOrderMsg
 }
 
 async function query(user) {
     try {
         const criteria = _buildCriteria(user)
-        console.log(user)
         const collection = await dbService.getCollection('order')
         let orders = await collection.find(criteria).toArray()
         return orders
@@ -23,11 +23,11 @@ async function query(user) {
         throw err
     }
 }
+
 async function getById(orderId) {
     try {
         const collection = await dbService.getCollection('order')
         const order = collection.findOne({ _id: ObjectId(orderId) })
-        console.log(order)
         return order
     } catch (err) {
         logger.error(`while finding stay ${orderId}`, err)
@@ -86,4 +86,19 @@ function _buildCriteria(user) {
         return criteria
     }
     return criteria
+}
+
+async function addOrderMsg(orderId, msg, loggedinUser) {
+    try {
+        const msgToSave = {
+            txt: msg.txt,
+            id: msg.id,
+        }
+        const collection = await dbService.getCollection('order')
+        await collection.updateOne({ _id: ObjectId(orderId) }, { $push: { msgs: msgToSave } })
+        return msgToSave
+    } catch (err) {
+        logger.error('Cannot add msg to order')
+        throw err
+    }
 }

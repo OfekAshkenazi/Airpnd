@@ -7,10 +7,11 @@ import { DateRange } from 'react-date-range';
 import { useSelector } from 'react-redux';
 
 import { GuestPicker } from '../cmps/guest-picker.jsx';
-import { ReserveBtn } from '../cmps/reserve-btn.jsx';
+import { ReserveBtn } from './stay-details/reserve-btn.jsx';
 import { updateOrder } from '../store/order.action.js';
 
 export function BookingForm({ stay, getRating }) {
+    
     const order = useSelector(storeState => storeState.orderModule.order)
     const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
     const [isGuestPickerOpen, setIsGuestPickerOpen] = useState(false)

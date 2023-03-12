@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import PropagateLoader from 'react-spinners/PropagateLoader.js';
 
-import { StayList } from '../cmps/stay.list.jsx';
+import { StayList } from '../cmps/stay/stay.list.jsx';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
 import { stayService } from '../services/stay.service.js';
 import { userService } from '../services/user.service.js';

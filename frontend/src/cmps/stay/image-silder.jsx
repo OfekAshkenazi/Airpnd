@@ -1,4 +1,4 @@
-import IconHeart from '../assets/svg/icon-heart';
+import IconHeart from '../../assets/svg/icon-heart';
 import { useSelector } from 'react-redux';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";

@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { PropagateLoader } from 'react-spinners';
 
-import { showErrorMsg } from '../services/event-bus.service';
-import { orderService } from '../services/order.service.local';
-import { loadOrders, updateOrderStatus } from '../store/order.action';
+import { showErrorMsg } from '../../services/event-bus.service';
+import { orderService } from '../../services/order.service.local';
+import { loadOrders, updateOrderStatus } from '../../store/order.action';
 import { HostOrdersList } from './host-orders-list';
 
 

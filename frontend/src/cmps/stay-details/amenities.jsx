@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { AmenitiesPreview } from "../cmps/amenities-preview.jsx"
+import { AmenitiesPreview } from "./amenities-preview.jsx"
 
 export function Amenities({ stay }) {
 
@@ -35,7 +35,7 @@ export function Amenities({ stay }) {
             <div className="offers">{stay.amenities.slice(0, 10).map((amenitie, index) => {
                 amenitie = amenitie.replace("/", "")
                 return <div key={index} className="amenitie">
-                    <img className="amenitie-img" src={require(`../assets/img/amenities/${amenitie.split(" ").shift().toLowerCase()}.png`)}
+                    <img className="amenitie-img" src={require(`../../assets/img/amenities/${amenitie.split(" ").shift().toLowerCase()}.png`)}
                     /><span className="amenitie-txt">{amenitie}</span></div>
             })}</div>
             <button onClick={toggleModal} className="amenitie-btn">

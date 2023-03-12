@@ -44,8 +44,7 @@ export function UserPagesModal({ setUserModal }) {
     return (
         <section className="user-page-modal">
             <section className="bold">
-                {/* <div onClick={closeModal} className="page-item flex bold"><Link>Messages</Link></div> */}
-                {/* <div onClick={closeModal} className="page-item flex bold"><Link>Notifications</Link></div> */}
+                <div onClick={() => setUserModal(false)} className="page-item flex bold"><Link to="/orders/msgs">Messages</Link></div>
                 <div onClick={() => handleClickTrips(user)} className="page-item flex bold">Trips</div>
                 {user?.isOwner && <Link to="/host/dashboard"><div onClick={handleClickHostDashBoard} className="page-item flex bold">Host</div></Link>}
                 <Link to="/orders/wishlist"><div onClick={() => setUserModal(false)} className="page-item flex bold">Wishlist</div></Link>
