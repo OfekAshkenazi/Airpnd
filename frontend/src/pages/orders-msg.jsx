@@ -29,11 +29,15 @@ export function OrdersMsg() {
         orderToSave.msgs.forEach(msg => {
             msg.msgRead = true
         })
-
         try {
             const savedOrder = await saveOrder(orderToSave)
-            setCurrOrder(savedOrder)
-            setRoomName(savedOrder)
+            setCurrOrder((prevOrder) => {
+                setCurrOrder(null)
+                setTimeout(() => {
+                    setCurrOrder(savedOrder)
+                }, 100)
+            })
+            setRoomName(savedOrder._id)
         } catch (err) {
             console.log(err)
             showErrorMsg('Cannot read msgs')

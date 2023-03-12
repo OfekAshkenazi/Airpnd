@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
-import IconBxSearch from '../assets/svg/search-magnifying';
-import { stayService } from '../services/stay.service.js';
-import { utilService } from '../services/util.service';
-import { getActionFilterExpanded } from '../store/filter.expanded.action';
-import { onSetFilter } from '../store/stay.actions';
+import IconBxSearch from '../../assets/svg/search-magnifying';
+import { stayService } from '../../services/stay.service.js';
+import { utilService } from '../../services/util.service';
+import { getActionFilterExpanded } from '../../store/filter.expanded.action';
+import { onSetFilter } from '../../store/stay.actions';
 import { FilterDatesModal } from './filter-dates-modal';
 import { FilterWhereModal } from './filter-where-modal';
 import { FilterWhoModal } from './filter-who-modal';

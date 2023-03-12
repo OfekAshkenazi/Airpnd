@@ -33,7 +33,10 @@ async function update(userToUpdate, userId) {
     try {
         const user = await httpService.put(API_KEY + `/${userId}`, userToUpdate)
         return user
-    } catch (err) { console.log(err); throw err }
+    } catch (err) {
+        console.log(err)
+        throw err
+    }
 }
 
 async function login(userCred) {
@@ -65,7 +68,7 @@ async function logout() {
 }
 
 function saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, wishList: user.wishList, isOwner: user.isOwner}
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, wishList: user.wishList, isOwner: user.isOwner }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }

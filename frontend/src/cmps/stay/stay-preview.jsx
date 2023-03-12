@@ -20,11 +20,11 @@ export function StayPreview({ stay, onAddToWishList, onMoveToStayDetails, random
     const stayPrice = (parseFloat(JSON.stringify(stay.price).replace(/,/g, ''))).toLocaleString()
 
     return (
-        <article className="stay-grid" >
+        <article className="stay-grid">
+
             <ImageSlider stay={stay} onAddToWishList={onAddToWishList} />
 
-
-            <div className="stay-small-details grid" onClick={() => onMoveToStayDetails(stay._id)}>
+            <div className="stay-small-details grid" onClick={(ev) => onMoveToStayDetails(ev,stay._id)}>
                 <div className="small-details-header flex">
                     <div className="loc">
                         {stay.loc.city}, {stay.loc.country}

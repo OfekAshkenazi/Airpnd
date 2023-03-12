@@ -5,8 +5,8 @@ import { NavLink, useSearchParams } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 
-import { labels, stayService } from '../services/stay.service';
-import { onSetFilter } from '../store/stay.actions';
+import { labels, stayService } from '../../services/stay.service';
+import { onSetFilter } from '../../store/stay.actions';
 
 export function NavIconFilter() {
 
@@ -58,7 +58,7 @@ export function NavIconFilter() {
                     labels.map(label => {
                         return (
                             <div key={label} className='icon-preview' onClick={() => onFilterByLabel(label)}>
-                                <img style={{ maxWidth: '30px' }} src={require(`../assets/icon-nav-filter/${label}.png`)} alt="" />
+                                <img style={{ maxWidth: '30px' }} src={require(`../../assets/icon-nav-filter/${label}.png`)} alt="" />
                                 <p onClick={() => onFilterByLabel(label)}>{`${label}`}</p>
                             </div>
                         )

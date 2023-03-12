@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { PropagateLoader } from 'react-spinners';
 
-import { showErrorMsg } from '../services/event-bus.service.js';
-import { stayService } from '../services/stay.service.js';
-import { cleanFilter, getWishFilter } from '../services/wishList.service.js';
-import { loadWishes, onSetFilter } from '../store/stay.actions.js';
-import { ToggleDetails } from '../store/system.action.js';
+import { showErrorMsg } from '../../services/event-bus.service.js';
+import { stayService } from '../../services/stay.service.js';
+import { cleanFilter, getWishFilter } from '../../services/wishList.service.js';
+import { loadWishes, onSetFilter } from '../../store/stay.actions.js';
+import { ToggleDetails } from '../../store/system.action.js';
 import { WishPreview } from './wish-preview.jsx';
 
 export function WishList() {

@@ -7,6 +7,36 @@
 .stay-grid {
     display: grid;
     width: 100%;
+
+    .carousel-container {
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.react-multiple-carousel__arrow {
+                background-color: white;
+                opacity: 0.6;
+                transition-duration: 0.6s;
+                min-width: 30px;
+                min-height: 30px;
+
+                &:hover {
+                    opacity: 1;
+                    transition-duration: 0.6s;
+                }
+            }
+
+            &.react-multiple-carousel__arrow::before {
+                color: $clrBlackFont;
+            }
+        }
+
+        .custom-dot {
+            bottom: em(7px);
+        }
+    }
 }
 
 .stay-list {
@@ -36,38 +66,8 @@
     }
 }
 
-.carousel-container {
-    button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
-        &.react-multiple-carousel__arrow {
-            background-color: white;
-            width: 19px;
-            height: 19px;
-            opacity: 0.6;
-            border-radius: 20px;
-            transition-duration: 0.6s;
 
-            &:hover {
-                opacity: 1;
-                transition-duration: 0.6s;
-            }
-        }
-
-        &.react-multiple-carousel__arrow::before {
-            color: $clrBlackFont;
-            font-size: 20px;
-        }
-
-    }
-
-    .custom-dot {
-        bottom: em(7px);
-    }
-
-}
 
 img {
     width: 100%;
@@ -134,35 +134,3 @@ img {
 .my-heart {
     color: #41454fd2;
 }
-
-
-
-// .slider-btn {
-//     position: relative;
-//     justify-content: space-between;
-//     align-items: center;
-//     margin: 0 em(6px);
-//     bottom: 45%;
-
-//     button {
-//         width: 25px;
-//         height: 25px;
-//         opacity: 0.000000001;
-//         border-radius: 20px;
-
-//         @media (max-width: 500px) {
-//             opacity: 0.6;
-//         }
-//     }
-// }
-
-// &:hover {
-//     button {
-//         transition-duration: 0.6s;
-//         opacity: 0.5;
-
-//         &:hover {
-//             opacity: 1;
-//         }
-//     }
-// }

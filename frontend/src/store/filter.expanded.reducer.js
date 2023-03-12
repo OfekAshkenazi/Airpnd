@@ -1,8 +1,10 @@
 
 export const SET_FILTER_EXPANDED = 'SET_FILTER_EXPANDED'
+export const SET_FILTER_EXPANDEDUSER = 'SET_FILTER_EXPANDEDUSER'
 
 const initialState = {
     isFilterExpanded: false,
+    isFilterExpandedUser: false,
 }
 
 export function filterExpandedReducer(state = initialState, action) {
@@ -11,10 +13,9 @@ export function filterExpandedReducer(state = initialState, action) {
         case SET_FILTER_EXPANDED:
             newState = { ...state, isFilterExpanded: action.status }
             break
-
-        // case SET_FILTER_EXPANDED_CLOSE:
-        //     newState = { ...state, isFilterExpanded: false }
-        //     break
+        case SET_FILTER_EXPANDEDUSER:
+            newState = { ...state, isFilterExpandedUser: action.status }
+            break
 
         default:
     }

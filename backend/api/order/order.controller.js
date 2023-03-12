@@ -77,7 +77,6 @@ async function addOrderMsg(req, res) {
   try {
     const orderId = req.params.id
     const msg = req.body
-    console.log(orderId, msg)
     const savedMsg = await orderService.addOrderMsg(orderId, msg)
     res.json(savedMsg)
 

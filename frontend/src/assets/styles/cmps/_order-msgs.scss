@@ -1,13 +1,42 @@
+.orders-msg {
+    margin-top: em(15px);
+    gap: em(6.5px);
+    // background-color: aqua;
+
+}
+
+.msg-room {
+    flex-grow: 1;
+    justify-content: space-between;
+    padding-left: 0.3vw;
+    min-height: 80vh;
+    background-color: $clrGrayFont;
+    padding: em(5px);
+    border-radius: 8px;
+
+}
+
 .order-con {
     max-height: 100px;
-    max-width: 150px;
+    min-width: 300px;
+    background-color: grey;
+    align-items: center;
+    gap: em(25px);
+    justify-content: flex-start;
+    padding: em(8px);
+    border-radius: 8px;
+    cursor: pointer;
+
+    img {
+        max-width: 100px;
+        border-radius: 50%;
+        // object-fit: fill;
+    }
 
 
     img {
         width: 50%;
     }
 
-    &:hover {
-        border: 2px solid red;
-    }
+
 }

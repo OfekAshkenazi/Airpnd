@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { showErrorMsg } from '../services/event-bus.service.js';
-import { getHostOrderFilter } from '../services/wishList.service.js';
-import { ToggleLoginModal } from '../store/system.action.js';
-import { logout } from '../store/user.actions.js';
+import { showErrorMsg } from '../../services/event-bus.service.js';
+import { getHostOrderFilter } from '../../services/wishList.service.js';
+import { ToggleLoginModal } from '../../store/system.action.js';
+import { logout } from '../../store/user.actions.js';
 
 export function UserPagesModal({ setUserModal }) {
     const user = useSelector(storeState => storeState.userModule.user)

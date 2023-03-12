@@ -46,28 +46,27 @@ export function StayIndex() {
         }
     }
 
-    async function onAddToWishList(stayId) {
+    async function onAddToWishList(ev, stayId) {
         try {
             const stay = await stayService.getById(stayId)
-            if (stay.likedByUsers.includes(user._id)) {
-                const idxUserId = stay.likedByUsers.indexOf(user._id)
+            const idxUserId = stay.likedByUsers.indexOf(user._id)
+            const isLikedByUser = idxUserId !== -1
+
+            if (isLikedByUser) {
                 stay.likedByUsers.splice(idxUserId, 1)
-                await updateStay(stay)
-                const idxStayId = user.wishList.indexOf(stay._id)
-                user.wishList.splice(idxStayId, 1)
-                await updateUser(user, user._id)
+                user.wishList.splice(user.wishList.indexOf(stay._id), 1)
             } else {
                 stay.likedByUsers.push(user._id)
-                await updateStay(stay)
                 user.wishList.push(stay._id)
-                await updateUser(user, user._id)
             }
+
+            await Promise.all([updateStay(stay), updateUser(user, user._id)])
         } catch (err) {
             showErrorMsg('Cannot Add To Wish-list')
         }
     }
 
-    function onMoveToStayDetails(stayId) {
+    function onMoveToStayDetails(ev, stayId) {
         navigate(`/stay/${stayId}`)
     }
 

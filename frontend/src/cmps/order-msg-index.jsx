@@ -38,7 +38,6 @@ export function OrderMsg({ roomName, currOrder }) {
             const savedMsg = await orderService.addOrderMsg(currOrder._id, msg)
             setMsg(orderService.getEmptyMsg())
             socketService.emit(SOCKET_EMIT_SEND_MSG, savedMsg)
-            // addMsg(savedMsg)
 
         } catch (err) {
             showErrorMsg('Could not sent msg')
@@ -46,10 +45,10 @@ export function OrderMsg({ roomName, currOrder }) {
     }
 
     return (
-        <section className="flex column">
+        <section className="msg-room flex column">
             <section className="msg-list">
                 <ul>
-                    {currOrder && orderMsgs.map(msg => <li key={utilService.makeId()} className="msg-preview">
+                    {orderMsgs.map(msg => <li key={utilService.makeId()} className="msg-preview">
                         <h2>{msg.txt}</h2>
 
                     </li>)}
@@ -57,12 +56,12 @@ export function OrderMsg({ roomName, currOrder }) {
                 </ul>
             </section>
 
-            {currOrder && <div className="">
+            <div className="">
                 <form onSubmit={onAddOrderMsg}>
                     <input type="text" name="txt" title="txt" id="txt" value={msg.txt} placeholder="msg" onChange={handleChange} />
                     <button>save</button>
                 </form>
-            </div>}
+            </div>
         </section>
     )
 }

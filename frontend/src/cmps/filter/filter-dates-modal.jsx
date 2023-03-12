@@ -1,13 +1,9 @@
-import { addDays } from 'date-fns';
-import { differenceInCalendarDays } from 'date-fns';
-import { useState } from 'react';
 import { DateRange } from 'react-date-range';
 import { useSelector } from 'react-redux';
 
-import { updateOrder } from '../store/order.action';
+import { updateOrder } from '../../store/order.action';
 
 export function FilterDatesModal() {
-  const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
   const order = useSelector(storeState => storeState.orderModule.order)
 
 

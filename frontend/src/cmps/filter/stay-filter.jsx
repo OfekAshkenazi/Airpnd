@@ -2,12 +2,11 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector } from 'react-redux';
 
-import IconMapPin from '../assets/svg/location-icon';
-import { getActionFilterExpanded } from '../store/filter.expanded.action';
+import IconMapPin from '../../assets/svg/location-icon';
+import { getActionFilterExpanded } from '../../store/filter.expanded.action';
 
 export function StayFilter({ onAddGuest, onAddWhere, onDateModal, whoCounter }) {
     const filterBy = useSelector(storeState => storeState.stayModule.filterBy)
-    // const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
 
     function openFilterExpanded() {
         getActionFilterExpanded(true)

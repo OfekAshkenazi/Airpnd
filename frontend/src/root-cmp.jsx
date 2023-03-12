@@ -2,18 +2,21 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router';
 
+import routes from './routes';
 import { AppHeader } from './cmps/app-header';
 import { AppMobileFooter } from './cmps/app-mobile-footer';
+
 import { DashBoard } from './cmps/host/dashboard-host';
 import { HostOrders } from './cmps/host/host-orders';
-import { LoginSignup } from './cmps/login-signup';
-import { UserMsg } from './cmps/user-msg';
-import { UserOrders } from './cmps/user-orders';
-import { WishList } from './cmps/wish-list';
+import { LoginSignup } from './cmps/user/login-signup';
+import { UserMsg } from './cmps/user/user-msg';
+import { UserOrders } from './cmps/user/user-orders';
+import { WishList } from './cmps/wish-list/wish-list';
 import { HostProfileNested } from './pages/host-profile-nested';
 import { ProfileNestRoutes } from './pages/profile-nest-routes';
-import routes from './routes';
 import { showErrorMsg, showSuccessMsg } from './services/event-bus.service';
+
+
 import { getActionFilterExpanded } from './store/filter.expanded.action';
 import { ToggleLoginModal } from './store/system.action';
 import { login, signup } from './store/user.actions';

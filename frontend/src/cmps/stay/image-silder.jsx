@@ -7,21 +7,36 @@ import "react-multi-carousel/lib/styles.css";
 export function ImageSlider({ stay, onAddToWishList }) {
     const user = useSelector(storeState => storeState.userModule.user)
 
+    const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
+        const { carouselState: { currentSlide } } = rest;
+        return (
+            <div className="carousel-button-group">
+                <button className={currentSlide === 0 ? '' : ''} onClick={() => previous()} />
+                <button onClick={(e) => {
+                    e.stopPropagation()
+                    next()
+                }} />
+                <button onClick={() => goToSlide(currentSlide + 1)}>  </button>
+            </div>
+        );
+    };
+
+
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
             items: 1,
-            slidesToSlide: 1 // optional, default to 1.
+            slidesToSlide: 1
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
             items: 1,
-            slidesToSlide: 1 // optional, default to 1.
+            slidesToSlide: 1
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
             items: 1,
-            slidesToSlide: 1 // optional, default to 1.
+            slidesToSlide: 1
         }
     }
 
@@ -43,26 +58,32 @@ export function ImageSlider({ stay, onAddToWishList }) {
             draggable={false}
             showDots={true}
             responsive={responsive}
-            autoPlaySpeed={1000}
+            ssr={true} // means to render carousel on server-side.
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={6500}
             keyBoardControl={true}
             customTransition="all 0.6s"
             transitionDuration={600}
             containerClass="carousel-container"
             removeArrowOnDeviceType={["mobile"]}
             dotListClass="custom-dot"
+            // customButtonGroup={<ButtonGroup />}
+            // renderButtonGroupOutside={true}
+
         >
             {
                 stay.imgUrls.map(imgUrl => {
                     return (
                         <section key={imgUrl} className="img-container">
                             <img src={imgUrl} alt="" />
-                            <div className="wish-list" onClick={() => onAddToWishList(stay._id)} >
+                            <div className="wish-list" onClick={(ev) => onAddToWishList(ev, stay._id)} >
                                 {heartStatus()}
                             </div>
                         </section>
                     )
                 })
             }
-        </Carousel>
+        </Carousel >
     )
 }

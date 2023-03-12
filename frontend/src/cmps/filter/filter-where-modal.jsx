@@ -1,5 +1,5 @@
-import IconMapPin from '../assets/svg/location-icon';
-import { utilService } from '../services/util.service';
+import IconMapPin from '../../assets/svg/location-icon';
+import { utilService } from '../../services/util.service';
 
 const commonCities = ['Maui', 'Rio De Janeiro', 'Barcelona', 'Istanbul']
 const commonCountries = ['United States', 'Brazil', 'Spain', 'Turkey', 'Canada']
@@ -36,13 +36,13 @@ export function FilterWhereModal({ setFilterByToEdit }) {
 
         <div className='countries-list'>
           <div className='country' onClick={() => onFlexAble(manyPlaces)}>
-            <img src={require(`../assets/img/countries/flexable.png`)} alt="flexable" />
+            <img src={require(`../../assets/img/countries/flexable.png`)} alt="flexable" />
             <p>I'm flexible</p>
           </div>
 
           {commonCountries.map((country, idx) => {
             return <div key={country} className='country' onClick={() => onCommonSearch(country)}>
-              <img src={require(`../assets/img/countries/${country}.png`)} alt={country} />
+              <img src={require(`../../assets/img/countries/${country}.png`)} alt={country} />
               <p>{country}</p>
             </div>
 

@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { PropagateLoader } from 'react-spinners';
 
-import { showErrorMsg } from '../services/event-bus.service';
-import { stayService } from '../services/stay.service';
-import { loadOrders } from '../store/order.action';
+import { showErrorMsg } from '../../services/event-bus.service';
+import { stayService } from '../../services/stay.service';
+import { loadOrders } from '../../store/order.action';
 
 export function UserOrders() {
     const orders = useSelector(storeState => storeState.orderModule.orders)
