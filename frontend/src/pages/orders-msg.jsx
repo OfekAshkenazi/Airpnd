@@ -23,11 +23,13 @@ export function OrdersMsg() {
     }
 
     async function setInfoForMsgs(order) {
+
+        
         const orderToSave = structuredClone(order)
         orderToSave.msgs.forEach(msg => {
             msg.msgRead = true
         })
-        
+
         try {
             const savedOrder = await saveOrder(orderToSave)
             setCurrOrder(savedOrder)
