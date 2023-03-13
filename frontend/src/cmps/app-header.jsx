@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import logo from '../assets/img/logo.png';
 import IconMenu_hamburger from '../assets/svg/open-hamburger-icon';
 import { UserPagesModal } from '../cmps/user/user-pages-modal.jsx';
+import { showErrorMsg } from '../services/event-bus.service';
+import { socketService } from '../services/socket.service';
 import { stayService } from '../services/stay.service';
+import { loadOrders } from '../store/order.action';
 import { onSetFilter } from '../store/stay/stay.actions';
 import { StayFilter } from './filter/stay-filter';
 import { StayFilterExpanded } from './filter/stay-filter-expanded';
@@ -13,8 +16,11 @@ import { NavIconFilter } from './filter/stay-filter-nav-icon';
 import { StayFilterPlaceTaker } from './filter/stay-filter-place-taker';
 
 export function AppHeader({ layout }) {
+    const orders = useSelector(storeState => storeState.orderModule.orders)
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
     const user = useSelector(storeState => storeState.userModule.user)
+
+
     const [userModal, setUserModal] = useState(false)
     const [whoCounter, setWhoCounter] = useState(0)
 
@@ -23,6 +29,40 @@ export function AppHeader({ layout }) {
     const [isDateModalOpen, setIsDateModalOpen] = useState(false)
 
     const navigate = useNavigate()
+
+    // useEffect(() => {
+    //     socketService.on(SOCKET_EVENT_ADD_MSG, test)
+    //     return () => {
+    //         socketService.off(SOCKET_EVENT_ADD_MSG, test)
+    //     }
+    // }, [])
+
+
+    useEffect(() => {
+        if (user) {
+            onLoadOrders()
+        }
+    }, [])
+
+    async function onLoadOrders() {
+        try {
+            await loadOrders()
+        } catch (err) {
+            showErrorMsg('Cannot load orders')
+        }
+    }
+
+    function setNumberOfNotification() {
+        let counter = 0
+        for (const order of orders) {
+            counter += order.msgs.reduce((acc, msg) => {
+                if (!msg.msgRead) acc++
+                return acc
+            }, 0)
+        }
+        return counter
+    }
+
 
     function onLogoClick() {
         navigate(`/`)
@@ -51,6 +91,7 @@ export function AppHeader({ layout }) {
         setIsGuestModalOpen(false)
     }
 
+
     return (
         <>
             <header className={`full header ${(isFilterExpanded) ? "expanded" : ""} ${(layout === 'main-container narrow') ? "narrow" : ""}`} >
@@ -65,13 +106,16 @@ export function AppHeader({ layout }) {
                         {!isFilterExpanded && <StayFilter onAddGuest={onAddGuest} onAddWhere={onAddWhere} onDateModal={onDateModal} whoCounter={whoCounter} />}
                         {isFilterExpanded && <StayFilterPlaceTaker />}
 
-                        <span className="user-info">
+                        <div className="user-info">
                             <button className='btn-airpnd-your-home' >Airpnd your home</button>
                             <button onClick={openUserModal} className='btn-user'>
                                 <IconMenu_hamburger width='22px' height='33px' className='icon-hamburger' />
-                                <img src={user ? user.imgUrl : require(`../assets/user-img/japanese.jpg`)} alt="" />                            </button>
+                                <img src={user ? user.imgUrl : require(`../assets/user-img/japanese.jpg`)} alt="" /></button>
                             {userModal && <UserPagesModal setUserModal={setUserModal} />}
-                        </span>
+                            {user && <div className="notification">
+                                {setNumberOfNotification()}
+                            </div>}
+                        </div>
 
                         <StayFilterExpanded isGuestModalOpen={isGuestModalOpen} isWhereModalOpen={isWhereModalOpen} isDateModalOpen={isDateModalOpen} onAddGuest={onAddGuest} onAddWhere={onAddWhere} onDateModal={onDateModal} whoCounter={whoCounter} setWhoCounter={setWhoCounter} />
                     </div>
@@ -82,7 +126,7 @@ export function AppHeader({ layout }) {
 
 
                 </section>
-                {!isFilterExpanded && <NavIconFilter layout={layout}/>}
+                {!isFilterExpanded && <NavIconFilter layout={layout} />}
             </header>
 
         </ >

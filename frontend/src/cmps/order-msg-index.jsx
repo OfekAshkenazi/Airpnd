@@ -84,8 +84,8 @@ export function OrderMsg({ roomName, currOrder }) {
                 <ul className="flex column g5 mis5 mt5">
                     {orderMsgs.map(msg => <li key={utilService.makeId()} className="msg-preview flex column">
                         <p>{msg.txt}</p>
-                        <span>{utilService.getTimeAgo(msg.creatAt)}</span>
                         {msg.imgUrl && <img style={{ width: '150px' }} src={msg.imgUrl} />}
+                        <span>{utilService.getTimeAgo(msg.creatAt)}</span>
                     </li>)}
 
                 </ul>

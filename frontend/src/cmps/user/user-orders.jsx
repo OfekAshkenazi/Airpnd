@@ -46,14 +46,19 @@ export function UserOrders() {
                 })}
             </div>
             <div className="order-preview-modal">
+
                 <section className="order-display">
+
                     <div className="order-img">
                         <img className="order-img1" src={currOrder.stay.imgUrls[0]} alt="" />
                         <img className="order-img2" src={currOrder.stay.imgUrls[1]} alt="" />
                         <img className="order-img3" src={currOrder.stay.imgUrls[2]} alt="" />
                     </div>
+                    
                 </section>
+
                 <section>
+
                     <div className="order-preview-details-modal">
                         <div className="preview-bold">{currOrder.stay.name}</div>
                         <div className="preview-bold">{currOrder.stay.loc.city}, {currOrder.stay.loc.countrey}</div>
@@ -66,7 +71,9 @@ export function UserOrders() {
                         <div className="preview-bold">Total price: <span className="regular"> {currOrder.totalPrice}</span></div>
                         <div className="preview-bold">Order Status: <span className="regular"> {currOrder.status}</span></div>
                     </div>
+
                 </section>
+
             </div>
         </section>
 

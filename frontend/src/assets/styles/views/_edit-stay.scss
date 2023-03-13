@@ -1,15 +1,15 @@
 .edit-stay {
     margin-top: em(6.5px);
-    background-color: blue;
-
 
     .images-area {
         display: grid;
-        grid-template: repeat(2, 26vh)/2fr 1fr 1fr;
+        grid-template: repeat(2, 20vh)/2fr 1fr 1fr;
         gap: em(8px);
+        place-items: center;
         grid-template-areas:
             "grid-img-1 grid-img-2 grid-img-3"
             "grid-img-1 grid-img-4 grid-img-5";
+
 
         .grid-img-1 {
             grid-area: grid-img-1;
@@ -40,5 +40,38 @@
                 filter: brightness(90%);
             }
         }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: grey;
+
+        }
+
     }
+
+
+
+    .stay-edit-desc {
+        textarea {
+            width: 100%;
+            height: 150px;
+            resize: none;
+            border-radius: em(6.5px);
+            padding: em(10px);
+        }
+    }
+
+    .amenities-edit-stay {
+
+
+
+        
+        img {
+            height: 24px;
+            width: 24px;
+        }
+    }
+
 }

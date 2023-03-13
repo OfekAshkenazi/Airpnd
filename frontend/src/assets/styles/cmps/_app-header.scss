@@ -28,6 +28,7 @@
         padding: 13px 0px 6px 0px;
 
         .user-info {
+            position: relative;
             display: flex;
 
             .btn-airpnd-your-home {
@@ -68,6 +69,22 @@
                     box-shadow: 1px 1px 2px 2px rgb(236, 234, 234);
                     border-radius: 50px;
                 }
+            }
+
+
+            .notification {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                right: em(10px);
+                bottom: em(9px);
+                background-color: $clrLogo;
+                width: 30px;
+                height: 30px;
+                color: $clrMBg;
+                font-family: circularH;
             }
         }
 
@@ -120,7 +137,7 @@
     background-color: #a9abae;
     opacity: 0.6;
     cursor: pointer;
-
+    // pointer-events: none;
     // }
 }
 

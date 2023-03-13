@@ -7,6 +7,8 @@ export function getActionFilterExpanded(status) {
         type: SET_FILTER_EXPANDED,
         status
     })
+    fixHeightForHeader()
+   
 }
 export function getActionFilterExpandedUser(status) {
     store.dispatch({
@@ -15,3 +17,7 @@ export function getActionFilterExpandedUser(status) {
     })
 }
 
+export function fixHeightForHeader() {
+    const elContainer = document.querySelector('.stay-filter-expanded')
+    elContainer.style.height === '150px' ? elContainer.style.height = '0px' : elContainer.style.height = '150px'
+}

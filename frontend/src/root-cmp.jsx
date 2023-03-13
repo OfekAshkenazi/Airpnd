@@ -25,15 +25,16 @@ import { EditStay } from './cmps/stay/edit-stay';
 
 export function RootCmp() {
     const isLoginModalOpen = useSelector(storeState => storeState.systemModule.isLoginModalOpen)
-    
+
     const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
     const layout = isDetailsOpen ? 'main-container narrow' : 'main-container'
-    
+
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
 
     function closeShadowScreen() {
         if (isFilterExpanded) {
             getActionFilterExpanded(false)
+          
         }
         if (isLoginModalOpen) {
             ToggleLoginModal(!isLoginModalOpen)
