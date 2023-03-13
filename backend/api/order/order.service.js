@@ -49,15 +49,12 @@ async function add(order, loggedinUser) {
 async function update(order) {
     try {
         const orderToSave = {
-            ...order
-
+            status: order.status,
+            msgs: order.msgs
         }
-        
-        delete orderToSave._id
-
         const collection = await dbService.getCollection('order')
         await collection.updateOne({ _id: ObjectId(order._id) }, { $set: orderToSave })
-        return orderToSave
+        return order
     } catch (err) {
         logger.error(`cannot update order ${order._id}`, err)
         throw err
@@ -91,14 +88,17 @@ function _buildCriteria(user) {
 }
 
 async function addOrderMsg(orderId, msg, loggedinUser) {
+    console.log('got new msg')
     try {
         const msgToSave = {
             txt: msg.txt,
-            id: msg.id,
-            msgRead: msg.msgRead || false
+            msgRead: msg.msgRead || false,
+            creatAt: msg.creatAt || Date.now(),
+            imgUrl: msg.imgUrl || ''
         }
         const collection = await dbService.getCollection('order')
         await collection.updateOne({ _id: ObjectId(orderId) }, { $push: { msgs: msgToSave } })
+        console.log(msgToSave)
         return msgToSave
     } catch (err) {
         logger.error('Cannot add msg to order')

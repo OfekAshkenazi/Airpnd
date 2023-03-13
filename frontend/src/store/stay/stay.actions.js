@@ -1,7 +1,7 @@
-import { stayService } from '../services/stay.service.js';
-import { userService } from '../services/user.service.js';
+import { stayService } from '../../services/stay.service.js';
+import { userService } from '../../services/user.service.js';
 import { ADD_STAY, REMOVE_STAY, SET_FILTER, SET_STAYS, SET_WISHES, UPDATE_STAY } from './stay.reducer.js';
-import { store } from './store.js';
+import { store } from '../store.js';
 
 // Action Creators:
 export function getActionRemoveStay(stayId) {

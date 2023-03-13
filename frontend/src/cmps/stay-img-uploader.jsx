@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { uploadService } from '../services/upload.service'
 import imgAttachment from "../assets/img/icons/icon-attachment.png"
 
-export function ImgUploader({ onUploaded = null }) {
+export function StayImgUploader({ onUploaded = null }) {
   const [imgData, setImgData] = useState({
     imgUrl: null,
     height: 500,

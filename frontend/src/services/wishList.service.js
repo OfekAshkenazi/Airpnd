@@ -1,4 +1,4 @@
-import { onSetFilter } from "../store/stay.actions"
+import { onSetFilter } from "../store/stay/stay.actions"
 import { stayService } from "./stay.service"
 
 

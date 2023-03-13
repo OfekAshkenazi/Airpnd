@@ -6,19 +6,17 @@ import logo from '../assets/img/logo.png';
 import IconMenu_hamburger from '../assets/svg/open-hamburger-icon';
 import { UserPagesModal } from '../cmps/user/user-pages-modal.jsx';
 import { stayService } from '../services/stay.service';
-import { onSetFilter } from '../store/stay.actions';
+import { onSetFilter } from '../store/stay/stay.actions';
 import { StayFilter } from './filter/stay-filter';
 import { StayFilterExpanded } from './filter/stay-filter-expanded';
 import { NavIconFilter } from './filter/stay-filter-nav-icon';
 import { StayFilterPlaceTaker } from './filter/stay-filter-place-taker';
-import { getActionFilterExpanded } from '../store/filter.expanded.action';
 
 export function AppHeader({ layout }) {
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
     const user = useSelector(storeState => storeState.userModule.user)
     const [userModal, setUserModal] = useState(false)
     const [whoCounter, setWhoCounter] = useState(0)
-
 
     const [isGuestModalOpen, setIsGuestModalOpen] = useState(false)
     const [isWhereModalOpen, setIsWhereModalOpen] = useState(false)
@@ -84,7 +82,7 @@ export function AppHeader({ layout }) {
 
 
                 </section>
-                {!isFilterExpanded && <NavIconFilter />}
+                {!isFilterExpanded && <NavIconFilter layout={layout}/>}
             </header>
 
         </ >

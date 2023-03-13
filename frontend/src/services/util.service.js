@@ -8,7 +8,8 @@ export const utilService = {
     loadFromStorage,
     formatTime,
     shortenName,
-    numericDate
+    numericDate,
+    getTimeAgo
 }
 
 function makeId(length = 6) {
@@ -104,4 +105,30 @@ function numericDate(date) {
         year: "numeric"
     })
     return formattedDate
+}
+
+function getTimeAgo(timeStamp) {
+    const now = Date.now()
+    const elapsed = now - timeStamp
+
+    const minute = 60 * 1000
+    const hour = 60 * minute
+    const day = 24 * hour
+    const week = 7 * day
+    const month = 30 * day
+
+    switch (true) {
+        case elapsed < minute:
+            return 'just now'
+        case elapsed < hour:
+            return `${Math.floor(elapsed / minute)} minute${elapsed < 2 * minute ? '' : 's'} ago`
+        case elapsed < day:
+            return `${Math.floor(elapsed / hour)} hour${elapsed < 2 * hour ? '' : 's'} ago`
+        case elapsed < week:
+            return `${Math.floor(elapsed / day)} day${elapsed < 2 * day ? '' : 's'} ago`
+        case elapsed < month:
+            return `${Math.floor(elapsed / week)} week${elapsed < 2 * week ? '' : 's'} ago`
+        default:
+            return `${Math.floor(elapsed / month)} month${elapsed < 2 * month ? '' : 's'} ago`
+    }
 }

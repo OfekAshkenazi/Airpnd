@@ -2,7 +2,7 @@ import { combineReducers, createStore } from 'redux';
 
 import { filterExpandedReducer } from './filter.expanded.reducer.js';
 import { reviewReducer } from './review.reducer';
-import { stayReducer } from './stay.reducer.js';
+import { stayReducer } from './stay/stay.reducer.js';
 import { systemReducer } from './system.reducer';
 import { userReducer } from './user.reducer.js';
 import { orderReducer } from './order.reducer.js';

@@ -107,9 +107,10 @@ function getEmptyOrder() {
 
 function getEmptyMsg() {
     const msg = {
-        id: utilService.makeId(),
         txt: '',
-
+        msgRead: false,
+        creatAt: '',
+        imgUrl: ''
     }
     return msg
 }

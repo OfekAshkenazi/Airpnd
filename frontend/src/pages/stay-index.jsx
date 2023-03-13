@@ -6,8 +6,7 @@ import PropagateLoader from 'react-spinners/PropagateLoader.js';
 import { StayList } from '../cmps/stay/stay.list.jsx';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
 import { stayService } from '../services/stay.service.js';
-import { userService } from '../services/user.service.js';
-import { addStay, loadStays, removeStay, updateStay } from '../store/stay.actions.js';
+import { addStay, loadStays, removeStay, updateStay } from '../store/stay/stay.actions.js';
 import { ToggleDetails } from '../store/system.action.js';
 import { updateUser } from '../store/user.actions.js';
 

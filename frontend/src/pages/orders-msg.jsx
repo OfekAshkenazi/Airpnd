@@ -2,11 +2,12 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { OrderMsg } from "../cmps/order-msg-index"
 import { showErrorMsg } from "../services/event-bus.service"
+import { socketService, SOCKET_EMIT_SET_TOPIC } from "../services/socket.service"
 import { loadOrders } from "../store/order.action"
 import { saveOrder } from "../store/order.action"
+
 export function OrdersMsg() {
     const orders = useSelector(storeState => storeState.orderModule.orders)
-
     const [roomName, setRoomName] = useState(null)
     const [currOrder, setCurrOrder] = useState(null)
 
@@ -23,21 +24,16 @@ export function OrdersMsg() {
     }
 
     async function setInfoForMsgs(order) {
-
         
         const orderToSave = structuredClone(order)
         orderToSave.msgs.forEach(msg => {
             msg.msgRead = true
         })
+
         try {
             const savedOrder = await saveOrder(orderToSave)
-            setCurrOrder((prevOrder) => {
-                setCurrOrder(null)
-                setTimeout(() => {
-                    setCurrOrder(savedOrder)
-                }, 100)
-            })
-            setRoomName(savedOrder._id)
+            setCurrOrder(prevOrder => order)
+            setRoomName(prevRoomName => order._id)
         } catch (err) {
             console.log(err)
             showErrorMsg('Cannot read msgs')
@@ -47,7 +43,7 @@ export function OrdersMsg() {
     return (
         <section className="orders-msg flex">
 
-            <section className="flex column">
+            <section className="msg-container flex column">
 
                 {orders.map(order => <div
                     className="order-con flex"

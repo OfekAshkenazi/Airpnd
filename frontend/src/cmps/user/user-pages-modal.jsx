@@ -39,10 +39,15 @@ export function UserPagesModal({ setUserModal }) {
         setUserModal(false)
     }
 
+    function handleMsgClick() {
+        setUserModal(false)
+        navigate('/orders/msgs')
+    }
+
     return (
         <section className="user-page-modal">
             <section className="bold">
-                <div onClick={() => setUserModal(false)} className="page-item flex bold"><Link to="/orders/msgs">Messages</Link></div>
+                <div onClick={handleMsgClick} className="page-item flex bold"><Link to="/orders/msgs">Messages</Link></div>
                 <div onClick={() => handleClickTrips(user)} className="page-item flex bold">Trips</div>
                 {user?.isOwner && <Link to="/host/dashboard"><div onClick={handleClickHostDashBoard} className="page-item flex bold">Host</div></Link>}
                 <Link to="/orders/wishlist"><div onClick={() => setUserModal(false)} className="page-item flex bold">Wishlist</div></Link>

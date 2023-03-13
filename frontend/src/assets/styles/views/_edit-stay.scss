@@ -1,0 +1,44 @@
+.edit-stay {
+    margin-top: em(6.5px);
+    background-color: blue;
+
+
+    .images-area {
+        display: grid;
+        grid-template: repeat(2, 26vh)/2fr 1fr 1fr;
+        gap: em(8px);
+        grid-template-areas:
+            "grid-img-1 grid-img-2 grid-img-3"
+            "grid-img-1 grid-img-4 grid-img-5";
+
+        .grid-img-1 {
+            grid-area: grid-img-1;
+        }
+
+        .grid-img-1 img {
+            border-bottom-left-radius: em(16px);
+            border-top-left-radius: em(16px);
+        }
+
+        .grid-img-3 img {
+            border-top-right-radius: em(16px);
+        }
+
+        .grid-img-5 img {
+            border-bottom-right-radius: em(16px);
+        }
+
+        .grid-img-1,
+        .grid-img-2,
+        .grid-img-3,
+        .grid-img-4,
+        .grid-img-5 {
+
+            :hover {
+                cursor: pointer;
+                transition: 0.4s;
+                filter: brightness(90%);
+            }
+        }
+    }
+}

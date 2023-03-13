@@ -27,7 +27,6 @@ export async function updateOrder(order) {
 }
 
 export async function saveOrder(order) {
-  console.log('frontse', order)
   try {
     const savedOrder = await orderService.update(order)
     if (order._id) store.dispatch({ type: UPDATE_ORDER, order })

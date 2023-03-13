@@ -20,13 +20,15 @@ import { showErrorMsg, showSuccessMsg } from './services/event-bus.service';
 import { getActionFilterExpanded } from './store/filter.expanded.action';
 import { ToggleLoginModal } from './store/system.action';
 import { login, signup } from './store/user.actions';
+import { EditStay } from './cmps/stay/edit-stay';
 
 
 export function RootCmp() {
-    const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
     const isLoginModalOpen = useSelector(storeState => storeState.systemModule.isLoginModalOpen)
-
+    
+    const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
     const layout = isDetailsOpen ? 'main-container narrow' : 'main-container'
+    
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
 
     function closeShadowScreen() {
@@ -71,7 +73,7 @@ export function RootCmp() {
                     <Route element={<HostProfileNested />} path="/host">
                         <Route element={<HostOrders />} path="/host/orders" />
                         <Route element={<DashBoard />} path="/host/dashboard" />
-                        {/* <Route element={<EditStay />} path="/host/edit-stay" /> */}
+                        <Route element={<EditStay />} path="/host/edit-stay" />
                     </Route>
                 </Routes>
             </main>

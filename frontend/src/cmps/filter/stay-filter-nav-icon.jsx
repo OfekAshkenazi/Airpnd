@@ -6,9 +6,9 @@ import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 
 import { labels, stayService } from '../../services/stay.service';
-import { onSetFilter } from '../../store/stay.actions';
+import { onSetFilter } from '../../store/stay/stay.actions';
 
-export function NavIconFilter() {
+export function NavIconFilter({layout}) {
 
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
     const [searchParams, setSearchParams] = useSearchParams()
@@ -23,7 +23,7 @@ export function NavIconFilter() {
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 7,
+            items: 5,
             slidesToSlide: 1 // optional, default to 1.
         },
         mobile: {
@@ -41,7 +41,7 @@ export function NavIconFilter() {
     }
 
     return (
-        <div className='icon-nav'>
+        <div className='icon-nav layout'>
             <Carousel
                 swipeable={true}
                 draggable={true}
