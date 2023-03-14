@@ -1,12 +1,9 @@
 import { useEffect } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 import { ToggleDetails } from '../store/system.action.js';
-import { getWishFilter } from '../services/wishList.service.js';
 
 export function ProfileNestRoutes() {
-    const user = useSelector(storeState => storeState.userModule.user)
 
     useEffect(() => {
         ToggleDetails(true)

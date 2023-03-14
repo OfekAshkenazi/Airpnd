@@ -20,7 +20,7 @@ export function HostProfileNested() {
       <div className="nav-orders-details-host">
         <NavLink onClick={() => getHostOrderFilter(user)} className="btn-link-host" to="/host/dashboard">Dashboard</NavLink>
         <NavLink className="btn-link-host" to="/host/orders">Orders</NavLink>
-        {/* <NavLink className="btn-link-host" to="/host/stays">Stays</NavLink> */}
+        <NavLink className="btn-link-host" to="/host/stay">Stays</NavLink>
         <NavLink className="btn-link-host" to="/host/edit-stay">Add a stay</NavLink>
       </div>
       <div className="nested-route">

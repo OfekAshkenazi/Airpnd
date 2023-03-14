@@ -78,9 +78,9 @@ async function save(stay) {
 function getEmptyStay() {
     const stay = {
         "name": "Ribeira Charming Duplex",
-        "type": "House",
-        "roomType": '',
-        "imgUrls": [],
+        "type": "stay",
+        "roomType": "Entire place",
+        "imgUrls": ['', '', '', '', ''],
         "price": 0,
         "summary": "",
         "capacity": '0',
