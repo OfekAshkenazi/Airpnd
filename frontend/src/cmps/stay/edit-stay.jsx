@@ -14,6 +14,10 @@ export function EditStay() {
     useEffect(() => {
         if (!stayId) return
         loadStay()
+    }, [])
+    
+    useEffect(() => {
+       
     }, [stayToEdit])
 
     function handleChange({ target }) {
@@ -45,13 +49,18 @@ export function EditStay() {
     }
 
     function handleLabels({ target }) {
-        let { value, checked, name: field } = target
-        const idx = stayToEdit.amenities.indexOf(value)
-        if (idx === -1) {
-            stayToEdit.amenities = [...stayToEdit.amenities, value]
-        } else if (!checked && idx !== -1) {
-            stayToEdit.amenities.splice(idx, 1)
-        }
+        const { value, checked, name: field } = target
+        setStayToEdit(prevStay => {
+            const amenities = [...prevStay.amenities]
+            const idx = amenities.indexOf(value)
+            if (idx === -1) {
+                return { ...prevStay, amenities: [...amenities, value] }
+            } else if (!checked && idx !== -1) {
+                amenities.splice(idx, 1)
+                return { ...prevStay, amenities }
+            }
+            return prevStay
+        })
     }
 
     function onUploaded(idx, imgUrl) {
@@ -173,7 +182,7 @@ export function EditStay() {
             <section className="amenities-edit-stay">
 
                 {amenitiesList.map(ameniti => <label className="flex align-center" key={ameniti}>
-                    <input type="checkbox" value={ameniti} id="amenities" name="amenities" onChange={handleLabels} checked={stayToEdit.amenities.includes(ameniti) ? true : false} />
+                    <input type="checkbox" value={ameniti} id="amenities" name="amenities" onChange={handleLabels} checked={stayToEdit.amenities.includes(ameniti)} />
                     <img src={require(`../../assets/img/amenities/${ameniti.split(" ").shift().toLowerCase()}.png`)} alt="" />
                     {ameniti}
                 </label>)}
