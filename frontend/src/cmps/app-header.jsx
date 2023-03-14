@@ -30,12 +30,16 @@ export function AppHeader({ layout }) {
 
     const navigate = useNavigate()
 
-    // useEffect(() => {
-    //     socketService.on(SOCKET_EVENT_ADD_MSG, test)
-    //     return () => {
-    //         socketService.off(SOCKET_EVENT_ADD_MSG, test)
-    //     }
-    // }, [])
+    useEffect(() => {
+        socketService.on('socket-event-add-notification', (data) => {
+            console.log(data)
+        })
+        return () => {
+            socketService.off('socket-event-add-notification', (data) => {
+                
+            })
+        }
+    }, [])
 
 
     useEffect(() => {

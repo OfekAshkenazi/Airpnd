@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { OrderMsg } from "../cmps/order-msg-index"
 import { showErrorMsg } from "../services/event-bus.service"
-import { socketService, SOCKET_EMIT_SET_TOPIC } from "../services/socket.service"
+import { userService } from "../services/user.service"
 import { loadOrders } from "../store/order.action"
 import { saveOrder } from "../store/order.action"
 
@@ -24,7 +24,7 @@ export function OrdersMsg() {
     }
 
     async function setInfoForMsgs(order) {
-        
+
         const orderToSave = structuredClone(order)
         orderToSave.msgs.forEach(msg => {
             msg.msgRead = true
@@ -40,10 +40,18 @@ export function OrdersMsg() {
         }
     }
 
+    function closeCurrChat(ev) {
+        ev.stopPropagation()
+        setCurrOrder(prevOrder => null)
+        setRoomName(prevRoomName => null)
+    }
+
+
+
     return (
         <section className="orders-msg flex">
 
-            <section className="msg-container flex column">
+            <section className="msg-container flex column" onClick={(ev) => closeCurrChat(ev)}>
 
                 {orders.map(order => <div
                     className="order-con flex"
@@ -58,7 +66,7 @@ export function OrdersMsg() {
             </section>
 
 
-            {currOrder && <OrderMsg roomName={roomName} currOrder={currOrder} />}
+            {currOrder && <OrderMsg roomName={roomName} currOrder={currOrder} closeCurrChat={(ev) => closeCurrChat(ev)} />}
 
 
         </section>

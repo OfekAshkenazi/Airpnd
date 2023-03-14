@@ -45,7 +45,8 @@ export function StayIndex() {
         }
     }
 
-    async function onAddToWishList(ev, stayId) {
+    async function onAddToWishList(ev,stayId) {
+        ev.stopPropagation()
         try {
             const stay = await stayService.getById(stayId)
             const idxUserId = stay.likedByUsers.indexOf(user._id)
@@ -66,7 +67,9 @@ export function StayIndex() {
     }
 
     function onMoveToStayDetails(ev, stayId) {
-        navigate(`/stay/${stayId}`)
+        if (!ev.target.type) {
+            navigate(`/stay/${stayId}`)
+        }
     }
 
     async function onUpdateStay(stayToSave) {

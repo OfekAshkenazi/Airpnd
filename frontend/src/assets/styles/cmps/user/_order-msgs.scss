@@ -11,7 +11,6 @@
 
 
 .msg-room {
-    flex-grow: 1;
     justify-content: space-between;
     height: 350px;
     overflow-y: scroll;
@@ -25,12 +24,13 @@
 
 
     .input-area {
-        align-self: center;
+
 
         @media (max-width: 800px) {
             gap: 0px;
             flex-direction: column;
         }
+
         input {
             font-family: circularH;
             font-weight: bold;
@@ -80,22 +80,36 @@
 
 }
 
+.msg-list {
 
-.msg-preview {
-    font-weight: bold;
-    font-family: circularH;
-    padding: 2.5px;
-    gap: 2.5px;
+    .img-back {
+        max-width: 30px;
+        max-height: 30px;
 
-    span {
-        font-size: 14px;
+        &:hover {
+            padding: em(1px);
+            scale: 1.1;
+            background-color: $clrGrayFont;
+            border-radius: 50%;
+        }
     }
 
-    p {
-        font-size: 18px;
-        max-width: fit-content;
-        padding: em(2.3px);
-        background-color: $clrHoverGray;
-        box-shadow: 0 0 6px #ddd;
+    .msg-preview {
+        font-weight: bold;
+        font-family: circularH;
+        padding: 2.5px;
+        gap: 2.5px;
+
+        span {
+            font-size: 14px;
+        }
+
+        p {
+            font-size: 18px;
+            max-width: fit-content;
+            padding: em(2.3px);
+            background-color: $clrHoverGray;
+            box-shadow: 0 0 6px #ddd;
+        }
     }
 }

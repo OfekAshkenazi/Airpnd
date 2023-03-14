@@ -1,8 +1,8 @@
 const { SYSTEM_USER_COLLECTION } = require('mongodb/lib/db')
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
+const { broadcast } = require('../../services/socket.service')
 const ObjectId = require('mongodb').ObjectId
-
 module.exports = {
     query,
     getById,
@@ -88,18 +88,21 @@ function _buildCriteria(user) {
 }
 
 async function addOrderMsg(orderId, msg, loggedinUser) {
-    console.log('got new msg')
     try {
         const msgToSave = {
             txt: msg.txt,
             msgRead: msg.msgRead || false,
             creatAt: msg.creatAt || Date.now(),
-            imgUrl: msg.imgUrl || ''
+            imgUrl: msg.imgUrl || '',
+            from: msg.from || '',
+            to: msg.to || ''
         }
+
         const collection = await dbService.getCollection('order')
         await collection.updateOne({ _id: ObjectId(orderId) }, { $push: { msgs: msgToSave } })
-        console.log(msgToSave)
+        broadcast
         return msgToSave
+
     } catch (err) {
         logger.error('Cannot add msg to order')
         throw err
