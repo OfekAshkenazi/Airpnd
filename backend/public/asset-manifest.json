@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.e9261a33.css",
-    "main.js": "/static/js/main.1746865a.js",
+    "main.css": "/static/css/main.61c5064d.css",
+    "main.js": "/static/js/main.fb7ef90f.js",
     "static/media/CircularStd-Light.otf": "/static/media/CircularStd-Light.4a1a0bfcc3a53847a945.otf",
     "static/media/CircularStd-Black.otf": "/static/media/CircularStd-Black.757b8ac8efa71be3fcd0.otf",
     "static/media/CircularStd-Bold.otf": "/static/media/CircularStd-Bold.5c4514a8399ec0064b9b.otf",
@@ -19,15 +19,18 @@
     "static/media/flexable.png": "/static/media/flexable.38cf3ab3513d5b9688ad.png",
     "static/media/tax.png": "/static/media/tax.d333d3e80edb098d75d5.png",
     "static/media/cable.png": "/static/media/cable.f30826aa6a19e1cba9e6.png",
+    "static/media/revicons.eot": "/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/doorman.png": "/static/media/doorman.a1d41639e3744fd8f3aa.png",
     "static/media/logo192.png": "/static/media/logo192.45f03021e5c8679d2c1e.png",
     "static/media/United States.png": "/static/media/United States.b92752a7fca6d4ee330d.png",
+    "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/index.html",
-    "main.e9261a33.css.map": "/static/css/main.e9261a33.css.map",
-    "main.1746865a.js.map": "/static/js/main.1746865a.js.map"
+    "main.61c5064d.css.map": "/static/css/main.61c5064d.css.map",
+    "main.fb7ef90f.js.map": "/static/js/main.fb7ef90f.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9261a33.css",
-    "static/js/main.1746865a.js"
+    "static/css/main.61c5064d.css",
+    "static/js/main.fb7ef90f.js"
   ]
 }
