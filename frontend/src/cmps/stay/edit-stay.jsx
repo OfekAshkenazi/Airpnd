@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { showErrorMsg } from "../../services/event-bus.service"
 import { stayService } from "../../services/stay.service"
+import { addStay } from "../../store/stay/stay.actions"
 
 export function EditStay() {
     const [stayToEdit, setStayToEdit] = useState(stayService.getEmptyStay())
@@ -13,6 +14,12 @@ export function EditStay() {
         let { value, type, name: field } = target
         value = type === 'number' ? +value : value
         setStayToEdit({ ...stayToEdit, [field]: value })
+    }
+
+    function handleChangeIneerLoc({ target }) {
+        let { value, type, name: field } = target
+        value = type === 'number' ? +value : value
+        setStayToEdit((prevStay) => ({ ...prevStay, loc: { ...prevStay.loc, [field]: value } }))
     }
 
     function handlePrice({ target }) {
@@ -41,8 +48,13 @@ export function EditStay() {
         }
     }
 
-    function onSaveStay() {
-        console.log(stayToEdit)
+    async function onSaveStay() {
+        try {
+            await addStay(stayToEdit)
+            setStayToEdit(prevStay => stayService.getEmptyStay())
+        } catch (err) {
+            showErrorMsg('Cannot add Stay')
+        }
     }
 
     useEffect(() => {
@@ -69,6 +81,27 @@ export function EditStay() {
     return (
         <section className="edit-stay">
 
+            <div className="">
+                <label>
+                    Name
+                    <input type="text" onChange={handleChange} id="name" name="name" value={stayToEdit.name} />
+                </label>
+            </div>
+
+            <div className="flex">
+                <label>
+                    Country
+                    <input type="text" onChange={handleChangeIneerLoc} id="country" name="country" value={stayToEdit.loc.country} />
+                </label>
+                <label>
+                    City
+                    <input type="text" onChange={handleChangeIneerLoc} id="city" name="city" value={stayToEdit.city} />
+                </label>
+                <label>
+                    Address
+                    <input type="text" onChange={handleChangeIneerLoc} id="address" name="address" value={stayToEdit.address} />
+                </label>
+            </div>
 
             <section className="images-area">
                 <img className="grid-img-1" src="" alt="Upload Image" />
@@ -82,11 +115,6 @@ export function EditStay() {
                 <label>
                     Capacity
                     <input type="text" onChange={handleChange} id="capacity" name="capacity" value={stayToEdit.capacity} />
-                </label>
-
-                <label>
-                    Name
-                    <input type="text" onChange={handleChange} id="name" name="name" value={stayToEdit.name} />
                 </label>
 
                 <label>

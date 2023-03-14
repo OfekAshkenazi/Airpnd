@@ -79,11 +79,14 @@ async function remove(stayId) {
 
 async function add(stay) {
     try {
+        const stayToSave = {
+            ...stay
+        }
         const collection = await dbService.getCollection('stay')
-        await collection.insertOne(stay)
-        return car
+        await collection.insertOne(stayToSave)
+        return stayToSave
     } catch (err) {
-        logger.error('cannot insert car', err)
+        logger.error('cannot insert stay', err)
         throw err
     }
 }

@@ -36,14 +36,7 @@ export function StayIndex() {
         }
     }
     //work
-    async function onAddStay(stay) {
-        try {
-            const savedStay = await addStay(stay)
-            showSuccessMsg(`Stay added (id: ${savedStay._id})`)
-        } catch (err) {
-            showErrorMsg('Cannot add Stay')
-        }
-    }
+
 
     async function onAddToWishList(ev,stayId) {
         ev.stopPropagation()

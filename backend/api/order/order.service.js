@@ -37,6 +37,9 @@ async function getById(orderId) {
 
 async function add(order, loggedinUser) {
     try {
+        const orderToSave = {
+            ...order
+        }
         const collection = await dbService.getCollection('order')
         await collection.insertOne(order)
         return order
@@ -71,6 +74,7 @@ async function remove(orderId) {
         throw err
     }
 }
+
 function _buildCriteria(user) {
     let criteria
     if (user.isOwner === 'true') {
