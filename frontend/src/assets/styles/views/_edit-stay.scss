@@ -65,9 +65,14 @@
 
     .amenities-edit-stay {
 
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: em(10px);
 
+        label {
+            cursor: pointer;
+        }
 
-        
         img {
             height: 24px;
             width: 24px;
