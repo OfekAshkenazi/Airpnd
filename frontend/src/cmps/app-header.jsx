@@ -30,17 +30,6 @@ export function AppHeader({ layout }) {
 
     const navigate = useNavigate()
 
-    useEffect(() => {
-        socketService.on('socket-event-add-notification', (data) => {
-            console.log(data)
-        })
-        return () => {
-            socketService.off('socket-event-add-notification', (data) => {
-                
-            })
-        }
-    }, [])
-
 
     useEffect(() => {
         if (user) {
@@ -115,7 +104,7 @@ export function AppHeader({ layout }) {
                             <button onClick={openUserModal} className='btn-user'>
                                 <IconMenu_hamburger width='22px' height='33px' className='icon-hamburger' />
                                 <img src={user ? user.imgUrl : require(`../assets/user-img/japanese.jpg`)} alt="" /></button>
-                            {userModal && <UserPagesModal setUserModal={setUserModal} />}
+                            {userModal && <UserPagesModal setUserModal={setUserModal} setNumberOfNotification={setNumberOfNotification} />}
                             {user && <div className="notification">
                                 {setNumberOfNotification()}
                             </div>}

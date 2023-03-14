@@ -30,7 +30,14 @@
     }
 
     .page-item {
-        padding: em(10px) em(120px) em(10px) em(10px);
+        width: 220px;
+        padding: em(10px) em(0px) em(10px) em(10px);
+
+
+        span {
+            position: relative;
+            top: em(0.25px);
+        }
 
     }
 

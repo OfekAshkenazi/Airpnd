@@ -51,6 +51,9 @@
     &.align-center {
         align-items: center;
     }
+    &.space-bet {
+        justify-content: space-between;
+    }
 }
 
 .grid {
@@ -93,4 +96,7 @@
 
 .mt5 {
     margin-top: 5px;
+}
+.w100 {
+    width: 100%;
 }

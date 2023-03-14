@@ -6,7 +6,7 @@ import { getHostOrderFilter } from '../../services/wishList.service.js';
 import { ToggleLoginModal } from '../../store/system.action.js';
 import { logout } from '../../store/user.actions.js';
 
-export function UserPagesModal({ setUserModal }) {
+export function UserPagesModal({ setUserModal, setNumberOfNotification }) {
     const user = useSelector(storeState => storeState.userModule.user)
     const isLoginModalOpen = useSelector(storeState => storeState.systemModule.isLoginModalOpen)
     const navigate = useNavigate()
@@ -43,11 +43,11 @@ export function UserPagesModal({ setUserModal }) {
         setUserModal(false)
         navigate('/orders/msgs')
     }
-
+    
     return (
         <section className="user-page-modal">
             <section className="bold">
-                <div onClick={handleMsgClick} className="page-item flex bold"><Link to="/orders/msgs">Messages</Link></div>
+                {user && <div onClick={handleMsgClick} className="page-item flex bold space-bet w100 align-center">Messages <span className='notification user-page'>{setNumberOfNotification()}</span></div>}
                 <div onClick={() => handleClickTrips(user)} className="page-item flex bold">Trips</div>
                 {user?.isOwner && <Link to="/host/dashboard"><div onClick={handleClickHostDashBoard} className="page-item flex bold">Host</div></Link>}
                 <Link to="/orders/wishlist"><div onClick={() => setUserModal(false)} className="page-item flex bold">Wishlist</div></Link>
