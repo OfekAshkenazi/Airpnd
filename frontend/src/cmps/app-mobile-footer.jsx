@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import { faAirbnb } from "@fortawesome/free-brands-svg-icons";
-import { faHeartbeat } from "@fortawesome/free-solid-svg-icons";
+import { faHeartbeat, faMessage } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IconCircleHost from "./svg-cmps/host-profile-icon";
 import IconSearch from "./svg-cmps/search-footer-icon";
@@ -47,6 +47,11 @@ export function AppMobileFooter() {
             <NavLink className={"icon-mobile-footer flex column"} to="/orders/my-orders">
                 <FontAwesomeIcon className="icon-airpnd-footer" icon={faAirbnb} />
                 <p>Trips</p>
+            </NavLink>
+
+            <NavLink className={"icon-mobile-footer flex column"} to="/orders/msgs">
+                <FontAwesomeIcon className="icon-airpnd-footer" icon={faMessage} />
+                <p>Messages</p>
             </NavLink>
 
             {!user && <p onClick={handleClickLogin} className={"icon-mobile-footer flex column"} >

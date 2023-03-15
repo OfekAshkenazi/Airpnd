@@ -24,24 +24,27 @@
     .input-area {
 
 
-        @media (max-width: 800px) {
-            gap: 0px;
-            flex-direction: column;
-        }
-
+        
         input {
             font-family: circularH;
             font-weight: bold;
-
+            
         }
-
+        
         img {
             max-width: 30px;
             max-height: 30px;
         }
 
-    }
+        @media (max-width: 800px) {
+            form {
 
+                gap: 0px;
+                flex-direction: column;
+            }
+        }
+    }
+    
 }
 
 .order-con {

@@ -21,8 +21,8 @@ export function StayDetails() {
         loadStay()
         ToggleDetails(true)
     }, [order])
-    
-    
+
+
     function handleBackClick() {
         navigate(-1)
     }
@@ -59,7 +59,7 @@ export function StayDetails() {
             </div>
             <div className="action-btn ">
                 <button className="back-btn-details" onClick={handleBackClick}>
-                    <img  onClick={handleBackClick}className="back-img-details" src={require(`../assets/img/icons/back.png`)} />
+                    <img onClick={handleBackClick} className="back-img-details" src={require(`../assets/img/icons/back.png`)} />
                 </button>
                 <div className="duo"><img src={require("../assets/img/icons/share.png")} />
                     <button className="share-btn">Share</button></div>
@@ -81,6 +81,7 @@ export function StayDetails() {
             <div className="info-side">
                 <div className="price">{stay.price}$ <span className="night"> night </span> </div>
                 <span className="dates">{stayService.extractDate(order.startDate)} - {stayService.extractDate(order.endDate)}</span>
+                <span className='back-btn' onClick={() => navigate('/')}>back</span>
             </div>
             <ReserveBtn className="mobile-btn" order={currOrder} numericDate={new Date} stay={stay} totalPrice={order.totalPrice} />
         </div>
