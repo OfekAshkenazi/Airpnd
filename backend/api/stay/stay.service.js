@@ -72,7 +72,7 @@ async function remove(stayId) {
         await collection.deleteOne({ _id: ObjectId(stayId) })
         return stayId
     } catch (err) {
-        logger.error(`cannot remove car ${stayId}`, err)
+        logger.error(`cannot remove stay ${stayId}`, err)
         throw err
     }
 }

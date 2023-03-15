@@ -1,12 +1,11 @@
 .host-dashboard {
-    padding: em(12px);
     border-radius: 5px;
 }
 
 .nav-orders-details-host {
     display: flex;
     justify-content: space-between;
-    gap: em(10px);
+    gap: em(5px);
 
     .btn-link-host {
         font-family: circularH;

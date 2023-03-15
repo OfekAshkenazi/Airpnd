@@ -10,6 +10,6 @@ router.get('/', log, getStays)
 router.get('/:id', getStayById)
 router.post('/', requireAuth, addStay)
 router.put('/:id', requireAuth, updateStay)
-// router.delete('/:id', requireAuth, removeStay)
+router.delete('/:id', requireAuth, removeStay)
 
 module.exports = router

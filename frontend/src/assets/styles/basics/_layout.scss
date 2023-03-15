@@ -1,7 +1,6 @@
 .main-container {
     display: grid;
     grid-template-columns: 15px 1fr 15px;
-    // min-height: 100vh;
 
     >* {
         grid-column: 2;
@@ -12,14 +11,14 @@
     }
 
     &.narrow {
-        grid-template-columns: 24px 1fr 24px;
+        grid-template-columns: 10px 1fr 10px;
 
         @include for-narrow-layout {
-            grid-template-columns: 40px 1fr 40px
+            grid-template-columns: 25px 1fr 25px
         }
 
         @include for-normal-layout {
-            grid-template-columns: 80px 1fr 80px
+            grid-template-columns: 50px 1fr 50px
         }
 
         @include for-wide-layout {
@@ -33,9 +32,10 @@
 
     @include for-narrow-layout {
         grid-template-columns:
-            minmax(30px, 1fr) minmax(auto, $mobile-breakpoint) minmax(30px, 1fr);
+            minmax(5px, 25px) minmax(auto, $mobile-breakpoint) minmax(5px, 25px);
     }
 
+    
     @include for-normal-layout {
         grid-template-columns:
             minmax(30px, 1fr) minmax(auto, $narrow-breakpoint) minmax(30px, 1fr);
@@ -52,5 +52,5 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }

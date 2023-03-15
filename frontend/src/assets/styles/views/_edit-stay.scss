@@ -67,8 +67,6 @@
 
     }
 
-
-
     input {
         border: 0;
         outline: 0;
@@ -82,7 +80,7 @@
 
     .images-area {
 
-        @media (max-width: 650px) {
+        @media (max-width: 850px) {
             display: grid;
             grid-template-columns: 1fr;
             place-items: center;
@@ -103,7 +101,7 @@
             }
         }
 
-        @media (min-width:650px) and (max-width: 1020px) {
+        @media (min-width:850px) and (max-width: 1020) {
             display: grid;
             grid-template: repeat(3, 22vh)/1fr 1fr;
             place-items: center;
@@ -281,6 +279,7 @@
         display: grid;
         gap: em(10px);
         justify-content: center;
+        margin-bottom: em(10px);
 
         @media (min-width:500px) {
             grid-template-columns: repeat(3, 1fr);

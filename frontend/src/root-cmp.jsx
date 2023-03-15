@@ -65,7 +65,7 @@ export function RootCmp() {
     return (
         <section>
             <AppHeader layout={layout} />
-            <main className={`${(isFilterExpanded) ? `${layout} shadow` : `${layout}`} ${(isLoginModalOpen) ? `${layout} shadow` : `${layout}`}`} onClick={closeShadowScreen}>
+            <main className={`${(isFilterExpanded) ? `${layout} shadow` : `${layout}`}`} onClick={closeShadowScreen}>
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
                     <Route element={<ProfileNestRoutes />} path="/orders">

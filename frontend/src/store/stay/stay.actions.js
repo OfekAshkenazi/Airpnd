@@ -39,6 +39,7 @@ export async function loadStays(filterBy) {
             type: SET_STAYS,
             stays
         })
+        return stays
 
     } catch (err) {
         throw err

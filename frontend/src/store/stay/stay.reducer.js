@@ -23,9 +23,9 @@ export function stayReducer(state = initialState, action) {
             newState = { ...state, stays: action.stays }
             break
         case REMOVE_STAY:
-            const lastRemovedStay = state.stays.find(stay => stay._id === action.stayId)
+            // const lastRemovedStay = state.stays.find(stay => stay._id === action.stayId)
             stays = state.stays.filter(stay => stay._id !== action.stayId)
-            newState = { ...state, stays, lastRemovedStay }
+            newState = { ...state, stays }
             break
         case ADD_STAY:
             newState = { ...state, stays: [...state.stays, action.stay] }
