@@ -45,17 +45,32 @@ export function OrderMsg({ roomName, currOrder, closeCurrChat }) {
 
     async function onAddOrderMsg(ev) {
         if (ev) ev.preventDefault()
-        setMsg((prevMsg) => ({ ...prevMsg, creatAt: Date.now() }))
-        const toUser = msg.from === currOrder.hostId ? currOrder.byUser._id : currOrder.hostId
-        setMsg((prevMsg) => ({ ...prevMsg, from: toUser }))
         try {
-            const savedMsg = await orderService.addOrderMsg(currOrder._id, msg)
+            const upDatedMsg = await fixOrderSetting()
+            const savedMsg = await orderService.addOrderMsg(currOrder._id, upDatedMsg)
             socketService.emit(SOCKET_EMIT_SEND_MSG, savedMsg)
-            setMsg(prevMsg => orderService.getEmptyMsg())
+            socketService.emit('new-notfication', savedMsg)
+            restMsg()
 
         } catch (err) {
             showErrorMsg('Could not sent msg')
         }
+    }
+
+    function restMsg() {
+        setMsg(prevMsg => orderService.getEmptyMsg())
+    }
+
+    async function fixOrderSetting() {
+        return new Promise((resolve, reject) => {
+            setMsg(prevMsg => {
+                const upDatedMsg = { ...prevMsg, creatAt: Date.now() }
+                const toUser = prevMsg.from === currOrder.hostId ? currOrder.byUser._id : currOrder.hostId
+                upDatedMsg.to = toUser
+                resolve(upDatedMsg)
+                return upDatedMsg
+            })
+        })
     }
 
     async function onUploaded(imgUrl) {
@@ -80,7 +95,7 @@ export function OrderMsg({ roomName, currOrder, closeCurrChat }) {
     return (
         <section className="msg-room flex column">
             <section className="msg-list">
-                <img className="img-back" src={imgBack} alt="" onClick={closeCurrChat} title="Back"/>
+                <img className="img-back" src={imgBack} alt="" onClick={closeCurrChat} title="Back" />
                 <ul className="flex column g5 mis5 mt5">
                     {orderMsgs.map(msg => <li key={utilService.makeId()} className="msg-preview flex column">
                         <p>{msg.txt}</p>

@@ -37,6 +37,26 @@ export function AppHeader({ layout }) {
         }
     }, [])
 
+    useEffect(() => {
+        socketService.on('chat-new-msg', loadNewNotifcation)
+
+        return () => {
+            socketService.off('chat-new-msg', loadNewNotifcation)
+        }
+    }, [])
+
+
+    async function loadNewNotifcation() {
+        if(!user) return 
+        try {
+            await onLoadOrders()
+            setNumberOfNotification()
+        } catch (err) {
+            console.log('Something went wrong')
+        }
+    }
+
+  
     async function onLoadOrders() {
         try {
             await loadOrders()

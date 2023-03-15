@@ -46,8 +46,6 @@ export function OrdersMsg() {
         setRoomName(prevRoomName => null)
     }
 
-
-
     return (
         <section className="orders-msg flex">
 
