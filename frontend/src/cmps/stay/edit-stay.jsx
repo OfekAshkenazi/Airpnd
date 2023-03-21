@@ -72,7 +72,6 @@ export function EditStay() {
         })
     }
 
-
     async function onSaveStay() {
         try {
             await addStay(stayToEdit)
@@ -81,12 +80,6 @@ export function EditStay() {
             showErrorMsg('Cannot add Stay')
         }
     }
-
-    useEffect(() => {
-        if (!stayId) return
-        loadStay()
-    }, [])
-
 
     async function loadStay() {
         try {
@@ -98,10 +91,7 @@ export function EditStay() {
         }
     }
 
-
-
     const amenitiesList = ['24-hour', 'Air', 'Baby', 'Babysitter', 'Bathtub', 'Bbq', 'Beach', 'Beachfront', 'Bed', 'Breakfast', 'Building', 'Buzzerwireless', 'Cable', 'Carbon', 'Cat(s)', 'Cleaning', 'Coffee', 'Crib', 'Disabled', 'Dishes', 'Dishwasher', 'Dog(s)', 'Doorman', 'Dryer', 'Elevator', 'Essentials', 'Extra', 'Familykid', 'Fire', 'First', 'Flat', 'Free', 'Garden', 'Gym', 'Hair', 'Handheld', 'Hangers', 'Heating', 'High', 'Host', 'Hot', 'Internet', 'Iron', 'Kitchen', 'Laptop', 'Lock', 'Lockbox', 'Logo192', 'Long', 'Luggage', 'Microwave', 'Oven', 'Pack', 'Paid', 'Patio', 'Pets', 'Pool', 'Private', 'Refrigerator', 'Room-darkening', 'Safety', 'Self', 'Shampoo', 'Single', 'Smoke', 'Smoking', 'Step-free', 'Stove', 'Translation', 'Tv', 'Washer', 'Waterfront', 'Well-lit', 'Wheelchair', 'Wide', 'Wifi']
-
 
     return (
         <section className="edit-stay main-container narrow">

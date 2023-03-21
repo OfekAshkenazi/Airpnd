@@ -42,25 +42,32 @@ export function HostStayList() {
     }
 
     if (!myStays) return <h2>loading</h2>
+
     return (
         <section className="host-stay-list">
-            {myStays.map(stay => <div key={stay._id} className="host-stay-preview flex">
-                <img src={stay.imgUrls[0]} alt="" />
+            {myStays.map(stay =>
+                <div key={stay._id} className="host-stay-preview">
 
-                <div className="flex column">
-                    <p>{stay.host.fullname}</p>
-                    <p>{stay.host.location}</p>
-                </div>
+                    <div className="host-stay-preview-imgs">
+                        <img src={stay.imgUrls[0]} />
+                        <img src={stay.imgUrls[1]} />
+                        <img src={stay.imgUrls[2]} />
+                    </div>
 
-                <div className="action-btns">
-                    <button onClick={() => navigate(`/host/edit-stay/${stay._id}`)}>Update</button>
-                    <button onClick={() => onRemoveStay(stay._id)}>Delete</button>
-                </div>
+                    <div className="right-side-info flex column">
 
-            </div>)}
+                        <div className="flex column">
+                            <p>{stay.host.fullname}</p>
+                            <p>{stay.host.location}</p>
+                        </div>
+
+                        <div className="action-btns">
+                            <button onClick={() => navigate(`/host/edit-stay/${stay._id}`)} className="update">Update</button>
+                            <button onClick={() => onRemoveStay(stay._id)} className="remove">Delete</button>
+                        </div>
+                    </div>
+
+                </div>)}
         </section>
-        // <div onClick={() => navigate("/host/edit-stay/63d1c75532f0de893dc0311a")} className="">
-        // hello
-        // </div>
     )
 }

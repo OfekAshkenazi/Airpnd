@@ -26,7 +26,6 @@ export function StayIndex() {
     }, [filterBy])
 
 
-
     async function onAddToWishList(ev, stayId) {
         ev.stopPropagation()
         try {

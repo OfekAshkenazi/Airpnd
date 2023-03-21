@@ -7,21 +7,6 @@ import "react-multi-carousel/lib/styles.css";
 export function ImageSlider({ stay, onAddToWishList }) {
     const user = useSelector(storeState => storeState.userModule.user)
 
-    const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
-        const { carouselState: { currentSlide } } = rest;
-        return (
-            <div className="carousel-button-group">
-                <button className={currentSlide === 0 ? '' : ''} onClick={() => previous()} />
-                <button onClick={(e) => {
-                    e.stopPropagation()
-                    next()
-                }} />
-                <button onClick={() => goToSlide(currentSlide + 1)}>  </button>
-            </div>
-        );
-    };
-
-
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },

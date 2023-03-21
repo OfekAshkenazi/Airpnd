@@ -4,7 +4,7 @@ import { PropagateLoader } from 'react-spinners';
 import IconHouseHeartFill from '../svg-cmps/house-icon';
 import IconHouseFill from '../svg-cmps/house-icon';
 
-const AnyReactComponent = ({ text }) => <div className="flex column" style={{width: '50px', alignItems: 'center', fontWeight: 'bold'}}> <p stlye={{width: '45px'}}>Your stay</p> <p>{text}</p></div>;
+const AnyReactComponent = ({ text }) => <div className="flex column" style={{ width: '50px', alignItems: 'center', fontWeight: 'bold' }}> <p stlye={{ width: '45px' }}>Your stay</p> <p>{text}</p></div>;
 
 export function GoogleMap({ lat, lng }) {
 
@@ -16,7 +16,7 @@ export function GoogleMap({ lat, lng }) {
             <div className="google-map" style={{ height: '480px', width: '100%' }}>
                 <h2>Where you'll be</h2>
                 <GoogleMapReact
-                    bootstrapURLKeys={{ key: "AIzaSyDXaNvMCqlwqiat6a6gL7A0mN-z93Tojdk" }}
+                    bootstrapURLKeys={{ key: process.env.GoogleAPIKEY }}
                     defaultCenter={coordinates}
                     center={coordinates}
                     defaultZoom={zoom}

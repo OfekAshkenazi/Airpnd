@@ -42,7 +42,7 @@ export function RootCmp() {
         }
     }
 
-    async function onLogin(credentials) {
+    async function onLoginR(credentials) {
         try {
             const user = await login(credentials)
             closeShadowScreen()
@@ -52,7 +52,7 @@ export function RootCmp() {
         }
     }
 
-    async function onSignup(credentials) {
+    async function onSignupR(credentials) {
         try {
             const user = await signup(credentials)
             closeShadowScreen()
@@ -81,7 +81,7 @@ export function RootCmp() {
                     </Route>
                 </Routes>
             </main>
-            {isLoginModalOpen && <LoginSignup onLogin={onLogin} onSignup={onSignup} />}
+            {isLoginModalOpen && <LoginSignup onLoginR={onLoginR} onSignupR={onSignupR} />}
             <AppMobileFooter />
             <UserMsg />
         </section >

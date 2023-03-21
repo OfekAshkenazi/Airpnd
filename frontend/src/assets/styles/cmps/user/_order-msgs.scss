@@ -1,14 +1,11 @@
 .orders-msg {
     margin-top: em(15px);
     gap: em(6.5px);
-    // background-color: aqua;
-
 }
 
 .msg-container {
     gap: em(5px);
 }
-
 
 .msg-room {
     justify-content: space-between;
@@ -22,9 +19,6 @@
     box-shadow: 0 0 6px #ddd;
 
     .input-area {
-
-
-        
         input {
             font-family: circularH;
             font-weight: bold;

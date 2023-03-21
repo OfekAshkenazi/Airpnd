@@ -1,0 +1,94 @@
+.host-stay-list {
+
+
+    .host-stay-preview {
+        display: flex;
+        gap: 8.5px;
+        font-family: circularH;
+
+        .host-stay-preview-imgs {
+
+            display: grid;
+            grid-template: repeat(2, 125px)/2fr 1fr;
+
+            @media (max-width:550px) {
+                grid-template: repeat(2, minmax(85px, 85px))/2fr 1fr;
+                gap: 3.5px;
+            }
+
+            border-radius: 20px;
+            margin-bottom: 15px;
+            gap: 1.5px;
+            cursor: pointer;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            :first-child {
+                grid-column: 1;
+                grid-row: 1/-1;
+                border-bottom-left-radius: 15px;
+                border-top-left-radius: 15px;
+            }
+
+            :nth-child(2) {
+                border-top-right-radius: 15px;
+            }
+
+            :nth-child(3) {
+                border-bottom-right-radius: 15px
+            }
+        }
+
+        .right-side-info {
+            position: relative;
+            justify-content: space-between;
+        }
+
+        .action-btns {
+            position: relative;
+            bottom: 20px;
+            // left: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            font-family: circularH;
+            transition: .1s;
+            padding: em(8px) em(15px);
+            font-size: em(14px);
+            border-radius: em(4px);
+            height: em(40px);
+
+            &.update {
+                color: #ff8c00;
+                background-color: #ffe5b4;
+                border: 1px solid #dcdfe6;
+                border-color: #ff8c00;
+
+                &:hover {
+                    color: #fff;
+                    border-color: #ff4500;
+                    background-color: #ff4500;
+                }
+            }
+
+            &.remove {
+                color: #f56c6c;
+                background-color: #fef0f0;
+                border: 1px solid #dcdfe6;
+                border-color: #fab6b6;
+
+                &:hover {
+                    color: #fff;
+                    border-color: #f56c6c;
+                    background-color: #f56c6c
+                }
+            }
+        }
+    }
+}

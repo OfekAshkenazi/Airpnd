@@ -13,7 +13,7 @@ export function GoogleMapHostStays() {
     return (
         <div className="google-map-host" >
             <GoogleMapReact
-                bootstrapURLKeys={{ key: "AIzaSyDXaNvMCqlwqiat6a6gL7A0mN-z93Tojdk" }}
+                bootstrapURLKeys={{ key: process.env.GoogleAPIKEY }}
                 defaultCenter={coordinates}
                 center={coordinates}
                 defaultZoom={zoom}
