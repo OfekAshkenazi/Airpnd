@@ -8,7 +8,11 @@ import "react-multi-carousel/lib/styles.css";
 import { labels, stayService } from '../../services/stay.service';
 import { onSetFilter } from '../../store/stay/stay.actions';
 
-export function NavIconFilter({layout}) {
+export function NavIconFilter() {
+
+    const isDetailsOpen = useSelector(storeState => storeState.systemModule.isDetailsOpen)
+    const layout = isDetailsOpen ? 'main-container narrow' : 'main-container'
+
 
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
     const [searchParams, setSearchParams] = useSearchParams()
@@ -18,7 +22,7 @@ export function NavIconFilter({layout}) {
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 15,
+            items: 10,
             slidesToSlide: 3 // optional, default to 1.
         },
         tablet: {
@@ -39,9 +43,9 @@ export function NavIconFilter({layout}) {
         setSearchParams(filterByToEdit)
         onSetFilter(filterByToEdit)
     }
-
+    if (isDetailsOpen) return null
     return (
-        <div className='icon-nav layout'>
+        <div className={`icon-nav ${layout}`} >
             <Carousel
                 swipeable={true}
                 draggable={true}

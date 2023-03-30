@@ -62,7 +62,7 @@
                     }
                 }
 
-                .back-img-details{
+                .back-img-details {
                     margin-top: em(4px);
                 }
 
@@ -87,7 +87,7 @@
             aspect-ratio: 667/444;
         }
 
-        @media (max-width: 840px) {
+        @media (max-width: 740px) {
 
             .grid-img-2,
             .grid-img-3,
@@ -98,7 +98,7 @@
         }
 
         @media (min-width: 740px) {
-            grid-template: repeat(2, 26vh)/2fr 1fr 1fr;
+            grid-template: repeat(2, 19vh) / 1fr 1fr 1fr;
             gap: em(8px);
             grid-template-areas:
                 "grid-img-1 grid-img-2 grid-img-3"
@@ -126,13 +126,14 @@
             .grid-img-3,
             .grid-img-4,
             .grid-img-5 {
-
                 :hover {
                     cursor: pointer;
                     transition: 0.4s;
                     filter: brightness(90%);
                 }
             }
+
+
         }
     }
 

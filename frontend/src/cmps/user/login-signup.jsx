@@ -29,12 +29,12 @@ export function LoginSignup({ onLoginR, onSignupR }) {
         clearState()
     }
 
-    function logAsGuest() {
-        const GuestUser = {
-            username: "Guest",
+    function logAsAdmin() {
+        const adminUser = {
+            username: "ofeka26",
             password: "123"
         }
-        onLoginR(GuestUser)
+        onLoginR(adminUser)
     }
 
     function toggleSignup() {
@@ -115,7 +115,7 @@ export function LoginSignup({ onLoginR, onSignupR }) {
 
             <button className="btn-signup-login" onClick={toggleSignup}>{!isSignup ? 'Signup' : 'Login'}</button>
 
-            {!isSignup && <button className="btn-signup-login" onClick={logAsGuest}>Log In As Guest</button>}
+            {!isSignup && <button className="btn-signup-login" onClick={logAsAdmin}>Log In As Host</button>}
 
         </section>
     )
