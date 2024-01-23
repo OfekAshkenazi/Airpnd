@@ -11,14 +11,31 @@ ChartJS.register(
     Legend
 )
 
-export function TotalEarn() {
+export function TotalEarn({ orders }) {
+
+    let newOrders = [...orders]
+
+    const data = newOrders.reduce((acc, order) => {
+        const monthLabel = order.startDate.split('-')[1];
+        if (acc[monthLabel]) {
+            acc[monthLabel].x += order.totalPrice;
+        } else {
+            acc[monthLabel] = {
+                y: monthLabel,
+                x: order.totalPrice
+            }
+        }
+        return acc;
+    }, {})
+
+    const dataArray = Object.values(data).sort((a, b) => parseInt(a.y) - parseInt(b.y));
 
     const options = {
         responsive: true,
         plugins: {
             title: {
                 display: true,
-                text: 'Revenue last year $6,170',
+                text: 'Revenue by month',
                 font: {
                     size: 18,
                 },
@@ -35,52 +52,21 @@ export function TotalEarn() {
                 }
             },
 
-        },
-        scales: {
-            x: {
-                grid: {
-                    display: false,
-                },
-                ticks: {
-                    font: {
-                        size: 18
-                    }
-                }
-
-            },
-            y: {
-                grid: {
-                    display: false
-                },
-                display: false
-            }
         }
     }
 
-    let monyEarnd = [1130, 790, 1280, 1560, 630, 780]
+    const labels = dataArray.map(data => data.y);
 
-    function getMoneyEarend() {
-        const chartData = monyEarnd.reduce((acc, money) => {
-            acc += money
-            return acc
-        }, 0)
-        return chartData
-    }
-
-    const money = getMoneyEarend()
-    const totalPrice = (parseFloat(JSON.stringify(money).replace(/,/g, ''))).toLocaleString()
-
-    const labels = ['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Nov']
-    const data = {
+    const chartData = {
         labels,
         datasets: [
             {
-                // label: `Revenue lseconast year $${totalPrice}`,
-                data: monyEarnd,
+                data: dataArray,
                 backgroundColor: ['#6c26fc', '#1d28de', '#2d83f5', '#2497e9', '#1db9de', '#21ffd3']
             },
+
         ],
     }
 
-    return <Bar options={options} data={data} />
+    return <Bar options={options} data={chartData} />
 }
