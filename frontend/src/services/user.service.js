@@ -1,9 +1,9 @@
-import { storageService } from './async-storage.service';
 import { httpService } from './http.service';
 import { socketService } from './socket.service';
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 const API_KEY = 'user'
+
 export const userService = {
     login,
     logout,
@@ -14,6 +14,7 @@ export const userService = {
     getById,
     remove,
     update,
+    loginAtStart
 }
 
 function getUsers() {
@@ -46,7 +47,10 @@ async function login(userCred) {
             socketService.login(user._id)
             return saveLocalUser(user)
         }
-    } catch (err) { console.log(err); throw err }
+    } catch (err) {
+        console.log(err);
+        throw err
+    }
 }
 
 async function signup(userCred) {
@@ -77,4 +81,13 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
-
+async function loginAtStart() {
+    const userCred = {username: 'ofeka26', password: '123'}
+    try {
+        const user = await httpService.post('auth/login', userCred)
+        if (user) {
+            socketService.login(user._id)
+            return saveLocalUser(user)
+        }
+    } catch (err) { console.log(err); throw err }
+}
