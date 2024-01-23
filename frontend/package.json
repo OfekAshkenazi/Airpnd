@@ -15,6 +15,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.4",
     "babel-plugin-macros": "^3.1.0",
+    "chart.js": "^4.2.1",
     "date-fns": "^2.29.3",
     "dayjs": "^1.11.7",
     "faker": "^6.6.6",
