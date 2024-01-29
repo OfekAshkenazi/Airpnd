@@ -1,10 +1,13 @@
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import { showErrorMsg } from '../../services/event-bus.service.js';
 import { getHostOrderFilter } from '../../services/wishList.service.js';
 import { ToggleLoginModal } from '../../store/system.action.js';
 import { logout } from '../../store/user.actions.js';
+
+
 
 export function UserPagesModal({ setUserModal, setNumberOfNotification }) {
     const user = useSelector(storeState => storeState.userModule.user)
@@ -12,6 +15,7 @@ export function UserPagesModal({ setUserModal, setNumberOfNotification }) {
     const navigate = useNavigate()
 
     async function onLogout() {
+        navigate('/')
         try {
             await logout()
             setUserModal(false)
@@ -43,7 +47,7 @@ export function UserPagesModal({ setUserModal, setNumberOfNotification }) {
         setUserModal(false)
         navigate('/orders/msgs')
     }
-    
+
     return (
         <section className="user-page-modal">
             <section className="bold">
