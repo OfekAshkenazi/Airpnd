@@ -2,14 +2,16 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { OrderMsg } from "../cmps/order-msg-index"
 import { showErrorMsg } from "../services/event-bus.service"
-import { userService } from "../services/user.service"
 import { loadOrders } from "../store/order.action"
 import { saveOrder } from "../store/order.action"
+import { useNavigate } from "react-router-dom"
 
 export function OrdersMsg() {
     const orders = useSelector(storeState => storeState.orderModule.orders)
+    const user = useSelector(storeState => storeState.userModule.user)
     const [roomName, setRoomName] = useState(null)
     const [currOrder, setCurrOrder] = useState(null)
+    
 
     useEffect(() => {
         onLoadOrders()
@@ -46,18 +48,28 @@ export function OrdersMsg() {
         setRoomName(prevRoomName => null)
     }
 
+    function setRightOrderName(order) {
+        const OrderRightName = user.fullname === order.byUser.fullname ? 'Host' : order.byUser.fullname
+        return OrderRightName
+    }
+
+    function setRightImgForOrder(order) {
+        const OrderRightImg = user.fullname === order.byUser.fullname ? order.stay.imgUrls[0] : order.byUser.imgUrl
+        return OrderRightImg
+    }
+    if (!user) return useNavigate('')
     return (
         <section className="orders-msg flex">
 
             <section className="msg-container flex column" onClick={(ev) => closeCurrChat(ev)}>
 
-                {orders.map(order => <div
+                {orders.toReversed().map(order => <div
                     className="order-con flex"
                     key={order._id}
                     onClick={() => setInfoForMsgs(order)}
                 >
-                    <img src={order.byUser.imgUrl} alt="" />
-                    <p>{order.byUser.fullname}</p>
+                    <img src={setRightImgForOrder(order)} alt="" />
+                    <p>{setRightOrderName(order)}</p>
                 </div>)}
 
 

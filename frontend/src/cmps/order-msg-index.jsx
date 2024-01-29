@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
 
 import { orderService } from '../services/order.service.local'
 import { socketService, SOCKET_EMIT_SEND_MSG, SOCKET_EMIT_SET_TOPIC, SOCKET_EVENT_ADD_MSG } from "../services/socket.service"
@@ -13,7 +13,7 @@ import imgBack from "../assets/img/icons/icon-back.png"
 import { ImgUploader } from "./img-uploader"
 
 export function OrderMsg({ roomName, currOrder, closeCurrChat }) {
-
+    const user = useSelector(storeState => storeState.userModule.user)
     const [orderMsgs, setOrderMsgs] = useState(currOrder.msgs)
     const [msg, setMsg] = useState(orderService.getEmptyMsg())
 
@@ -65,8 +65,8 @@ export function OrderMsg({ roomName, currOrder, closeCurrChat }) {
         return new Promise((resolve, reject) => {
             setMsg(prevMsg => {
                 const upDatedMsg = { ...prevMsg, creatAt: Date.now() }
-                const toUser = prevMsg.from === currOrder.hostId ? currOrder.byUser._id : currOrder.hostId
-                upDatedMsg.to = toUser
+                upDatedMsg.from = user._id
+                upDatedMsg.to = user._id === currOrder.hostId ? currOrder.byUser._id : currOrder.hostId
                 resolve(upDatedMsg)
                 return upDatedMsg
             })

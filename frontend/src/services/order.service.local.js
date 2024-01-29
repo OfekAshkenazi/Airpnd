@@ -111,7 +111,7 @@ function getEmptyMsg() {
         msgRead: false,
         creatAt: '',
         imgUrl: '',
-        from: userService.getLoggedinUser()._id || '',
+        from: '',
         to: ''
 
     }
