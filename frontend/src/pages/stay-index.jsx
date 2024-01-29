@@ -9,7 +9,6 @@ import { stayService } from '../services/stay.service.js';
 import { loadStays, updateStay } from '../store/stay/stay.actions.js';
 import { ToggleDetails } from '../store/system.action.js';
 import { updateUser } from '../store/user.actions.js';
-import { userService } from '../services/user.service.js'
 
 export function StayIndex() {
     const stays = useSelector(storeState => storeState.stayModule.stays)
@@ -23,17 +22,9 @@ export function StayIndex() {
 
     useEffect(() => {
         ToggleDetails(false)
-        loadStays(queryFilterBy)
+        loadStays(queryFilterBy) 
+        console.log('swap filter')
     }, [filterBy])
-
-    useEffect(() => {
-        OnloginAtFirst()
-    },[])
-
-
-    async function OnloginAtFirst() {
-       await userService.loginAtStart()
-    }
 
     async function onAddToWishList(ev, stayId) {
         ev.stopPropagation()
