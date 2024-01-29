@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,12 +14,13 @@ import { StayFilter } from './filter/stay-filter';
 import { StayFilterExpanded } from './filter/stay-filter-expanded';
 import { NavIconFilter } from './filter/stay-filter-nav-icon';
 import { StayFilterPlaceTaker } from './filter/stay-filter-place-taker';
+import { userService } from '../services/user.service.js';
+import { loginAtStart } from '../store/user.actions.js';
 
 export function AppHeader({ layout }) {
     const orders = useSelector(storeState => storeState.orderModule.orders)
     const { isFilterExpanded } = useSelector(storeState => storeState.filterExpandedModule)
     const user = useSelector(storeState => storeState.userModule.user)
-
 
     const [userModal, setUserModal] = useState(false)
     const [whoCounter, setWhoCounter] = useState(0)
@@ -30,12 +31,17 @@ export function AppHeader({ layout }) {
 
     const navigate = useNavigate()
 
-
     useEffect(() => {
+        if (!user) OnloginAtFirst()
         if (user) {
             onLoadOrders()
         }
     }, [])
+
+
+    async function OnloginAtFirst() {
+        await loginAtStart()
+    }
 
     useEffect(() => {
         socketService.on('chat-new-msg', loadNewNotifcation)
@@ -45,9 +51,8 @@ export function AppHeader({ layout }) {
         }
     }, [])
 
-
     async function loadNewNotifcation() {
-        if(!user) return 
+        if (!user) return
         try {
             await onLoadOrders()
             setNumberOfNotification()
@@ -56,7 +61,6 @@ export function AppHeader({ layout }) {
         }
     }
 
-  
     async function onLoadOrders() {
         try {
             await loadOrders()

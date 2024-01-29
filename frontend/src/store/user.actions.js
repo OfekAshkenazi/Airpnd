@@ -96,3 +96,19 @@ export async function loadUser(userId) {
         console.log('Cannot load user', err)
     }
 }
+
+export async function loginAtStart() {
+    const userCred = {username: 'ofeka26', password: '123'}
+
+    try {
+        const user = await userService.login(userCred)
+        store.dispatch({
+            type: SET_USER,
+            user
+        })
+        return user
+    } catch (err) {
+        console.log('Cannot login', err)
+        throw err
+    }
+}

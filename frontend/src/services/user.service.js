@@ -14,7 +14,6 @@ export const userService = {
     getById,
     remove,
     update,
-    loginAtStart
 }
 
 function getUsers() {
@@ -81,13 +80,8 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
-async function loginAtStart() {
-    const userCred = {username: 'ofeka26', password: '123'}
-    try {
-        const user = await httpService.post('auth/login', userCred)
-        if (user) {
-            socketService.login(user._id)
-            return saveLocalUser(user)
-        }
-    } catch (err) { console.log(err); throw err }
-}
+
+;(async ()=>{
+    await userService.login({ username: 'ofeka26', password:'123'})
+})()
+
