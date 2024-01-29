@@ -4,7 +4,6 @@ import { OrderMsg } from "../cmps/order-msg-index"
 import { showErrorMsg } from "../services/event-bus.service"
 import { loadOrders } from "../store/order.action"
 import { saveOrder } from "../store/order.action"
-import { useNavigate } from "react-router-dom"
 
 export function OrdersMsg() {
     const orders = useSelector(storeState => storeState.orderModule.orders)
@@ -57,7 +56,7 @@ export function OrdersMsg() {
         const OrderRightImg = user.fullname === order.byUser.fullname ? order.stay.imgUrls[0] : order.byUser.imgUrl
         return OrderRightImg
     }
-    if (!user) return useNavigate('')
+
     return (
         <section className="orders-msg flex">
 
