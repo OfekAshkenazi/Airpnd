@@ -23,7 +23,6 @@ export function StayIndex() {
     useEffect(() => {
         ToggleDetails(false)
         loadStays(queryFilterBy) 
-        console.log('swap filter')
     }, [filterBy])
 
     async function onAddToWishList(ev, stayId) {

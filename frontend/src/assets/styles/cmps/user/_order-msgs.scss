@@ -17,6 +17,7 @@
     background-color: #f3f5f3;
     border: 1px solid $clrLogo;
     box-shadow: 0 0 6px #ddd;
+    width: 100%;
 
     .input-area {
         input {
@@ -45,8 +46,8 @@
     max-height: 100px;
     min-width: 300px;
     align-items: center;
-    gap: em(25px);
     justify-content: flex-start;
+    gap: em(25px);
     padding: em(8px);
     border-radius: 8px;
     cursor: pointer;
@@ -66,12 +67,26 @@
     }
 
 
-    @media (max-width: 650px) {
-        flex-direction: column;
-        min-width: 135px;
-        max-height: 150px;
+    
+}
+@media (max-width: 650px) {
 
+    .order-con {
+
+        flex-direction: column;
+        min-width: 80px;
+        max-height: 120px;
+        gap: em(10px);
+        padding: em(4px);
+        text-align: center;
+
+        img {
+            width: 60px;
+            border-radius: 50%;
+        }
     }
+
+
 
 }
 

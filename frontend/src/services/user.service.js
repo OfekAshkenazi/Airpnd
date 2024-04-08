@@ -79,9 +79,3 @@ function saveLocalUser(user) {
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
-
-
-;(async ()=>{
-    await userService.login({ username: 'ofeka26', password:'123'})
-})()
-

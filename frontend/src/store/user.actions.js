@@ -16,7 +16,7 @@ export function getActionUpdateUser(user) {
 export async function updateUser(user) {
     try {
         const savedUser = await userService.update(user, user._id)
-        store.dispatch(getActionUpdateUser(savedUser))
+        store.dispatch({type:UPDATE_USER, savedUser})
         return savedUser
     } catch (err) {
         console.log(err);

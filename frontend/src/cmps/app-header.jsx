@@ -32,16 +32,10 @@ export function AppHeader({ layout }) {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!user) OnloginAtFirst()
         if (user) {
             onLoadOrders()
         }
     }, [])
-
-
-    async function OnloginAtFirst() {
-        await loginAtStart()
-    }
 
     useEffect(() => {
         socketService.on('chat-new-msg', loadNewNotifcation)
