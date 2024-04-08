@@ -1,5 +1,5 @@
 const cron = require('cron')
-const https = require('cron')
+const https = require('https')
 
 const URL = "https://airpnd.onrender.com"
 
@@ -19,4 +19,4 @@ const job = new cron.CronJob("*/14 * * * *", function () {
 
 
 
-export default job
+module.exports = job

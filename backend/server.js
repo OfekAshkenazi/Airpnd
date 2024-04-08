@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const path = require('path')
 const cookieParser = require('cookie-parser')
+const cronJob = require('./services/cron.service.js')
 
 const app = express()
 const http = require('http').createServer(app)
@@ -10,6 +11,7 @@ const http = require('http').createServer(app)
 app.use(cookieParser())
 app.use(express.json())
 
+cronJob.start()
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'public')))
@@ -47,6 +49,7 @@ app.get('/**', (req, res) => {
 })
 
 const logger = require('./services/logger.service')
+const { default: job } = require('./services/cron.service')
 const port = process.env.PORT || 3030
 http.listen(port, () => {
     logger.info('Server is running on port: ' + port)
